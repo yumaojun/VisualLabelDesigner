@@ -1,0 +1,1989 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfZPLCommand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--Text -->
+  <ZPLCommand>
+    <Name>^A</Name>
+    <Category>Text</Category>
+    <ShortDesc>Scalable/Bitmapped Font</ShortDesc>
+    <LongDesc>The ^A command specifies the font to use in a text field. ^A designates the font for the current ^FD statement or field.\r\nThe font specified by ^A is used only once for that ^FD entry.\r\nIf a value for ^A is not specified again, the default ^CF font is used for the next ^FD entry.</LongDesc>
+    <Usage>^Afo,h,w</Usage>
+    <Assistant>^A{{f}}{{o}},{{h}},{{w}}</Assistant>
+    <Command>^A|fo,h,w</Command>
+    <ZPLCommandParameter>
+      <TextBox Name="f" Code="{{f}}" Description="Font name" AcceptedValue="Any font in the printer (downloaded, EPROM, stored fonts, fonts A through Z and 0 to 9)." Default="0" Size ="1"/>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Character heigh" AcceptedValue="From 10 to 32000 dots" Default="32" Size="5" Min="10" Max="32000"/>
+      <NumericBox Name="w" Code="{{w}}" Description="Character width" AcceptedValue="From 10 to 32000 dots" Default="32" Size="5" Min="10" Max="32000"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^A@</Name>
+    <Category>Text</Category>
+    <ShortDesc>Use Font Name to Call Font</ShortDesc>
+    <LongDesc>The ^A@ command uses the complete name of a font, rather than the character designation used in ^A.\r\nOnce a value for ^A@ is defined, it represents that font until a new font name is specified by ^A@.</LongDesc>
+    <Usage>^A@o,h,w,d:n.x</Usage>
+    <Assistant>^A@{{o}},{{h}},{{w}},{{d:}}{{n}}{{.x}}</Assistant>
+    <Command>^A@|o,h,w,d:n.x</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Character heigh" AcceptedValue="From 10 to 32000 dots" Default="30" Size="5" Min="10" Max="32000"/>
+      <NumericBox Name="w" Code="{{w}}" Description="Character width" AcceptedValue="From 10 to 32000 dots" Default="30" Size="5" Min="10" Max="32000"/>
+      <ComboBox Name="d" Code="{{d:}}" Description="Drive font location" Default="">
+        <ComboBoxValues>
+          <ComboBoxValue Value="R:">R: drive</ComboBoxValue>
+          <ComboBoxValue Value="E:">E: drive</ComboBoxValue>
+          <ComboBoxValue Value="B:">B: drive</ComboBoxValue>
+          <ComboBoxValue Value="A:">A: drive</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <TextBox Name="n" Code="{{n}}" Description="Font name" AcceptedValue="Any valid font." Default="" Size="100"/>
+      <ComboBox Name="x" Code="{{.x}}" Description="Extension" Default="">
+        <ComboBoxValues>
+          <ComboBoxValue Value=".FNT">FNT Font</ComboBoxValue>
+          <ComboBoxValue Value=".TTF">TTF TrueType Font</ComboBoxValue>
+          <ComboBoxValue Value=".TTE">TTE TrueType Extension</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <!--Barcode -->
+  <ZPLCommand>
+    <Name>^B0</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>Aztec Bar Code Parameters</ShortDesc>
+    <LongDesc>The ^B0 command creates a two-dimensional matrix symbology made up of square modules arranged around a bulls-eye pattern at the center.</LongDesc>
+    <Usage>^B0a,b,c,d,e,f,g</Usage>
+    <Assistant>^B0{{a}},{{b}},{{c}},{{d}},{{e}},{{f}},{{g}}</Assistant>
+    <Command>^B0|a,b,c,d,e,f,g</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="a" Code="{{a}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="b" Code="{{b}}" Description="Magnification factor" AcceptedValue="1 to 10 (1 on 150 dpi printers - 2 on 200 dpi printers - 3 on 300 dpi printers - 6 on 600 dpi printers)." Min="1" Max="10" Default="1" Size="1"/>
+      <ComboBox Name="c" Code="{{c}}" Description="Extended channel interpretation ID" Default="">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Data contains ECICs</ComboBoxValue>
+          <ComboBoxValue Value="N">data does not contain ECICs</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="d" Code="{{d}}" Description="Error ctrl and symbol size/type ID" AcceptedValue="0 = default error correction level - 01 to 99 = error correction percentage (minimum) - 101 to 104 = 1 to 4-layer compact symbol - 201 to 232 = 1 to 32-layer full-range symbol - 300 = a simple Aztec ''Rune''." Min="0" Max="300" Default="01" Size="3"/>
+      <ComboBox Name="e" Code="{{e}}" Description="Menu symbol indicator" Default="">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">this symbol is to be a menu (bar code reader initialization) symbol</ComboBoxValue>
+          <ComboBoxValue Value="N">it is not a menu symbol</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="f" Code="{{f}}" Description="Number of symbols for structured append" AcceptedValue="1 through 26" Min="1" Max="26" Default="1" Size="2"/>
+      <TextBox Name="g" Code="{{g}}" Description="Optional ID field for structured append" AcceptedValue="The ID field is a text string with 24-character maximum." Default="" Size="24"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^B1</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>Code 11 Bar Code</ShortDesc>
+    <LongDesc>The ^B1 command produces the Code 11 bar code, also known as USD-8 code. In a Code 11 bar code, each character is composed of three bars and two spaces, and the character set includes 10 digits and the hyphen (-)</LongDesc>
+    <Usage>^B1o,e,h,f,g</Usage>
+    <Assistant>^B1{{o}},{{e}},{{h}},{{f}},{{g}}</Assistant>
+    <Command>^B1|o,e,h,f,g</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="e" Code="{{e}}" Description="Check digit" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">1 digit</ComboBoxValue>
+          <ComboBoxValue Value="N">2 digits</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <ComboBox Name="f" Code="{{f}}" Description="Print interpretation line" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="g" Code="{{g}}" Description="Print interpretation line above code" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^B2</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>Interleaved 2 of 5 Bar Code</ShortDesc>
+    <LongDesc>The ^B2 command produces the Interleaved 2 of 5 bar code, a high-density, self-checking, continuous, numeric symbology.</LongDesc>
+    <Usage>^B2o,h,f,g,e</Usage>
+    <Assistant>^B2{{o}},{{h}},{{f}},{{g}},{{e}}</Assistant>
+    <Command>^B2|o,h,f,g,e</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <ComboBox Name="f" Code="{{f}}" Description="Print interpretation line" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="g" Code="{{g}}" Description="Print interpretation line above code" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="e" Code="{{e}}" Description="Calc. and print mod10 check digit" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^B3</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>Code 39 Bar Code</ShortDesc>
+    <LongDesc>The Code 39 bar code is the standard for many industries, including the U.S. Department of Defense. It is one of three symbologies identified in the American National Standards Institute (ANSI) standard MH10.8M-1983. Code 39 is also known as USD-3 Code and 3 of 9 Code.</LongDesc>
+    <Usage>^B3o,e,h,f,g</Usage>
+    <Assistant>^B3{{o}},{{e}},{{h}},{{f}},{{g}}</Assistant>
+    <Command>^B3|o,e,h,f,g</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="e" Code="{{e}}" Description="Mod-43 check digit" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">1 digit</ComboBoxValue>
+          <ComboBoxValue Value="N">2 digits</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <ComboBox Name="f" Code="{{f}}" Description="Print interpretation line" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="g" Code="{{g}}" Description="Print interpretation line above code" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^B4</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>Code 49 Bar Code</ShortDesc>
+    <LongDesc>The ^B4 command creates a multi-row, continuous, variable-length symbology capable of encoding the full 128-character ASCII set. It is ideally suited for applications requiring large amounts of data in a small space.\r\nThe code consists of two to eight rows. A row consists of a leading quiet zone, four symbol characters encoding eight code characters, a stop pattern, and a trailing quiet zone. A separator bar with a height of one module separates each row. Each symbol character encodes two characters from a set of Code 49 characters</LongDesc>
+    <Usage>^B4o,h,f,m</Usage>
+    <Assistant>^B4{{o}},{{h}},{{f}},{{m}}</Assistant>
+    <Command>^B4|o,h,f,m</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Height multiplier of individual rows" AcceptedValue="1 to height of label" Min="1" Max="32000" Default="" Size="6"/>
+      <ComboBox Name="f" Code="{{f}}" Description="Print interpretation line" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">No line printed</ComboBoxValue>
+          <ComboBoxValue Value="A">Print interpretation line above code</ComboBoxValue>
+          <ComboBoxValue Value="B">Print interpretation line below code</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="m" Code="{{m}}" Description="Starting mode" Default="0">
+        <ComboBoxValues>
+          <ComboBoxValue Value="0">Regular Alphanumeric Mode</ComboBoxValue>
+          <ComboBoxValue Value="1">Multiple Read Alphanumeric</ComboBoxValue>
+          <ComboBoxValue Value="2">Regular Numeric Mode</ComboBoxValue>
+          <ComboBoxValue Value="3">Group Alphanumeric Mode</ComboBoxValue>
+          <ComboBoxValue Value="4">Regular Alphanumeric Shift 1</ComboBoxValue>
+          <ComboBoxValue Value="5">Regular Alphanumeric Shift 2</ComboBoxValue>
+          <ComboBoxValue Value="A">Automatic Mode</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^B5</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>Planet Code Bar Code</ShortDesc>
+    <LongDesc>The ^B5 command is supported in all printers as a resident bar code.</LongDesc>
+    <Usage>^B5o,h,f,g</Usage>
+    <Assistant>^B5{{o}},{{h}},{{f}},{{g}}</Assistant>
+    <Command>^B5|o,h,f,g</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 9999 dots" Default="" Min="1" Max="9999" Size="4"/>
+      <ComboBox Name="f" Code="{{f}}" Description="Print interpretation line" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="g" Code="{{g}}" Description="Print interpretation line above code" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^B7</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>PDF417 Bar Code</ShortDesc>
+    <LongDesc>The ^B7 command produces the PDF417 bar code, a two-dimensional, multirow, continuous, stacked symbology. PDF417 is capable of encoding over 1,000 characters per bar code. It is ideally suited for applications requiring large amounts of information at the time the bar code is read.\r\nThe bar code consists of three to 90 stacked rows. Each row consists of start and stop patterns and symbol characters called code-words. A code-word consists of four bars and four spaces.\r\nA three code-word minimum is required per row.\r\nThe PDF417 bar code is also capable of using the structured append option (^FM), which allows you to extend the field data limitations by printing multiple bar codes. For more information on using structured append, see ^FM.</LongDesc>
+    <Usage>^B7o,h,s,c,r,t</Usage>
+    <Assistant>^B7{{o}},{{h}},{{s}},{{c}},{{r}},{{t}}</Assistant>
+    <Command>^B7|o,h,s,c,r,t</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height for individual rows" AcceptedValue="1 to height of label" Default="1" Size="6" Min="1" Max="999999"/>
+      <NumericBox Name="s" Code="{{s}}" Description="Security level" AcceptedValue="0 to 8 (error detection and correction)" Default="0" Size="1" Min="0" Max="8"/>
+      <NumericBox Name="c" Code="{{c}}" Description="Number of data columns to encode" AcceptedValue="1 to 30" Default="1" Size="2" Min="1" Max="30"/>
+      <NumericBox Name="r" Code="{{r}}" Description="Number of rows to encode" AcceptedValue="3 to 90" Default="3" Size="2" Min="3" Max="90"/>
+      <ComboBox Name="t" Code="{{t}}" Description="Truncate right row ID and stop pattern" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">No truncation</ComboBoxValue>
+          <ComboBoxValue Value="Y">Perform truncation</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^B8</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>EAN8 Bar Code</ShortDesc>
+    <LongDesc>The ^B8 command produces the EAN8 bar code, a shortened version of the EAN-13 bar code.</LongDesc>
+    <Usage>^B8o,h,f,g</Usage>
+    <Assistant>^B8{{o}},{{h}},{{f}},{{g}}</Assistant>
+    <Command>^B8|o,h,f,g</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 32000 dots" Default="" Min="1" Max="32000" Size="4"/>
+      <ComboBox Name="f" Code="{{f}}" Description="Print interpretation line" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="g" Code="{{g}}" Description="Print interpretation line above code" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^B9</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>UPC-E Bar Code</ShortDesc>
+    <LongDesc>The ^B9 command produces a variation of the UPC symbology used for number system 0. It is a shortened version of the UPC-A bar code, where zeros are suppressed, resulting in codes that require less printing space. The 6 dot/mm, 12 dot/mm, and 24 dot/mm printheads produce the UPC and EAN symbologies at 100 percent of their size. However, an 8 dot/mm printhead produces the UPC and EAN symbologies at a magnification factor of 77 percent.\r\nEach character in a UPC-E bar code is composed of four elements: two bars and two spaces. The ^BY command must be used to specify the width of the narrow bar.</LongDesc>
+    <Usage>^B9o,h,f,g,e</Usage>
+    <Assistant>^B9{{o}},{{h}},{{f}},{{g}},{{e}}</Assistant>
+    <Command>^B9|o,h,f,g,e</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <ComboBox Name="f" Code="{{f}}" Description="Print interpretation line" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="g" Code="{{g}}" Description="Print interpretation line above code" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="e" Code="{{e}}" Description="Print check digit" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BA</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>Code 93 Bar Code</ShortDesc>
+    <LongDesc>The ^BA command creates a variable length, continuous symbology. The Code 93 bar code is used in many of the same applications as Code 39. It uses the full 128-character ASCII set. ZPL II, however, does not support ASCII control codes or escape sequences. It uses the substitute characters shown in ZPL User Guide P74</LongDesc>
+    <Usage>^BAo,h,f,g,e</Usage>
+    <Assistant>^BA{{o}},{{h}},{{f}},{{g}},{{e}}</Assistant>
+    <Command>^BA|o,h,f,g,e</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <ComboBox Name="f" Code="{{f}}" Description="Print interpretation line" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="g" Code="{{g}}" Description="Print interpretation line above code" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="e" Code="{{e}}" Description="Print check digit" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BB</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>CODABLOCK Bar Code</ShortDesc>
+    <LongDesc>The ^BB command produces a two-dimensional, multirow, stacked symbology. It is ideally suited for applications that require large amounts of information.Depending on the mode selected, the code consists of one to 44 stacked rows. Each row begins and ends with a start and stop pattern.\r\n- CODABLOCK A supports variable print ratios.\r\n- CODABLOCK E and F support only fixed print ratios.</LongDesc>
+    <Usage>^BBo,h,s,c,r,m</Usage>
+    <Assistant>^BB{{o}},{{h}},{{s}},{{c}},{{r}},{{m}}</Assistant>
+    <Command>^BB|o,h,s,c,r,m</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <ComboBox Name="s" Code="{{s}}" Description="Security level" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="c" Code="{{c}}" Description="Number of characters per row" AcceptedValue="2 to 62 characters" Default="" Min="2" Max="62" Size="2"/>
+      <NumericBox Name="r" Code="{{r}}" Description="Number of row to encode" AcceptedValue="1 to 22: CODABLOCK A - 2 to 4: CODABLOCK E and F" Default="" Min="1" Max="2" Size="2"/>
+      <ComboBox Name="m" Code="{{m}}" Description="Mode" Default="F">
+        <ComboBoxValues>
+          <ComboBoxValue Value="A">CODABLOCK A (Code 39)</ComboBoxValue>
+          <ComboBoxValue Value="E">CODABLOCK E (Code 128)</ComboBoxValue>
+          <ComboBoxValue Value="F">CODABLOCK F (Code 128 + FNC1)</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BC</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>Code 128 Bar Code</ShortDesc>
+    <LongDesc>The ^BC command creates the Code 128 bar code, a high-density, variable length, continuous, alphanumeric symbology. It was designed for complexly encoded product identification.\r\nCode 128 has three subsets of characters. There are 106 encoded printing characters in each set, and each character can have up to three different meanings, depending on the character subset being used. Each Code 128 character consists of six elements: three bars and three spaces</LongDesc>
+    <Usage>^BCo,h,f,g,e,m</Usage>
+    <Assistant>^BC{{o}},{{h}},{{f}},{{g}},{{e}},{{m}}</Assistant>
+    <Command>^BC|o,h,f,g,e,m</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <ComboBox Name="f" Code="{{f}}" Description="Print interpretation line" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="g" Code="{{g}}" Description="Print interpretation line above code" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="e" Code="{{e}}" Description="UCC check digit" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="m" Code="{{m}}" Description="Mode" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">No selected mode</ComboBoxValue>
+          <ComboBoxValue Value="U">UCC Case mode</ComboBoxValue>
+          <ComboBoxValue Value="A">Automatic mode</ComboBoxValue>
+          <ComboBoxValue Value="D">UCC/EAN mode</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BD</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>UPS MaxiCode Bar Code</ShortDesc>
+    <LongDesc>The ^BD command creates a two-dimensional, optically read (not scanned) code. This symbology was developed by UPS (United Parcel Service).\r\nNotice that there are no additional parameters for this code and it does not generate an interpretation line. The ^BY command has no effect on the UPS MaxiCode bar code.\r\nHowever, the ^CV command can be activated.</LongDesc>
+    <Usage>^BDm,n,t</Usage>
+    <Assistant>^BD{{m}},{{n}},{{t}}</Assistant>
+    <Command>^BD|m,n,t</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="m" Code="{{m}}" Description="Mode" Default="2">
+        <ComboBoxValues>
+          <ComboBoxValue Value="2">Structured carrier message: numeric postal code (U.S.)</ComboBoxValue>
+          <ComboBoxValue Value="3">Structured carrier message: alphanumeric postal code (non-U.S.)</ComboBoxValue>
+          <ComboBoxValue Value="4">Standard symbol, secretary</ComboBoxValue>
+          <ComboBoxValue Value="5">Full EEC</ComboBoxValue>
+          <ComboBoxValue Value="6">Reader program, secretary</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="n" Code="{{n}}" Description="Symbol number" AcceptedValue="From 1 to 8" Default="1" Min="1" Max="8" Size="1"/>
+      <NumericBox Name="t" Code="{{t}}" Description="Total number of symbols" AcceptedValue="From 1 to 8" Default="1" Min="1" Max="8" Size="1"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BE</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>EAN13 Bar Code</ShortDesc>
+    <LongDesc>The ^BE command produces the EAN13 bar code. The EAN-13 bar code has 12 data characters, one more data character than the UPC-A code.</LongDesc>
+    <Usage>^BEo,h,f,g</Usage>
+    <Assistant>^BE{{o}},{{h}},{{f}},{{g}}</Assistant>
+    <Command>^BE|o,h,f,g</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <ComboBox Name="f" Code="{{f}}" Description="Print interpretation line" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="g" Code="{{g}}" Description="Print interpretation line above code" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BF</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>MicroPDF417 Bar Code</ShortDesc>
+    <LongDesc>The ^BF command creates a two-dimensional, multi-row, continuous, stacked symbology identical to PDF417, except it replaces the 17-module-wide start and stop patterns and left/right row indicators with a unique set of 10-module-wide row address patterns. These reduce overall symbol width and allow linear scanning at row heights as low as 2X.</LongDesc>
+    <Usage>^BFo,h,m</Usage>
+    <Assistant>^BF{{o}},{{h}},{{m}}</Assistant>
+    <Command>^BF|o,h,m</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 9999 dots" Default="" Min="1" Max="9999" Size="4"/>
+      <NumericBox Name="m" Code="{{m}}" Description="Mode" AcceptedValue="From 0 to 33" Default="0" Min="0" Max="33" Size="2"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BI</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>Industrial 2 of 5 Bar Code</ShortDesc>
+    <LongDesc>The ^BI command is a discrete, self-checking, continuous numeric symbology. The Industrial 2 of 5 bar code has been in use the longest of the 2 of 5 family of bar codes. Of that family, the Standard 2 of 5 (^BJ) and Interleaved 2 of 5 (^B2) bar codes are also available in ZPL II.\r\nWith Industrial 2 of 5, all of the information is contained in the bars. Two bar widths are employed in this code, the wide bar measuring three times the width of the narrow bar.</LongDesc>
+    <Usage>^BIo,h,f,g</Usage>
+    <Assistant>^BI{{o}},{{h}},{{f}},{{g}}</Assistant>
+    <Command>^BI|o,h,f,g</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <ComboBox Name="f" Code="{{f}}" Description="Print interpretation line" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="g" Code="{{g}}" Description="Print interpretation line above code" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BJ</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>Standard 2 of 5 Bar Code</ShortDesc>
+    <LongDesc>The ^BJ command is a discrete, self-checking, continuous numeric symbology.\r\nWith Standard 2 of 5, all of the information is contained in the bars. Two bar widths are employed in this code, the wide bar measuring three times the width of the narrow bar.</LongDesc>
+    <Usage>^BJo,h,f,g</Usage>
+    <Assistant>^BJ{{o}},{{h}},{{f}},{{g}}</Assistant>
+    <Command>^BJ|o,h,f,g</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <ComboBox Name="f" Code="{{f}}" Description="Print interpretation line" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="g" Code="{{g}}" Description="Print interpretation line above code" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BK</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>ANSI Codabar Bar Code</ShortDesc>
+    <LongDesc>The ANSI Codabar bar code is used in a variety of information processing applications such as libraries, the medical industry, and overnight package delivery companies. This bar code is also known as USD-4 code, NW-7, and 2 of 7 code. It was originally developed for retail price labeling.\r\nEach character in this code is composed of seven elements: four bars and three spaces. Codabar bar codes use two character sets, numeric and control (start and stop) characters.</LongDesc>
+    <Usage>^BKo,e,h,f,g,k,l</Usage>
+    <Assistant>^BK{{o}},{{e}},{{h}},{{f}},{{g}},{{k}},{{l}}</Assistant>
+    <Command>^BK|o,e,h,f,g,k,l</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="e" Code="{{e}}" Description="Check digit" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <ComboBox Name="f" Code="{{f}}" Description="Print interpretation line" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="g" Code="{{g}}" Description="Print interpretation line above code" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="k" Code="{{k}}" Description="Start character" Default="A">
+        <ComboBoxValues>
+          <ComboBoxValue Value="A">A</ComboBoxValue>
+          <ComboBoxValue Value="B">B</ComboBoxValue>
+          <ComboBoxValue Value="C">C</ComboBoxValue>
+          <ComboBoxValue Value="D">D</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="l" Code="{{l}}" Description="Stop character" Default="A">
+        <ComboBoxValues>
+          <ComboBoxValue Value="A">A</ComboBoxValue>
+          <ComboBoxValue Value="B">B</ComboBoxValue>
+          <ComboBoxValue Value="C">C</ComboBoxValue>
+          <ComboBoxValue Value="D">D</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BL</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>LOGMARS Bar Code</ShortDesc>
+    <LongDesc>The ^BL command is a special application of Code 39 used by the Department of Defense.\r\nLOGMARS is an acronym for Logistics Applications of Automated Marking and Reading Symbols.</LongDesc>
+    <Usage>^BLo,h,g</Usage>
+    <Assistant>^BL{{o}},{{h}},{{g}}</Assistant>
+    <Command>^BL|o,h,g</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <ComboBox Name="g" Code="{{g}}" Description="Print interpretation line above code" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BM</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>MSI Bar Code</ShortDesc>
+    <LongDesc>The ^BM command is a pulse-width modulated, continuous, non-self- checking symbology. It is a variant of the Plessey bar code (^BP).\r\nEach character in the MSI bar code is composed of eight elements: four bars and four adjacent spaces.</LongDesc>
+    <Usage>^BMo,e1,h,f,g,e2</Usage>
+    <Assistant>^BM{{o}},{{e1}},{{h}},{{f}},{{g}},{{e2}}</Assistant>
+    <Command>^BM|o,e1,h,f,g,e2</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="e1" Code="{{e1}}" Description="Check digit selection" Default="B">
+        <ComboBoxValues>
+          <ComboBoxValue Value="A">No check digit</ComboBoxValue>
+          <ComboBoxValue Value="B">1 Mod 10</ComboBoxValue>
+          <ComboBoxValue Value="C">2 Mod 10</ComboBoxValue>
+          <ComboBoxValue Value="D">1 Mod 11 and 1 Mod 10</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <ComboBox Name="f" Code="{{f}}" Description="Print interpretation line" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="g" Code="{{g}}" Description="Print interpretation line above code" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="e2" Code="{{e2}}" Description="Print check digit into the interpretation line" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BO</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>Aztec Bar Code Parameters</ShortDesc>
+    <LongDesc>The ^BO command creates a two-dimensional matrix symbology made up of square modules arranged around a bulls-eye pattern at the center.</LongDesc>
+    <Usage>^BOa,b,c,d,e,f,g</Usage>
+    <Assistant>^BO{{a}},{{b}},{{c}},{{d}},{{e}},{{f}},{{g}}</Assistant>>
+    <Command>^BO|a,b,c,d,e,f,g</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="a" Code="{{a}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="b" Code="{{b}}" Description="Magnification factor" AcceptedValue="1 to 10 (1 on 150 dpi printers - 2 on 200 dpi printers - 3 on 300 dpi printers - 6 on 600 dpi printers)." Min="1" Max="10" Default="1" Size="2"/>
+      <ComboBox Name="c" Code="{{c}}" Description="Extended channel interpretation code indicator" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Data contain ECICs</ComboBoxValue>
+          <ComboBoxValue Value="N">Data does not contain ECICs</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="d" Code="{{d}}" Description="Error control and symbol size/type indicator" AcceptedValue="0 = default error correction level - 01 to 99 = error correction percentage (minimum) - 101 to 104 = 1 to 4-layer compact symbol - 201 to 232 = 1 to 32-layer full-range symbol - 300 = a simple Aztec ''Rune''." Min="1" Max="300" Default="1" Size="3"/>
+      <ComboBox Name="e" Code="{{e}}" Description="Menu symbol indicator" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Symbol is a menu</ComboBoxValue>
+          <ComboBoxValue Value="N">Symbol is not a menu</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="f" Code="{{f}}" Description="Number of symbols for structured append" AcceptedValue="1 to 26" Min="1" Max="26" Default="1" Size="2"/>
+      <TextBox Name="g" Code="{{g}}" Description="Optional ID field for structured append" AcceptedValue="The ID field is a text string with 24-character maximum." Default="" Size="24"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BP</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>Plessey Bar Code</ShortDesc>
+    <LongDesc>The ^BP command is a pulse-width modulated, continuous, non-self- checking symbology.\r\nEach character in the Plessey bar code is composed of eight elements: four bars and four adjacent spaces.</LongDesc>
+    <Usage>^BPo,e,h,f,g</Usage>
+    <Assistant>^BP{{o}},{{e}},{{h}},{{f}},{{g}}</Assistant>
+    <Command>^BP|o,e,h,f,g</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="e" Code="{{e}}" Description="Print check digit" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <ComboBox Name="f" Code="{{f}}" Description="Print interpretation line" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="g" Code="{{g}}" Description="Print interpretation line above code" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BQ</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>QR Code Bar Code</ShortDesc>
+    <LongDesc>The ^BQ command produces a matrix symbology consisting of an array of nominally square modules arranged in an overall square pattern. A unique pattern at three of the symbol’s four corners assists in determining bar code size, position, and inclination.\r\nA wide range of symbol sizes is possible, along with four levels of error correction. Userspecified module dimensions provide a wide variety of symbol production techniques.</LongDesc>
+    <Usage>^BQa,b,c,d,e</Usage>
+    <Assistant>^BQ{{a}},{{b}},{{c}},{{d}},{{e}}</Assistant>
+    <Command>^BQ|a,b,c,d,e</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="a" Code="{{a}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="b" Code="{{b}}" Description="Model" Default="2">
+        <ComboBoxValues>
+          <ComboBoxValue Value="1">Original</ComboBoxValue>
+          <ComboBoxValue Value="2">Enhanced (recommanded)</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="c" Code="{{c}}" Description="Magnification factor" AcceptedValue="1 to 10 (1 on 150 dpi printers - 2 on 200 dpi printers - 3 on 300 dpi printers - 6 on 600 dpi printers)." Min="1" Max="10" Default="1" Size="1"/>
+      <ComboBox Name="d" Code="{{d}}" Description="Error correction" Default="Q">
+        <ComboBoxValues>
+          <ComboBoxValue Value="H">Ultra-high reliability level</ComboBoxValue>
+          <ComboBoxValue Value="Q">High reliability level</ComboBoxValue>
+          <ComboBoxValue Value="M">Standard level </ComboBoxValue>
+          <ComboBoxValue Value="L">High density level</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="e" Code="{{e}}" Description="Mask value" AcceptedValue="0 to 7." Min="0" Max="7" Default="7" Size="1"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BR</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>GS1 Databar</ShortDesc>
+    <LongDesc>The ^BR command is bar code types for space-constrained identification from EAN International and the Uniform Code Council, Inc.</LongDesc>
+    <Usage>^BRa,b,c,d,e,f</Usage>
+    <Assistant>^BR{{a}},{{b}},{{c}},{{d}},{{e}},{{f}}</Assistant>
+    <Command>^BR|a,b,c,d,e,f</Command>
+    <Command>^BP|o,e,h,f,g</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="a" Code="{{a}}" Description="Orientation" Default="R">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="b" Code="{{b}}" Description="GS1 Databar symbology" Default="1">
+        <ComboBoxValues>
+          <ComboBoxValue Value="1">GS1 DataBar Omnidirectional</ComboBoxValue>
+          <ComboBoxValue Value="2">GS1 DataBar Truncated</ComboBoxValue>
+          <ComboBoxValue Value="3">GS1 DataBar Stacked</ComboBoxValue>
+          <ComboBoxValue Value="4">GS1 DataBar Stacked Omnidirectional</ComboBoxValue>
+          <ComboBoxValue Value="5">GS1 DataBar Limited</ComboBoxValue>
+          <ComboBoxValue Value="6">GS1 DataBar Expanded</ComboBoxValue>
+          <ComboBoxValue Value="7">UPC-A</ComboBoxValue>
+          <ComboBoxValue Value="8">UPC-E</ComboBoxValue>
+          <ComboBoxValue Value="9">EAN-13</ComboBoxValue>
+          <ComboBoxValue Value="10">EAN-8</ComboBoxValue>
+          <ComboBoxValue Value="11">UCC/EAN-128 and CC-A/B</ComboBoxValue>
+          <ComboBoxValue Value="12">UCC/EAN-128 and CC-C</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="c" Code="{{c}}" Description="Magnification factor" AcceptedValue="1 to 10. 24 dot = 6,  12 dot is 3,  8 dot and lower is 2 - 12 dot = 6,  > 8 dot is 3, 8 dot and less is 2" Min="1" Max="10" Default="" Size="2"/>
+      <NumericBox Name="d" Code="{{d}}" Description="Separator height" AcceptedValue="1 or 2." Min="1" Max="2" Default="1" Size="1"/>
+      <NumericBox Name="e" Code="{{e}}" Description="Bar code height" AcceptedValue="From 1 to 32000 dots" Default="25" Min="1" Max="32000" Size="5"/>
+      <NumericBox Name="f" Code="{{f}}" Description="Segment width" AcceptedValue="From 2 to 22, even numbers only" Default="22" Min="2" Max="22" Size="2" Increment="2"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BS</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>UPC/EAN Extensions</ShortDesc>
+    <LongDesc>The ^BS command is the two-digit and five-digit add-on used primarily by publishers to create bar codes for ISBNs (International Standard Book Numbers). These extensions are handled as separate bar codes.\r\nThe ^BS command is designed to be used with the UPC-A bar code (^BU) and the UPC-E bar code (^B9).</LongDesc>
+    <Usage>^BSo,h,f,g</Usage>
+    <Assistant>^BS{{o}},{{h}},{{f}},{{g}}</Assistant>
+    <Command>^BS|o,h,f,g</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <ComboBox Name="f" Code="{{f}}" Description="Print interpretation line" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="g" Code="{{g}}" Description="Print interpretation line above code" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BT</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>TLC39 Bar Code</ShortDesc>
+    <LongDesc>The ^BT bar code is the standard for the TCIF can tag telecommunications equipment.\r\nThe TCIF CLEI code, which is the MicroPDF417 bar code, is always four columns. The firmware must determine what mode to use based on the number of characters to be encoded.</LongDesc>
+    <Usage>^BTo,w1,r1,h1,w2,h2</Usage>
+    <Assistant>^BT{{o}},{{w1}},{{r1}},{{h1}},{{w2}},{{h2}}</Assistant>
+    <Command>^BT|o,w1,r1,h1,w2,h2</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="w1" Code="{{w1}}" Description="Width of the Code 39 bar code" AcceptedValue="From 1 to 10" Default="" Min="1" Max="10" Size="2"/>
+      <NumericBox Name="r1" Code="{{r1}}" Description="Wide to narrow bar width ratio the Code 39 bar code" AcceptedValue="From 2 to 3 (increments of 0.1)" Default="2.0" Min="2" Max="3" Size="3" Increment="0.1" />
+      <NumericBox Name="h1" Code="{{h1}}" Description="Height of the Code 39 bar code" AcceptedValue="From 1 to 9999" Default="" Min="1" Max="9999" Size="4"/>
+      <NumericBox Name="h2" Code="{{h2}}" Description="Row height of the MicroPDF417 bar code" AcceptedValue="From 1 to 255" Default="" Min="1" Max="255" Size="3"/>
+      <NumericBox Name="w2" Code="{{w2}}" Description="Narrow bar width of the MicroPDF417 bar code" AcceptedValue="From 1 to 10" Default="" Min="1" Max="10" Size="2"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BU</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>UPC-A Bar Code</ShortDesc>
+    <LongDesc>The ^BU command produces the UPC-A bar code, a fixed length, numeric symbology.</LongDesc>
+    <Usage>^BUo,h,f,g,e</Usage>
+    <Assistant>^BU{{o}},{{h}},{{f}},{{g}},{{e}}</Assistant>
+    <Command>^BU|o,h,f,g,e</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 9999 dots" Default="" Min="1" Max="9999" Size="4"/>
+      <ComboBox Name="f" Code="{{f}}" Description="Print interpretation line" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="g" Code="{{g}}" Description="Print interpretation line above code" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="e" Code="{{e}}" Description="Print check digit" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BX</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>Data Matrix Bar Code</ShortDesc>
+    <LongDesc>The ^BX command creates a two-dimensional matrix symbology made up of square modules arranged within a perimeter finder pattern.</LongDesc>
+    <Usage>^BXo,h,s,c,r,f,g,a</Usage>
+    <Assistant>^BX{{o}},{{h}},{{s}},{{c}},{{r}},{{f}},{{g}},{{a}}</Assistant>
+    <Command>^BX|o,h,s,c,r,f,g,a</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Dimensional height of individual symbol elements" AcceptedValue="From 1 to the width of the label" Default="" Min="1" Max="99999" Size="10"/>
+      <ComboBox Name="s" Code="{{s}}" Description="Quality level" Default="0">
+        <ComboBoxValues>
+          <ComboBoxValue Value="0">ECC 0</ComboBoxValue>
+          <ComboBoxValue Value="50">ECC 50</ComboBoxValue>
+          <ComboBoxValue Value="80">ECC 80</ComboBoxValue>
+          <ComboBoxValue Value="100">ECC 100</ComboBoxValue>
+          <ComboBoxValue Value="140">ECC 140</ComboBoxValue>
+          <ComboBoxValue Value="200">ECC 200</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="c" Code="{{c}}" Description="Columns to encode" AcceptedValue="From 9 to 49" Default="" Min="9" Max="49" Size="2"/>
+      <NumericBox Name="r" Code="{{r}}" Description="Rows to encode" AcceptedValue="From 9 to 49" Default="" Min="9" Max="49" Size="2"/>
+      <ComboBox Name="f" Code="{{f}}" Description="Format ID" Default="6">
+        <ComboBoxValues>
+          <ComboBoxValue Value="1">Numeric + space (0..9,”)</ComboBoxValue>
+          <ComboBoxValue Value="2">Uppercase alphanumeric + space (A..Z,’’)</ComboBoxValue>
+          <ComboBoxValue Value="3">Uppercase alphanumeric + space, period, comma, dash, and slash (0..9,A..Z,“.-/”)</ComboBoxValue>
+          <ComboBoxValue Value="4">Upper-case alphanumeric + space (0..9,A..Z,’’)</ComboBoxValue>
+          <ComboBoxValue Value="5">Full 128 ASCII 7-bit</ComboBoxValue>
+          <ComboBoxValue Value="6">Full 256 ISO 8-bit </ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <TextBox Name="g" Code="{{g}}" Description="Escape sequence control character" AcceptedValue="Any character" Default="~" Size="1"/>
+      <ComboBox Name="a" Code="{{a}}" Description="Aspect ratio" Default="">
+        <ComboBoxValues>
+          <ComboBoxValue Value="1">Square</ComboBoxValue>
+          <ComboBoxValue Value="2">Rectangular</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BY</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>Bar Code Field Default</ShortDesc>
+    <LongDesc>The ^BY command is used to change the default values for the module width (in dots), the wide bar to narrow bar width ratio and the bar code height (in dots).\r\nIt can be used as often as necessary within a label format.</LongDesc>
+    <Usage>^BYw,r,h</Usage>
+    <Assistant>^BY{{w}},{{r}},{{h}}</Assistant>
+    <Command>^BY|w,r,h</Command>
+    <ZPLCommandParameter>
+      <NumericBox Name="w" Code="{{w}}" Description="Module width" AcceptedValue="From 1 to 10 in dots" Default="2" Min="1" Max="10" Size="2"/>
+      <NumericBox Name="r" Code="{{r}}" Description="Wide bar to narrow bar width ratio" AcceptedValue="From 2.0 to 3.1 increments by 0.1" Default="3.0" Min="2" Max="3" Size="3" Increment="0.1"/>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to the height of the label" Default="10" Min="1" Max="9999" Size="4"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^BZ</Name>
+    <Category>Barcode</Category>
+    <ShortDesc>POSTAL Bar Code</ShortDesc>
+    <LongDesc>The POSTAL bar code is used to automate the handling of mail. POSTAL codes use a series of tall and short bars to represent the digits.</LongDesc>
+    <Usage>^BZo,h,f,g,t</Usage>
+    <Assistant>^BZ{{o}},{{h}},{{f}},{{g}},{{t}}</Assistant>
+    <Command>^BZ|o,h,f,g,t</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Bar code height" AcceptedValue="From 1 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <ComboBox Name="f" Code="{{f}}" Description="Print interpretation line" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="g" Code="{{g}}" Description="Print interpretation line above code" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="t" Code="{{t}}" Description="Postal code type" Default="0">
+        <ComboBoxValues>
+          <ComboBoxValue Value="0">Postnet bar code</ComboBoxValue>
+          <ComboBoxValue Value="1">Plant Bar Code</ComboBoxValue>
+          <ComboBoxValue Value="2">Reserved</ComboBoxValue>
+          <ComboBoxValue Value="3">USPS Intelligent Mail bar code</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <!-- Font -->
+  <ZPLCommand>
+    <Name>^CF</Name>
+    <Category>Font</Category>
+    <ShortDesc>Change Alphanumeric Default Font</ShortDesc>
+    <LongDesc>The ^CF command sets the default font used in your printer. You can use the ^CF command to simplify your programs.</LongDesc>
+    <Usage>^CFf,h,w</Usage>
+    <Assistant>^CF{{f}},{{h}},{{w}}</Assistant>
+    <Command>^CF|f,h,w</Command>
+    <ZPLCommandParameter>
+      <TextBox Name="f" Code="{{f}}" Description="Specified default font" AcceptedValue="Any font in the printer (downloaded, EPROM, stored fonts, fonts A through Z and 0 to 9)." Default="0" Size ="1"/>
+      <NumericBox Name="h" Code="{{h}}" Description="Character heigh" AcceptedValue="From 0 to 32000 dots" Default="9" Size="5" Min="0" Max="32000"/>
+      <NumericBox Name="w" Code="{{w}}" Description="Character width" AcceptedValue="From 0 to 32000 dots" Default="5" Size="5" Min="0" Max="32000"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^CI</Name>
+    <Category>Font</Category>
+    <ShortDesc>Change International Font/Encoding</ShortDesc>
+    <LongDesc>Zebra printers can print fonts using international character sets: U.S.A.1, U.S.A.2, UK, Holland,Denmark/Norway, Sweden/Finland, Germany, France 1, France 2, Italy, Spain, and severalother sets, including the Unicode character set.\r\nThe ^CI command enables you to call up the international character set you want to use forprinting. You can mix character sets on a label.\r\nA character within a font can be remapped to a different numerical position.</LongDesc>
+    <Usage>^CIa,s1,d1,s2,d2,...</Usage>
+    <Assistant>^CI{{a}}</Assistant>
+    <Command>^CI|a</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="a" Code="{{a}}" Description="Desired character set" Default="">
+        <ComboBoxValues>
+          <ComboBoxValue Value="0">Single Byte Encoding - U.S.A. 1 Character Set</ComboBoxValue>
+          <ComboBoxValue Value="1">Single Byte Encoding - U.S.A. 2 Character Set</ComboBoxValue>
+          <ComboBoxValue Value="2">Single Byte Encoding - U.K. Character Set</ComboBoxValue>
+          <ComboBoxValue Value="3">Single Byte Encoding - Holland Character Set</ComboBoxValue>
+          <ComboBoxValue Value="4">Single Byte Encoding - Denmark/Norway Character Set</ComboBoxValue>
+          <ComboBoxValue Value="5">Single Byte Encoding - Sweden/Finland Character Set</ComboBoxValue>
+          <ComboBoxValue Value="6">Single Byte Encoding - Germany Character Set</ComboBoxValue>
+          <ComboBoxValue Value="7">Single Byte Encoding - France 1 Character Set</ComboBoxValue>
+          <ComboBoxValue Value="8">Single Byte Encoding - France 2 Character Set</ComboBoxValue>
+          <ComboBoxValue Value="9">Single Byte Encoding - Italy Character Set</ComboBoxValue>
+          <ComboBoxValue Value="10">Single Byte Encoding - Spain Character Set</ComboBoxValue>
+          <ComboBoxValue Value="11">Single Byte Encoding - Miscellaneous Character Set</ComboBoxValue>
+          <ComboBoxValue Value="12">Single Byte Encoding - Japan (ASCII with Yen symbol) Character Set</ComboBoxValue>
+          <ComboBoxValue Value="13">Zebra Code Page 850</ComboBoxValue>
+          <ComboBoxValue Value="14">Double Byte Asian Encodings</ComboBoxValue>
+          <ComboBoxValue Value="15">Shift-JIS</ComboBoxValue>
+          <ComboBoxValue Value="16">EUC-JP and EUC-CN</ComboBoxValue>
+          <ComboBoxValue Value="17">Deprecated - UCS-2 Big Endian</ComboBoxValue>
+          <ComboBoxValue Value="18">Reserved</ComboBoxValue>
+          <ComboBoxValue Value="19">Reserved</ComboBoxValue>
+          <ComboBoxValue Value="20">Reserved</ComboBoxValue>
+          <ComboBoxValue Value="21">Reserved</ComboBoxValue>
+          <ComboBoxValue Value="22">Reserved</ComboBoxValue>
+          <ComboBoxValue Value="23">Reserved</ComboBoxValue>
+          <ComboBoxValue Value="24">Single Byte Asian Encodings</ComboBoxValue>
+          <ComboBoxValue Value="25">Reserved</ComboBoxValue>
+          <ComboBoxValue Value="26">Multibyte Asian Encodings with ASCII Transparency</ComboBoxValue>
+          <ComboBoxValue Value="27">Zebra Code Page 1252</ComboBoxValue>
+          <ComboBoxValue Value="28">Unicode (UTF-8 encoding) - Unicode Character Set</ComboBoxValue>
+          <ComboBoxValue Value="29">Unicode (UTF-16 Big-Endian encoding) - Unicode Character Set</ComboBoxValue>
+          <ComboBoxValue Value="30">Unicode (UTF-16 Little-Endian encoding) - Unicode Character Set</ComboBoxValue>
+          <ComboBoxValue Value="31">Zebra Code Page 1250</ComboBoxValue>
+          <ComboBoxValue Value="33">Code Page 1251</ComboBoxValue>
+          <ComboBoxValue Value="34">Code Page 1253</ComboBoxValue>
+          <ComboBoxValue Value="35">Code Page 1254</ComboBoxValue>
+          <ComboBoxValue Value="36">Code Page 1255</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^CW</Name>
+    <Category>Font</Category>
+    <ShortDesc>Font Identifier</ShortDesc>
+    <LongDesc>All built-in fonts are referenced using a one-character identifier. The ^CW command assigns a single alphanumeric character to a font stored in DRAM, memory card, EPROM, or Flash.\r\nIf the assigned character is the same as that of a built-in font, the downloaded font is used in place of the built-in font. The new font is printed on the label wherever the format calls for the built-in font. If used in place of a built-in font, the change is in effect only until power is turned off.</LongDesc>
+    <Usage>^CWa,d:o.x</Usage>
+    <Assistant>^CW{{a}},{{d:}}{{o}}{{.x}}</Assistant>
+    <Command>^CW|a,d:o.x</Command>
+    <ZPLCommandParameter>
+      <TextBox Name="a" Code="{{a}}" Description="Letter of existing font to be substituted, or new font to be added" AcceptedValue="Any font in the printer (downloaded, EPROM, stored fonts, fonts A through Z and 0 to 9)." Default="0" Size ="1"/>
+      <ComboBox Name="d" Code="{{d:}}" Description="Device to store font in (optional)" Default="R">
+        <ComboBoxValues>
+          <ComboBoxValue Value="R:">R: drive</ComboBoxValue>
+          <ComboBoxValue Value="E:">E: drive</ComboBoxValue>
+          <ComboBoxValue Value="B:">B: drive</ComboBoxValue>
+          <ComboBoxValue Value="A:">A: drive</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <TextBox Name="o" Code="{{o}}" Description="Name of the downloaded font to be substituted" AcceptedValue="Any name up to 8 characters." Default="UNKNOW" Size="8"/>
+      <ComboBox Name="x" Code="{{.x}}" Description="Extension" Default="">
+        <ComboBoxValues>
+          <ComboBoxValue Value=".FNT">FNT Font</ComboBoxValue>
+          <ComboBoxValue Value=".TTF">TTF TrueType Font</ComboBoxValue>
+          <ComboBoxValue Value=".TTE">TTE TrueType Extension</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^FL</Name>
+    <Category>Font</Category>
+    <ShortDesc>Font Linking</ShortDesc>
+    <LongDesc>The ^FL command provides the ability to link any TrueType font, including private character fonts, to associated fonts.\r\nIf the base font does not have a glyph for the required character, the printer looks to the linked fonts for the glyph. The font links are user-definable. The font linking remains until the link is broken or the printer is turned off. To permanently save the font linking, use the ^JUS command.</LongDesc>
+    <Usage>^FLd1:f1.x1,d2:f2.x2,l</Usage>
+    <Assistant>^FL{{d1:}}{{f1}}{{.x1}},{{d2:}}{{f2}}{{.x2}},{{l}}</Assistant>
+    <Command>^FL|d1:f1.x1,d2:f2.x2,l</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="d1" Code="{{d1:}}" Description="Device of the font" Default="R">
+        <ComboBoxValues>
+          <ComboBoxValue Value="R:">R: drive</ComboBoxValue>
+          <ComboBoxValue Value="E:">E: drive</ComboBoxValue>
+          <ComboBoxValue Value="B:">B: drive</ComboBoxValue>
+          <ComboBoxValue Value="A:">A: drive</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <TextBox Name="f1" Code="{{f1}}" Description="Name of the font" AcceptedValue="Any name up to 8 characters." Default="" Size="8"/>
+      <ComboBox Name="x1" Code="{{.x1}}" Description="Extension" Default="">
+        <ComboBoxValues>
+          <ComboBoxValue Value=".FNT">FNT Font</ComboBoxValue>
+          <ComboBoxValue Value=".TTF">TTF TrueType Font</ComboBoxValue>
+          <ComboBoxValue Value=".TTE">TTE TrueType Extension</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="d2" Code="{{d2:}}" Description="Device of the font" Default="R">
+        <ComboBoxValues>
+          <ComboBoxValue Value="R:">R: drive</ComboBoxValue>
+          <ComboBoxValue Value="E:">E: drive</ComboBoxValue>
+          <ComboBoxValue Value="B:">B: drive</ComboBoxValue>
+          <ComboBoxValue Value="A:">A: drive</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <TextBox Name="f2" Code="{{f2}}" Description="Name of the font" AcceptedValue="Any name up to 8 characters." Default="" Size="8"/>
+      <ComboBox Name="x2" Code="{{.x2}}" Description="Extension" Default="">
+        <ComboBoxValues>
+          <ComboBoxValue Value=".FNT">FNT Font</ComboBoxValue>
+          <ComboBoxValue Value=".TTF">TTF TrueType Font</ComboBoxValue>
+          <ComboBoxValue Value=".TTE">TTE TrueType Extension</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="l" Code="{{l}}" Description="Action" Default="">
+        <ComboBoxValues>
+          <ComboBoxValue Value="0">Unlink</ComboBoxValue>
+          <ComboBoxValue Value="1">Link</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^HT</Name>
+    <Category>Font</Category>
+    <ShortDesc>Host Linked Font List</ShortDesc>
+    <LongDesc>This command is available only for printers with firmware version V60.14.x, V50.14.x, or later.\r\nThe ^HT command receives the complete list of font links over a communication port.</LongDesc>
+    <Usage>^HT</Usage>
+    <Assistant>^HT</Assistant>
+    <Command>^HT|</Command>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^LF</Name>
+    <Category>Font</Category>
+    <ShortDesc>List Font Links</ShortDesc>
+    <LongDesc>This command is available only for printers with firmware version V60.14.x, V50.14.x, or later.\r\nThe ^LF command prints out a list of the linked fonts.</LongDesc>
+    <Usage>^LF</Usage>
+    <Assistant>^LF</Assistant>
+    <Command>^LF|</Command>
+  </ZPLCommand>
+  <!--Field -->
+  <ZPLCommand>
+    <Name>^FB</Name>
+    <Category>Field</Category>
+    <ShortDesc>Field Block</ShortDesc>
+    <LongDesc>The ^FB command allows you to print text into a defined block type format.\r\nThis command formats an ^FD or ^SN string into a block of text using the origin, font, androtation specified for the text string. The ^FB command also contains an automatic word-wrap function.</LongDesc>
+    <Usage>^FBa,b,c,d,e</Usage>
+    <Assistant>^FB{{a}},{{b}},{{c}},{{d}},{{e}}</Assistant>
+    <Command>^FB|a,b,c,d,e</Command>
+    <ZPLCommandParameter>
+      <NumericBox Name="a" Code="{{a}}" Description="Width of text block line" AcceptedValue="0 to the width of the label in dots" Default="0" Min="0" Max="99999" Size="5"/>
+      <NumericBox Name="b" Code="{{b}}" Description="Max. number of lines in text block" AcceptedValue="From 1 to 9999" Default="1" Min="1" Max="99999" Size="4"/>
+      <NumericBox Name="c" Code="{{c}}" Description="Add or delete space between lines" AcceptedValue="From -9999 to 9999" Default="0" Min="-9999" Max="99999" Size="4"/>
+      <ComboBox Name="d" Code="{{d}}" Description="Text justification" Default="L">
+        <ComboBoxValues>
+          <ComboBoxValue Value="L">Left</ComboBoxValue>
+          <ComboBoxValue Value="C">Center</ComboBoxValue>
+          <ComboBoxValue Value="R">Right</ComboBoxValue>
+          <ComboBoxValue Value="J">Justified</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="e" Code="{{e}}" Description="Hanging indent" AcceptedValue="From 0 to 9999 dots" Default="0" Min="0" Max="9999" Size="4"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^FC</Name>
+    <Category>Field</Category>
+    <ShortDesc>Field Clock</ShortDesc>
+    <LongDesc>The ^FC command is used to set the clock-indicators (delimiters) and the clock mode for use with the Real-Time Clock hardware.\r\nThis command must be included  within each label field command string each time the Real-Time Clock values are required within the field.</LongDesc>
+    <Usage>^FCa,b,c</Usage>
+    <Assistant>^FC{{a}},{{b}},{{c}}</Assistant>
+    <Command>^FC|a,b,c</Command>
+    <ZPLCommandParameter>
+      <TextBox Name="a" Code="{{a}}" Description="Primary clock indicator character" AcceptedValue="Any ASCII character." Default="" Size ="1"/>
+      <TextBox Name="b" Code="{{b}}" Description="Secondary clock indicator character" AcceptedValue="Any ASCII character." Default="" Size ="1"/>
+      <TextBox Name="c" Code="{{c}}" Description="Third clock indicator character" AcceptedValue="Any ASCII character." Default="" Size ="1"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^FD</Name>
+    <Category>Field</Category>
+    <ShortDesc>Field Data</ShortDesc>
+    <LongDesc>The ^FD command defines the data string for the field.\r\nThe field data can be any printable character except those used as command prefixes (^ and ~).</LongDesc>
+    <Usage>^FDa</Usage>
+    <Assistant>^FD{{a}}</Assistant>
+    <ZPLCommandParameter>
+      <TextBox Name="a" Code="{{a}}" Description="Data to be printed" AcceptedValue="Any data string up to 3072 bytes." Default="" Size ="9999"/>
+    </ZPLCommandParameter>
+    <Command>^FD|a</Command>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^FH</Name>
+    <Category>Field</Category>
+    <ShortDesc>Field Hexadecimal Indicator</ShortDesc>
+    <LongDesc>The ^FH command allows you to enter the hexadecimal value for any character directly into the ^FD statement.\r\nThe ^FH command must precede each ^FD command that uses hexadecimals in its field.\r\nWithin the ^FD statement, the hexadecimal indicator must precede each hexadecimal value. The default hexadecimal indicator is _ (underscore).\r\nThere must be a minimum of two characters designated to follow the underscore. The a parameter can be added when a different hexadecimal indicator is needed.</LongDesc>
+    <Usage>^FHa</Usage>
+    <Assistant>^FH{{a}}</Assistant>
+    <Command>^FH|a</Command>
+    <ZPLCommandParameter>
+      <TextBox Name="a" Code="{{a}}" Description="Hexadecimal indicator" AcceptedValue="Any character except current format and control prefix (^ and ~ by default)." Default="" Size ="3"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^FM</Name>
+    <Category>Field</Category>
+    <ShortDesc>Multiple Field Origin Locations</ShortDesc>
+    <LongDesc>The ^FM command allows you to control the placement of bar code symbols.\r\nIt designates field locations for the PDF417 (^B7) and MicroPDF417 (^BF) bar codes when the structured append capabilities are used. This allows printing multiple bar codes from the same set of text information.\r\nThe structured append capability is a way of extending the text printing capacity of both bar codes. If a string extends beyond what the data limitations of the bar code are, it can be printed as a series: 1 of 3, 2 of 3, 3 of 3. Scanners read the information and reconcile it into the original, unsegmented text.\r\nThe ^FM command triggers multiple bar code printing on the same label with ^B7 and ^BF only. When used with any other commands, it is ignored.</LongDesc>
+    <Usage>^FMx1,y1,x2,y2,...</Usage>
+    <Assistant>^FM{{x1}},{{y1}},{{x2}},{{y2}}</Assistant>
+    <Command>^FM|x1,y1,x2,y2</Command>
+    <ZPLCommandParameter>
+      <TextBox Name="x1" Code="{{x1}}" Description="X-axis location of first symbol" AcceptedValue="0 to 32000 dots - e = exclude this bar code from printing." Default="" Size ="5"/>
+      <TextBox Name="y1" Code="{{y1}}" Description="X-axis location of first symbol" AcceptedValue="0 to 32000 dots - e = exclude this bar code from printing." Default="" Size ="5"/>
+      <TextBox Name="x2" Code="{{x2}}" Description="X-axis location of first symbol" AcceptedValue="0 to 32000 dots - e = exclude this bar code from printing." Default="" Size ="5"/>
+      <TextBox Name="y2" Code="{{y2}}" Description="X-axis location of first symbol" AcceptedValue="0 to 32000 dots - e = exclude this bar code from printing." Default="" Size ="5"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^FN</Name>
+    <Category>Field</Category>
+    <ShortDesc>Field Number</ShortDesc>
+    <LongDesc>The ^FN command numbers the data fields.\r\nThis command is used in both ^DF (Store Format) and ^XF (Recall Format) commands.\r\nIn a stored format, use the ^FN command where you would normally use the ^FD (Field Data) command. In recalling the stored format, use ^FN in conjunction with the ^FD command.\r\nThe optional "a" parameter can be used with the KDU Plus to cause prompts to be displayed on the KDU unit. Also, when the Print on Label link is selected on the Directory page of ZebraLink enabled printers the field prompt displays.\r\nThe number of fields and data that can be stored is dependent in the available printer memory.</LongDesc>
+    <Usage>^FN#"a"</Usage>
+    <Assistant>^FN{{#}}"{{a}}"</Assistant>
+    <Command>^FN|#"a"</Command>
+    <ZPLCommandParameter>
+      <NumericBox Name="#" Code="{{#}}" Description="Number to be assigned to the field" AcceptedValue="From 0 to 9999" Default="0" Min="0" Max="9999" Size="4"/>
+      <TextBox Name="a" Code="{{a}}" Description="Optional parameter" AcceptedValue="255 alphanumeric characters maximum (a-z,A-Z,1-9 and space)." Default="" Size ="255"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^FO</Name>
+    <Category>Field</Category>
+    <ShortDesc>Field Origin</ShortDesc>
+    <LongDesc>The ^FO command sets a field origin, relative to the label home (^LH) position.\r\n^FO sets the upper-left corner of the field area by defining points along the x-axis and y-axis independent of the rotation.</LongDesc>
+    <Usage>^FOx,y,z</Usage>
+    <Assistant>^FO{{x}},{{y}},{{z}}</Assistant>
+    <Command>^FO|x,y,z</Command>
+    <ZPLCommandParameter>
+      <NumericBox Name="x" Code="{{x}}" Description="X-axis location" AcceptedValue="From 0 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <NumericBox Name="y" Code="{{y}}" Description="Y-axis location" AcceptedValue="From 0 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <ComboBox Name="z" Code="{{z}}" Description="Justification" Default="0">
+        <ComboBoxValues>
+          <ComboBoxValue Value="0">Left</ComboBoxValue>
+          <ComboBoxValue Value="1">Right</ComboBoxValue>
+          <ComboBoxValue Value="2">Justified</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^FP</Name>
+    <Category>Field</Category>
+    <ShortDesc>Field Parameter</ShortDesc>
+    <LongDesc>The ^FP command allows vertical and reverse formatting of the font field, commonly used for printing Asian fonts.</LongDesc>
+    <Usage>^FPd,g</Usage>
+    <Assistant>^FP{{d}},{{g}}</Assistant>
+    <Command>^FP|d,g</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="d" Code="{{d}}" Description="Direction" Default="H">
+        <ComboBoxValues>
+          <ComboBoxValue Value="H">Horizontal printing</ComboBoxValue>
+          <ComboBoxValue Value="V">Vertical printing</ComboBoxValue>
+          <ComboBoxValue Value="R">Reverse printing</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="g" Code="{{g}}" Description="Additional inter-character gap" AcceptedValue="From 0 to 9999 dots" Default="0" Min="0" Max="9999" Size="4"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^FR</Name>
+    <Category>Field</Category>
+    <ShortDesc>Field Reverse Print</ShortDesc>
+    <LongDesc>The ^FR command allows a field to appear as white over black or black over white. When printing a field and the ^FR command has been used, the color of the output is the reverse of its background.</LongDesc>
+    <Usage>^FR</Usage>
+    <Assistant>^FR</Assistant>
+    <Command>^FR|</Command>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^FS</Name>
+    <Category>Field</Category>
+    <ShortDesc>Field Separator</ShortDesc>
+    <LongDesc>The ^FS command denotes the end of the field definition.\r\nAlternatively, ^FS command can also be issued as a single ASCII control code SI (Control-O, hexadecimal 0F).</LongDesc>
+    <Usage>^FS</Usage>
+    <Assistant>^FS</Assistant>
+    <Command>^FS</Command>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^FT</Name>
+    <Category>Field</Category>
+    <ShortDesc>Field Typeset</ShortDesc>
+    <LongDesc>The ^FT command sets the field position, relative to the home position of the label designated by the ^LH command. The typesetting origin of the field is fixed with respect to the contents of the field and does not change with rotation.\r\nThe ^FT command is capable of concantination of fields.</LongDesc>
+    <Usage>^FTx,y,z</Usage>
+    <Assistant>^FT{{x}},{{y}},{{z}}</Assistant>
+    <Command>^FT|x,y,z</Command>
+    <ZPLCommandParameter>
+      <NumericBox Name="x" Code="{{x}}" Description="X-axis location" AcceptedValue="From 0 to 32000 dots" Default="" Min="0" Max="32000" Size="5"/>
+      <NumericBox Name="y" Code="{{y}}" Description="Y-axis location" AcceptedValue="From 0 to 32000 dots" Default="" Min="0" Max="32000" Size="5"/>
+      <ComboBox Name="z" Code="{{z}}" Description="Justification" Default="0">
+        <ComboBoxValues>
+          <ComboBoxValue Value="0">Left justification</ComboBoxValue>
+          <ComboBoxValue Value="1">Right justification</ComboBoxValue>
+          <ComboBoxValue Value="2">Auto justification (script dependent</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^FV</Name>
+    <Category>Field</Category>
+    <ShortDesc>Field Variable</ShortDesc>
+    <LongDesc>FV replaces the ^FD (field data) command in a label format when the field is variable.</LongDesc>
+    <Usage>^FVa</Usage>
+    <Assistant>^FV{{a}}</Assistant>
+    <Command>^FV|a</Command>
+    <ZPLCommandParameter>
+      <TextBox Name="a" Code="{{a}}" Description="Variable field data to be printed" AcceptedValue="Any data string up to 3072 bytes." Default="" Size ="9999"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^FW</Name>
+    <Category>Field</Category>
+    <ShortDesc>Field Orientation</ShortDesc>
+    <LongDesc>The ^FW command sets the default orientation for all command fields that have an orientation (rotation) parameter and sets the default justification for all commands with a justification parameter. Fields can be rotated 0, 90, 180, or 270 degrees clockwise by using this command. Justification can be left, right, or auto.\r\nThe ^FW command affects only fields that follow it. Once you have issued a ^FW command, the setting is retained until you turn off the printer or send a new ^FW command to the printer.</LongDesc>
+    <Usage>^FWr,z</Usage>
+    <Assistant>^FW{{r}},{{z}}</Assistant>
+    <Command>^FW|r,z</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="r" Code="{{r}}" Description="Rotate field" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="z" Code="{{z}}" Description="Justification" Default="0">
+        <ComboBoxValues>
+          <ComboBoxValue Value="0">Left justification</ComboBoxValue>
+          <ComboBoxValue Value="1">Right justification</ComboBoxValue>
+          <ComboBoxValue Value="2">Auto justification (script dependent</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^FX</Name>
+    <Category>Field</Category>
+    <ShortDesc>Comment</ShortDesc>
+    <LongDesc>The ^FX command is useful when you want to add non-printing informational comments or statements within a label format. Any data after the ^FX command up to the next caret (^) or tilde (~) command does not have any effect on the label format. Therefore, you should avoid using the caret (^) or tilde (~) commands within the ^FX statement.</LongDesc>
+    <Usage>^FXc</Usage>
+    <Assistant>^FX{{c}}</Assistant>
+    <Command>^FX|c</Command>
+    <ZPLCommandParameter>
+      <TextBox Name="c" Code="{{c}}" Description="Non printing comment" AcceptedValue="Any data string." Default="" Size ="9999"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^TB</Name>
+    <Category>Field</Category>
+    <ShortDesc>Text Blocks</ShortDesc>
+    <LongDesc>The ^TB command prints a text block with defined width and height.\r\nThe text block has an automatic word-wrap function. If the text exceeds the block height, the text is truncated. This command supports complex text layout features.\r\n^TB is the preferred command for printing fields or blocks of text, instead of ^FB.</LongDesc>
+    <Usage>^TBa,b,c</Usage>
+    <Assistant>^TB{{a}},{{b}},{{c}}</Assistant>
+    <Command>^TB|a,b,c</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="a" Code="{{a}}" Description="Block orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="b" Code="{{b}}" Description="Block width" AcceptedValue="From 1 to the width of the label in dots" Default="1" Min="0" Max="99999" Size="5"/>
+      <NumericBox Name="c" Code="{{c}}" Description="Block height" AcceptedValue="From 1 to the width of the label in dots" Default="1" Min="0" Max="99999" Size="5"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <!--Graphics -->
+  <ZPLCommand>
+    <Name>^GB</Name>
+    <Category>Graphics</Category>
+    <ShortDesc>Graphic Box</ShortDesc>
+    <LongDesc>The ^GB command is used to draw boxes and lines as part of a label format.\r\nBoxes and lines are used to highlight important information, divide labels into distinct areas, or to improve the appearance of a label. The same format command is used for drawing either boxes or lines.</LongDesc>
+    <Usage>^GBw,h,t,c,r</Usage>
+    <Assistant>^GB{{w}},{{h}},{{t}},{{c}},{{r}}</Assistant>
+    <Command>^GB|w,h,t,c,r</Command>
+    <ZPLCommandParameter>
+      <NumericBox Name="w" Code="{{w}}" Description="Box width" AcceptedValue="From value of t to 32000 in dots" Default="1" Min="1" Max="32000" Size="5"/>
+      <NumericBox Name="h" Code="{{h}}" Description="Box height" AcceptedValue="From value of t to 32000 in dots" Default="1" Min="1" Max="32000" Size="5"/>
+      <NumericBox Name="t" Code="{{t}}" Description="Border thickness" AcceptedValue="From 1 to 32000 in dots" Default="1" Min="1" Max="32000" Size="5"/>
+      <ComboBox Name="c" Code="{{c}}" Description="Line color" Default="B">
+        <ComboBoxValues>
+          <ComboBoxValue Value="B">Black</ComboBoxValue>
+          <ComboBoxValue Value="W">White</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="r" Code="{{r}}" Description="Rounding" AcceptedValue="From 1 to 8" Default="1" Min="1" Max="8" Size="1"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^GC</Name>
+    <Category>Graphics</Category>
+    <ShortDesc>Graphic Circle</ShortDesc>
+    <LongDesc>The ^GC command produces a circle on the printed label.\r\nThe command parameters specify the diameter (width) of the circle, outline thickness, and color.\r\nThickness extends inward from the outline.</LongDesc>
+    <Usage>^GCd,t,c</Usage>
+    <Assistant>^GC{{d}},{{t}},{{c}}</Assistant>
+    <Command>^GC|d,t,c</Command>
+    <ZPLCommandParameter>
+      <NumericBox Name="d" Code="{{d}}" Description="Circle diameter" AcceptedValue="From 3 to 4095 in dots" Default="3" Min="3" Max="4095" Size="4"/>
+      <NumericBox Name="t" Code="{{t}}" Description="Border thickness" AcceptedValue="From 2 to 4095 in dots" Default="2" Min="2" Max="4095" Size="4"/>
+      <ComboBox Name="c" Code="{{c}}" Description="Line color" Default="B">
+        <ComboBoxValues>
+          <ComboBoxValue Value="B">Black</ComboBoxValue>
+          <ComboBoxValue Value="W">White</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^GD</Name>
+    <Category>Graphics</Category>
+    <ShortDesc>Graphic Diagonal Line</ShortDesc>
+    <LongDesc>The ^GD command produces a straight diagonal line on a label. This can be used in conjunction with other graphic commands to create a more complex figure.</LongDesc>
+    <Usage>^GDw,h,t,c,o</Usage>
+    <Assistant>^GD{{w}},{{h}},{{t}},{{c}},{{o}}</Assistant>
+    <Command>^GD|w,h,t,c,o</Command>
+    <ZPLCommandParameter>
+      <NumericBox Name="w" Code="{{w}}" Description="Box width" AcceptedValue="From 3 to 32000 in dots" Default="3" Min="3" Max="32000" Size="5"/>
+      <NumericBox Name="h" Code="{{h}}" Description="Box height" AcceptedValue="From 3 to 32000 in dots" Default="3" Min="3" Max="32000" Size="5"/>
+      <NumericBox Name="t" Code="{{t}}" Description="Border thickness" AcceptedValue="From 1 to 32000 in dots" Default="1" Min="1" Max="32000" Size="5"/>
+      <ComboBox Name="c" Code="{{c}}" Description="Line color" Default="B">
+        <ComboBoxValues>
+          <ComboBoxValue Value="B">Black</ComboBoxValue>
+          <ComboBoxValue Value="W">White</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="o" Code="{{o}}" Description="Orientation" Default="R">
+        <ComboBoxValues>
+          <ComboBoxValue Value="R">Right-leaning diagonal (/)</ComboBoxValue>
+          <ComboBoxValue Value="L">Left-leaning diagonal (\)</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^GE</Name>
+    <Category>Graphics</Category>
+    <ShortDesc>Graphic Ellipse</ShortDesc>
+    <LongDesc>The ^GE command produces an ellipse in the label format.</LongDesc>
+    <Usage>^GEw,h,t,c</Usage>
+    <Assistant>^GE{{w}},{{h}},{{t}},{{c}}</Assistant>
+    <Command>^GE|w,h,t,c</Command>
+    <ZPLCommandParameter>
+      <NumericBox Name="w" Code="{{w}}" Description="Ellipse width" AcceptedValue="From 3 to 4095 in dots" Default="3" Min="3" Max="4095" Size="4"/>
+      <NumericBox Name="h" Code="{{h}}" Description="Ellipse height" AcceptedValue="From 3 to 4095 in dots" Default="3" Min="3" Max="4095" Size="4"/>
+      <NumericBox Name="t" Code="{{t}}" Description="Border thickness" AcceptedValue="From 2 to 4095 in dots" Default="2" Min="2" Max="4095" Size="4"/>
+      <ComboBox Name="c" Code="{{c}}" Description="Line color" Default="B">
+        <ComboBoxValues>
+          <ComboBoxValue Value="B">Black</ComboBoxValue>
+          <ComboBoxValue Value="W">White</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^GF</Name>
+    <Category>Graphics</Category>
+    <ShortDesc>Graphic Field</ShortDesc>
+    <LongDesc>The ^GF command allows you to download graphic field data directly into the printer's bitmap storage area. This command follows the conventions for any other field, meaning a field orientation is included. The graphic field data can be placed at any location within the bitmap space.</LongDesc>
+    <Usage>^GFa,b,c,d,e</Usage>
+    <Assistant>^GF{{a}},{{b}},{{c}},{{d}},{{e}}</Assistant>
+    <Command>^GF|a,b,c,d,e</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="a" Code="{{a}}" Description="Compression type" Default="A">
+        <ComboBoxValues>
+          <ComboBoxValue Value="A">ASCII hexadecimal</ComboBoxValue>
+          <ComboBoxValue Value="B">Binary</ComboBoxValue>
+          <ComboBoxValue Value="C">Compressed binary</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="b" Code="{{b}}" Description="Binary byte count" AcceptedValue="From 1 to 99999" Default="" Min="1" Max="99999" Size="5"/>
+      <NumericBox Name="c" Code="{{c}}" Description="Graphic field count" AcceptedValue="From 1 to 99999" Default="" Min="1" Max="99999" Size="5"/>
+      <NumericBox Name="d" Code="{{d}}" Description="Bytes per row" AcceptedValue="From 1 to 99999" Default="" Min="1" Max="99999" Size="5"/>
+      <TextBox Name="e" Code="{{e}}" Description="Data" AcceptedValue="ASCII hexadecimal data: 00 to FF" Default="" Size ="32535"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^GS</Name>
+    <Category>Graphics</Category>
+    <ShortDesc>Graphic Symbol</ShortDesc>
+    <LongDesc>The ^GS command enables you to generate the registered trademark, copyright symbol, and other symbols.</LongDesc>
+    <Usage>^GSo,h,w</Usage>
+    <Assistant>^GS{{o}},{{h}},{{w}}</Assistant>
+    <Command>^GS|o,h,w</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="o" Code="{{o}}" Description="Field orientation" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="R">Rotated 90 degrees (clockwise)</ComboBoxValue>
+          <ComboBoxValue Value="I">Inverted 180 degrees</ComboBoxValue>
+          <ComboBoxValue Value="B">Read from bottom up, 270 degrees</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="h" Code="{{h}}" Description="Character height proportional to width" AcceptedValue="From 1 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <NumericBox Name="w" Code="{{w}}" Description="Character width proportional to height" AcceptedValue="From 1 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <!--Label -->
+  <ZPLCommand>
+    <Name>^LH</Name>
+    <Category>Label</Category>
+    <ShortDesc>Label Home</ShortDesc>
+    <LongDesc>The ^LH command sets the label home position.\r\nThe default home position of a label is the upper-left corner (position 0,0 along the x and y axis). This is the axis reference point for labels. Any area below and to the right of this point is available for printing. The ^LH command changes this reference point. For instance, when working with preprinted labels, use this command to move the reference point below the preprinted area.\r\nThis command affects only fields that come after it. It is recommended to use ^LH as one of the first commands in the label format.</LongDesc>
+    <Usage>^LHx,y</Usage>
+    <Assistant>^LH{{x}},{{y}}</Assistant>
+    <Command>^LH|x,y</Command>
+    <ZPLCommandParameter>
+      <NumericBox Name="x" Code="{{x}}" Description="X-axis location" AcceptedValue="From 0 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+      <NumericBox Name="y" Code="{{y}}" Description="Y-axis location" AcceptedValue="From 0 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+    </ZPLCommandParameter>>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^LL</Name>
+    <Category>Label</Category>
+    <ShortDesc>Label Length</ShortDesc>
+    <LongDesc>The ^LL command defines the length of the label. This command is necessary when using continuous media (media not divided into separate labels by gaps, spaces, notches, slots, or holes).\r\nTo affect the current label and be compatible with existing printers, ^LL must come before the first ^FS (Field Separator) command. Once you have issued ^LL, the etting is retained until you turn off the printer or send a new ^LL command.</LongDesc>
+    <Usage>^LLy</Usage>
+    <Assistant>^LL{{y}}</Assistant>
+    <Command>^LL|y</Command>
+    <ZPLCommandParameter>
+      <NumericBox Name="y" Code="{{y}}" Description="Y-axis location" AcceptedValue="From 0 to 32000 dots" Default="" Min="1" Max="32000" Size="5"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^LR</Name>
+    <Category>Label</Category>
+    <ShortDesc>Label Reverse Print</ShortDesc>
+    <LongDesc>The ^LR command reverses the printing of all fields in the label format. It allows a field to appear as white over black or black over white.\r\nUsing the ^LR is identical to placing an ^FR command in all current and subsequent fields.</LongDesc>
+    <Usage>^LRa</Usage>
+    <Assistant>^LR{{a}}</Assistant>
+    <Command>^LR|a</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="a" Code="{{a}}" Description="Reverse print all fields" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^LS</Name>
+    <Category>Label</Category>
+    <ShortDesc>Label Shift</ShortDesc>
+    <LongDesc>The ^LS command allows for compatibility with Z-130 printer formats that are set for less than full label width. It is used to shift all field positions to the left so the same commands used on a Z-130 or Z-220 Printer can be used on other Zebra printers.\r\nTo determine the value for the ^LS command, use this formula:\r\nZ-130 and Z-220 values for ^LHx + ^FOx\r\n(distance from edge of label) = printer value for ^LSa</LongDesc>
+    <Usage>^LSa</Usage>
+    <Assistant>^LS{{a}}</Assistant>
+    <Command>^LS|a</Command>
+    <ZPLCommandParameter>
+      <NumericBox Name="a" Code="{{a}}" Description="Shift left value" AcceptedValue="From -9999 to 9999 in dots" Default="0" Min="-9999" Max="9999" Size="4"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^LT</Name>
+    <Category>Label</Category>
+    <ShortDesc>Label Top</ShortDesc>
+    <LongDesc>The ^LT command moves the entire label format a maximum of 120 dot rows up or down from its current position, in relation to the top edge of the label. A negative value moves the format towards the top of the label; a positive value moves the format away from the top of the label.\r\nThis command can be used to fine-tune the position of the finished label without having to change any of the existing parameters.</LongDesc>
+    <Usage>^LTx</Usage>
+    <Assistant>^LT{{x}}</Assistant>
+    <Command>^LT|x</Command>
+    <ZPLCommandParameter>
+      <NumericBox Name="x" Code="{{x}}" Description="Label top" AcceptedValue="From -240 to 240 in dots" Default="0" Min="-240" Max="240" Size="3"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^ML</Name>
+    <Category>Label</Category>
+    <ShortDesc>Maximum Label Length</ShortDesc>
+    <LongDesc>The ^ML command lets you adjust the maximum label length.</LongDesc>
+    <Usage>^MLa</Usage>
+    <Assistant>^ML{{a}}</Assistant>
+    <Command>^ML|a</Command>
+    <ZPLCommandParameter>
+      <NumericBox Name="a" Code="{{a}}" Description="maximum label length (in dot rows)" AcceptedValue="the dpi of the printer multiplied by two, up to the maximum length of label" Default="0" Min="-99999" Max="99999" Size="5"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+
+  <!--Media -->
+  <ZPLCommand>
+    <Name>^MD</Name>
+    <Category>Media</Category>
+    <ShortDesc>Media Darkness</ShortDesc>
+    <LongDesc>The ^MD command adjusts the darkness relative to the current darkness setting.</LongDesc>
+    <Usage>^MDa</Usage>
+    <Assistant>^MD{{a}}</Assistant>
+    <Command>^MD|a</Command>
+    <ZPLCommandParameter>
+      <NumericBox Name="a" Code="{{a}}" Description="Media darkness level" AcceptedValue="From -30 to 30, depending on current value" Default="0" Min="-30" Max="30" Size="2"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^MN</Name>
+    <Category>Media</Category>
+    <ShortDesc>Media Tracking</ShortDesc>
+    <LongDesc>The ^MN command specifies the media type being used and the black mark offset in dots.</LongDesc>
+    <Usage>^MNa,b</Usage>
+    <Assistant>^MN{{a}},{{b}}</Assistant>
+    <Command>^Mn|a,b</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="a" Code="{{a}}" Description="Media being used" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Continuous media</ComboBoxValue>
+          <ComboBoxValue Value="Y">Non-continuous media web sensing</ComboBoxValue>
+          <ComboBoxValue Value="W">Non-continuous media web sensing</ComboBoxValue>
+          <ComboBoxValue Value="M">Non-continuous media mark sensing</ComboBoxValue>
+          <ComboBoxValue Value="A">Auto-detects the type of media during calibration</ComboBoxValue>
+          <ComboBoxValue Value="V">Continuous media, variable length</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <NumericBox Name="b" Code="{{b}}" Description="Black mark offset in dots" AcceptedValue="From -240 to 566" Default="0" Min="-240" Max="566" Size="3"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^MT</Name>
+    <Category>Media</Category>
+    <ShortDesc>Media Type</ShortDesc>
+    <LongDesc>The ^MT command selects the type of media being used in the printer.</LongDesc>
+    <Usage>^MTa</Usage>
+    <Assistant>^MT{{a}}</Assistant>
+    <Command>^MT|a</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="a" Code="{{a}}" Description="Media type used" Default="D">
+        <ComboBoxValues>
+          <ComboBoxValue Value="T">Thermal transfer media</ComboBoxValue>
+          <ComboBoxValue Value="D">Direct thermal media</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <!--Printing -->
+  <ZPLCommand>
+    <Name>^PF</Name>
+    <Category>Printing</Category>
+    <ShortDesc>Slew Given Number of Dot Rows</ShortDesc>
+    <LongDesc>The ^PF command causes the printer to slew labels (move labels at a high speed without printing) a specified number of dot rows from the bottom of the label.\r\nThis allows faster printing when the bottom portion of a label is blank.</LongDesc>
+    <Usage>^PF#</Usage>
+    <Assistant>^PF{{#}}</Assistant>
+    <Command>^PF|#</Command>
+    <ZPLCommandParameter>
+      <NumericBox Name="#" Code="{{#}}" Description="Number of dots rows to slew" AcceptedValue="From 0 to 32000" Default="0" Min="0" Max="32000" Size="5"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^PH</Name>
+    <Category>Printing</Category>
+    <ShortDesc>Slew to Home Position</ShortDesc>
+    <LongDesc>The ^PH command causes the printer to feed one blank label.\r\nThe ^PH command feeds one blank label after the current format prints.</LongDesc>
+    <Usage>^PH</Usage>
+    <Assistant>^PH</Assistant>
+    <Command>^PH|</Command>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>~PH</Name>
+    <Category>Printing</Category>
+    <ShortDesc>Slew to Home Position</ShortDesc>
+    <LongDesc>The ~PH command causes the printer to feed one blank label.\r\nThe ~PH command feeds one label after the format currently being printed is done or when the printer is placed in pause.</LongDesc>
+    <Usage>~PH</Usage>
+    <Assistant>~PH</Assistant>
+    <Command>~PH|</Command>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^PM</Name>
+    <Category>Printing</Category>
+    <ShortDesc>Printing Mirror Image of Label</ShortDesc>
+    <LongDesc>The ^PM command prints the entire printable area of the label as a mirror image. This command flips the image from left to right.</LongDesc>
+    <Usage>^PMa</Usage>
+    <Assistant>^PM{{a}}</Assistant>
+    <Command>^PM|a</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="a" Code="{{a}}" Description="Print mirror image of entire label" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^PO</Name>
+    <Category>Printing</Category>
+    <ShortDesc>Print Orientation</ShortDesc>
+    <LongDesc>The ^PO command inverts the label format 180 degrees. The label appears to be printed upside down. If the original label contains commands such as ^LL, ^LS, ^LT and ^PF, the inverted label output is affected differently.</LongDesc>
+    <Usage>^POa</Usage>
+    <Assistant>^PO{{a}}</Assistant>
+    <Command>^PO|a</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="a" Code="{{a}}" Description="Invert label 180 degrees" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="N">Normal</ComboBoxValue>
+          <ComboBoxValue Value="I">Invert</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^PP</Name>
+    <Category>Printing</Category>
+    <ShortDesc>Programmable Pause</ShortDesc>
+    <LongDesc>The ^PP command is not immediate. Therefore, several labels might print before a pause is performed. This command pauses the printer after the current format prints.\r\nThe operation is identical to pressing PAUSE on the control panel of the printer. The printer remains paused until PAUSE is pressed or a ~PS (Print Start) command is sent to the printer.</LongDesc>
+    <Usage>^PP</Usage>
+    <Assistant>^PP</Assistant>
+    <Command>^PP|</Command>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>~PP</Name>
+    <Category>Printing</Category>
+    <ShortDesc>Programmable Pause</ShortDesc>
+    <LongDesc>The ~PP command stops printing after the current label is complete (if one is printing) and places the printer in Pause Mode.\r\nThe printer remains paused until PAUSE is pressed or a ~PS (Print Start) command is sent to the printer.</LongDesc>
+    <Usage>~PP</Usage>
+    <Assistant>~PP</Assistant>
+    <Command>~PP|</Command>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^PQ</Name>
+    <Category>Printing</Category>
+    <ShortDesc>Print Quantity</ShortDesc>
+    <LongDesc>The ^PQ command gives control over several printing operations.\r\nIt controls the number of labels to print, the number of labels printed before printer pauses, and the number of replications of each serial number.</LongDesc>
+    <Usage>^PQq,p,r,o,e</Usage>
+    <Assistant>^PQ{{q}},{{p}},{{r}},{{o}},{{e}}</Assistant>
+    <Command>^PQ|q,p,r,o,e</Command>
+    <ZPLCommandParameter>
+      <NumericBox Name="q" Code="{{q}}" Description="Total quantity of labels to print" AcceptedValue="From 1 to 99999999" Default="1" Min="0" Max="99999999" Size="8"/>
+      <NumericBox Name="p" Code="{{p}}" Description="Pause and cut value" AcceptedValue="From 1 to 99999999" Default="0" Min="0" Max="99999999" Size="8"/>
+      <NumericBox Name="r" Code="{{r}}" Description="Replicates of each serial number" AcceptedValue="From 1 to 99999999" Default="0" Min="0" Max="99999999" Size="8"/>
+      <ComboBox Name="o" Code="{{o}}" Description="Invert label 180 degrees" Default="N">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="e" Code="{{e}}" Description="Cut on error label" Default="Y">
+        <ComboBoxValues>
+          <ComboBoxValue Value="Y">Yes</ComboBoxValue>
+          <ComboBoxValue Value="N">No</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^PR</Name>
+    <Category>Printing</Category>
+    <ShortDesc>Print Rate</ShortDesc>
+    <LongDesc>The ^PR command determines the media and slew speed (feeding a blank label) during printing.\r\nThe printer operates with the selected speeds until the setting is reissued or the printer is turned off.\r\nThe print speed is application-specific. Because print quality is affected by media, ribbon, printing speeds, and printer operating modes, it is very important to run tests for your applications.</LongDesc>
+    <Usage>^PRp,s,b</Usage>
+    <Assistant>^PR{{p}},{{s}},{{b}}</Assistant>
+    <Command>^PR|p,s,b</Command>
+    <ZPLCommandParameter>
+      <ComboBox Name="p" Code="{{p}}" Description="Print speed" Default="2">
+        <ComboBoxValues>
+          <ComboBoxValue Value="1">25.4 mm/sec. (1 inch/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="2">50.8 mm/sec. (2 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="3">76.2 mm/sec. (3 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="4">101.6 mm/sec. (4 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="5">127.0 mm/sec. (5 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="6">152.4 mm/sec. (6 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="7">177.8 mm/sec. (7 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="8">203.2 mm/sec. (8 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="9">220.5 mm/sec. (9 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="10">245.0 mm/sec.(10 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="11">269.5 mm/sec.(11 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="12">304.8 mm/sec. (12 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="13">330.2 mm/sec. (13 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="14">355.6 mm/sec. (14 inches/sec.)</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="s" Code="{{s}}" Description="Slew speed" Default="6">
+        <ComboBoxValues>
+          <ComboBoxValue Value="2">50.8 mm/sec. (2 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="3">76.2 mm/sec. (3 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="4">101.6 mm/sec. (4 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="5">127.0 mm/sec. (5 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="6">152.4 mm/sec. (6 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="7">177.8 mm/sec. (7 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="8">203.2 mm/sec. (8 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="9">220.5 mm/sec. (9 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="10">245.0 mm/sec.(10 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="11">269.5 mm/sec.(11 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="12">304.8 mm/sec. (12 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="13">330.2 mm/sec. (13 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="14">355.6 mm/sec. (14 inches/sec.)</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+      <ComboBox Name="b" Code="{{b}}" Description="Backfeed speed" Default="2">
+        <ComboBoxValues>
+          <ComboBoxValue Value="2">50.8 mm/sec. (2 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="3">76.2 mm/sec. (3 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="4">101.6 mm/sec. (4 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="5">127.0 mm/sec. (5 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="6">152.4 mm/sec. (6 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="7">177.8 mm/sec. (7 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="8">203.2 mm/sec. (8 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="9">220.5 mm/sec. (9 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="10">245.0 mm/sec.(10 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="11">269.5 mm/sec.(11 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="12">304.8 mm/sec. (12 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="13">330.2 mm/sec. (13 inches/sec.)</ComboBoxValue>
+          <ComboBoxValue Value="14">355.6 mm/sec. (14 inches/sec.)</ComboBoxValue>
+        </ComboBoxValues>
+      </ComboBox>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>~PR</Name>
+    <Category>Printing</Category>
+    <ShortDesc>Applicator Reprint</ShortDesc>
+    <LongDesc>The ~PR command is supported only by the PAX and PAX2 series printers.\r\nIf the ~PR command is enabled (see ^JJ on page 255), the last label printed reprints, similar to the applicator asserting the Reprint signal on the applicator port.</LongDesc>
+    <Usage>~PR</Usage>
+    <Assistant>~PR</Assistant>
+    <Command>~PR|</Command>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^PS</Name>
+    <Category>Printing</Category>
+    <ShortDesc>Print Start</ShortDesc>
+    <LongDesc>The ~PS command causes a printer in Pause Mode to resume printing. The operation is identical to pressing PAUSE on the control panel of the printer when the printer is already in Pause Mode.</LongDesc>
+    <Usage>^PS</Usage>
+    <Assistant>^PS</Assistant>
+    <Command>^PS|</Command>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^PW</Name>
+    <Category>Printing</Category>
+    <ShortDesc>Print Width</ShortDesc>
+    <LongDesc>The ^PW command allows you to set the print width.</LongDesc>
+    <Usage>^PWa</Usage>
+    <Assistant>^PW{{a}}</Assistant>
+    <Command>^PW|a</Command>
+    <ZPLCommandParameter>
+      <NumericBox Name="a" Code="{{a}}" Description="Label width" AcceptedValue="From 2 to the width of the label in dots" Default="" Min="2" Max="99999" Size="5"/>
+    </ZPLCommandParameter>
+  </ZPLCommand>
+  <!--Others -->
+  <ZPLCommand>
+    <Name>^XA</Name>
+    <Category>Others</Category>
+    <ShortDesc>Start Format</ShortDesc>
+    <LongDesc>The ^XA command is used at the beginning of ZPL II code. It is the opening bracket and indicates the start of a new label format.\r\nThis command is substituted with a single ASCII control character STX (control-B, hexadecimal 02).</LongDesc>
+    <Usage>^XA</Usage>
+    <Assistant>^XA</Assistant>
+    <Command>^XA</Command>
+  </ZPLCommand>
+  <ZPLCommand>
+    <Name>^XZ</Name>
+    <Category>Others</Category>
+    <ShortDesc>End Format</ShortDesc>
+    <LongDesc>The ^XZ command is the ending (closing) bracket. It indicates the end of a label format.\r\nWhen this command is received, a label prints. This command can also be issued as a single ASCII control character ETX (Control-C, hexadecimal 03).</LongDesc>
+    <Usage>^XZ</Usage>
+    <Assistant>^XZ</Assistant>
+    <Command>^XZ</Command>
+  </ZPLCommand>
+</ArrayOfZPLCommand>
