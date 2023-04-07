@@ -1,6 +1,10 @@
-### Hi there 👋
+### About VisualLabelDesigner 👋
 
-Visual Studio 2019 + .NET Frameworks 4.8
+Environment: Visual Studio 2019 + .NET Frameworks 4.5+
+
+Zebra ZPL design assistance software.
+
+Contact: yumaojun@gmail.com
 
 <!--
 **VisualLabelDesigner/VisualLabelDesigner** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
