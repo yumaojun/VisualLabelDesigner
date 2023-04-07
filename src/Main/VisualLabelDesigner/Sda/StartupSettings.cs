@@ -22,12 +22,12 @@ using System.Collections.Generic;
 namespace ICSharpCode.SharpDevelop.Sda
 {
 	/// <summary>
-	/// This class contains properties you can use to control how SharpDevelop is launched.
+	/// This class contains properties you can use to control how VisualLabelDesigner is launched.
 	/// </summary>
 	[Serializable]
 	public sealed class StartupSettings
 	{
-		bool useSharpDevelopErrorHandler = true;
+		bool useVisualLabelDesignerErrorHandler = true;
 		string applicationName = "VisualLabelDesigner";
 		string applicationRootPath;
 		bool allowAddInConfigurationAndExternalAddIns = true;
@@ -52,14 +52,14 @@ namespace ICSharpCode.SharpDevelop.Sda
 				resourceAssemblyName = value;
 			}
 		}
-		
+
 		/// <summary>
-		/// Gets/Sets whether the SharpDevelop exception box should be used for
+		/// Gets/Sets whether the VisualLabelDesigner exception box should be used for
 		/// unhandled exceptions. The default is true.
 		/// </summary>
-		public bool UseSharpDevelopErrorHandler {
-			get { return useSharpDevelopErrorHandler; }
-			set { useSharpDevelopErrorHandler = value; }
+		public bool UseVisualLabelDesignerErrorHandler {
+			get { return useVisualLabelDesignerErrorHandler; }
+			set { useVisualLabelDesignerErrorHandler = value; }
 		}
 		
 		/// <summary>
@@ -81,10 +81,10 @@ namespace ICSharpCode.SharpDevelop.Sda
 			get { return allowUserAddIns; }
 			set { allowUserAddIns = value; }
 		}
-		
+
 		/// <summary>
 		/// Gets/Sets the application name used by the MessageService and some
-		/// SharpDevelop windows. The default is "SharpDevelop".
+		/// VisualLabelDesigner windows. The default is "VisualLabelDesigner".
 		/// </summary>
 		public string ApplicationName {
 			get { return applicationName; }
@@ -94,18 +94,18 @@ namespace ICSharpCode.SharpDevelop.Sda
 				applicationName = value;
 			}
 		}
-		
+
 		/// <summary>
 		/// Gets/Sets the application root path to use.
-		/// Use null (default) to use the base directory of the SharpDevelop AppDomain.
+		/// Use null (default) to use the base directory of the VisualLabelDesigner AppDomain.
 		/// </summary>
 		public string ApplicationRootPath {
 			get { return applicationRootPath; }
 			set { applicationRootPath = value; }
 		}
-		
+
 		/// <summary>
-		/// Gets/Sets the directory used to store SharpDevelop properties,
+		/// Gets/Sets the directory used to store VisualLabelDesigner properties,
 		/// settings and user AddIns.
 		/// Use null (default) to use "ApplicationData\ApplicationName"
 		/// </summary>

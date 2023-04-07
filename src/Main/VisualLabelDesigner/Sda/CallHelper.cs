@@ -40,8 +40,8 @@ namespace ICSharpCode.SharpDevelop.Sda
 {
 	internal sealed class CallHelper : MarshalByRefObject
 	{
-		SharpDevelopHost.CallbackHelper callback;
-		bool useSharpDevelopErrorHandler;
+		VisualLabelDesignerHost.CallbackHelper callback;
+		bool useVisualLabelDesignerErrorHandler;
 		
 		
 		public override object InitializeLifetimeService()
@@ -50,7 +50,7 @@ namespace ICSharpCode.SharpDevelop.Sda
 		}
 		
 		#region Initialize Core
-		public void InitSharpDevelopCore(SharpDevelopHost.CallbackHelper callback, StartupSettings properties)
+		public void InitVisualLabelDesignerCore(VisualLabelDesignerHost.CallbackHelper callback, StartupSettings properties)
 		{
 			// Initialize the most important services:
 			var container = new SharpDevelopServiceContainer();
@@ -59,11 +59,11 @@ namespace ICSharpCode.SharpDevelop.Sda
 			container.AddService(typeof(ILoggingService), new log4netLoggingService());
 			ServiceSingleton.ServiceProvider = container;
 			
-			LoggingService.Info("InitSharpDevelop...");
+			LoggingService.Info("InitVisualLabelDesigner...");
 			this.callback = callback;
 			CoreStartup startup = new CoreStartup(properties.ApplicationName);
-			if (properties.UseSharpDevelopErrorHandler) {
-				this.useSharpDevelopErrorHandler = true;
+			if (properties.UseVisualLabelDesignerErrorHandler) {
+				this.useVisualLabelDesignerErrorHandler = true;
 				ExceptionBox.RegisterExceptionBoxForUnhandledExceptions();
 			}
 			string configDirectory = properties.ConfigDirectory;
@@ -127,7 +127,7 @@ namespace ICSharpCode.SharpDevelop.Sda
 			FileUtility.FileLoaded += delegate(object sender, FileNameEventArgs e) { this.callback.FileLoaded(e.FileName); };
 			FileUtility.FileSaved  += delegate(object sender, FileNameEventArgs e) { this.callback.FileSaved(e.FileName); };
 			
-			LoggingService.Info("InitSharpDevelop finished");
+			LoggingService.Info("InitVisualLabelDesigner finished");
 		}
 		#endregion
 		
@@ -191,7 +191,7 @@ namespace ICSharpCode.SharpDevelop.Sda
 			if (exception != null) {
 				const string errorText = "Unhandled exception terminated the workbench";
 				LoggingService.Fatal(exception);
-				if (useSharpDevelopErrorHandler) {
+				if (useVisualLabelDesignerErrorHandler) {
 					System.Windows.Forms.Application.Run(new ExceptionBox(exception, errorText, true));
 				} else {
 					throw new RunWorkbenchException(errorText, exception);

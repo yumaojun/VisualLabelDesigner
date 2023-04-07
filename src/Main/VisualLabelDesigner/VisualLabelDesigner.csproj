@@ -249,7 +249,7 @@
     <Compile Include="Sda\Document.cs" />
     <Compile Include="Sda\EventArgs.cs" />
     <Compile Include="Sda\RunWorkbenchException.cs" />
-    <Compile Include="Sda\SharpDevelopHost.cs" />
+    <Compile Include="Sda\VisualLabelDesignerHost.cs" />
     <Compile Include="Sda\StartupSettings.cs" />
     <Compile Include="Sda\WorkbenchSettings.cs" />
     <EmbeddedResource Include="..\..\..\data\resources\StringResources.resx">

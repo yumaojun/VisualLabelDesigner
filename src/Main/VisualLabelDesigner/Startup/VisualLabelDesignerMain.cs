@@ -169,7 +169,7 @@ namespace ICSharpCode.SharpDevelop.Startup
 			try {
 				StartupSettings startup = new StartupSettings();
 				#if DEBUG
-				startup.UseSharpDevelopErrorHandler = UseExceptionBox;
+				startup.UseVisualLabelDesignerErrorHandler = UseExceptionBox;
 				#endif
 				
 				Assembly exe = typeof(VisualLabelDesignerMain).Assembly;
@@ -202,8 +202,8 @@ namespace ICSharpCode.SharpDevelop.Startup
 						startup.AddAddInsFromDirectory(parameter.Substring(9));
 					}
 				}
-				
-				SharpDevelopHost host = new SharpDevelopHost(AppDomain.CurrentDomain, startup);
+
+				VisualLabelDesignerHost host = new VisualLabelDesignerHost(AppDomain.CurrentDomain, startup);
 				
 				string[] fileList = SplashScreenForm.GetRequestedFileList();
 				if (fileList.Length > 0) {
