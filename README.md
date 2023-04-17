@@ -1,8 +1,10 @@
 ### About VisualLabelDesigner 👋
 
-Environment: Visual Studio 2019 + .NET Frameworks 4.5+
+Visual Studio 2019 + .NET Frameworks 4.5+
 
-Zebra ZPL design assistance software.
+Labels Designer
+
+ZPL Edit
 
 Contact: yumaojun@gmail.com
 
