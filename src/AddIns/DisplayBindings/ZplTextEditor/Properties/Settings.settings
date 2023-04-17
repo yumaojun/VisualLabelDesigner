@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile CurrentProfile="(Default)" GeneratedClassNamespace="VisualLabelDesigner.ZplTextEditor.Properties" GeneratedClassName="Settings" xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings">
+<SettingsFile CurrentProfile="(Default)" GeneratedClassNamespace="VisualLabelDesigner.ZPLTextEditor.Properties" GeneratedClassName="Settings" xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings">
   <Profiles />
   <Settings>
     <Setting Name="RegularStyleColor" Type="System.Drawing.Color" Scope="User">

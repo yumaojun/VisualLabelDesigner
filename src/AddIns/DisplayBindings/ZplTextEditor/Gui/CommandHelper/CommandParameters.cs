@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using VisualLabelDesigner.ZplTextEditor.Services;
+using YProgramStudio.ZPLTextEditor.Services;
 
-namespace VisualLabelDesigner.ZplTextEditor.Gui
+namespace YProgramStudio.ZPLTextEditor.Gui
 {
 	public class CommandParameters : UserControl
 	{
@@ -37,16 +37,16 @@ namespace VisualLabelDesigner.ZplTextEditor.Gui
 			int num = 1;
 			this.rtbParameterDescription.Clear();
 			this.btnCreateAssistant.Enabled = true;
-			if (zplCommand.Parameters != null && zplCommand.Parameters.ZPLCommandParameters.Count<BaseZplParameter>() > 0)
+			if (zplCommand.Parameters != null && zplCommand.Parameters.ZPLCommandParameters.Count<BaseZPLParameter>() > 0)
 			{
 				this.rtbParameterDescription.SelectionFont = new Font(this.rtbParameterDescription.Font, FontStyle.Bold);
 				this.rtbParameterDescription.AppendText("Prm\tDescription\tAccepted Values\r\n");
 				this.rtbParameterDescription.SelectionFont = new Font(this.rtbParameterDescription.Font, FontStyle.Regular);
-				using (List<BaseZplParameter>.Enumerator enumerator = zplCommand.Parameters.ZPLCommandParameters.GetEnumerator())
+				using (List<BaseZPLParameter>.Enumerator enumerator = zplCommand.Parameters.ZPLCommandParameters.GetEnumerator())
 				{
 					while (enumerator.MoveNext())
 					{
-						BaseZplParameter baseZplParameter = enumerator.Current;
+						BaseZPLParameter baseZplParameter = enumerator.Current;
 						this.rtbParameterDescription.AppendText("-------------------------------------------------------------------------------------------------------------------------\r\n");
 						this.rtbParameterDescription.AppendText(string.Format(" {0}\t{1}", baseZplParameter.Name, baseZplParameter.Description));
 						if (num < baseZplParameter.Description.Length)

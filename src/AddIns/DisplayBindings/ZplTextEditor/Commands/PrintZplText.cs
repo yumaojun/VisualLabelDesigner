@@ -8,7 +8,7 @@ using FastColoredTextBoxNS;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Workbench;
 
-namespace VisualLabelDesigner.ZplTextEditor
+namespace YProgramStudio.ZPLTextEditor
 {
 	/// <summary>
 	/// Print zpl text
@@ -20,7 +20,7 @@ namespace VisualLabelDesigner.ZplTextEditor
 			IViewContent vc = SD.Workbench.ActiveViewContent;
 			if (vc != null)
 			{
-				ZplTextEditorPanel zplTextEditor = vc.Control as ZplTextEditorPanel;
+				ZPLTextEditorPanel zplTextEditor = vc.Control as ZPLTextEditorPanel;
 				if (zplTextEditor != null)
 				{
 					PrintDialogSettings printDialogSettings = new PrintDialogSettings();

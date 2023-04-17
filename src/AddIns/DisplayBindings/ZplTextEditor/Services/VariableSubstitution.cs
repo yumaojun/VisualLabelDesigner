@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VisualLabelDesigner.ZplTextEditor.Services
+namespace YProgramStudio.ZPLTextEditor.Services
 {
 	public class VariableSubstitution
 	{

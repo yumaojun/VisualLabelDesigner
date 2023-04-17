@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VisualLabelDesigner.ZplTextEditor.Gui
+namespace YProgramStudio.ZPLTextEditor.Gui
 {
 	public class PrinterComboBox : System.Windows.Controls.ComboBox
 	{

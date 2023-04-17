@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace VisualLabelDesigner.ZplTextEditor.Gui
+namespace YProgramStudio.ZPLTextEditor.Gui
 {
 	public partial class CommandBox : UserControl, IPadContent
 	{

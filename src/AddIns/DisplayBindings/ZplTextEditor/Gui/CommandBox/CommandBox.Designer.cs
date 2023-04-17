@@ -1,7 +1,7 @@
 ﻿
 using System.Collections.Generic;
 
-namespace VisualLabelDesigner.ZplTextEditor.Gui
+namespace YProgramStudio.ZPLTextEditor.Gui
 {
 	partial class CommandBox
 	{
@@ -42,7 +42,7 @@ namespace VisualLabelDesigner.ZplTextEditor.Gui
 		private void InitializeComponent()
 		{
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.tbSearch = new VisualLabelDesigner.ZplTextEditor.Gui.DelayedTextBox();
+            this.tbSearch = new YProgramStudio.ZPLTextEditor.Gui.DelayedTextBox();
             this.tsTool = new System.Windows.Forms.ToolStrip();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();

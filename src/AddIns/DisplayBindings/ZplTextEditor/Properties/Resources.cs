@@ -7,7 +7,7 @@ using System.Globalization;
 using System.Resources;
 using System.Runtime.CompilerServices;
 
-namespace VisualLabelDesigner.ZplTextEditor.Properties
+namespace YProgramStudio.ZPLTextEditor.Properties
 {
 	[GeneratedCode("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
 	[DebuggerNonUserCode]

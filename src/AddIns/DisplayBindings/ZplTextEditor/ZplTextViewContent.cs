@@ -10,11 +10,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VisualLabelDesigner.ZplTextEditor
+namespace YProgramStudio.ZPLTextEditor
 {
-	public class ZplTextViewContent : AbstractViewContent
+	public class ZPLTextViewContent : AbstractViewContent
 	{
-		ZplTextEditorPanel editor;
+		ZPLTextEditorPanel editor;
 
 		public override object Control
 		{
@@ -24,9 +24,9 @@ namespace VisualLabelDesigner.ZplTextEditor
 			}
 		}
 
-		public ZplTextViewContent(OpenedFile file) : base(file)
+		public ZPLTextViewContent(OpenedFile file) : base(file)
 		{
-			editor = new ZplTextEditorPanel(this);
+			editor = new ZPLTextEditorPanel(this);
 			editor.TextWasEdited += editor_TextWasEdited;
 		}
 
@@ -45,9 +45,9 @@ namespace VisualLabelDesigner.ZplTextEditor
 		{
 			try
 			{
-				editor.ShowFile(new ZplTextFile(stream));
+				editor.ShowFile(new ZPLTextFile(stream));
 			}
-			catch (InvalidZplTextException ex)
+			catch (InvalidZPLTextException ex)
 			{
 				// call with a delay to work around a re-entrancy bug
 				// when closing a workbench window while it is getting activated

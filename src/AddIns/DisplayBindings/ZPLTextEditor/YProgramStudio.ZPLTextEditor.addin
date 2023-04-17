@@ -1,0 +1,179 @@
+﻿<AddIn name        = "ZPL Text Editor"
+       author      = "yumaojun@qq.com"
+       copyright   = "prj:///doc/copyright.txt"
+       description = "Allows editing .zpl files inside Visual Label Designer"
+       addInManagerHidden = "preinstalled">
+	
+	<Manifest>
+		<Identity name = "YProgramStudio.ZPLTextEditor"/>
+		<Dependency addin="SharpDevelop" />
+	</Manifest>
+
+	<Runtime>
+		<Import assembly = "YProgramStudio.ZPLTextEditor.dll"/>
+		<Import assembly = "FastColoredTextBox.dll"/>
+	</Runtime>
+	
+	<Path name = "/SharpDevelop/Workbench/FileFilter">
+		<FileFilter id = "ZPLs"
+		            insertbefore="AllFiles"
+		            name = "ZPLs"
+		            extensions = "*.zpl"/>
+	</Path>
+	
+	<Path name = "/SharpDevelop/Workbench/DisplayBindings">
+		<DisplayBinding id    = "ZPLTextEditor"
+		                class = "YProgramStudio.ZPLTextEditor.ZPLTextDisplayBinding"
+		                insertbefore    = "Text"
+		                fileNamePattern = "\.(zpl|zplx)$"
+		                title = "ZPL Text Editor"/>
+	</Path>
+
+	<!--<Path name = "/SharpDevelop/Dialogs/OptionsDialog">
+		<OptionPanel id    = "TextEditorOptions"
+		             insertafter = "CodingOptions"
+		             insertbefore = "ToolsOptions"
+		             label = "${res:Dialog.Options.IDEOptions.TextEditorOptionsText}">
+			<OptionPanel id = "General"
+			             label = "${res:Dialog.Options.IDEOptions.General}"
+			             class = "ICSharpCode.AvalonEdit.AddIn.Options.GeneralEditorOptions"/>
+			<OptionPanel id = "Markers"
+			             label = "${res:Dialog.Options.IDEOptions.TextEditor.Markers.PanelName}"
+			             class = "ICSharpCode.AvalonEdit.AddIn.Options.TextViewOptions"/>
+			<OptionPanel id = "Behavior"
+			             label = "${res:Dialog.Options.IDEOptions.TextEditor.Behaviour.PanelName}"
+			             class = "ICSharpCode.AvalonEdit.AddIn.Options.BehaviorOptions"/>
+			<OptionPanel id = "Highlighting"
+			             label = "${res:Dialog.Options.TextEditorOptions.EditHighlighting.Title}"
+			             class = "ICSharpCode.AvalonEdit.AddIn.Options.HighlightingOptions"/>
+		</OptionPanel>
+	</Path>-->
+
+	<Path name="/SharpDevelop/Dialogs/OptionsDialog">
+		<OptionPanel
+			id="CodeEditorOptions"
+			label="Code Editor"
+			insertafter="UIOptions"
+			insertbefore="ToolsOptions">
+			<OptionPanel
+				id="CodeEditorGeneralOptions"
+				label="General"
+				class="YProgramStudio.ZPLTextEditor.Gui.GeneralOptions"/>
+			<OptionPanel
+				id="CodeEditorZPLTextOptions"
+				label="ZPL Text Options"
+				class="YProgramStudio.ZPLTextEditor.Gui.ZPLTextOptions"/>
+		</OptionPanel>
+	</Path>
+
+	<Path name = "/SharpDevelop/Workbench/Pads">
+
+		<!-- ZPL命令面板 -->
+		<Pad id       = "CommandBox"
+		     category = "Main"
+		     title    = "Command Box"
+		     icon     = "PadIcons.ProjectBrowser"
+		     class    = "YProgramStudio.ZPLTextEditor.Gui.CommandBox"
+		     defaultPosition = "Left" />
+
+		<!-- ZPL命令帮助功能 -->
+		<Pad id       = "CommandHelper"
+		     category = "Tools"
+		     title    = "Command Helper"
+		     icon     = "PadIcons.FindResults"
+		     class    = "YProgramStudio.ZPLTextEditor.Gui.CommandHelper"
+		     defaultPosition = "Bottom" />
+
+		<!-- ZPL预览功能 -->
+		<Pad id       = "CommandPreview"
+				 category = "Main"
+				 title    = "Command Preview"
+				 icon     = "PadIcons.ClassBrowser"
+				 class    = "YProgramStudio.ZPLTextEditor.Gui.CommandPreview"
+				 defaultPosition = "Right" />
+
+	</Path>
+
+	<Path name = "/SharpDevelop/Workbench/ToolBar/Standard">
+		<ToolbarItem id = "ZPLWorkSeparator" type = "Separator" />
+		<ToolbarItem id      = "ZPLWorkInsertImage"
+		             icon    = "Icons.16x16.ResourceEditor.bmp"
+		             tooltip = "Insert Image"
+		             class   = "YProgramStudio.ZPLTextEditor.Commands.InsertImageCommand"/>
+		
+		<ToolbarItem id      = "ZPLWorkPrintZPLText"
+		             icon    = "Icons.16x16.Print"
+		             tooltip = "Print ZPL Text"
+		             class   = "YProgramStudio.ZPLTextEditor.PrintZPLText"/>
+
+		<ToolbarItem id = "ZPLWorkPrintSeparator" type = "Separator" />
+		<!--<ToolbarItem id      = "ZPLWorkSelectPrinter"
+		             label   = "Engine"
+					 class   = "YProgramStudio.ZPLTextEditor.SelectLabel"
+		             />-->
+		<ToolbarItem id      = "ZPLWorkPrinterTypeDropDown" type = "Custom"
+					 tooltip = "Engine"
+				     class   = "YProgramStudio.ZPLTextEditor.Gui.PrinterTypeComboBox"
+					 />
+		<!--<ToolbarItem id      = "ZPLWorkSelect"
+		             label   = "Select"
+					 class   = "YProgramStudio.ZPLTextEditor.SelectLabel"
+		             />-->
+		<ToolbarItem id      = "ZPLWorkPrinterOrCanvasDropDown" type = "Custom"
+					 tooltip = "Select Item for Print"
+				     class   = "YProgramStudio.ZPLTextEditor.Gui.PrinterOrCanvasComboBox"
+					 />
+		<ToolbarItem id      = "ZPLWorkConnectPrinter"
+		             icon    = "btnConnect.Image"
+		             tooltip = "Connect Printer"
+		             class   = "YProgramStudio.ZPLTextEditor.ConnectPrinter"/>
+
+		<ToolbarItem id = "ZPLWorkPreviewSeparator" type = "Separator" />
+		<ToolbarItem id      = "ZPLWorkPreviewLabel"
+		             icon    = "Icons.16x16.PreView"
+					 label   = "Preview[F5]"
+		             tooltip = "Preview Label"
+		             class   = "YProgramStudio.ZPLTextEditor.PreviewLabel"
+					 />
+		<ToolbarItem id      = "ZPLWorkPrintLabel"
+		             icon    = "Icons.16x16.Print"
+					 label   = "Print[F6]"
+		             tooltip = "Print Label"
+		             class   = "YProgramStudio.ZPLTextEditor.PrintLabel"
+					 />
+		<ToolbarItem id      = "ZPLWorkPrinterDropDown" type = "Custom"
+				     class   = "YProgramStudio.ZPLTextEditor.Gui.PrinterComboBox"
+					 />
+
+		<ToolbarItem id = "ZPLWorkLabelSizeSeparator" type = "Separator" />
+		<!--<ToolbarItem id      = "ZPLWorkLabelSize"
+					 label    = "Label Size"
+					 class   = "YProgramStudio.ZPLTextEditor.SizeLabel"
+		             />-->
+		<ToolbarItem id      = "ZPLWorkLabelSizeDropDown" type = "Custom"
+				     class   = "YProgramStudio.ZPLTextEditor.Gui.LabelSizeComboBox"
+					 />
+		<ToolbarItem id      = "ZPLWorkLabelSizeOption"
+		             icon    = "btnLabelFormat.Image"
+		             tooltip = "Label Size Option Open"
+		             class   = "YProgramStudio.ZPLTextEditor.LabelSizeOption"/>
+
+		<ToolbarItem id = "ZPLWorkLabelVarSeparator" type = "Separator" />
+		<ToolbarItem id      = "ZPLWorkLabelVarOption" type = "SplitButton"
+		             icon    = "Icons.16x16.ResourceEditor.string"
+					 label   = "Variable Mapping"
+		             tooltip = "Variable Mapping Open"
+		             class   = "YProgramStudio.ZPLTextEditor.VariableMappingCommand">
+			<MenuItem id    = "ZPLWorkLabelVarItem1" 
+			          icon  = ""
+			          label = "Enabled"
+			          class = "YProgramStudio.ZPLTextEditor.VariableMappingEnabledCommand"/>
+			<MenuItem id    = "ZPLWorkLabelVarItem2"
+			          icon  = ""
+			          label = "Disabled"
+			          class = "YProgramStudio.ZPLTextEditor.VariableMappingCommand"/>
+		</ToolbarItem>
+
+	</Path>
+
+</AddIn>

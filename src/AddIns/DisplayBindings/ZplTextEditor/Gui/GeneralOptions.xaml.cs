@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace VisualLabelDesigner.ZplTextEditor.Gui
+namespace YProgramStudio.ZPLTextEditor.Gui
 {
 	/// <summary>
 	/// UserControl1.xaml 的交互逻辑

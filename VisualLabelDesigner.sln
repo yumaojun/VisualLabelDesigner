@@ -88,9 +88,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICSharpCode.Data.EDMDesigne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICSharpCode.Data.SQLServer", "src\AddIns\DisplayBindings\Data\ICSharpCode.Data.SQLServer\ICSharpCode.Data.SQLServer.csproj", "{AFE34868-AFA1-4E1C-9450-47AB4BE329D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZplTextEditor", "src\AddIns\DisplayBindings\ZplTextEditor\ZplTextEditor.csproj", "{DA2880DA-F48B-46E1-8351-A715B7C8F217}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YProgramStudio.ZPLTextEditor", "src\AddIns\DisplayBindings\ZPLTextEditor\YProgramStudio.ZPLTextEditor.csproj", "{DA2880DA-F48B-46E1-8351-A715B7C8F217}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZplLabelDesigner", "src\AddIns\DisplayBindings\ZplLabelDesigner\ZplLabelDesigner.csproj", "{64981D5A-1255-4474-AD39-C79E9E0B9328}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YProgramStudio.LabelsDesigner", "src\AddIns\DisplayBindings\LabelsDesigner\YProgramStudio.LabelsDesigner.csproj", "{64981D5A-1255-4474-AD39-C79E9E0B9328}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

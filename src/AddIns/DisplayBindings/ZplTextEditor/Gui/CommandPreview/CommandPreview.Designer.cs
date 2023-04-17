@@ -1,5 +1,5 @@
 ﻿
-namespace VisualLabelDesigner.ZplTextEditor.Gui
+namespace YProgramStudio.ZPLTextEditor.Gui
 {
 	partial class CommandPreview
 	{
@@ -146,7 +146,7 @@ namespace VisualLabelDesigner.ZplTextEditor.Gui
             // btnZoomPlus
             // 
             this.btnZoomPlus.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnZoomPlus.Image = global::VisualLabelDesigner.ZplTextEditor.Properties.Resources.ic_zoom_plus;
+            this.btnZoomPlus.Image = global::YProgramStudio.ZPLTextEditor.Properties.Resources.ic_zoom_plus;
             this.btnZoomPlus.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnZoomPlus.Name = "btnZoomPlus";
             this.btnZoomPlus.Size = new System.Drawing.Size(29, 28);
@@ -156,7 +156,7 @@ namespace VisualLabelDesigner.ZplTextEditor.Gui
             // btnZoomMinus
             // 
             this.btnZoomMinus.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnZoomMinus.Image = global::VisualLabelDesigner.ZplTextEditor.Properties.Resources.ic_zoom_minus;
+            this.btnZoomMinus.Image = global::YProgramStudio.ZPLTextEditor.Properties.Resources.ic_zoom_minus;
             this.btnZoomMinus.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnZoomMinus.Name = "btnZoomMinus";
             this.btnZoomMinus.Size = new System.Drawing.Size(29, 28);
@@ -214,7 +214,7 @@ namespace VisualLabelDesigner.ZplTextEditor.Gui
             // btnRotateLeft
             // 
             this.btnRotateLeft.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnRotateLeft.Image = global::VisualLabelDesigner.ZplTextEditor.Properties.Resources.ic_rotate_left;
+            this.btnRotateLeft.Image = global::YProgramStudio.ZPLTextEditor.Properties.Resources.ic_rotate_left;
             this.btnRotateLeft.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRotateLeft.Name = "btnRotateLeft";
             this.btnRotateLeft.Size = new System.Drawing.Size(29, 28);
@@ -230,7 +230,7 @@ namespace VisualLabelDesigner.ZplTextEditor.Gui
             // btnRotateRight
             // 
             this.btnRotateRight.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnRotateRight.Image = global::VisualLabelDesigner.ZplTextEditor.Properties.Resources.ic_rotate_right;
+            this.btnRotateRight.Image = global::YProgramStudio.ZPLTextEditor.Properties.Resources.ic_rotate_right;
             this.btnRotateRight.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRotateRight.Name = "btnRotateRight";
             this.btnRotateRight.Size = new System.Drawing.Size(29, 28);
@@ -280,7 +280,7 @@ namespace VisualLabelDesigner.ZplTextEditor.Gui
             // btnCopyImage
             // 
             this.btnCopyImage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnCopyImage.Image = global::VisualLabelDesigner.ZplTextEditor.Properties.Resources.ic_copy;
+            this.btnCopyImage.Image = global::YProgramStudio.ZPLTextEditor.Properties.Resources.ic_copy;
             this.btnCopyImage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCopyImage.Name = "btnCopyImage";
             this.btnCopyImage.Size = new System.Drawing.Size(29, 28);

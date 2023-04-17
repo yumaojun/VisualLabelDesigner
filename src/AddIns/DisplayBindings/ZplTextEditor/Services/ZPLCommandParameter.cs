@@ -5,26 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace VisualLabelDesigner.ZplTextEditor.Services
+namespace YProgramStudio.ZPLTextEditor.Services
 {
-	public class ComboBoxParameter : BaseZplParameter
+	public class ComboBoxParameter : BaseZPLParameter
 	{
 		[XmlArray("ComboBoxValues")]
 		[XmlArrayItem("ComboBoxValue", typeof(ComboBoxValue))]
 		public List<ComboBoxValue> Values = new List<ComboBoxValue>();
 	}
 
-	public class TextBoxParameter : BaseZplParameter
+	public class TextBoxParameter : BaseZPLParameter
 	{
 		[XmlAttribute(AttributeName = "Size")]
 		public int Size { get; set; }
 	}
 
-	public class ButtonParameter : BaseZplParameter
+	public class ButtonParameter : BaseZPLParameter
 	{
 	}
 
-	public class NumericBoxParameter : BaseZplParameter
+	public class NumericBoxParameter : BaseZPLParameter
 	{
 		[XmlAttribute(AttributeName = "Min")]
 		public int Min { get; set; }
@@ -46,6 +46,6 @@ namespace VisualLabelDesigner.ZplTextEditor.Services
 		[XmlElement(typeof(TextBoxParameter), ElementName = "TextBox")]
 		[XmlElement(typeof(ButtonParameter), ElementName = "Button")]
 		[XmlElement(typeof(NumericBoxParameter), ElementName = "NumericBox")]
-		public List<BaseZplParameter> ZPLCommandParameters { get; set; }
+		public List<BaseZPLParameter> ZPLCommandParameters { get; set; }
 	}
 }

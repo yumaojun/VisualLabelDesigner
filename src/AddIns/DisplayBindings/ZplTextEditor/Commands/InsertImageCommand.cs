@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using VisualLabelDesigner.ZplTextEditor.Services;
+using YProgramStudio.ZPLTextEditor.Services;
 
-namespace VisualLabelDesigner.ZplTextEditor.Commands
+namespace YProgramStudio.ZPLTextEditor.Commands
 {
 	public class InsertImageCommand : AbstractMenuCommand
 	{
@@ -22,7 +22,7 @@ namespace VisualLabelDesigner.ZplTextEditor.Commands
 			openFileDialog.ShowDialog();
 			if (!string.IsNullOrEmpty(openFileDialog.FileName))
 			{
-				ZplImageConverter zplImageConverter = new ZplImageConverter();
+				ZPLImageConverter zplImageConverter = new ZPLImageConverter();
 				zplImageConverter.Image = Image.FromFile(openFileDialog.FileName);
 				zplImageConverter.CompressHex = true;
 				zplImageConverter.BlacknessLimitPercentage = 50;
@@ -30,7 +30,7 @@ namespace VisualLabelDesigner.ZplTextEditor.Commands
 				IViewContent vc = SD.Workbench.ActiveViewContent;
 				if (vc != null)
 				{
-					ZplTextEditorPanel zplTextEditor = vc.Control as ZplTextEditorPanel;
+					ZPLTextEditorPanel zplTextEditor = vc.Control as ZPLTextEditorPanel;
 					zplTextEditor.ZplCodeTextBox.SelectedText = zplImageConverter.Value;
 				}
 			}

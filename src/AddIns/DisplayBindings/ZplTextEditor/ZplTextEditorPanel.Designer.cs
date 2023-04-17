@@ -3,9 +3,9 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace VisualLabelDesigner.ZplTextEditor
+namespace YProgramStudio.ZPLTextEditor
 {
-	partial class ZplTextEditorPanel
+	partial class ZPLTextEditorPanel
 	{
 		/// <summary> 
 		/// 必需的设计器变量。

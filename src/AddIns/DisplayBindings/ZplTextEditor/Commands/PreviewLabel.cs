@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VisualLabelDesigner.ZplTextEditor.Gui;
+using YProgramStudio.ZPLTextEditor.Gui;
 
-namespace VisualLabelDesigner.ZplTextEditor
+namespace YProgramStudio.ZPLTextEditor
 {
 	/// <summary>
 	/// preview label & send to labelary.com
@@ -21,7 +21,7 @@ namespace VisualLabelDesigner.ZplTextEditor
 
 			if (vc != null)
 			{
-				ZplTextEditorPanel zplTextEditor = vc.Control as ZplTextEditorPanel;
+				ZPLTextEditorPanel zplTextEditor = vc.Control as ZPLTextEditorPanel;
 				LabelaryDpmm ldpmm = PrinterOrCanvasComboBox.Instance.GetValue();
 				LabelFormat lf = LabelSizeComboBox.Instance.GetValue();
 

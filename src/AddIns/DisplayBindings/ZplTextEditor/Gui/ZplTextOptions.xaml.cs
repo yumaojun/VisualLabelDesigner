@@ -14,14 +14,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace VisualLabelDesigner.ZplTextEditor.Gui
+namespace YProgramStudio.ZPLTextEditor.Gui
 {
 	/// <summary>
 	/// ZplTextOptions.xaml 的交互逻辑
 	/// </summary>
-	public partial class ZplTextOptions : OptionPanel
+	public partial class ZPLTextOptions : OptionPanel
 	{
-		public ZplTextOptions()
+		public ZPLTextOptions()
 		{
 			InitializeComponent();
 		}

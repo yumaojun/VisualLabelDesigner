@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using VisualLabelDesigner.ZplTextEditor.Services;
+using YProgramStudio.ZPLTextEditor.Services;
 
-namespace VisualLabelDesigner.ZplTextEditor.Gui
+namespace YProgramStudio.ZPLTextEditor.Gui
 {
 	public partial class ZplCommandCreate : Form
 	{
@@ -31,7 +31,7 @@ namespace VisualLabelDesigner.ZplTextEditor.Gui
 			this.lblUsage.Text = string.Format("Usage: {0}", this._zplCommand.Usage);
 			this.tbDescription.Text = this._zplCommand.LongDescription.Replace("\\r\\n", Environment.NewLine);
 			int num = 0;
-			foreach (BaseZplParameter scp in this._zplCommand.Parameters.ZPLCommandParameters)
+			foreach (BaseZPLParameter scp in this._zplCommand.Parameters.ZPLCommandParameters)
 			{
 				ZplCommandAssistant zAssistant = new ZplCommandAssistant();
 				ZplCommandAssistant zAssistant2 = zAssistant.ShowParameter(scp, num, this.splitContainer1.Panel2.Width);

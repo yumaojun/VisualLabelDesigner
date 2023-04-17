@@ -1,5 +1,5 @@
 ﻿
-namespace VisualLabelDesigner.ZplTextEditor.Gui
+namespace YProgramStudio.ZPLTextEditor.Gui
 {
 	partial class VariableSubstitutionControl
 	{

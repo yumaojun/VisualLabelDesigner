@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VisualLabelDesigner.ZplTextEditor.Services;
+using YProgramStudio.ZPLTextEditor.Services;
 
-namespace VisualLabelDesigner.ZplTextEditor.Gui
+namespace YProgramStudio.ZPLTextEditor.Gui
 {
 	public class EventArgsZPLCommand
 	{

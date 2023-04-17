@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace VisualLabelDesigner.ZplTextEditor.Services
+namespace YProgramStudio.ZPLTextEditor.Services
 {
-	public abstract class BaseZplParameter
+	public abstract class BaseZPLParameter
 	{
 		[XmlAttribute(AttributeName = "Name")]
 		public string Name { get; set; }

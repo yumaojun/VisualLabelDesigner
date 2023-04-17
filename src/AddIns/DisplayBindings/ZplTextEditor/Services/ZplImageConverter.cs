@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VisualLabelDesigner.ZplTextEditor.Services
+namespace YProgramStudio.ZPLTextEditor.Services
 {
 	/// <summary>
 	/// Converter Image to Zpl
 	/// </summary>
-	public class ZplImageConverter
+	public class ZPLImageConverter
 	{
 		private int blackLimit = 125;
 
@@ -186,10 +186,10 @@ namespace VisualLabelDesigner.ZplTextEditor.Services
 					{
 						int key = num2 / 20 * 20;
 						int num3 = num2 % 20;
-						stringBuilder2.Append(ZplImageConverter.mapCode[key]);
+						stringBuilder2.Append(ZPLImageConverter.mapCode[key]);
 						if (num3 != 0)
 						{
-							stringBuilder2.Append(ZplImageConverter.mapCode[num3] + c.ToString());
+							stringBuilder2.Append(ZPLImageConverter.mapCode[num3] + c.ToString());
 						}
 						else
 						{
@@ -198,8 +198,8 @@ namespace VisualLabelDesigner.ZplTextEditor.Services
 					}
 					else
 					{
-						stringBuilder2.Append(ZplImageConverter.mapCode[num2] + c.ToString());
-						string text = ZplImageConverter.mapCode[num2];
+						stringBuilder2.Append(ZPLImageConverter.mapCode[num2] + c.ToString());
+						string text = ZPLImageConverter.mapCode[num2];
 					}
 					num2 = 1;
 					flag = true;
@@ -224,10 +224,10 @@ namespace VisualLabelDesigner.ZplTextEditor.Services
 					{
 						int key2 = num2 / 20 * 20;
 						int num4 = num2 % 20;
-						stringBuilder2.Append(ZplImageConverter.mapCode[key2]);
+						stringBuilder2.Append(ZPLImageConverter.mapCode[key2]);
 						if (num4 != 0)
 						{
-							stringBuilder2.Append(ZplImageConverter.mapCode[num4] + c.ToString());
+							stringBuilder2.Append(ZPLImageConverter.mapCode[num4] + c.ToString());
 						}
 						else
 						{
@@ -236,7 +236,7 @@ namespace VisualLabelDesigner.ZplTextEditor.Services
 					}
 					else
 					{
-						stringBuilder2.Append(ZplImageConverter.mapCode[num2] + c.ToString());
+						stringBuilder2.Append(ZPLImageConverter.mapCode[num2] + c.ToString());
 					}
 					num2 = 1;
 					c = code[i];

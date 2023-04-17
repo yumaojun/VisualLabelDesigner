@@ -6,9 +6,9 @@ using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Gui;
 using ICSharpCode.SharpDevelop.Workbench;
 
-namespace VisualLabelDesigner.ZplTextEditor
+namespace YProgramStudio.ZPLTextEditor
 {
-	public class ZplTextDisplayBinding : IDisplayBinding
+	public class ZPLTextDisplayBinding : IDisplayBinding
 	{
 		public bool CanCreateContentForFile(FileName fileName)
 		{
@@ -17,7 +17,7 @@ namespace VisualLabelDesigner.ZplTextEditor
 		
 		public IViewContent CreateContentForFile(OpenedFile file)
 		{
-			return new ZplTextViewContent(file);
+			return new ZPLTextViewContent(file);
 		}
 		
 		public bool IsPreferredBindingForFile(FileName fileName)

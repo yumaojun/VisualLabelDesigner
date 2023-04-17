@@ -10,9 +10,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using VisualLabelDesigner.ZplTextEditor.Properties;
+using YProgramStudio.ZPLTextEditor.Properties;
 
-namespace VisualLabelDesigner.ZplTextEditor.Gui
+namespace YProgramStudio.ZPLTextEditor.Gui
 {
 	public partial class CommandPreview : UserControl, IPadContent
 	{

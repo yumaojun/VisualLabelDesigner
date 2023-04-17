@@ -1,0 +1,130 @@
+﻿<AddIn name        = "Labels Designer"
+	   author      = "yumaojun@qq.com"
+       description = "Labels Designer for printing"
+       addInManagerHidden = "preinstalled">
+	
+	<Manifest>
+		<Identity name="YProgramStudio.LabelsDesigner"/>
+		<Dependency addin="SharpDevelop" />
+		<!--<Dependency addin="YProgramStudio.ZPLTextEditor" requirePreload = "true" />-->
+	</Manifest>
+	
+	<Runtime>
+		<Import assembly = "YProgramStudio.LabelsDesigner.dll"/>
+	</Runtime>
+
+	<Path name = "/SharpDevelop/Workbench/DisplayBindings">
+		<DisplayBinding id    = "LabelsDesigner"
+		                class = "YProgramStudio.LabelsDesigner.LabelDisplayBinding"
+		                insertbefore    = "Text"
+		                fileNamePattern = "\.(label|labelx)$"
+		                title = "Labels Designer"/>
+	</Path>
+	
+	<!--<Path name = "/SharpDevelop/Workbench/MainMenu/Search">
+		<MenuItem id = "Find"
+		          label = "${res:XML.MainMenu.SearchMenu.Find}"
+		          icon = "Icons.16x16.FindIcon"
+		          shortcut = "Control|Shift|F"
+		          class = "SearchAndReplace.Find"/>
+		<MenuItem id = "FindNext"
+		          insertafter = "Find"
+		          label = "${res:XML.MainMenu.SearchMenu.FindNext}"
+		          icon = "Icons.16x16.FindNextIcon"
+		          shortcut = "F3"
+		          class = "SearchAndReplace.FindNext"/>
+		<MenuItem id = "Replace"
+		          insertafter = "FindNextSelected"
+		          insertbefore = "SearchSeparator"
+		          label = "${res:XML.MainMenu.SearchMenu.Replace}"
+		          icon = "Icons.16x16.ReplaceIcon"
+		          shortcut = "Control|H"
+		          class = "SearchAndReplace.Replace"/>
+	</Path>-->
+	
+	<Path name = "/SharpDevelop/Workbench/ToolBar/Standard">
+		<!--<ToolbarItem id = "ZplLabelDesignerSeparator" type = "Separator" />
+		<ToolbarItem id      = "ZplWorkPrintZplText"
+		             icon    = "Icons.16x16.FindIcon"
+		             tooltip = "Print Zpl Text"
+		             class   = "ZplWork.PrintZplText"/>-->
+
+		<!--<ToolbarItem id = "ZplWorkPrintSeparator" type = "Separator" />
+		<ToolbarItem id      = "ZplWorkSelect"
+		             label   = "Select"
+					 class   = "ZplWork.SelectLabel"
+		             />
+		<ToolbarItem id      = "ZplWorkPrinterOrCanvasDropDown" type = "Custom"
+				     class   = "ZplWork.Gui.PrinterOrCanvasComboBox"
+					 />
+		<ToolbarItem id      = "ZplWorkConnectPrinter"
+		             icon    = "Icons.16x16.FindIcon"
+		             tooltip = "Connect Printer"
+		             class   = "ZplWork.ConnectPrinter"/>
+
+		<ToolbarItem id = "ZplWorkPreviewSeparator" type = "Separator" />
+		<ToolbarItem id      = "ZplWorkPreviewLabel"
+		             icon    = "Icons.16x16.FindIcon"
+					 label   = "Preview[F5]"
+		             tooltip = "Preview Label"
+		             class   = "ZplWork.PreviewLabel"
+					 />
+		<ToolbarItem id      = "ZplWorkPrintLabel"
+		             icon    = "Icons.16x16.FindIcon"
+					 label   = "Print[F6]"
+		             tooltip = "Print Label"
+		             class   = "ZplWork.PrintLabel"
+					 />
+		<ToolbarItem id      = "ZplWorkPrinterDropDown" type = "Custom"
+				     class   = "ZplWork.Gui.PrinterComboBox"
+					 />
+		
+		<ToolbarItem id = "ZplWorkLabelSizeSeparator" type = "Separator" />
+		<ToolbarItem id      = "ZplWorkLabelSize"
+					 label    = "Label Size"
+					 class   = "ZplWork.SizeLabel"
+		             />
+		<ToolbarItem id      = "ZplWorkLabelSizeDropDown" type = "Custom"
+				     class   = "ZplWork.Gui.LabelSizeComboBox"
+					 />
+		<ToolbarItem id      = "ZplWorkLabelSizeOption"
+		             icon    = "Icons.16x16.FindIcon"
+		             tooltip = "Label Size Option Open"
+		             class   = "ZplWork.LabelSizeOption"/>
+			
+		<ToolbarItem id = "ZplWorkLabelVarSeparator" type = "Separator" />
+		<ToolbarItem id      = "ZplWorkLabelVarOption" type = "DropDownButton"
+		             icon    = "Icons.16x16.FindIcon"
+		             tooltip = "Label Var Option Open"
+		             class   = "ZplWork.LabelSizeOption">
+			<MenuItem id    = "ZplWorkLabelVarItem"
+			          icon  = "Icons.16x16.AssemblyFromGAC"
+			          label = "${res:MainWindow.Windows.ClassBrowser.OpenAssemblyFromGAC}"
+			          class = "ICSharpCode.SharpDevelop.Dom.ClassBrowser.OpenAssemblyFromGACCommand"/>
+		</ToolbarItem>-->
+		
+	</Path>
+	
+	<!--<Path name="/SharpDevelop/Pads/SearchResultPad/Factories">
+		<Class id="DefaultSearchResultFactory" class="SearchAndReplace.DefaultSearchResultFactory"/>
+	</Path>
+	
+	<Path name="/SharpDevelop/ViewContent/TextEditor/Extensions">
+		<TextEditorExtension
+			id="SearchAndReplace"
+			class="SearchAndReplace.SearchAndReplaceTextEditorExtension" />
+	</Path>-->
+
+	<Path name = "/SharpDevelop/Workbench/Pads">
+		
+	<!-- ZPL预览功能 --><!--
+	<Pad id       = "CommandPreview"
+		     category = "Main"
+		     title    = "Command Preview"
+		     icon     = "PadIcons.ClassBrowser"
+		     class    = "ZplWork.Gui.CommandPreview"
+		     defaultPosition = "Right" />-->
+
+	</Path>
+	
+</AddIn>

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VisualLabelDesigner.ZplTextEditor.Properties;
+using YProgramStudio.ZPLTextEditor.Properties;
 
-namespace VisualLabelDesigner.ZplTextEditor.Gui
+namespace YProgramStudio.ZPLTextEditor.Gui
 {
 	public class PrinterOrCanvasComboBox : System.Windows.Controls.ComboBox
 	{

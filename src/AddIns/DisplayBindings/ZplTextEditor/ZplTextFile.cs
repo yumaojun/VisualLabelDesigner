@@ -7,15 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VisualLabelDesigner.ZplTextEditor
+namespace YProgramStudio.ZPLTextEditor
 {
-	public sealed class ZplTextFile
+	public sealed class ZPLTextFile
 	{
 		public string Text { get; set; } = "^XA\n\n^XZ";
 
-		public ZplTextFile() { }
+		public ZPLTextFile() { }
 
-		public ZplTextFile(Stream stream)
+		public ZPLTextFile(Stream stream)
 		{
 			if (stream == null)
 				throw new ArgumentNullException("stream");

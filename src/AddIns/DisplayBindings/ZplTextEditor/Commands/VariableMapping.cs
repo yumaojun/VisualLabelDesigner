@@ -5,16 +5,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VisualLabelDesigner.ZplTextEditor.Services;
+using YProgramStudio.ZPLTextEditor.Services;
 
-namespace VisualLabelDesigner.ZplTextEditor
+namespace YProgramStudio.ZPLTextEditor
 {
 	public class VariableMappingCommand : AbstractMenuCommand
 	{
 		public override void Run()
 		{
 			string zplcode = string.Empty;
-			ZplTextEditorPanel zplTextEditorPanel = SD.Workbench.ActiveViewContent?.Control as ZplTextEditorPanel;
+			ZPLTextEditorPanel zplTextEditorPanel = SD.Workbench.ActiveViewContent?.Control as ZPLTextEditorPanel;
 			if (zplTextEditorPanel != null)
 			{
 				zplcode = zplTextEditorPanel.ZplCodeTextBox.Text;

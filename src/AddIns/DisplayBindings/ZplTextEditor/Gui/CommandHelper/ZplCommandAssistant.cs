@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using VisualLabelDesigner.ZplTextEditor.Services;
+using YProgramStudio.ZPLTextEditor.Services;
 
-namespace VisualLabelDesigner.ZplTextEditor.Gui
+namespace YProgramStudio.ZPLTextEditor.Gui
 {
 	public class ZplCommandAssistant : UserControl
 	{
@@ -68,7 +68,7 @@ namespace VisualLabelDesigner.ZplTextEditor.Gui
 			this.InitializeComponent();
 		}
 
-		public ZplCommandAssistant ShowParameter(BaseZplParameter _scp, int i, int width)
+		public ZplCommandAssistant ShowParameter(BaseZPLParameter _scp, int i, int width)
 		{
 			ZplCommandAssistant result;
 			try

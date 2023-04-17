@@ -4,24 +4,24 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace VisualLabelDesigner.ZplTextEditor
+namespace YProgramStudio.ZPLTextEditor
 {
 	[Serializable]
-	public class InvalidZplTextException : Exception
+	public class InvalidZPLTextException : Exception
 	{
-		public InvalidZplTextException() : base()
+		public InvalidZPLTextException() : base()
 		{
 		}
 		
-		public InvalidZplTextException(string message) : base(message)
+		public InvalidZPLTextException(string message) : base(message)
 		{
 		}
 		
-		public InvalidZplTextException(string message, Exception innerException) : base(message, innerException)
+		public InvalidZPLTextException(string message, Exception innerException) : base(message, innerException)
 		{
 		}
 		
-		protected InvalidZplTextException(SerializationInfo info, StreamingContext context) : base(info, context)
+		protected InvalidZPLTextException(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
 		}
 	}

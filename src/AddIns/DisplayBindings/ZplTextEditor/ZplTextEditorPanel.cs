@@ -14,17 +14,17 @@ using System.Windows.Forms;
 using FastColoredTextBoxNS;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Workbench;
-using VisualLabelDesigner.ZplTextEditor.Gui;
-using VisualLabelDesigner.ZplTextEditor.Properties;
-using VisualLabelDesigner.ZplTextEditor.Services;
+using YProgramStudio.ZPLTextEditor.Gui;
+using YProgramStudio.ZPLTextEditor.Properties;
+using YProgramStudio.ZPLTextEditor.Services;
 
-namespace VisualLabelDesigner.ZplTextEditor
+namespace YProgramStudio.ZPLTextEditor
 {
-	public partial class ZplTextEditorPanel : UserControl
+	public partial class ZPLTextEditorPanel : UserControl
 	{
 		private List<ZPLCommand> lzplCode = new List<ZPLCommand>();
 
-		private ZplTextFile activeZplTextFile;
+		private ZPLTextFile activeZplTextFile;
 
 		public FastColoredTextBox ZplCodeTextBox { get; private set; }
 
@@ -106,20 +106,20 @@ namespace VisualLabelDesigner.ZplTextEditor
 			}
 		}
 
-		ZplTextViewContent viewContent;
+		ZPLTextViewContent viewContent;
 
 		bool IsActiveViewContent
 		{
 			get { return SD.Workbench.ActiveViewContent == viewContent; }
 		}
 
-		private ZplTextEditorPanel()
+		private ZPLTextEditorPanel()
 		{
 			InitializeComponent();
 			InitialCustomized();
 		}
 
-		public ZplTextEditorPanel(ZplTextViewContent vc) : this()
+		public ZPLTextEditorPanel(ZPLTextViewContent vc) : this()
 		{
 			viewContent = vc;
 		}
@@ -287,7 +287,7 @@ namespace VisualLabelDesigner.ZplTextEditor
 		/// Show by new or open
 		/// </summary>
 		/// <param name="zplTextFile"></param>
-		public void ShowFile(ZplTextFile zplTextFile)
+		public void ShowFile(ZPLTextFile zplTextFile)
 		{
 			this.activeZplTextFile = zplTextFile;
 			this.ZplCodeTextBox.Clear();

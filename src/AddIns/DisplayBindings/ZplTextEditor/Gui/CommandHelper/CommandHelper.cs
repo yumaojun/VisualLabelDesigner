@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace VisualLabelDesigner.ZplTextEditor.Gui
+namespace YProgramStudio.ZPLTextEditor.Gui
 {
 	public partial class CommandHelper : UserControl, IPadContent
 	{
@@ -29,7 +29,7 @@ namespace VisualLabelDesigner.ZplTextEditor.Gui
 			}
 			this.cmdParameters1.OpenAssistantClick += ZParameters_OpenAssistantClick;
 			// TODO: zplTextPanel释放后，绑定的事件需要移除吗
-			ZplTextEditorPanel zplTextPanel = SD.Workbench.ActiveViewContent?.Control as ZplTextEditorPanel;
+			ZPLTextEditorPanel zplTextPanel = SD.Workbench.ActiveViewContent?.Control as ZPLTextEditorPanel;
 			if (zplTextPanel != null)
 			{
 			   this.BtnOkClick += zplTextPanel.Command_BtnOkClick;

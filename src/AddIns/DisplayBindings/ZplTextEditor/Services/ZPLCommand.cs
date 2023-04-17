@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace VisualLabelDesigner.ZplTextEditor.Services
+namespace YProgramStudio.ZPLTextEditor.Services
 {
 	[Serializable]
 	public class ZPLCommand

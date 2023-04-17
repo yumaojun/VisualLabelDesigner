@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VisualLabelDesigner.ZplTextEditor.Gui;
+using YProgramStudio.ZPLTextEditor.Gui;
 
-namespace VisualLabelDesigner.ZplTextEditor
+namespace YProgramStudio.ZPLTextEditor
 {
 	public class PrinterOrCanvasDropDown : AbstractMenuCommand
 	{

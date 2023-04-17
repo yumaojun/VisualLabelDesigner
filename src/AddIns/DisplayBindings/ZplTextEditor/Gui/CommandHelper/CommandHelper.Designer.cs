@@ -1,5 +1,5 @@
 ﻿
-namespace VisualLabelDesigner.ZplTextEditor.Gui
+namespace YProgramStudio.ZPLTextEditor.Gui
 {
 	partial class CommandHelper
 	{
@@ -47,7 +47,7 @@ namespace VisualLabelDesigner.ZplTextEditor.Gui
             this.lblBaliseZPL = new System.Windows.Forms.Label();
             this.tbBaliseZPL = new System.Windows.Forms.TextBox();
             this.lblDescriptionZPL = new System.Windows.Forms.Label();
-            this.cmdParameters1 = new ZplTextEditor.Gui.CommandParameters();
+            this.cmdParameters1 = new ZPLTextEditor.Gui.CommandParameters();
             this.tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 

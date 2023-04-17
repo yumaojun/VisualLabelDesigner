@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VisualLabelDesigner.ZplTextEditor.Gui;
+using YProgramStudio.ZPLTextEditor.Gui;
 
-namespace VisualLabelDesigner.ZplTextEditor
+namespace YProgramStudio.ZPLTextEditor
 {
 	public class PrintLabel : AbstractMenuCommand
 	{
@@ -17,7 +17,7 @@ namespace VisualLabelDesigner.ZplTextEditor
 			//f.Text = "PrintLabel";
 			//f.ShowDialog();
 
-			var zplCodeControl = SD.Workbench.ActiveViewContent.Control as ZplTextEditor.ZplTextEditorPanel;
+			var zplCodeControl = SD.Workbench.ActiveViewContent.Control as ZPLTextEditor.ZPLTextEditorPanel;
 			string text = ZPLCode.Clean(zplCodeControl.ZplCodeTextBox.Text);
 			//RawPrinterHelper.SendStringToPrinter(this.cbLocalPrinter.Text, text);
 
