@@ -5,7 +5,26 @@ List of SharpDevelop bitmap resources and their origin
 The works are based on or originally taken from the Fugue Icon Library (as of
 version 3.3) created by Yusuke Kamiyamane (http://p.yusukekamiyamane.com/)
 
-# add by self
+-------------------------------------------------------------------------------
+# Labels Designer Icons
+-------------------------------------------------------------------------------
+LabelsDesignerIcons\labels-arrow.png
+LabelsDesignerIcons\labels-text.png
+LabelsDesignerIcons\labels-box.png
+LabelsDesignerIcons\tnPrintCode.Image.png
+LabelsDesignerIcons\labels-ellipse.png
+LabelsDesignerIcons\labels-image.png
+LabelsDesignerIcons\labels-barcode.png
+LabelsDesignerIcons\labels-align-left.png
+LabelsDesignerIcons\labels-align-hcenter.png
+LabelsDesignerIcons\labels-align-right.png
+LabelsDesignerIcons\labels-align-top .png
+LabelsDesignerIcons\labels-align-vcenter.png
+LabelsDesignerIcons\labels-align-bottom.png
+
+-------------------------------------------------------------------------------
+# ZPL Text Edit Icons
+-------------------------------------------------------------------------------
 BitmapResources-data\btnPrintCode.Image.png
 BitmapResources-data\btnConnect.Image.png
 BitmapResources-data\btnPreview.Image.png

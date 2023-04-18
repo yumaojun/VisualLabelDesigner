@@ -14,10 +14,11 @@
 	<Window.TaskbarItemInfo>
 		<TaskbarItemInfo />
 	</Window.TaskbarItemInfo>
-	
+
 	<DockPanel Name="dockPanel">
 		<Menu Name="mainMenu" DockPanel.Dock="Top"/>
 		<!-- Toolbars will be inserted here (index: 1) -->
+		<ToolBarTray DockPanel.Dock="Top"></ToolBarTray>
 		<!-- Statusbar will be inserted here (index: Count-2) -->
 		<ContentPresenter Name="mainContent" />
 	</DockPanel>

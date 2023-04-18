@@ -101,7 +101,7 @@ namespace ICSharpCode.Core.Presentation
 		static ToolBar CreateToolBar(UIElement inputBindingOwner, object owner, AddInTreeNode treeNode)
 		{
 			ToolBar tb = new CoreToolBar();
-			ToolBarTray.SetIsLocked(tb, true);
+			//ToolBarTray.SetIsLocked(tb, true); // TODO: toolbar 锁定了
 			tb.ItemsSource = CreateToolBarItems(inputBindingOwner, treeNode.BuildChildItems<ToolbarItemDescriptor>(owner));
 			UpdateStatus(tb.ItemsSource); // setting Visible is only possible after the items have been added
 			return tb;

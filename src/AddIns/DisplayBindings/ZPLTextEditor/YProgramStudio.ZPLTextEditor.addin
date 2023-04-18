@@ -94,8 +94,8 @@
 
 	</Path>
 
-	<Path name = "/SharpDevelop/Workbench/ToolBar/Standard">
-		<ToolbarItem id = "ZPLWorkSeparator" type = "Separator" />
+	<Path name = "/SharpDevelop/Workbench/ToolBar/ZPLText">
+		<!--<ToolbarItem id = "ZPLWorkSeparator" type = "Separator" />-->
 		<ToolbarItem id      = "ZPLWorkInsertImage"
 		             icon    = "Icons.16x16.ResourceEditor.bmp"
 		             tooltip = "Insert Image"
@@ -161,7 +161,7 @@
 		<ToolbarItem id = "ZPLWorkLabelVarSeparator" type = "Separator" />
 		<ToolbarItem id      = "ZPLWorkLabelVarOption" type = "SplitButton"
 		             icon    = "Icons.16x16.ResourceEditor.string"
-					 label   = "Variable Mapping"
+					 label   = "Variables"
 		             tooltip = "Variable Mapping Open"
 		             class   = "YProgramStudio.ZPLTextEditor.VariableMappingCommand">
 			<MenuItem id    = "ZPLWorkLabelVarItem1" 

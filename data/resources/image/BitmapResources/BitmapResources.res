@@ -8,16 +8,58 @@
 # The box icons used in the classbrowser icons are self-made
 # by the #D project.
 
+# Labels Designer Icons
+Icons.16x16.labels.arrow   						    = LabelsDesignerIcons\labels-arrow.png
+Icons.16x16.labels.text   							= LabelsDesignerIcons\labels-text.png
+Icons.16x16.labels.box   							= LabelsDesignerIcons\labels-box.png
+Icons.16x16.labels.line 							= LabelsDesignerIcons\labels-line.png
+Icons.16x16.labels.ellipse  						= LabelsDesignerIcons\labels-ellipse.png
+Icons.16x16.labels.image  							= LabelsDesignerIcons\labels-image.png
+Icons.16x16.labels.barcode   						= LabelsDesignerIcons\labels-barcode.png
+Icons.16x16.labels.barcode2                         = LabelsDesignerIcons\labels-barcode2.png
+
+Icons.16x16.labels.align.left   					= LabelsDesignerIcons\labels-align-left.png
+Icons.16x16.labels.align.hcenter   				    = LabelsDesignerIcons\labels-align-hcenter.png
+Icons.16x16.labels.align.right   					= LabelsDesignerIcons\labels-align-right.png
+Icons.16x16.labels.align.top   					    = LabelsDesignerIcons\labels-align-top.png
+Icons.16x16.labels.align.vcenter   				    = LabelsDesignerIcons\labels-align-vcenter.png
+Icons.16x16.labels.align.bottom   					= LabelsDesignerIcons\labels-align-bottom.png
+
+Icons.16x16.labels.rotate.left   					= LabelsDesignerIcons\labels-rotate-left.png
+Icons.16x16.labels.rotate.right   					= LabelsDesignerIcons\labels-rotate-right.png
+Icons.16x16.labels.flip.horiz   					= LabelsDesignerIcons\labels-flip-horiz.png
+Icons.16x16.labels.flip.vert   					    = LabelsDesignerIcons\labels-flip-vert.png
+Icons.16x16.labels.center.horiz   					= LabelsDesignerIcons\labels-center-horiz.png
+Icons.16x16.labels.center.vert   					= LabelsDesignerIcons\labels-center-vert.png
+
+Icons.16x16.labels.zoom.in   						= LabelsDesignerIcons\labels-zoom-in.png
+Icons.16x16.labels.zoom.out   						= LabelsDesignerIcons\labels-zoom-out.png
+Icons.16x16.labels.zoom.one.to.one   				= LabelsDesignerIcons\labels-zoom-one-to-one.png
+Icons.16x16.labels.zoom.to.fit   					= LabelsDesignerIcons\labels-zoom-to-fit.png
+
+Icons.16x16.labels.order.bottom                     = LabelsDesignerIcons\labels-order-bottom.png
+Icons.16x16.labels.order.top                        = LabelsDesignerIcons\labels-order-top.png
+
+Icons.16x16.labels.format.text.bold                 = LabelsDesignerIcons\labels-format-text-bold.png
+Icons.16x16.labels.format.text.italic               = LabelsDesignerIcons\labels-format-text-italic.png
+Icons.16x16.labels.format.text.underline            = LabelsDesignerIcons\labels-format-text-underline.png
+Icons.16x16.labels.align.text.left                  = LabelsDesignerIcons\labels-align-text-left.png
+Icons.16x16.labels.align.text.center                = LabelsDesignerIcons\labels-align-text-center.png
+Icons.16x16.labels.align.text.right                 = LabelsDesignerIcons\labels-align-text-right.png
+Icons.16x16.labels.valign.text.top                  = LabelsDesignerIcons\labels-valign-text-top.png
+Icons.16x16.labels.valign.text.middle               = LabelsDesignerIcons\labels-valign-text-middle.png
+Icons.16x16.labels.valign.text.bottom               = LabelsDesignerIcons\labels-valign-text-bottom.png
+
+# ZPL Text Edit Icons
+btnPrintCode.Image   								= BitmapResources-data\btnPrintCode.Image.png
+btnConnect.Image     								= BitmapResources-data\btnConnect.Image.png
+btnPreview.Image     								= BitmapResources-data\btnPreview.Image.png
+btnPrintLabel.Image  								= BitmapResources-data\btnPrintLabel.Image.png
+btnLabelFormat.Image 								= BitmapResources-data\btnLabelFormat.Image.png
+
 # Exceptions from the above (so far) are:
 # - Svn.StatusImages.png (by Tortoise-SVN project)
 # - Icons.16x16.CopyLeftIcon.png
-
-# add by self
-btnPrintCode.Image   = BitmapResources-data\btnPrintCode.Image.png
-btnConnect.Image     = BitmapResources-data\btnConnect.Image.png
-btnPreview.Image     = BitmapResources-data\btnPreview.Image.png
-btnPrintLabel.Image  = BitmapResources-data\btnPrintLabel.Image.png
-btnLabelFormat.Image = BitmapResources-data\btnLabelFormat.Image.png
 
 Icons.Svn.StatusImages								= SubversionIcons\Svn.StatusImages.png
 Svn.ApplyPatch										= SubversionIcons\Svn.ApplyPatch.png
@@ -403,8 +445,8 @@ C#.File.Form										= backendicons\CSharp\file\Form.png
 C#.File.FullFile									= backendicons\CSharp\file\FullFile.png
 C#.File.NewClass									= backendicons\CSharp\file\NewClass.png
 C#.File.Interface									= backendicons\CSharp\file\Interface.png
-C#.File.MvcRazorFile									= backendicons\CSharp\file\MvcRazorFile.png
-C#.File.MvcRazorFile.Small									= backendicons\CSharp\file\MvcRazorFile.Small.png
+C#.File.MvcRazorFile								= backendicons\CSharp\file\MvcRazorFile.png
+C#.File.MvcRazorFile.Small							= backendicons\CSharp\file\MvcRazorFile.Small.png
 C#.File.WebFile										= backendicons\CSharp\file\WebFile.png
 C#.File.WPFCustomControl							= backendicons\CSharp\file\WPFCustomControl.png
 C#.File.WPFFlowDocument								= backendicons\CSharp\file\WPFFlowDocument.png
@@ -436,41 +478,41 @@ C#.Project.WPFUserControlLibrary					= backendicons\CSharp\project\WPFUserContro
 C#.Project.PRISMApplication                         = backendicons\CSharp\project\PRISMApplication.png
 C#.Project.PRISMModule                              = backendicons\CSharp\project\PRISMModule.png
 
-VB.ProjectIcon									= backendicons\VB\SmallProject.png
-VB.FileIcon										= backendicons\VB\SmallFile.png
+VB.ProjectIcon										= backendicons\VB\SmallProject.png
+VB.FileIcon											= backendicons\VB\SmallFile.png
 
-VB.File.EmptyFile								= backendicons\VB\file\EmptyFile.png
+VB.File.EmptyFile									= backendicons\VB\file\EmptyFile.png
 VB.File.Form										= backendicons\VB\file\Form.png
 VB.File.FullFile									= backendicons\VB\file\FullFile.png
 VB.File.NewClass									= backendicons\VB\file\NewClass.png
-VB.File.Interface								= backendicons\VB.\file\Interface.png
+VB.File.Interface									= backendicons\VB.\file\Interface.png
 VB.File.MvcRazorFile								= backendicons\VB.\file\MvcRazorFile.png
-VB.File.MvcRazorFile.Small								= backendicons\VB.\file\MvcRazorFile.Small.png
-VB.File.WebFile									= backendicons\VB\file\WebFile.png
+VB.File.MvcRazorFile.Small							= backendicons\VB.\file\MvcRazorFile.Small.png
+VB.File.WebFile										= backendicons\VB\file\WebFile.png
 VB.File.WPFCustomControl							= backendicons\VB\file\WPFCustomControl.png
-VB.File.WPFFlowDocument							= backendicons\VB\file\WPFFlowDocument.png
-VB.File.WPFPage									= backendicons\VB\file\WPFPage.png
-VB.File.WPFPageFunction							= backendicons\VB\file\WPFPageFunction.png
-VB.File.WPFResourceDictionary					= backendicons\VB\file\WPFResourceDictionary.png
-VB.File.WPFUserControl							= backendicons\VB\file\WPFUserControl.png
-VB.File.WPFWindow								= backendicons\VB\file\WPFWindow.png
-VB.Project.EmptyProject							= backendicons\VB\project\EmptyProject.png
-VB.Project.DOSProject							= backendicons\VB\project\DOSProject.png
-VB.Project.Form									= backendicons\VB\project\Form.png
-VB.Project.FullProject							= backendicons\VB\project\FullProject.png
-VB.Project.MvcRazorProject						= backendicons\VB\project\MvcRazorProject.png
-VB.Project.ServiceProject						= backendicons\VB\project\ServiceProject.png
-VB.Project.UserControl							= backendicons\VB\project\UserControl.png
-VB.Project.WebProject							= backendicons\VB\project\WebProject.png
-VB.Project.Library								= backendicons\VB\project\Library.png
-VB.Project.ControlLibrary						= backendicons\VB\project\ControlLibrary.png
-VB.Project.ASPProject							= backendicons\VB\project\ASPProject.png
+VB.File.WPFFlowDocument								= backendicons\VB\file\WPFFlowDocument.png
+VB.File.WPFPage										= backendicons\VB\file\WPFPage.png
+VB.File.WPFPageFunction								= backendicons\VB\file\WPFPageFunction.png
+VB.File.WPFResourceDictionary						= backendicons\VB\file\WPFResourceDictionary.png
+VB.File.WPFUserControl								= backendicons\VB\file\WPFUserControl.png
+VB.File.WPFWindow									= backendicons\VB\file\WPFWindow.png
+VB.Project.EmptyProject								= backendicons\VB\project\EmptyProject.png
+VB.Project.DOSProject								= backendicons\VB\project\DOSProject.png
+VB.Project.Form										= backendicons\VB\project\Form.png
+VB.Project.FullProject								= backendicons\VB\project\FullProject.png
+VB.Project.MvcRazorProject							= backendicons\VB\project\MvcRazorProject.png
+VB.Project.ServiceProject							= backendicons\VB\project\ServiceProject.png
+VB.Project.UserControl								= backendicons\VB\project\UserControl.png
+VB.Project.WebProject								= backendicons\VB\project\WebProject.png
+VB.Project.Library									= backendicons\VB\project\Library.png
+VB.Project.ControlLibrary							= backendicons\VB\project\ControlLibrary.png
+VB.Project.ASPProject								= backendicons\VB\project\ASPProject.png
 VB.Project.WCFServiceProject						= backendicons\VB\project\WCFServiceProject.png
-VB.Project.WebService							= backendicons\VB\project\WebService.png
+VB.Project.WebService								= backendicons\VB\project\WebService.png
 VB.Project.WPFBrowserProject						= backendicons\VB\project\WPFBrowserProject.png
-VB.Project.WPFCustomControlLibrary				= backendicons\VB\project\WPFCustomControlLibrary.png
-VB.Project.WPFNavigationProject					= backendicons\VB\project\WPFNavigationProject.png
-VB.Project.WPFProject							= backendicons\VB\project\WPFProject.png
+VB.Project.WPFCustomControlLibrary					= backendicons\VB\project\WPFCustomControlLibrary.png
+VB.Project.WPFNavigationProject						= backendicons\VB\project\WPFNavigationProject.png
+VB.Project.WPFProject								= backendicons\VB\project\WPFProject.png
 VB.Project.WPFUserControlLibrary					= backendicons\VB\project\WPFUserControlLibrary.png
 
 

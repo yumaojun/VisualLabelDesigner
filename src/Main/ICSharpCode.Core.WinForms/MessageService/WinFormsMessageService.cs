@@ -45,7 +45,7 @@ namespace ICSharpCode.Core.WinForms
 		
 		public WinFormsMessageService()
 		{
-			this.DefaultMessageBoxTitle = this.ProductName = "SharpDevelop";
+			this.DefaultMessageBoxTitle = this.ProductName = "Visual Label Designer";
 		}
 		
 		void BeginInvoke(MethodInvoker method)

@@ -129,20 +129,13 @@ namespace ICSharpCode.SharpDevelop.Workbench
 			mainMenu.ItemsSource = MenuService.CreateMenuItems(this, this, mainMenuPath, activationMethod: "MainMenu", immediatelyExpandMenuBuildersForShortcuts: true);
 			
 			toolBars = ToolBarService.CreateToolBars(this, this, "/SharpDevelop/Workbench/ToolBar");
-			// TODO: ToolBarTray工具条
-			ToolBarTray toolBarTray = new ToolBarTray();
-			DockPanel.SetDock(toolBarTray, Dock.Top);
-			dockPanel.Children.Insert(1, toolBarTray);
-			toolBarTray.IsLocked = false;
-			toolBarTray.AllowDrop = true;
-			toolBarTray.Height = 30;
+
+			var toolBarTray = dockPanel.Children[1] as ToolBarTray;
 
 			foreach (ToolBar tb in toolBars) {
-				//DockPanel.SetDock(tb, Dock.Top);
-				//dockPanel.Children.Insert(1, tb);
-				tb.AllowDrop = true;
 				toolBarTray.ToolBars.Add(tb);
 			}
+
 			DockPanel.SetDock(statusBar, Dock.Bottom);
 			dockPanel.Children.Insert(dockPanel.Children.Count - 2, statusBar);
 			

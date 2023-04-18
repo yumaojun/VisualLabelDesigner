@@ -52,6 +52,49 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\AlignRightCommand.cs" />
+    <Compile Include="Commands\RotateLeftCommand.cs" />
+    <Compile Include="Commands\RotateRightCommand.cs" />
+    <Compile Include="Commands\FlipHorizCommand.cs" />
+    <Compile Include="Commands\FlipVertCommand.cs" />
+    <Compile Include="Commands\CenterHorizCommand.cs" />
+    <Compile Include="Commands\CenterVertCommand.cs" />
+    <Compile Include="Commands\FormatTextBoldCommand.cs" />
+    <Compile Include="Commands\FormatTextItalicCommand.cs" />
+    <Compile Include="Commands\FormatTextUnderlineCommand.cs" />
+    <Compile Include="Commands\AlignTextLeftCommand.cs" />
+    <Compile Include="Commands\AlignTextCenterCommand.cs" />
+    <Compile Include="Commands\AlignTextRightCommand.cs" />
+    <Compile Include="Commands\ValignTextTopCommand.cs" />
+    <Compile Include="Commands\ValignTextMiddleCommand.cs" />
+    <Compile Include="Commands\ValignTextBottomCommand.cs" />
+    <Compile Include="Commands\ZoomToFitCommand.cs" />
+    <Compile Include="Commands\ZoomOneToOneCommand.cs" />
+    <Compile Include="Commands\ZoomOutCommand.cs" />
+    <Compile Include="Commands\ZoomInCommand.cs" />
+    <Compile Include="Commands\SelectArrowCommand.cs" />
+    <Compile Include="Commands\CreateBoxCommand.cs" />
+    <Compile Include="Commands\CreateLineCommand.cs" />
+    <Compile Include="Commands\CreateEllipseCommand.cs" />
+    <Compile Include="Commands\InsertImageCommand.cs" />
+    <Compile Include="Commands\CreateBarcodeCommand.cs" />
+    <Compile Include="Commands\AlignTopCommand.cs" />
+    <Compile Include="Commands\OrderBringToFrontCommand.cs" />
+    <Compile Include="Commands\AlignBottomCommand.cs" />
+    <Compile Include="Commands\AlignMiddleCommand.cs" />
+    <Compile Include="Commands\AlignCenterCommand.cs" />
+    <Compile Include="Commands\AlignLeftCommand.cs" />
+    <Compile Include="Commands\OrderSendToBackCommand.cs" />
+    <Compile Include="Commands\CreateTextCommand.cs" />
+    <Compile Include="Commands\OpenBarcodesFormCommand.cs" />
+    <Compile Include="Gui\BarcodesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\BarcodesForm.Designer.cs">
+      <DependentUpon>BarcodesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\FontFamilyComboBox.cs" />
+    <Compile Include="Gui\FontSizeComboBox.cs" />
     <Compile Include="LabelDesignerPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -79,10 +122,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Gui\" />
-  </ItemGroup>
-  <ItemGroup>
+    <EmbeddedResource Include="Gui\BarcodesForm.resx">
+      <DependentUpon>BarcodesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LabelDesignerPanel.resx">
       <DependentUpon>LabelDesignerPanel.cs</DependentUpon>
     </EmbeddedResource>
