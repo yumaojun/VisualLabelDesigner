@@ -6,7 +6,9 @@
 		  icon        = "Icons.32x32.XMLFileIcon"
 		  category    = "VisualLabelDesigner"
 		  defaultname = "NewPad${Number}.label"
-		  language    = "label"/>
+		  language    = "label">
+        <Wizard path = "/SharpDevelop/Templates/File/NewLabelWizard"/>
+    </Config>
 	 
 	<Description>WYSIWYG Labels Designer</Description>
 	

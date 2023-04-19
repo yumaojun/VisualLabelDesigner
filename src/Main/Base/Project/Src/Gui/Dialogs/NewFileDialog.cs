@@ -25,8 +25,10 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ICSharpCode.Core;
+using ICSharpCode.Core.Properties;
 using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.SharpDevelop.Editor;
+using ICSharpCode.SharpDevelop.Gui.Dialogs;
 using ICSharpCode.SharpDevelop.Gui.XmlForms;
 using ICSharpCode.SharpDevelop.Parser;
 using ICSharpCode.SharpDevelop.Project;
@@ -291,7 +293,21 @@ namespace ICSharpCode.SharpDevelop.Gui
 				TemplateItem item = (TemplateItem)templateListView.SelectedItems[0];
 				
 				PropertyService.Set("Dialogs.NewFileDialog.LastSelectedTemplate", item.Template.Name);
-				
+
+				// TODO: 自定义新建文件向导对话框
+				if (item.Template.WizardPath != null)
+				{
+					IProperties customizer = new DefaultProperties();
+					customizer.SetProperty("Template", item.Template);
+					customizer.SetProperty("Creator", this);
+					WizardDialog wizard = new WizardDialog("File Wizard", customizer, item.Template.WizardPath);
+					if (wizard.ShowDialog() == DialogResult.OK)
+					{
+						DialogResult = DialogResult.OK;
+					}
+					return;
+				}
+
 				string fileName;
 				string standardNamespace = "DefaultNamespace";
 				if (allowUntitledFiles) {

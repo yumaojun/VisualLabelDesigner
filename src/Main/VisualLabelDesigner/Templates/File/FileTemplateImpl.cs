@@ -185,8 +185,8 @@ namespace ICSharpCode.SharpDevelop.Templates
 				return description;
 			}
 		}
-		[Obsolete]
-		public string WizardPath {
+		//[Obsolete]
+		public override string WizardPath {
 			get {
 				return wizardpath;
 			}

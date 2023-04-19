@@ -17,69 +17,50 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Windows.Forms;
 
-namespace ICSharpCode.SharpDevelop.Gui.XmlForms
+using ICSharpCode.Core;
+using ICSharpCode.Core.AddIns.Codons;
+
+namespace ICSharpCode.SharpDevelop
 {
 	/// <summary>
-	/// The basic xml generated user control.
-	/// </summary>
-	[Obsolete("XML Forms are obsolete")]
-	public abstract class XmlUserControl : UserControl
+	/// New file wizard's dialog panel
+	/// </returns>
+	public class DialogPanelDoozer : IDoozer
 	{
-		protected XmlLoader xmlLoader;
+		/// <summary>
+		/// Gets if the doozer handles codon conditions on its own.
+		/// If this property return false, the item is excluded when the condition is not met.
+		/// </summary>
+		public bool HandleConditions {
+			get {
+				return false;
+			}
+		}
 		
 		/// <summary>
-		/// Gets the ControlDictionary for this user control.
+		/// Creates an item with the specified sub items. And the current
+		/// Condition status for this item.
 		/// </summary>
-		public Dictionary<string, Control> ControlDictionary {
-			get {
-				if (xmlLoader == null)
-					return null;
-				else
-					return xmlLoader.ControlDictionary;
-			}
-		}
-		
-		public XmlUserControl()
+		public object BuildItem(BuildItemArgs args)
 		{
-		}
-
-		public XmlUserControl(string fileName)
-		{
-			xmlLoader = new XmlLoader();
-			SetupXmlLoader();
-			if (fileName != null && fileName.Length > 0)
-			{
-				xmlLoader.LoadObjectFromFileDefinition(this, fileName);
-			}
-		}
-
-		public T Get<T>(string name) where T: System.Windows.Forms.Control
-		{
-			return xmlLoader.Get<T>(name);
-		}
-
-		protected void SetupFromXmlStream(Stream stream)
-		{
-			if (stream == null) {
-				throw new System.ArgumentNullException("stream");
+			string label = args.Codon["label"];
+			string id = args.Codon.Id;
+			
+			var subItems = args.BuildSubItems<IDialogPanelDescriptor>();
+			if (subItems.Count == 0) {
+				if (args.Codon.Properties.Contains("class")) {
+					string className = args.Codon["class"];
+					IDialogPanel classObj = (IDialogPanel)args.AddIn.CreateObject(className);
+					return new DefaultDialogPanelDescriptor(id, StringParser.Parse(label), classObj);
+				} else {
+					return new DefaultDialogPanelDescriptor(id, StringParser.Parse(label));
+				}
 			}
 			
-			SuspendLayout();
-			xmlLoader = new XmlLoader();
-			SetupXmlLoader();
-			if (stream != null) {
-				xmlLoader.LoadObjectFromStream(this, stream);
-			}
-			ResumeLayout(false);
-		}
-		
-		protected virtual void SetupXmlLoader()
-		{
+			return new DefaultDialogPanelDescriptor(id, StringParser.Parse(label), subItems);
 		}
 	}
 }

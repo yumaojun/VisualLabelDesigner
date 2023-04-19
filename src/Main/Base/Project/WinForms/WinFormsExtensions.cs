@@ -56,7 +56,28 @@ namespace ICSharpCode.SharpDevelop.WinForms
 		{
 			return collection.Cast<Control>().Flatten(c => c.Controls.Cast<Control>());
 		}
-		
+
+		/// <summary>
+		/// 返回字体
+		/// </summary>
+		/// <param name="resourceService"></param>
+		/// <param name="fontName"></param>
+		/// <param name="size"></param>
+		/// <param name="style"></param>
+		/// <param name="unit"></param>
+		/// <returns></returns>
+		public static Font LoadFont(this IResourceService resourceService, string fontName, int size, FontStyle style, GraphicsUnit unit)
+		{
+			try
+			{
+				return new Font(fontName, size, style, unit);
+			}
+			catch (Exception)
+			{
+				return SystemInformation.MenuFont;
+			}
+		}
+
 		#region System.Drawing <-> WPF conversions
 		public static System.Drawing.Point ToSystemDrawing(this System.Windows.Point p)
 		{

@@ -147,7 +147,7 @@ namespace ICSharpCode.Core
 			AddInTreeNode curPath = rootNode;
 			for (int i = 0; i < splittedPath.Length; i++) {
 				if (!curPath.ChildNodes.TryGetValue(splittedPath[i], out curPath)) {
-					//if (throwOnNotFound)
+					//if (throwOnNotFound) // TODO: 暂时注释掉这里，插件/SharpDevelop/Workbench/ProjectBindings未加载
 					//	throw new TreePathNotFoundException(path);
 					//else
 						return null;

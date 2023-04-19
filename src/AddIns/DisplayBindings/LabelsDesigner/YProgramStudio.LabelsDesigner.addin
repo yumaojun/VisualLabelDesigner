@@ -20,6 +20,15 @@
 		                fileNamePattern = "\.(label|labelx)$"
 		                title = "Labels Designer"/>
 	</Path>
+
+	<Path name = "/SharpDevelop/Templates/File/NewLabelWizard">
+		<DialogPanel id = "NewLabel"
+		             label = "New Label"
+		             class = "YProgramStudio.LabelsDesigner.Gui.NewLabelWizardControl"/>
+		<DialogPanel id = "LabelSize"
+		             label = "Label Size"
+		             class = "YProgramStudio.LabelsDesigner.Gui.NewLabelCustomControl"/>
+	</Path>
 	
 	<!--<Path name = "/SharpDevelop/Workbench/MainMenu/Search">
 		<MenuItem id = "Find"

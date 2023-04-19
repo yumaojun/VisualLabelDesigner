@@ -58,5 +58,13 @@ namespace ICSharpCode.SharpDevelop.Templates
 		public virtual void RunActions(FileTemplateResult result)
 		{
 		}
+
+		/// <summary>
+		/// 文件新建向导
+		/// </summary>
+		public virtual string WizardPath
+		{
+			get;
+		}
 	}
 }

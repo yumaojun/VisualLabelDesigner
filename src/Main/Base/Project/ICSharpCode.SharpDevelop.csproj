@@ -286,6 +286,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Gui\CustomFocusManager.cs" />
+    <Compile Include="Src\Gui\Dialogs\AbstractOptionPanel.WinForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Src\Gui\Dialogs\AsynchronousWaitDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,11 +315,34 @@
     <Compile Include="Src\Gui\Dialogs\OptionPanels\ProjectOptions\AssemblyInfo\VersionEditor.xaml.cs">
       <DependentUpon>VersionEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Src\Gui\Dialogs\Wizard\AbstractWizardPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\Dialogs\Wizard\CurrentPanelPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\Dialogs\Wizard\IWizardPanel.cs" />
+    <Compile Include="Src\Gui\Dialogs\Wizard\StatusPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\Dialogs\Wizard\WizardDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Src\Gui\Pads\CompilerMessageView\MessageViewCategoryTextWriter.cs" />
     <Compile Include="Src\Gui\Pads\TaskList\TaskViewResources.xaml.cs">
       <DependentUpon>TaskViewResources.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Src\Gui\XmlForms\SharpDevelopObjectCreator.cs" />
+    <Compile Include="Src\Internal\Codons\DefaultDialogPanelDescriptor.cs" />
+    <Compile Include="Src\Internal\Codons\IDialogPanel.cs" />
+    <Compile Include="Src\Internal\Codons\IDialogPanelDescriptor.cs" />
     <Compile Include="Src\Internal\ConditionEvaluators\SymbolTypeAtCaretConditionEvaluator.cs" />
+    <Compile Include="Src\Internal\Doozers\DialogPanelDoozer.cs" />
+    <Compile Include="Src\Internal\Property\DefaultProperties.cs" />
+    <Compile Include="Src\Internal\Property\IProperties.cs" />
+    <Compile Include="Src\Internal\Property\IXmlConvertable.cs" />
+    <Compile Include="Src\Internal\Property\PropertyEventArgs.cs" />
+    <Compile Include="Src\Internal\Property\UnknownPropertyNodeException.cs" />
     <Compile Include="Src\Internal\Templates\StringParserPropertyContainer.cs" />
     <Compile Include="Src\Project\MSBuildConfigurationOrPlatformNameCollection.cs" />
     <Compile Include="Templates\FileTemplate.cs" />

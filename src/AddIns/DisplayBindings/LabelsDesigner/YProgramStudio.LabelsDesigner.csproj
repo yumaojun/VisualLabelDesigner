@@ -95,6 +95,18 @@
     </Compile>
     <Compile Include="Gui\FontFamilyComboBox.cs" />
     <Compile Include="Gui\FontSizeComboBox.cs" />
+    <Compile Include="Gui\NewLabelCustomControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\NewLabelCustomControl.Designer.cs">
+      <DependentUpon>NewLabelCustomControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\NewLabelWizardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\NewLabelWizardControl.Designer.cs">
+      <DependentUpon>NewLabelWizardControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="LabelDesignerPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
