@@ -151,10 +151,10 @@
     <value>Disabled</value>
   </data>
   <data name="AddInManager.AddInEnabled" xml:space="preserve">
-    <value>AddIn will be enabled after restarting SharpDevelop</value>
+    <value>AddIn will be enabled after restarting VisualLabelDesigner</value>
   </data>
   <data name="AddInManager.AddInInstalled" xml:space="preserve">
-    <value>AddIn will be installed after restarting SharpDevelop</value>
+    <value>AddIn will be installed after restarting VisualLabelDesigner</value>
   </data>
   <data name="AddInManager.AddInInstalledTwice" xml:space="preserve">
     <value>This AddIns is installed twice. Please uninstall one  copy.</value>
@@ -163,13 +163,13 @@
     <value>The AddIn must have an &lt;Identity&gt; for use with the AddIn-Manager.</value>
   </data>
   <data name="AddInManager.AddInRemoved" xml:space="preserve">
-    <value>AddIn will be removed after restarting SharpDevelop</value>
+    <value>AddIn will be removed after restarting VisualLabelDesigner</value>
   </data>
   <data name="AddInManager.AddInUpdated" xml:space="preserve">
-    <value>AddIn will be updated after restarting SharpDevelop</value>
+    <value>AddIn will be updated after restarting VisualLabelDesigner</value>
   </data>
   <data name="AddInManager.AddInWillBeDisabled" xml:space="preserve">
-    <value>AddIn will be disabled after restarting SharpDevelop</value>
+    <value>AddIn will be disabled after restarting VisualLabelDesigner</value>
   </data>
   <data name="AddInManager.CannotDisableAddInManager" xml:space="preserve">
     <value>You cannot disable the AddInManager because you need it to re-enable AddIns!</value>
@@ -199,7 +199,7 @@
     <value>AddIn Installation Package</value>
   </data>
   <data name="AddInManager.FileFilter" xml:space="preserve">
-    <value>SharpDevelop AddIns|*.addin;*.sdaddin|All files|*.*</value>
+    <value>VisualLabelDesigner AddIns|*.addin;*.sdaddin|All files|*.*</value>
   </data>
   <data name="AddInManager.InstallButton" xml:space="preserve">
     <value>&amp;Install AddIn</value>
@@ -248,7 +248,7 @@ Download an AddIn from the Internet, then click 'Install AddIn' and choose the d
     <value>You cannot uninstall the AddInManager because you need it to re-install AddIns!</value>
   </data>
   <data name="AddInManager2.DefaultRepository" xml:space="preserve">
-    <value>SharpDevelop AddIn Repository</value>
+    <value>VisualLabelDesigner AddIn Repository</value>
   </data>
   <data name="AddInManager2.Details.CreatedBy" xml:space="preserve">
     <value>Created by:</value>
@@ -301,7 +301,7 @@ They will stop working after disabling this AddIn! Are you sure you want to cont
 The application will try to download and install them, as well. Do you want to continue?</value>
   </data>
   <data name="AddInManager2.InvalidPackage" xml:space="preserve">
-    <value>Selected package doesn't contain a valid SharpDevelop AddIn.</value>
+    <value>Selected package doesn't contain a valid VisualLabelDesigner AddIn.</value>
   </data>
   <data name="AddInManager2.LicenseAcceptance.AcceptButton" xml:space="preserve">
     <value>I &amp;Accept</value>
@@ -364,13 +364,13 @@ If you do not agree to the license terms click "I Decline".</value>
 They will stop working after removing this AddIn! Are you sure you want to continue?</value>
   </data>
   <data name="AddInManager2.SDAddInFileFilter" xml:space="preserve">
-    <value>SharpDevelop AddIns|*.sdaddin;*.addin|All files|*.*</value>
+    <value>VisualLabelDesigner AddIns|*.sdaddin;*.addin|All files|*.*</value>
   </data>
   <data name="AddInManager2.UpdateNotifier.BubbleText" xml:space="preserve">
     <value>Click here to see the updates.</value>
   </data>
   <data name="AddInManager2.UpdateNotifier.BubbleTitle" xml:space="preserve">
-    <value>Updates for SharpDevelop are available</value>
+    <value>Updates for VisualLabelDesigner are available</value>
   </data>
   <data name="AddInManager2.Views.Available" xml:space="preserve">
     <value>Available</value>
@@ -433,7 +433,7 @@ They will stop working after removing this AddIn! Are you sure you want to conti
     <comment>Error message when there is no help catalog active</comment>
   </data>
   <data name="AddIns.HelpViewer.HLMNotAvailableDownloadWinSDK" xml:space="preserve">
-    <value>The Help Library Manager was not found. In order to use SharpDevelop's help feature please download and install Microsoft's Windows SDK 7.1.</value>
+    <value>The Help Library Manager was not found. In order to use VisualLabelDesigner's help feature please download and install Microsoft's Windows SDK 7.1.</value>
   </data>
   <data name="AddIns.HelpViewer.HLMNotFound" xml:space="preserve">
     <value>Help Library Manager was not found. Please check if it was installed correctly.</value>
@@ -541,10 +541,10 @@ They will stop working after removing this AddIn! Are you sure you want to conti
     <value>All functions for {0}</value>
   </data>
   <data name="AddIns.Profiler.DatabaseTooNewError" xml:space="preserve">
-    <value>The selected SharpDevelop profiling session was created by a newer version of SharpDevelop and thus cannot be opened.</value>
+    <value>The selected VisualLabelDesigner profiling session was created by a newer version of VisualLabelDesigner and thus cannot be opened.</value>
   </data>
   <data name="AddIns.Profiler.FileExtensionDescription" xml:space="preserve">
-    <value>SharpDevelop Profiling Session</value>
+    <value>VisualLabelDesigner Profiling Session</value>
   </data>
   <data name="AddIns.Profiler.Messages.FileNotFound" xml:space="preserve">
     <value>This project cannot be started because the executable file was not found, please ensure that the project and all its depencies are built correctly!
@@ -960,7 +960,7 @@ You have to save those files before running the operation.</value>
     <comment>Command to update a file to a specific version</comment>
   </data>
   <data name="AddIns.UsageDataCollector.AcceptConfirmation" xml:space="preserve">
-    <value>Thank you for participating! You can still opt-out later using the SharpDevelop options.</value>
+    <value>Thank you for participating! You can still opt-out later using the VisualLabelDesigner options.</value>
     <comment>text that confirms the user accepted UDC</comment>
   </data>
   <data name="AddIns.UsageDataCollector.AcceptRadioButton" xml:space="preserve">
@@ -968,7 +968,7 @@ You have to save those files before running the operation.</value>
     <comment>Option to start participating in usage data collection</comment>
   </data>
   <data name="AddIns.UsageDataCollector.DeclineConfirmation" xml:space="preserve">
-    <value>You can still opt-in later using the SharpDevelop options.</value>
+    <value>You can still opt-in later using the VisualLabelDesigner options.</value>
     <comment>Text that confirms the user declined UDC</comment>
   </data>
   <data name="AddIns.UsageDataCollector.DeclineRadioButton" xml:space="preserve">
@@ -976,9 +976,9 @@ You have to save those files before running the operation.</value>
     <comment>Option for declining to participate in usage data collection</comment>
   </data>
   <data name="AddIns.UsageDataCollector.Introduction" xml:space="preserve">
-    <value>We need your help! To improve SharpDevelop in the future, we would like to know which features are used most.
-SharpDevelop can collect this information and upload it automatically.</value>
-    <comment>introduction to UsageDataCollector, appears on first start of SharpDevelop 4.0</comment>
+    <value>We need your help! To improve VisualLabelDesigner in the future, we would like to know which features are used most.
+VisualLabelDesigner can collect this information and upload it automatically.</value>
+    <comment>introduction to UsageDataCollector, appears on first start of VisualLabelDesigner 4.0</comment>
   </data>
   <data name="AddIns.UsageDataCollector.PrivacyStatement" xml:space="preserve">
     <value>Privacy Statement</value>
@@ -990,10 +990,10 @@ SharpDevelop can collect this information and upload it automatically.</value>
   </data>
   <data name="AddIns.UsageDataCollector.Title" xml:space="preserve">
     <value>Usage Data Collector</value>
-    <comment>title of the usage data collector start page message (only visible on first start of SharpDevelop 4) and name of the corresponding page in the options dialog</comment>
+    <comment>title of the usage data collector start page message (only visible on first start of VisualLabelDesigner 4) and name of the corresponding page in the options dialog</comment>
   </data>
   <data name="AddIns.VBNetBinding.CodeCompletion.QuestionmarkEqualsItem.Description" xml:space="preserve">
-    <value>Let SharpDevelop figure out the type based on the initializer.</value>
+    <value>Let VisualLabelDesigner figure out the type based on the initializer.</value>
   </data>
   <data name="AddIns.XamlBinding.Menu.EditGridColumnsAndRows" xml:space="preserve">
     <value>Edit grid columns and rows</value>
@@ -2195,7 +2195,7 @@ Do you want to add the new file to the project ${CurrentProjectName}?</value>
   </data>
   <data name="Dialog.Options.IDEOptions.LoadSaveOptions.AutoLoadExternalChanges" xml:space="preserve">
     <value>&amp;Auto-load changes if saved</value>
-    <comment>(checkbox) automatically load externally changed files if there are no unsaved modifications in SharpDevelop</comment>
+    <comment>(checkbox) automatically load externally changed files if there are no unsaved modifications in VisualLabelDesigner</comment>
   </data>
   <data name="Dialog.Options.IDEOptions.LoadSaveOptions.CreateBackupCopyCheckBox" xml:space="preserve">
     <value>Use &amp;temporary file for saving</value>
@@ -3372,7 +3372,7 @@ You can also choose to store the setting in the .user-file instead of the projec
     <comment>Title of the Boo Interpreter pad</comment>
   </data>
   <data name="ICSharpCode.Build.CannotFindFxCop" xml:space="preserve">
-    <value>SharpDevelop cannot find FxCop. Please select the FxCop installation directory in the SharpDevelop options.</value>
+    <value>VisualLabelDesigner cannot find FxCop. Please select the FxCop installation directory in the VisualLabelDesigner options.</value>
   </data>
   <data name="ICSharpCode.Build.CannotReadFxCopLogFile" xml:space="preserve">
     <value>Cannot read FxCop log file:</value>
@@ -3406,7 +3406,7 @@ You can also choose to store the setting in the .user-file instead of the projec
     <value>FxCop was found in the following directory:</value>
   </data>
   <data name="ICSharpCode.CodeAnalysis.IdeOptions.FxCopNotFound" xml:space="preserve">
-    <value>FxCop could not be found. Install FxCop and click on 'Select FxCop path' to tell SharpDevelop where you installed FxCop.</value>
+    <value>FxCop could not be found. Install FxCop and click on 'Select FxCop path' to tell VisualLabelDesigner where you installed FxCop.</value>
   </data>
   <data name="ICSharpCode.CodeAnalysis.IdeOptions.FxCopPath" xml:space="preserve">
     <value>FxCop path</value>
@@ -3431,7 +3431,7 @@ You can also choose to store the setting in the .user-file instead of the projec
     <value>&amp;Run Code Analysis when compiling (defines CODE_ANALYSIS constant)</value>
   </data>
   <data name="ICSharpCode.CodeAnalysis.ProjectOptions.SpecifyFxCopPath" xml:space="preserve">
-    <value>You can specify the path to FxCop in the SharpDevelop options.</value>
+    <value>You can specify the path to FxCop in the VisualLabelDesigner options.</value>
   </data>
   <data name="ICSharpCode.CodeAnalysis.ProjectOptions.WarningErrorMixed" xml:space="preserve">
     <value>Mixed</value>
@@ -3593,7 +3593,7 @@ You can also choose to store the setting in the .user-file instead of the projec
     <value>.NET Resource File</value>
   </data>
   <data name="ICSharpCode.FiletypeRegisterer.SolutionFileAssozisation" xml:space="preserve">
-    <value>SharpDevelop Solution</value>
+    <value>VisualLabelDesigner Solution</value>
   </data>
   <data name="ICSharpCode.FiletypeRegisterer.VBNetSourceFileAssozisation" xml:space="preserve">
     <value>VB.NET Source File</value>
@@ -3604,7 +3604,7 @@ You can also choose to store the setting in the .user-file instead of the projec
   <data name="ICSharpCode.NAntAddIn.AbstractRunNAntCommand.NAntExeNotFoundMessage" xml:space="preserve">
     <value>Unable to find NAnt '{0}'.
 
-Please configure the NAnt executable's location in the SharpDevelop Options.</value>
+Please configure the NAnt executable's location in the VisualLabelDesigner Options.</value>
   </data>
   <data name="ICSharpCode.NAntAddIn.AbstractRunNAntCommand.NAntStoppedMessage" xml:space="preserve">
     <value>NAnt build stopped.</value>
@@ -3612,7 +3612,7 @@ Please configure the NAnt executable's location in the SharpDevelop Options.</va
   </data>
   <data name="ICSharpCode.NAntAddIn.AbstractRunNAntCommand.NoBuildFileErrorText" xml:space="preserve">
     <value>Project does not contain a '.build' file.</value>
-    <comment>Error message reported to the user when they attempt to run NAnt when there is no .build file in the SharpDevelop project.</comment>
+    <comment>Error message reported to the user when they attempt to run NAnt when there is no .build file in the VisualLabelDesigner project.</comment>
   </data>
   <data name="ICSharpCode.NAntAddIn.AbstractRunNAntCommand.RunningNAntMessage" xml:space="preserve">
     <value>Running NAnt.</value>
@@ -3872,7 +3872,7 @@ Subitems:
     <value>Parser found ${ErrorCount} error(s)</value>
   </data>
   <data name="ICSharpCode.SharpDevelop.Commands.Convert.ProjectConverter" xml:space="preserve">
-    <value>SharpDevelop Project Converter</value>
+    <value>VisualLabelDesigner Project Converter</value>
   </data>
   <data name="ICSharpCode.SharpDevelop.Commands.Convert.SourceDirectory" xml:space="preserve">
     <value>Source directory</value>
@@ -3893,7 +3893,7 @@ Subitems:
     <value>Can't open file '${FileName}'. It is no valid solution or project file.</value>
   </data>
   <data name="ICSharpCode.SharpDevelop.Commands.OpenCombine.SolutionDoesNotContainProject" xml:space="preserve">
-    <value>SharpDevelop loaded the solution '${SolutionName}', but it does not contain the project '${ProjectName}'.</value>
+    <value>VisualLabelDesigner loaded the solution '${SolutionName}', but it does not contain the project '${ProjectName}'.</value>
   </data>
   <data name="ICSharpCode.SharpDevelop.Commands.OpenCombine.SolutionDoesNotContainProject.AddProjectToSolution" xml:space="preserve">
     <value>Add '${ProjectName}' to '${SolutionName}'.</value>
@@ -3996,23 +3996,23 @@ has been changed externally. Do you want to reload it?</value>
     <value>Copy error message to clipboard</value>
   </data>
   <data name="ICSharpCode.SharpDevelop.ExceptionBox.ExitSharpDevelop" xml:space="preserve">
-    <value>Exit SharpDevelop</value>
+    <value>Exit VisualLabelDesigner</value>
   </data>
   <data name="ICSharpCode.SharpDevelop.ExceptionBox.HelpText1" xml:space="preserve">
-    <value>An unhandled exception has occurred in SharpDevelop. This is unexpected and we'd ask you to help us improve SharpDevelop by reporting this error to the SharpDevelop team.</value>
+    <value>An unhandled exception has occurred in VisualLabelDesigner. This is unexpected and we'd ask you to help us improve VisualLabelDesigner by reporting this error to the VisualLabelDesigner team.</value>
   </data>
   <data name="ICSharpCode.SharpDevelop.ExceptionBox.HelpText2" xml:space="preserve">
-    <value>How to report errors efficiently: We have set up a Web-based forum to report and track errors that are reported by users of SharpDevelop. To minimize necessary questions by the team members, in addition to providing the error message that is copied to the clipboard for easier pasting in the error report, we ask that you provide us with an as detailed as possible step-by-step procedure to reproduce this bug.</value>
+    <value>How to report errors efficiently: We have set up a Web-based forum to report and track errors that are reported by users of VisualLabelDesigner. To minimize necessary questions by the team members, in addition to providing the error message that is copied to the clipboard for easier pasting in the error report, we ask that you provide us with an as detailed as possible step-by-step procedure to reproduce this bug.</value>
     <comment>When translating this message, add a notice that error reports should be done in English.</comment>
   </data>
   <data name="ICSharpCode.SharpDevelop.ExceptionBox.QuitWarning" xml:space="preserve">
-    <value>Do you really want to quit SharpDevelop? Unsaved changes will be lost!</value>
+    <value>Do you really want to quit VisualLabelDesigner? Unsaved changes will be lost!</value>
   </data>
   <data name="ICSharpCode.SharpDevelop.ExceptionBox.ReportError" xml:space="preserve">
-    <value>Report Error to SharpDevelop Team</value>
+    <value>Report Error to VisualLabelDesigner Team</value>
   </data>
   <data name="ICSharpCode.SharpDevelop.ExceptionBox.ThankYouMsg" xml:space="preserve">
-    <value>Thank you for helping make SharpDevelop a better program for everyone!</value>
+    <value>Thank you for helping make VisualLabelDesigner a better program for everyone!</value>
   </data>
   <data name="ICSharpCode.SharpDevelop.ExceptionBox.Title" xml:space="preserve">
     <value>Unhandled exception has occured</value>
@@ -4344,7 +4344,7 @@ Only letters, digits, space, '.' or '_' are allowed.</value>
     <comment>Error message when location for new project is invalid</comment>
   </data>
   <data name="ICSharpCode.SharpDevelop.Gui.Dialogs.OptionPanels.RegisterFiletypesPanel.CaptionLabel" xml:space="preserve">
-    <value>&amp;Select the file types you want to associate with SharpDevelop:</value>
+    <value>&amp;Select the file types you want to associate with VisualLabelDesigner:</value>
   </data>
   <data name="ICSharpCode.SharpDevelop.Gui.Dialogs.OptionPanels.RegisterFiletypesPanel.PanelName" xml:space="preserve">
     <value>File Format Associations</value>
@@ -4417,7 +4417,7 @@ Only letters, digits, space, '.' or '_' are allowed.</value>
   </data>
   <data name="ICSharpCode.SharpDevelop.Internal.ParserService.Parsing" xml:space="preserve">
     <value>Parsing</value>
-    <comment>Status bar message indicating that SharpDevelop is parsing the user code</comment>
+    <comment>Status bar message indicating that VisualLabelDesigner is parsing the user code</comment>
   </data>
   <data name="ICSharpCode.SharpDevelop.Internal.Project.ProjectFile.BuildAction" xml:space="preserve">
     <value>Build action</value>
@@ -4613,7 +4613,7 @@ The project cannot be opened without upgrading.</value>
     <comment>OK button for UpdateOnLoadDueToMissingMSBuild message box</comment>
   </data>
   <data name="ICSharpCode.SharpDevelop.Project.UpgradeView.UpgradeFromPreviousVersionDescription" xml:space="preserve">
-    <value>This solution was created using a previous version of SharpDevelop.
+    <value>This solution was created using a previous version of VisualLabelDesigner.
 You might want to upgrade it so that you can use new language or framework features.</value>
   </data>
   <data name="ICSharpCode.SharpDevelop.Services.AmbienceService.AmbienceNotFoundError" xml:space="preserve">
@@ -5079,7 +5079,7 @@ Unable to find 'WelcomeDialogId' in Dialogs.wxs</comment>
   </data>
   <data name="ICSharpCode.XmlEditor.XmlSchemasPanel.NamespaceExists" xml:space="preserve">
     <value>Unable to add schema.  The namespace '{0}' already exists.</value>
-    <comment>User tried to add a schema to SharpDevelop but one has been added before with that particular namespace.</comment>
+    <comment>User tried to add a schema to VisualLabelDesigner but one has been added before with that particular namespace.</comment>
   </data>
   <data name="ICSharpCode.XmlEditor.XmlSchemasPanel.NoTargetNamespace" xml:space="preserve">
     <value>Schema '{0}' does not have a target namespace.</value>
@@ -5087,15 +5087,15 @@ Unable to find 'WelcomeDialogId' in Dialogs.wxs</comment>
   </data>
   <data name="ICSharpCode.XmlEditor.XmlSchemasPanel.Title" xml:space="preserve">
     <value>XML Schemas</value>
-    <comment>Name of the options panel for configuring xml schemas that SharpDevelop will provide autocomplete/intellisense for.</comment>
+    <comment>Name of the options panel for configuring xml schemas that VisualLabelDesigner will provide autocomplete/intellisense for.</comment>
   </data>
   <data name="ICSharpCode.XmlEditor.XmlSchemasPanel.UnableToAddSchema" xml:space="preserve">
     <value>Unable to add schema.</value>
-    <comment>User browsed for an xml schema on the file system, but we could not add it to SharpDevelop for some reason.</comment>
+    <comment>User browsed for an xml schema on the file system, but we could not add it to VisualLabelDesigner for some reason.</comment>
   </data>
   <data name="ICSharpCode.XmlEditor.XmlSchemasPanel.UnableToSaveChanges" xml:space="preserve">
     <value>Unable to save changes.</value>
-    <comment>This message is shown if SharpDevelop could not save the changes the user made to the xml schemas options panel.</comment>
+    <comment>This message is shown if VisualLabelDesigner could not save the changes the user made to the xml schemas options panel.</comment>
   </data>
   <data name="ICSharpCode.XmlEditor.XmlTreeView.AddAttributeMenuLabel" xml:space="preserve">
     <value>Add Attribute...</value>
@@ -5165,7 +5165,7 @@ Unable to find 'WelcomeDialogId' in Dialogs.wxs</comment>
     <value>XSLT Output</value>
   </data>
   <data name="ILSpyAddIn.ILSpyDoesNotExist" xml:space="preserve">
-    <value>ILSpy could not be found at the specified location, or SharpDevelop does not have sufficient rights to access it.</value>
+    <value>ILSpy could not be found at the specified location, or VisualLabelDesigner does not have sufficient rights to access it.</value>
   </data>
   <data name="ILSpyAddIn.ILSpyPathNotSet" xml:space="preserve">
     <value>The path to ILSpy has not been set yet.</value>
@@ -5192,8 +5192,8 @@ Unable to find 'WelcomeDialogId' in Dialogs.wxs</comment>
     <value>Error while loading project template:</value>
   </data>
   <data name="MainWindow.CannotCloseWithBuildInProgressMessage" xml:space="preserve">
-    <value>The build must finish before SharpDevelop can be closed.</value>
-    <comment>Warning message displayed to user if they try to close SharpDevelop whilst a build is running.</comment>
+    <value>The build must finish before VisualLabelDesigner can be closed.</value>
+    <comment>Warning message displayed to user if they try to close VisualLabelDesigner whilst a build is running.</comment>
   </data>
   <data name="MainWindow.CompilerMessages.BuildCancelled" xml:space="preserve">
     <value>Build was cancelled.</value>
@@ -5213,11 +5213,11 @@ Unable to find 'WelcomeDialogId' in Dialogs.wxs</comment>
   </data>
   <data name="MainWindow.CompilerMessages.BuildVerb" xml:space="preserve">
     <value>Building</value>
-    <comment>Verb describing that SharpDevelop is currently building a project</comment>
+    <comment>Verb describing that VisualLabelDesigner is currently building a project</comment>
   </data>
   <data name="MainWindow.CompilerMessages.CompileVerb" xml:space="preserve">
     <value>Compiling</value>
-    <comment>Verb describing that SharpDevelop is currently compiling a project</comment>
+    <comment>Verb describing that VisualLabelDesigner is currently compiling a project</comment>
   </data>
   <data name="MainWindow.CompilerMessages.CreatingCOMInteropAssembly" xml:space="preserve">
     <value>Building COM interop assembly...</value>
@@ -5235,7 +5235,7 @@ Unable to find 'WelcomeDialogId' in Dialogs.wxs</comment>
     <value>Build complete -- ${Errors} errors, ${Warnings} warnings</value>
   </data>
   <data name="MainWindow.CompilerMessages.SkipProjectNoChanges" xml:space="preserve">
-    <value>Skipped ${Name} (no changes inside SharpDevelop)</value>
+    <value>Skipped ${Name} (no changes inside VisualLabelDesigner)</value>
     <comment>Message when a project is not compiled because it was not modified</comment>
   </data>
   <data name="MainWindow.DialogName" xml:space="preserve">
@@ -6441,7 +6441,7 @@ Removed the end part of the original message ", reason '${Message}'" since this 
     <value>NAnt Build Files</value>
   </data>
   <data name="SharpDevelop.FileFilter.PrjxFiles" xml:space="preserve">
-    <value>SharpDevelop 1.1 Project Files (*.prjx)</value>
+    <value>VisualLabelDesigner 1.1 Project Files (*.prjx)</value>
   </data>
   <data name="SharpDevelop.FileFilter.ResourceFiles" xml:space="preserve">
     <value>Resource Files</value>
@@ -6614,7 +6614,7 @@ Removed the end part of the original message ", reason '${Message}'" since this 
     <comment>Menu command to rename a member</comment>
   </data>
   <data name="SharpDevelop.Refactoring.RenameFieldAndProperty" xml:space="preserve">
-    <value>Should SharpDevelop rename the property '{0}' to '{1}'?</value>
+    <value>Should VisualLabelDesigner rename the property '{0}' to '{1}'?</value>
     <comment>displayed when a field that has a property is renamed</comment>
   </data>
   <data name="SharpDevelop.Refactoring.RenameFileTo" xml:space="preserve">
@@ -6649,8 +6649,8 @@ Removed the end part of the original message ", reason '${Message}'" since this 
     <value>All known project formats</value>
   </data>
   <data name="SharpDevelop.Solution.CannotLoadOldSolution" xml:space="preserve">
-    <value>This SharpDevelop version cannot load projects created using Visual Studio .NET 2003 (or earlier).
-Try using SharpDevelop 3.2 for the conversion; or create a new project and add the existing source code files.</value>
+    <value>This VisualLabelDesigner version cannot load projects created using Visual Studio .NET 2003 (or earlier).
+Try using VisualLabelDesigner 3.2 for the conversion; or create a new project and add the existing source code files.</value>
   </data>
   <data name="SharpDevelop.Solution.CannotSave.IOException" xml:space="preserve">
     <value>Could not save {0}:\n{1}</value>
@@ -6669,7 +6669,7 @@ Message shown when Solution.Save() is called on a solution with the ReadOnly att
   </data>
   <data name="SharpDevelop.Solution.ImportResourceWarning" xml:space="preserve">
     <value>There were resource files in the project.
-SharpDevelop 2 compiles resources different: the resource name is not just the file name; but it is prefixed with the root namespace and the directory name.
+VisualLabelDesigner 2 compiles resources different: the resource name is not just the file name; but it is prefixed with the root namespace and the directory name.
 
 The resources files have been renamed/moved accordingly.</value>
   </data>
@@ -6688,7 +6688,7 @@ The resources files have been renamed/moved accordingly.</value>
     <value>Database</value>
   </data>
   <data name="SharpReport.AddinName" xml:space="preserve">
-    <value>SharpDevelop Reports</value>
+    <value>VisualLabelDesigner Reports</value>
   </data>
   <data name="SharpReport.ContextMenu.Cut" xml:space="preserve">
     <value>Cut Field</value>
@@ -6737,7 +6737,7 @@ The resources files have been renamed/moved accordingly.</value>
     <value>Send report to printer</value>
   </data>
   <data name="Sharpreport.Error.NoPrinter" xml:space="preserve">
-    <value>To run SharpDevelop Reports you need at least one(1) installed Printer</value>
+    <value>To run VisualLabelDesigner Reports you need at least one(1) installed Printer</value>
     <comment>Errormessage when no printer is installed</comment>
   </data>
   <data name="SharpReport.Error.NoReport" xml:space="preserve">
@@ -7429,10 +7429,10 @@ The resources files have been renamed/moved accordingly.</value>
     <value>Shared Add-in</value>
   </data>
   <data name="Templates.Project.SharpDevelopAddin.Description" xml:space="preserve">
-    <value>A project template to quickly create a SharpDevelop addin</value>
+    <value>A project template to quickly create a VisualLabelDesigner addin</value>
   </data>
   <data name="Templates.Project.SharpDevelopAddin.Name" xml:space="preserve">
-    <value>SharpDevelop addin</value>
+    <value>VisualLabelDesigner addin</value>
   </data>
   <data name="Templates.Project.SharpDevelopMacro.Description" xml:space="preserve">
     <value>AddIn template that defines an entry in the "Tools" menu that takes the active text editor and modifies the selected text.</value>
@@ -7583,7 +7583,7 @@ The resources files have been renamed/moved accordingly.</value>
     <value>Can not perform action because some process is debugged.</value>
   </data>
   <data name="XML.MainMenu.DebugMenu.Error.KernelDebuggerEnabled" xml:space="preserve">
-    <value>Can not start SharpDevelop debugger because kernel debugger is enabled.  To disable the kernel debugger, remove the switch "/debug" from the file Boot.ini and reboot your computer.</value>
+    <value>Can not start VisualLabelDesigner debugger because kernel debugger is enabled.  To disable the kernel debugger, remove the switch "/debug" from the file Boot.ini and reboot your computer.</value>
   </data>
   <data name="XML.MainMenu.DebugMenu.Error.Net10NotSupported" xml:space="preserve">
     <value>Debugging of .NET Framework 1.0 programs is not supported.</value>
@@ -8136,7 +8136,7 @@ Error while starting:
     <value>&amp;Split</value>
   </data>
   <data name="XML.StandardHeader.CreatedBySharpDevelop" xml:space="preserve">
-    <value>Created by SharpDevelop.</value>
+    <value>Created by VisualLabelDesigner.</value>
   </data>
   <data name="XML.StandardHeader.Date" xml:space="preserve">
     <value>Date:</value>

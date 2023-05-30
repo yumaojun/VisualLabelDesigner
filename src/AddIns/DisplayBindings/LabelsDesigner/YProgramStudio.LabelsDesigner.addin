@@ -12,7 +12,14 @@
 	<Runtime>
 		<Import assembly = "YProgramStudio.LabelsDesigner.dll"/>
 	</Runtime>
-
+	
+	<Path name = "/SharpDevelop/Workbench/FileFilter">
+		<FileFilter id = "Labels"
+		            insertbefore="AllFiles"
+		            name = "Labels"
+		            extensions = "*.label"/>
+	</Path>
+	
 	<Path name = "/SharpDevelop/Workbench/DisplayBindings">
 		<DisplayBinding id    = "LabelsDesigner"
 		                class = "YProgramStudio.LabelsDesigner.LabelDisplayBinding"

@@ -179,7 +179,7 @@ namespace ICSharpCode.SharpDevelop.Startup
 				string configDirectory = ConfigurationManager.AppSettings["settingsPath"];
 				if (String.IsNullOrEmpty(configDirectory)) {
 					startup.ConfigDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-														   "ProgramStudio/VisualLabelDesigner" + RevisionClass.Major);
+														   "YProgramStudio/VisualLabelDesigner" + RevisionClass.Major);
 				} else {
 					startup.ConfigDirectory = Path.Combine(Path.GetDirectoryName(exe.Location), configDirectory);
 				}

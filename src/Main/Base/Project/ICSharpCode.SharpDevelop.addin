@@ -1455,12 +1455,12 @@
 				          shortcut     = "Control|N"
 				          class        = "ICSharpCode.SharpDevelop.Commands.CreateNewFile"/>
 				
-				<Condition name="SolutionOpen" action="Disable">
+				<!--<Condition name="SolutionOpen" action="Disable">
 					<MenuItem id          = "Project"
 					          label       = "${res:XML.MainMenu.FileMenu.New.Project}"
 					          icon        = "Icons.16x16.NewProjectIcon"
 					          class       = "ICSharpCode.SharpDevelop.Project.Commands.AddNewProjectToSolution"/>
-				</Condition>
+				</Condition>-->
 				
 				<MenuItem id          = "Solution"
 				          label       = "${res:XML.MainMenu.FileMenu.New.Solution}"
@@ -1942,6 +1942,7 @@
 			<Include id = "ToolList" path = "/SharpDevelop/Workbench/Tools" />
 			<MenuItem id = "Separator2" type = "Separator" />
 			
+			<!--更新解决方案和项目-->
 			<Condition name = "SolutionOpen" action="Disable">
 				<MenuItem id = "Upgrade"
 				          label = "${res:ICSharpCode.SharpDevelop.Project.UpgradeView.Title}"

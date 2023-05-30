@@ -99,6 +99,10 @@ namespace ICSharpCode.UsageDataCollector
 		/// version of the AnalyticsSessionWriter.</exception>
 		public void StartUpload(string uploadUrl)
 		{
+			if (string.IsNullOrEmpty(uploadUrl))
+			{
+				return;
+			}
 			EndpointAddress epa = new EndpointAddress(uploadUrl);
 			BasicHttpBinding binding = new BasicHttpBinding();
 			binding.Security.Mode = BasicHttpSecurityMode.None;

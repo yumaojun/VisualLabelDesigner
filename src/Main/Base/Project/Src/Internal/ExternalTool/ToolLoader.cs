@@ -30,7 +30,7 @@ namespace ICSharpCode.SharpDevelop.Internal.ExternalTool
 	/// </summary>
 	public class ToolLoader
 	{
-		static string TOOLFILE        = "SharpDevelop-tools.xml";
+		static string TOOLFILE        = "VisualLabelDesigner-tools.xml";
 		static string TOOLFILEVERSION = "1";
 		
 		static List<ExternalTool> tool = new List<ExternalTool>();
@@ -42,7 +42,7 @@ namespace ICSharpCode.SharpDevelop.Internal.ExternalTool
 			}
 			set {
 				tool = value;
-				System.Diagnostics.Debug.Assert(tool != null, "SharpDevelop.Tool.Data.ToolLoader : set List Tool (value == null)");
+				System.Diagnostics.Debug.Assert(tool != null, "VisualLabelDesigner.Tool.Data.ToolLoader : set List Tool (value == null)");
 			}
 		}
 		

@@ -42,10 +42,10 @@
   	                languagePattern="^Edmx$" />
   </Path>
 
-  <!--Template path -->
+  <!--Template path --><!--
   <Path name = "/SharpDevelop/BackendBindings/Templates">
     <TemplateFile id = "Data" resourceNamespace = "ICSharpCode.Data.Addin.Templates" />
-  </Path>
+  </Path>-->
 
   <!-- Custom tools path-->
   <Path name = "/SharpDevelop/CustomTools">

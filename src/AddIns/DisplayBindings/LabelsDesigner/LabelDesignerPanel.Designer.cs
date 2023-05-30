@@ -29,17 +29,111 @@ namespace YProgramStudio.LabelsDesigner
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.mainPanel = new System.Windows.Forms.Panel();
+            this.origin = new YProgramStudio.LabelsDesigner.Gui.Origin();
+            this.hRuler = new YProgramStudio.LabelsDesigner.Gui.HRuler();
+            this.vRuler = new YProgramStudio.LabelsDesigner.Gui.VRuler();
+            this.labelEditor = new YProgramStudio.LabelsDesigner.Gui.LabelEditor();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // ZplLabelDesignerPanel
+            // tableLayoutPanel1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "ZplLabelDesignerPanel";
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.mainPanel, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.origin, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.hRuler, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.vRuler, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(850, 540);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // mainPanel
+            // 
+            this.mainPanel.AutoScroll = true;
+            this.mainPanel.Controls.Add(this.labelEditor);
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.Location = new System.Drawing.Point(26, 26);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(824, 500);
+            this.mainPanel.TabIndex = 3;
+            // 
+            // origin
+            // 
+            this.origin.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.origin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.origin.Location = new System.Drawing.Point(0, 0);
+            this.origin.Margin = new System.Windows.Forms.Padding(0);
+            this.origin.Name = "origin";
+            this.origin.Size = new System.Drawing.Size(26, 26);
+            this.origin.TabIndex = 7;
+            this.origin.Text = "origin";
+            // 
+            // hRuler
+            // 
+            this.hRuler.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.hRuler.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hRuler.Location = new System.Drawing.Point(26, 0);
+            this.hRuler.Margin = new System.Windows.Forms.Padding(0);
+            this.hRuler.MaximumSize = new System.Drawing.Size(0, 28);
+            this.hRuler.Name = "hRuler";
+            this.hRuler.Size = new System.Drawing.Size(0, 26);
+            this.hRuler.TabIndex = 8;
+            this.hRuler.Text = "hRuler";
+            // 
+            // vRuler
+            // 
+            this.vRuler.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.vRuler.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.vRuler.Location = new System.Drawing.Point(0, 26);
+            this.vRuler.Margin = new System.Windows.Forms.Padding(0);
+            this.vRuler.Name = "vRuler";
+            this.vRuler.Size = new System.Drawing.Size(26, 1174);
+            this.vRuler.TabIndex = 9;
+            this.vRuler.Text = "vRuler";
+            // 
+            // labelEditor
+            // 
+            this.labelEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelEditor.Location = new System.Drawing.Point(0, 0);
+            this.labelEditor.Name = "labelEditor";
+            this.labelEditor.Size = new System.Drawing.Size(824, 500);
+            this.labelEditor.TabIndex = 0;
+            this.labelEditor.Text = "labelEditor1";
+            // 
+            // LabelDesignerPanel
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(45, 24, 45, 24);
+            this.Name = "LabelDesignerPanel";
+            this.Size = new System.Drawing.Size(850, 540);
+            this.Resize += new System.EventHandler(this.LabelDesignerPanel_Resize);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.mainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
 
 		#endregion
+
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private System.Windows.Forms.Panel mainPanel;
+		private Gui.Origin origin;
+		private Gui.HRuler hRuler;
+		private Gui.VRuler vRuler;
+		private Gui.LabelEditor labelEditor;
 	}
 }

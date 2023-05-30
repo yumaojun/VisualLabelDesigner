@@ -37,11 +37,12 @@ namespace YProgramStudio.LabelsDesigner.Gui
 			this.label2 = new System.Windows.Forms.Label();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.listBox1 = new System.Windows.Forms.ListBox();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			//this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.templateControl1 = new TemplateControl();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			//((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// radioButton1
@@ -54,6 +55,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 			this.radioButton1.TabStop = true;
 			this.radioButton1.Text = "指定自定义设置";
 			this.radioButton1.UseVisualStyleBackColor = true;
+			this.radioButton1.Click += radioButton1_Click;
 			// 
 			// radioButton2
 			// 
@@ -66,6 +68,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 			this.radioButton2.Text = "使用预定义的卷";
 			this.radioButton2.Checked = true;
 			this.radioButton2.UseVisualStyleBackColor = true;
+			this.radioButton2.Click += radioButton2_Click;
 			// 
 			// label1
 			// 
@@ -94,6 +97,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 			this.comboBox1.Name = "comboBox1";
 			this.comboBox1.Size = new System.Drawing.Size(200, 23);
 			this.comboBox1.TabIndex = 2;
+			this.comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
 			// 
 			// listBox1
 			// 
@@ -103,17 +107,27 @@ namespace YProgramStudio.LabelsDesigner.Gui
 			"28171 - Address Label"});
 			this.listBox1.Location = new System.Drawing.Point(140, 130);
 			this.listBox1.Name = "listBox1";
-			this.listBox1.Size = new System.Drawing.Size(200, 210);
+			this.listBox1.Size = new System.Drawing.Size(200, 240);
 			this.listBox1.TabIndex = 3;
+			this.listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+			//// 
+			//// pictureBox1
+			//// 
+			//this.pictureBox1.Location = new System.Drawing.Point(380, 40);
+			//this.pictureBox1.Name = "pictureBox1";
+			//this.pictureBox1.Size = new System.Drawing.Size(210, 297);
+			//this.pictureBox1.BackColor = System.Drawing.Color.AliceBlue;
+			//this.pictureBox1.TabIndex = 4;
+			//this.pictureBox1.TabStop = false;
 			// 
-			// pictureBox1
+			// templateControl1
 			// 
-			this.pictureBox1.Location = new System.Drawing.Point(380, 40);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(210, 297);
-			this.pictureBox1.BackColor = System.Drawing.Color.AliceBlue;
-			this.pictureBox1.TabIndex = 4;
-			this.pictureBox1.TabStop = false;
+			this.templateControl1.Location = new System.Drawing.Point(380, 40);
+			this.templateControl1.Name = "templateControl1";
+			this.templateControl1.Size = new System.Drawing.Size((int)(210 * 1.2), (int)(297 * 1.2));
+			this.templateControl1.BackColor = System.Drawing.Color.FromArgb(176, 196, 222);
+			this.templateControl1.TabIndex = 4;
+			this.templateControl1.TabStop = false;
 			// 
 			// label3
 			// 
@@ -156,9 +170,10 @@ namespace YProgramStudio.LabelsDesigner.Gui
 			this.Controls.Add(this.radioButton2);
 			this.Controls.Add(this.comboBox1);
 			this.Controls.Add(this.listBox1);
-			this.Controls.Add(this.pictureBox1);
+			//this.Controls.Add(this.pictureBox1);
+			this.Controls.Add(this.templateControl1);
 			this.Name = "NewLabelWizardControl";
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			//((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
@@ -172,7 +187,8 @@ namespace YProgramStudio.LabelsDesigner.Gui
 		private System.Windows.Forms.RadioButton radioButton2;
 		private System.Windows.Forms.ComboBox comboBox1;
 		private System.Windows.Forms.ListBox listBox1;
-		private System.Windows.Forms.PictureBox pictureBox1;
+		//private System.Windows.Forms.PictureBox pictureBox1;
+		private TemplateControl templateControl1;
 
 		#endregion
 	}
