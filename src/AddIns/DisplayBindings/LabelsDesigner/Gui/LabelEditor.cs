@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using YProgramStudio.LabelsDesigner.Labels;
 using YProgramStudio.LabelsDesigner.Model;
+using YProgramStudio.LabelsDesigner.Properties;
 
 namespace YProgramStudio.LabelsDesigner.Gui
 {
@@ -32,14 +33,14 @@ namespace YProgramStudio.LabelsDesigner.Gui
 
 		static readonly SKColor labelColor = System.Drawing.Color.FromArgb(255, 255, 255).ToSKColor();
 		static readonly SKColor labelOutlineColor = System.Drawing.Color.FromArgb(0, 0, 0).ToSKColor();
-		const float labelOutlineWidthPixels = 1;
+		const float labelOutlineWidthPixels = 0;
 
 		static readonly SKColor gridLineColor = System.Drawing.Color.FromArgb(192, 192, 192).ToSKColor();
-		const float gridLineWidthPixels = 1;
+		const float gridLineWidthPixels = 0; // 原本是1px，但是还没有找到在Skia中固定一像素的方法，所以设置为0就会绘制为1像素（Skia的发际线模式）
 		static readonly Distance gridSpacing = Distance.Pt(9); // TODO: *determine from locale.
 
 		static readonly SKColor markupLineColor = System.Drawing.Color.FromArgb(240, 99, 99).ToSKColor();
-		const float markupLineWidthPixels = 1;
+		const float markupLineWidthPixels = 0;
 
 		static readonly SKColor selectRegionFillColor = System.Drawing.Color.FromArgb(128, 192, 192, 255).ToSKColor();
 		static readonly SKColor selectRegionOutlineColor = System.Drawing.Color.FromArgb(128, 0, 0, 255).ToSKColor();
@@ -88,7 +89,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 		#region Events
 
 		public event EventHandler ContextMenuActivate;
-		public event EventHandler ZoomChanged;
+		public event ZoomChangeEventHandler ZoomChanged;
 		public event PointerMoveEventHandler PointerMoved;
 		public event EventHandler PointerExited;
 		public event EventHandler ModeChanged;
@@ -200,7 +201,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 				/*
 				 * Transform to label coordinates 转换为标签坐标（目的是为了从鼠标坐标点转为标签上的坐标点）
 				 */
-				SKMatrix matrix = SKMatrix.CreateScaleTranslation(_scale, _scale, _x0.Pt(), _y0.Pt());
+				SKMatrix matrix = SKMatrix.CreateScaleTranslation(_scale, _scale, _x0.Pt() * _scale, _y0.Pt() * _scale);
 				SKMatrix inverseMatrix;
 				bool success = matrix.TryInvert(out inverseMatrix);
 				SKPoint pWorld = inverseMatrix.MapPoint(e.Location.ToSKPoint());
@@ -318,7 +319,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 								}
 
 								_createObject.SetPosition(xWorld, yWorld);
-								_createObject.SetSize(0, 0);
+								_createObject.SetSize(0, 0); // TODO: 新增的时候好像大小有问题导致显示不出来
 								_model.AddObject(_createObject);
 
 								_model.UnselectAll();
@@ -358,7 +359,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 				/*
 				 * Transform to label coordinates
 				 */
-				SKMatrix matrix = SKMatrix.CreateScaleTranslation(_scale, _scale, _x0.Pt(), _y0.Pt());
+				SKMatrix matrix = SKMatrix.CreateScaleTranslation(_scale, _scale, _x0.Pt() * _scale, _y0.Pt() * _scale);
 				SKMatrix inverseMatrix;
 				bool success = matrix.TryInvert(out inverseMatrix);
 				SKPoint pWorld = inverseMatrix.MapPoint(e.Location.ToSKPoint());
@@ -465,7 +466,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 				/*
 				 * Transform to label coordinates
 				 */
-				SKMatrix matrix = SKMatrix.CreateScaleTranslation(_scale, _scale, _x0.Pt(), _y0.Pt());
+				SKMatrix matrix = SKMatrix.CreateScaleTranslation(_scale, _scale, _x0.Pt() * _scale, _y0.Pt() * _scale);
 				SKMatrix inverseMatrix;
 				bool success = matrix.TryInvert(out inverseMatrix);
 				SKPoint pWorld = inverseMatrix.MapPoint(e.Location.ToSKPoint());
@@ -589,12 +590,12 @@ namespace YProgramStudio.LabelsDesigner.Gui
 
 		private void OnModelSizeChanged()
 		{
-			if (_zoomToFitFlag) // TODO: _scrollArea->maximumViewportSize().width()滚动区最大值？
+			if (_zoomToFitFlag)
 			{
-				var panel = Parent as Panel;
+				Panel panel = Parent as Panel;
 
-				float wPixels = panel.ClientSize.Width; //800; //_scrollArea->maximumViewportSize().width();
-				float hPixels = panel.ClientSize.Height; //500; // _scrollArea->maximumViewportSize().height();
+				float wPixels = panel.ClientSize.Width; // _scrollArea->maximumViewportSize().width();
+				float hPixels = panel.ClientSize.Height; // _scrollArea->maximumViewportSize().height();
 
 				float x_scale = (wPixels - ZOOM_TO_FIT_PAD) / _model.Width.Pt();
 				float y_scale = (hPixels - ZOOM_TO_FIT_PAD) / _model.Height.Pt();
@@ -619,7 +620,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 
 			Refresh();
 
-			ZoomChanged(this, new EventArgs());
+			ZoomChanged(this, new ZoomChangeEventArgs(_x0 * _scale, _y0 * _scale));
 		}
 
 		#endregion
@@ -718,7 +719,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 		/// </summary>
 		public void ZoomToFit()
 		{
-			var panel = Parent as Panel;
+			Panel panel = Parent as Panel;
 
 			float wPixels = panel.ClientSize.Width; //panel.MaximumSize.Width;// ClientRectangle.Width; //mScrollArea->maximumViewportSize().width();
 			float hPixels = panel.ClientSize.Height; //panel.MaximumSize.Height;// ClientSize.Height; //mScrollArea->maximumViewportSize().height();
@@ -746,20 +747,12 @@ namespace YProgramStudio.LabelsDesigner.Gui
 			MinimumSize = new System.Drawing.Size((int)(_scale * _model.Width.Pt() + ZOOM_TO_FIT_PAD), (int)(_scale * _model.Height.Pt() + ZOOM_TO_FIT_PAD));
 
 			/* Adjust origin to center label in widget. */
-			//var w = this.ClientRectangle;
-			//var w2 = this.Width;
-
 			_x0 = (Width / _scale - _model.Width) / 2F; // 标签左上角的坐标（_x0, _y0）
 			_y0 = (Height / _scale - _model.Height) / 2F;
-			//_x0 = (Width - _model.Width * _scale) / 2F;
-			//_y0 = (Height - _model.Height * _scale) / 2F;
 
 			Refresh();
 
-			if (ZoomChanged != null)
-			{
-				ZoomChanged(this, new EventArgs());
-			}
+			ZoomChanged?.Invoke(this, new ZoomChangeEventArgs(_x0 * _scale, _y0 * _scale));
 		}
 
 		#endregion
@@ -774,43 +767,42 @@ namespace YProgramStudio.LabelsDesigner.Gui
 
 		public void CreateBoxMode()
 		{
-			//setCursor(Cursors::BoX);
-
+			Cursor = new Cursor(Resource.cursor_box.GetHicon());
 			_createObjectType = CreateType.Box;
 			_operateState = OperateState.CreateIdle;
 		}
 
 		public void CreateEllipseMode()
 		{
-			//setCursor(Cursors::Ellipse());
+			Cursor = new Cursor(Resource.cursor_ellipse.GetHicon());
 			_createObjectType = CreateType.Ellipse;
 			_operateState = OperateState.CreateIdle;
 		}
 
 		public void CreateLineMode()
 		{
-			//setCursor(Cursors::Line());
+			Cursor = new Cursor(Resource.cursor_line.GetHicon());
 			_createObjectType = CreateType.Line;
 			_operateState = OperateState.CreateIdle;
 		}
 
 		public void CreateImageMode()
 		{
-			//setCursor(Cursors::Image());
+			Cursor = new Cursor(Resource.cursor_image.GetHicon());
 			_createObjectType = CreateType.Image;
 			_operateState = OperateState.CreateIdle;
 		}
 
 		public void CreateTextMode()
 		{
-			//setCursor(Cursors::Text());
+			Cursor = new Cursor(Resource.cursor_text.GetHicon());
 			_createObjectType = CreateType.Text;
 			_operateState = OperateState.CreateIdle;
 		}
 
 		public void CreateBarcodeMode()
 		{
-			//setCursor(Cursors::Barcode());
+			Cursor = new Cursor(Resource.cursor_barcode.GetHicon());
 			_createObjectType = CreateType.Barcode;
 			_operateState = OperateState.CreateIdle;
 		}

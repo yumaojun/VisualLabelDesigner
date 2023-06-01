@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SkiaSharp;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -19,8 +20,8 @@ namespace YProgramStudio.LabelsDesigner.Model
 		private Distance _h;
 		private Distance _waste;
 
-		private SkiaSharp.SKPath _path;
-		private SkiaSharp.SKPath _clipPath;
+		private SKPath _path;
+		private SKPath _clipPath;
 
 		public FrameCd(Distance r1, Distance r2, Distance w, Distance h, Distance waste, string id) : base(id)
 		{
@@ -30,68 +31,52 @@ namespace YProgramStudio.LabelsDesigner.Model
 			_h = h;
 			_waste = waste;
 
-			_path = new SkiaSharp.SKPath();
-			_clipPath = new SkiaSharp.SKPath();
-
 			Distance wReal = (_w == 0) ? 2 * _r1 : _w;
 			Distance hReal = (_h == 0) ? 2 * _r1 : _h;
-			//
+
 			// Create path
-			//
 			{
-				/*
-				 * Construct outer subpath (may be clipped if it's a business card CD)
-				 */
-				SkiaSharp.SKPath outerPath = new SkiaSharp.SKPath();
-				var outerRect = new SkiaSharp.SKRect((wReal / 2f - r1).Pt(), (hReal / 2f - r1).Pt(), (wReal / 2f - r1).Pt() + (2 * r1.Pt()), (hReal / 2f - r1).Pt() + (2 * r1.Pt()));
+				// Construct outer subpath (may be clipped if it's a business card CD)
+				SKPath outerPath = new SKPath();
+				var outerRect = new SKRect((wReal / 2f - r1).Pt(), (hReal / 2f - r1).Pt(), (wReal / 2f - r1).Pt() + (2 * r1.Pt()), (hReal / 2f - r1).Pt() + (2 * r1.Pt()));
 				outerPath.AddOval(outerRect);
 
-				SkiaSharp.SKPath clipPath = new SkiaSharp.SKPath();
-				var clipRect = new SkiaSharp.SKRect(0, 0, wReal.Pt(), hReal.Pt());
+				SKPath clipPath = new SKPath();
+				var clipRect = new SKRect(0, 0, wReal.Pt(), hReal.Pt());
 				clipPath.AddRect(clipRect);
 
-				outerPath.Op(clipPath, SkiaSharp.SKPathOp.Intersect); // 取交集
+				// Add inner subpath
+				SKPath subpath = new SKPath();
+				var rect = new SKRect((wReal / 2f - r2).Pt(), (hReal / 2f - r2).Pt(), (wReal / 2f - r2).Pt() + (2 * r2.Pt()), (hReal / 2f - r2).Pt() + (2 * r2.Pt()));
+				subpath.AddOval(rect);
 
-				_path.AddPath(outerPath);
-				_path.Close();
-
-				/*
-				 * Add inner subpath
-				 */
-				var rect = new SkiaSharp.SKRect((wReal / 2f - r2).Pt(), (hReal / 2f - r2).Pt(), (wReal / 2f - r2).Pt() + (2 * r2.Pt()), (hReal / 2f - r2).Pt() + (2 * r2.Pt()));
-				_path.AddOval(rect);
+				// 取交集
+				_path = outerPath.Op(clipPath, SKPathOp.Intersect).Op(subpath, SKPathOp.Difference);
 			}
 
-			//
 			// Create clip path
-			//
 			{
 				Distance r1Clip = _r1 + _waste;
 				Distance r2Clip = _r2 - _waste;
 				Distance wClip = (_w == 0) ? 2 * r1Clip : _w + 2 * _waste;
 				Distance hClip = (_h == 0) ? 2 * r1Clip : _h + 2 * _waste;
 
-				/*
-				 * Construct outer subpath (may be clipped if it's a business card CD)
-				 */
-				SkiaSharp.SKPath outerPath = new SkiaSharp.SKPath();
-				var outerRect = new SkiaSharp.SKRect((wReal / 2f - r1Clip).Pt(), (hReal / 2f - r1Clip).Pt(), (wReal / 2f - r1Clip).Pt() + (2 * r1Clip.Pt()), (hReal / 2f - r1Clip).Pt() + (2 * r1Clip.Pt()));
+				// Construct outer subpath (may be clipped if it's a business card CD)
+				SKPath outerPath = new SKPath();
+				var outerRect = new SKRect((wReal / 2f - r1Clip).Pt(), (hReal / 2f - r1Clip).Pt(), (wReal / 2f - r1Clip).Pt() + (2 * r1Clip.Pt()), (hReal / 2f - r1Clip).Pt() + (2 * r1Clip.Pt()));
 				outerPath.AddOval(outerRect);
 
-				SkiaSharp.SKPath clipPath = new SkiaSharp.SKPath();
-				var clipRect = new SkiaSharp.SKRect(-_waste.Pt(), -_waste.Pt(), -_waste.Pt() + wClip.Pt(), -_waste.Pt() + hClip.Pt());
+				SKPath clipPath = new SKPath();
+				var clipRect = new SKRect(-_waste.Pt(), -_waste.Pt(), -_waste.Pt() + wClip.Pt(), -_waste.Pt() + hClip.Pt());
 				clipPath.AddRect(clipRect);
 
-				outerPath.Op(clipPath, SkiaSharp.SKPathOp.Intersect);
+				// Add inner subpath
+				SKPath subpath = new SKPath();
+				var rect = new SKRect((wReal / 2f - r2Clip).Pt(), (hReal / 2f - r2Clip).Pt(), (wReal / 2f - r2Clip).Pt() + (2 * r2Clip.Pt()), (hReal / 2f - r2Clip).Pt() + (2 * r2Clip.Pt()));
+				subpath.AddOval(rect);
 
-				_clipPath.AddPath(outerPath);
-				_clipPath.Close();
-
-				/*
-				 * Add inner subpath
-				 */
-				var rect = new SkiaSharp.SKRect((wReal / 2f - r2Clip).Pt(), (hReal / 2f - r2Clip).Pt(), (wReal / 2f - r2Clip).Pt() + (2 * r2Clip.Pt()), (hReal / 2f - r2Clip).Pt() + (2 * r2Clip.Pt()));
-				_clipPath.AddOval(rect);
+				// 取交集
+				_clipPath = outerPath.Op(clipPath, SKPathOp.Intersect).Op(subpath, SKPathOp.Difference);
 			}
 		}
 
@@ -151,17 +136,17 @@ namespace YProgramStudio.LabelsDesigner.Model
 			}
 		}
 
-		public override SkiaSharp.SKPath Path()
+		public override SKPath Path()
 		{
 			return _path;
 		}
 
-		public override SkiaSharp.SKPath ClipPath()
+		public override SKPath ClipPath()
 		{
 			return _clipPath;
 		}
 
-		public override SkiaSharp.SKPath MarginPath(Distance xSize, Distance ySize)
+		public override SKPath MarginPath(Distance xSize, Distance ySize)
 		{
 			Distance size = xSize;
 			Distance wReal = (_w == 0) ? 2 * _r1 : _w;
@@ -169,29 +154,21 @@ namespace YProgramStudio.LabelsDesigner.Model
 			Distance r1 = _r1 - size;
 			Distance r2 = _r2 + size;
 
-			SkiaSharp.SKPath path = new SkiaSharp.SKPath();
-
-			/*
-			 * Construct outer subpath (may be clipped if it's a business card CD)
-			 */
-			SkiaSharp.SKPath outerPath = new SkiaSharp.SKPath();
-			var outerRect = new SkiaSharp.SKRect((wReal / 2f - r1).Pt(), (hReal / 2f - r1).Pt(), (wReal / 2f - r1).Pt() + (2 * r1.Pt()), (hReal / 2f - r1).Pt() + (2 * r1.Pt()));
+			// Construct outer subpath (may be clipped if it's a business card CD)
+			SKPath outerPath = new SKPath();
+			var outerRect = new SKRect((wReal / 2f - r1).Pt(), (hReal / 2f - r1).Pt(), (wReal / 2f - r1).Pt() + (2 * r1.Pt()), (hReal / 2f - r1).Pt() + (2 * r1.Pt()));
 			outerPath.AddOval(outerRect);
 
-			SkiaSharp.SKPath clipPath = new SkiaSharp.SKPath();
-			var clipRect = new SkiaSharp.SKRect(size.Pt(), size.Pt(), size.Pt() + (wReal - 2f * size).Pt(), size.Pt() + (hReal - 2f * size).Pt());
+			SKPath clipPath = new SKPath();
+			var clipRect = new SKRect(size.Pt(), size.Pt(), size.Pt() + (wReal - 2f * size).Pt(), size.Pt() + (hReal - 2f * size).Pt());
 			clipPath.AddRect(clipRect);
 
-			outerPath.Op(clipPath, SkiaSharp.SKPathOp.Intersect);
+			// Add inner subpath
+			SKPath subpath = new SKPath();
+			var rect = new SKRect((wReal / 2f - r2).Pt(), (hReal / 2f - r2).Pt(), (wReal / 2f - r2).Pt() + (2 * r2.Pt()), (hReal / 2f - r2).Pt() + (2 * r2.Pt()));
+			subpath.AddOval(rect);
 
-			path.AddPath(outerPath);
-			path.Close();
-
-			/*
-			 * Add inner subpath
-			 */
-			var rect = new SkiaSharp.SKRect((wReal / 2f - r2).Pt(), (hReal / 2f - r2).Pt(), (wReal / 2f - r2).Pt() + (2 * r2.Pt()), (hReal / 2f - r2).Pt() + (2 * r2.Pt()));
-			path.AddOval(rect);
+			SKPath path = outerPath.Op(clipPath, SKPathOp.Intersect).Op(subpath, SKPathOp.Difference);
 
 			return path;
 		}

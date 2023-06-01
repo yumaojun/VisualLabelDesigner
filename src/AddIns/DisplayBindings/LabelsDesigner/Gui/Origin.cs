@@ -17,15 +17,15 @@ namespace YProgramStudio.LabelsDesigner.Gui
 
 		private void InitializeComponent()
 		{
-			this.SuspendLayout();
-			// 
-			// Origin
-			// 
-			this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-			this.Margin = new System.Windows.Forms.Padding(0);
-			this.Size = new System.Drawing.Size(27, 27);
-			this.PaintSurface += new System.EventHandler<SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs>(this.Origin_PaintSurface);
-			this.ResumeLayout(false);
+            this.SuspendLayout();
+            // 
+            // Origin
+            // 
+            this.BackColor = System.Drawing.Color.Lavender;
+            this.Margin = new System.Windows.Forms.Padding(0);
+            this.Size = new System.Drawing.Size(24, 24);
+            this.PaintSurface += new System.EventHandler<SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs>(this.Origin_PaintSurface);
+            this.ResumeLayout(false);
 
 		}
 
@@ -39,16 +39,16 @@ namespace YProgramStudio.LabelsDesigner.Gui
 			{
 				Color = SKColors.Black,
 				Style = SKPaintStyle.Stroke,
-				StrokeWidth = 2f,
+				StrokeWidth = 1.5f,
 				Typeface = typeface
 			})
 			{
 				string str = "+";
 				SKRect rect = new SKRect();
 				paint.MeasureText(str, ref rect);
-				float x = (Width - rect.Width) / 2;
-				float y = (Height - rect.Height) / 2 + rect.Height; // 字y坐标是以基线为准
-				canvas.DrawText(str, x, y, paint);
+				float x0 = (Width - rect.Width) / 2;
+				float y0 = (Height - rect.Height) / 2 + rect.Height; // 字的y坐标是以字的基线为准
+				canvas.DrawText(str, x0, y0, paint);
 			}
 		}
 	}

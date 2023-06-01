@@ -59,6 +59,7 @@
     <Compile Include="Backends\Merge\Merge.cs" />
     <Compile Include="Backends\Merge\Record.cs" />
     <Compile Include="Commands\AlignRightCommand.cs" />
+    <Compile Include="Commands\BaseIconCommand.cs" />
     <Compile Include="Commands\RotateLeftCommand.cs" />
     <Compile Include="Commands\RotateRightCommand.cs" />
     <Compile Include="Commands\FlipHorizCommand.cs" />
@@ -82,7 +83,7 @@
     <Compile Include="Commands\CreateBoxCommand.cs" />
     <Compile Include="Commands\CreateLineCommand.cs" />
     <Compile Include="Commands\CreateEllipseCommand.cs" />
-    <Compile Include="Commands\InsertImageCommand.cs" />
+    <Compile Include="Commands\CreateImageCommand.cs" />
     <Compile Include="Commands\CreateBarcodeCommand.cs" />
     <Compile Include="Commands\AlignTopCommand.cs" />
     <Compile Include="Commands\OrderBringToFrontCommand.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="Labels\Location.cs" />
     <Compile Include="Labels\CreateType.cs" />
     <Compile Include="Labels\OperateState.cs" />
+    <Compile Include="Labels\ZoomChangeEventArgs.cs" />
     <Compile Include="Labels\PointerMoveEventArgs.cs" />
     <Compile Include="Labels\RollTemplatePath.cs" />
     <Compile Include="Model\Alignment.cs" />
@@ -191,6 +193,7 @@
     <Compile Include="Model\Size.cs" />
     <Compile Include="Model\StrUtil.cs" />
     <Compile Include="Model\SubstitutionField.cs" />
+    <Compile Include="Model\SvgRenderer.cs" />
     <Compile Include="Model\Template.cs" />
     <Compile Include="Model\TextNode.cs" />
     <Compile Include="Model\TrHelper.cs" />
@@ -211,6 +214,11 @@
     <Compile Include="Model\XmlVendorParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LabelViewContent.cs" />
+    <Compile Include="Properties\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Libraries\SkiaSharp.SimpleText\SkiaSharp.SimpleText.csproj">
@@ -260,6 +268,24 @@
     <EmbeddedResource Include="LabelDesignerPanel.resx">
       <DependentUpon>LabelDesignerPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Cursors\32x32\cursor_barcode.png" />
+    <Content Include="Cursors\32x32\cursor_box.png" />
+    <Content Include="Cursors\32x32\cursor_ellipse.png" />
+    <Content Include="Cursors\32x32\cursor_image.png" />
+    <Content Include="Cursors\32x32\cursor_line.png" />
+    <Content Include="Cursors\32x32\cursor_text.png" />
+    <Content Include="Cursors\32x32\hand_open.ico" />
+    <Content Include="Cursors\32x32\rotate.cur" />
+    <Content Include="Images\checkerboard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

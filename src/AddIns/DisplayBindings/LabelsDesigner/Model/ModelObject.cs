@@ -1,4 +1,5 @@
 ﻿using SkiaSharp;
+using SkiaSharp.Views.Desktop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,7 +49,27 @@ namespace YProgramStudio.LabelsDesigner.Model
 			Moved?.Invoke(render, e);
 		}
 
-		protected ModelObject() { }
+		protected ModelObject()
+		{
+			_id = _nextId++;
+
+			_x0 = 0;
+			_y0 = 0;
+			_width = 0;
+			_height = 0;
+			_lockAspectRatio = false;
+			_matrix = SKMatrix.CreateIdentity();
+
+			_shadowState = false;
+			_shadowX = 1.3f;
+			_shadowY = 1.3f;
+			_shadowColorNode = new ColorNode(System.Drawing.Color.FromArgb(0, 0, 0).ToSKColor());
+			_shadowOpacity = 0.5f;
+
+			_selected = false;
+
+			_outline = null;
+		}
 
 		protected ModelObject(Distance x0, Distance y0, Distance w, Distance h,
 						 bool lockAspectRatio, //  = false
@@ -157,7 +178,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 				{
 					_width = value;
 					SizeUpdated();
-					Changed(this, new EventArgs());
+					Changed?.Invoke(this, new EventArgs());
 				}
 			}
 		}
@@ -171,7 +192,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 				{
 					_height = value;
 					SizeUpdated();
-					Changed(this, new EventArgs());
+					Changed?.Invoke(this, new EventArgs());
 				}
 			}
 		}
@@ -184,7 +205,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 				if (_lockAspectRatio != value)
 				{
 					_lockAspectRatio = value;
-					Changed(this, new EventArgs());
+					Changed?.Invoke(this, new EventArgs());
 				}
 			}
 		}
@@ -225,9 +246,9 @@ namespace YProgramStudio.LabelsDesigner.Model
 				foreach (Handle handle in _handles)
 				{
 					//SKPath handlePath = _matrix.m(handle.Path(scale)); // TODO: _matrix.map(path)对应是什么？
-					
+
 					SKPath handlePath = handle.Path(scale);
-					
+
 
 					if (handlePath.Contains(p.X, p.Y))
 					{
@@ -293,7 +314,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 			_height = h;
 
 			SizeUpdated();
-			Changed(this, new EventArgs());
+			Changed?.Invoke(this, new EventArgs());
 		}
 
 		///
@@ -305,7 +326,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 			_height = size.Height;
 
 			SizeUpdated();
-			Changed(this, new EventArgs());
+			Changed?.Invoke(this, new EventArgs());
 		}
 
 		///
@@ -343,7 +364,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 				_height = h;
 
 				SizeUpdated();
-				Changed(this, new EventArgs());
+				Changed?.Invoke(this, new EventArgs());
 			}
 		}
 
@@ -361,7 +382,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 				_height = h;
 
 				SizeUpdated();
-				Changed(this, new EventArgs());
+				Changed?.Invoke(this, new EventArgs());
 			}
 		}
 
@@ -375,7 +396,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 				_x0 = x0;
 				_y0 = y0;
 
-				Moved(this, new EventArgs());
+				Moved?.Invoke(this, new EventArgs());
 			}
 		}
 
@@ -389,7 +410,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 				_x0 += dx;
 				_y0 += dy;
 
-				Moved(this, new EventArgs());
+				Moved?.Invoke(this, new EventArgs());
 			}
 		}
 

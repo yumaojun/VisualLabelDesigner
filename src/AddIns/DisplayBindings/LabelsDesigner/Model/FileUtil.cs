@@ -25,5 +25,14 @@ namespace YProgramStudio.LabelsDesigner.Model
 		{
 			return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "templates");// TODO: *FileUtil.UserTemplatesDir()更改为用户目录
 		}
+
+		public static string CurrentExecutingDir()
+		{
+			var dllPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+
+			var v1 = Path.GetFullPath(dllPath);
+			var v2 = Path.GetDirectoryName(dllPath);
+			return v2;
+		}
 	}
 }

@@ -8,11 +8,11 @@ using YProgramStudio.LabelsDesigner.Gui;
 
 namespace YProgramStudio.LabelsDesigner.Commands
 {
-	public class CenterVertCommand : AbstractMenuCommand
+	public class CenterVertCommand : BaseIconCommand
 	{
 		public override void Run()
 		{
-			MessageService.ShowMessage("CenterVertCommand");
+			//GetEditor()?.;
 		}
 	}
 }

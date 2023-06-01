@@ -8,7 +8,7 @@ using YProgramStudio.LabelsDesigner.Gui;
 
 namespace YProgramStudio.LabelsDesigner.Commands
 {
-	public class AlignCenterCommand : AbstractMenuCommand
+	public class AlignCenterCommand : BaseIconCommand
 	{
 		public override void Run()
 		{

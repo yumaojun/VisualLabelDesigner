@@ -1,5 +1,6 @@
 ﻿using SkiaSharp;
 using SkiaSharp.SimpleText;
+using SkiaSharp.Views.Desktop;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -24,14 +25,14 @@ namespace LabelsDesignerTest
 
 		private void InitializeComponent()
 		{
-			this.SuspendLayout();
-			// 
-			// TemplateControl
-			// 
-			this.BackColor = System.Drawing.Color.White;
-			this.PaintSurface += new System.EventHandler<SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs>(this.TemplateControl_PaintSurface);
-			this.Paint += new System.Windows.Forms.PaintEventHandler(this.TemplateControl_Paint);
-			this.ResumeLayout(false);
+            this.SuspendLayout();
+            // 
+            // TestControl
+            // 
+            this.BackColor = System.Drawing.Color.LightGray;
+            this.PaintSurface += new System.EventHandler<SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs>(this.TemplateControl_PaintSurface);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.TemplateControl_Paint);
+            this.ResumeLayout(false);
 
 		}
 
@@ -82,16 +83,19 @@ namespace LabelsDesignerTest
 			//DrawHorizontalRuler(canvas, 500f, 50, 50, 10);
 			//DrawGrid(canvas, 500f, 100f);
 			//SimpleText(canvas);
-			MeasureText(canvas, imgInfo);
+			//MeasureText(canvas, imgInfo);
+			CDPath(canvas);
 		}
-
-		[DllImport("user32.dll")]
-		private static extern uint GetDpiForWindow([In] IntPtr hmonitor);
 
 		private void TemplateControl_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
 		{
 			// Dpi(e.Graphics);
 		}
+
+		#region DPI
+
+		[DllImport("user32.dll")]
+		private static extern uint GetDpiForWindow([In] IntPtr hmonitor);
 
 		private void Dpi(Graphics g)
 		{
@@ -117,6 +121,8 @@ namespace LabelsDesignerTest
 			var dpix = (int)dpiPropertyx.GetValue(null, null);
 			g.DrawString($"{dpix},{dpix}", new System.Drawing.Font("宋体", 14f), System.Drawing.Brushes.Red, 1f, 44f);
 		}
+
+		#endregion
 
 		#region 平移
 
@@ -600,6 +606,91 @@ namespace LabelsDesignerTest
 
 			// And draw the text
 			painter.DrawText(str, xText, yText, textPaint);
+		}
+
+		#endregion
+
+		#region 路径
+
+		private void CDPath(SKCanvas painter)
+		{
+			float _w = 171.0f;
+			float _h = 216.0f;
+			float r1 = 108.0f;
+			float r2 = 58.0f;
+			float wReal = (_w == 0) ? 2f * r1 : _w;
+			float hReal = (_h == 0) ? 2f * r1 : _h;
+
+			SKColor labelColor = System.Drawing.Color.FromArgb(255, 255, 255).ToSKColor();
+			SKPaint paint = new SKPaint()
+			{
+				Color = labelColor,
+				Style = SKPaintStyle.Fill,
+				IsAntialias = true
+			};
+			painter.Scale(0.5f);
+
+			SkiaSharp.SKPath _path = new SkiaSharp.SKPath();
+			SkiaSharp.SKPath outerPath = new SkiaSharp.SKPath();
+			SkiaSharp.SKPath clipPath = new SkiaSharp.SKPath();
+
+			var x = (wReal / 2f - r1);
+			var y = (hReal / 2f - r1);
+			var x0 = (wReal / 2f - r1) + (2 * r1);
+			var y0 = (hReal / 2f - r1) + (2 * r1);
+			var outerRect = new SkiaSharp.SKRect(x, y, x0, y0);
+			outerPath.AddOval(outerRect);
+
+			var clipRect = new SkiaSharp.SKRect(0, 0, wReal, hReal);
+			clipPath.AddRect(clipRect);
+
+
+			painter.DrawPath(outerPath, paint);
+
+			paint.Color = SKColors.LightBlue;
+			//painter.Translate(0, 300);
+
+			painter.DrawPath(clipPath, paint);
+
+			var result = outerPath.Op(clipPath, SkiaSharp.SKPathOp.Intersect); // 取交集
+
+			var rect1 = new SkiaSharp.SKRect((wReal / 2f - r2), (hReal / 2f - r2), (wReal / 2f - r2) + (2 * r2), (hReal / 2f - r2) + (2 * r2));
+			var subpath = new SKPath();
+			subpath.AddOval(rect1);
+
+			painter.Translate(0, 300);
+			painter.DrawPath(subpath, paint);
+
+			var result1 = result.Op(subpath, SkiaSharp.SKPathOp.Difference); // 取不同
+			painter.Translate(0, 300);
+			painter.DrawPath(result1, paint);
+
+			_path.AddPath(result1);
+			//_path.Close();
+			/*
+
+			painter.Translate(0, 300);
+			painter.DrawPath(clipPath, paint);
+
+			*//*
+			 * Add inner subpath
+			 *//*
+			var rect = new SkiaSharp.SKRect((wReal / 2f - r2), (hReal / 2f - r2), (wReal / 2f - r2) + (2 * r2), (hReal / 2f - r2) + (2 * r2));
+			_path.AddOval(rect);*/
+
+
+			
+
+			painter.Translate(0, 300);
+			painter.DrawPath(_path, paint);
+
+			//using ()
+			//{
+			//	//
+			//	painter.DrawPath(_path, paint);
+			//	painter.Translate(0, 300);
+			//	painter.DrawPath(clipPath, paint);
+			//}
 		}
 
 		#endregion

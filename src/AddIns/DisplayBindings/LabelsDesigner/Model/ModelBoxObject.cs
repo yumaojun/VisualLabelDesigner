@@ -15,22 +15,22 @@ namespace YProgramStudio.LabelsDesigner.Model
 		public ModelBoxObject() { }
 
 		public ModelBoxObject(Distance x0,
-							 Distance y0,
-							 Distance w,
-							 Distance h,
-							 bool lockAspectRatio,
+							  Distance y0,
+							  Distance w,
+							  Distance h,
+							  bool lockAspectRatio,
+							 
+							  Distance lineWidth,
+							  ColorNode lineColorNode,
+							  ColorNode fillColorNode,
+							  SKMatrix matrix, // = SKMatrix()
+							  bool shadowState, // = false
+							 
+							  Distance shadowX, //  = 0f
+							  Distance shadowY, //  = 0f
+							  float shadowOpacity = 1.0f,
 
-							 Distance lineWidth,
-							 ColorNode lineColorNode,
-							 ColorNode fillColorNode,
-							 SKMatrix matrix, // = SKMatrix()
-							 bool shadowState, // = false
-
-							 Distance shadowX, //  = 0f
-							 Distance shadowY, //  = 0f
-							 float shadowOpacity = 1.0f,
-
-							 ColorNode shadowColorNode = null/*ColorNode()*/) :
+							  ColorNode shadowColorNode = null/*ColorNode()*/) :
 			base(x0, y0, w, h, lockAspectRatio,
 							lineWidth, lineColorNode, fillColorNode,
 							matrix,
@@ -148,7 +148,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 			}
 			else if (_fillColorNode.Color.Alpha > byte.MinValue && !(_lineColorNode.Color.Alpha > byte.MinValue))
 			{
-				SKRect rect = new SKRect(0, 0, _width.Pt(), _height.Pt());
+				SKRect rect = new SKRect(0f, 0f, _width.Pt(), _height.Pt());
 				path.AddRect(rect);
 			}
 			else if (_lineColorNode.Color.Alpha > byte.MinValue)

@@ -50,7 +50,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 		}
 
 		/// <summary>
-		/// 点阵
+		/// 磅（pt就是point，是印刷行业常用单位，等于1/72英寸）
 		/// </summary>
 		/// <param name="dPts"></param>
 		/// <returns></returns>

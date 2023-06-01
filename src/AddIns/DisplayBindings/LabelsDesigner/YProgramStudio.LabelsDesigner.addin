@@ -83,7 +83,7 @@
 		<ToolbarItem id      = "LabelsImage"
 		             icon    = "Icons.16x16.labels.image"
 		             tooltip = "Image"
-		             class   = "YProgramStudio.LabelsDesigner.Commands.InsertImageCommand"/>
+		             class   = "YProgramStudio.LabelsDesigner.Commands.CreateImageCommand"/>
 		<!--<ToolbarItem id      = "LabelsBarcode"
 		             icon    = "Icons.16x16.labels.barcode"
 		             tooltip = "Barcode"

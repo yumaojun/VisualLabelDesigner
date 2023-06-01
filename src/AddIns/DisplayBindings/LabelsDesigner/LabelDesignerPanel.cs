@@ -27,6 +27,8 @@ namespace YProgramStudio.LabelsDesigner
 		public LabelDesignerPanel()
 		{
 			InitializeComponent();
+
+			labelEditor.ZoomChanged += new Labels.ZoomChangeEventHandler(OnZoomChanged);
 		}
 
 		public LabelDesignerPanel(LabelViewContent vc) : this()
@@ -51,10 +53,17 @@ namespace YProgramStudio.LabelsDesigner
 			Debug.WriteLine("SetModel() OnNameChanged");
 		}
 
+		// Size Change Event
 		private void LabelDesignerPanel_Resize(object sender, EventArgs e)
 		{
 			mainPanel.Width = hRuler.Width = Width - origin.Width;
 			mainPanel.Height = vRuler.Height = Height - origin.Height;
+		}
+
+		private void OnZoomChanged(object render, Labels.ZoomChangeEventArgs e)
+		{
+			hRuler.UpdateRuler(e.X, e.Y);
+			vRuler.UpdateRuler(e.X, e.Y);
 		}
 	}
 }
