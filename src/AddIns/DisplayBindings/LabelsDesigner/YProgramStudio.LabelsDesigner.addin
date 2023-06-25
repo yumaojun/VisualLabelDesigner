@@ -17,14 +17,14 @@
 		<FileFilter id = "Labels"
 		            insertbefore="AllFiles"
 		            name = "Labels"
-		            extensions = "*.label"/>
+		            extensions = "*.glabels"/>
 	</Path>
 	
 	<Path name = "/SharpDevelop/Workbench/DisplayBindings">
 		<DisplayBinding id    = "LabelsDesigner"
 		                class = "YProgramStudio.LabelsDesigner.LabelDisplayBinding"
 		                insertbefore    = "Text"
-		                fileNamePattern = "\.(label|labelx)$"
+		                fileNamePattern = "\.(label|glabels)$"
 		                title = "Labels Designer"/>
 	</Path>
 
@@ -254,15 +254,25 @@
 	</Path>-->
 
 	<Path name = "/SharpDevelop/Workbench/Pads">
-		
-	<!-- ZPL预览功能 --><!--
-	<Pad id       = "CommandPreview"
-		     category = "Main"
-		     title    = "Command Preview"
-		     icon     = "PadIcons.ClassBrowser"
-		     class    = "ZplWork.Gui.CommandPreview"
-		     defaultPosition = "Right" />-->
 
+	<!-- Object Properties -->
+	<Pad id       = "ObjectProperty"
+		     category = "Main"
+		     title    = "Object Properties"
+		     icon     = "PadIcons.ClassBrowser"
+		     class    = "YProgramStudio.LabelsDesigner.Gui.BarcodeProperty"
+		     defaultPosition = "Right" />
+
+	</Path>
+	
+	<!-- Local unit switching -->
+	<Path name = "/SharpDevelop/Workbench/MainMenu/View">
+		<MenuItem id = "LabelPreferencesSeparator"
+				  type = "Separator"/>
+		<MenuItem id = "LabelPreferences"
+		          label = "Preferences"
+		          icon  = "Icons.16x16.BrowserWindow"
+		          class = "YProgramStudio.LabelsDesigner.Commands.LabelPreferencesCommand"/>
 	</Path>
 	
 </AddIn>

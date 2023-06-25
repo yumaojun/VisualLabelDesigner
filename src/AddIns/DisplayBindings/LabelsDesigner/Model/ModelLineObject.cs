@@ -1,4 +1,5 @@
 ﻿using SkiaSharp;
+using SkiaSharp.Views.Desktop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,26 @@ namespace YProgramStudio.LabelsDesigner.Model
 		protected Distance _lineWidth;
 		protected ColorNode _lineColorNode;
 
+		public override Distance LineWidth
+		{
+			get => _lineWidth;
+			set
+			{
+				_lineWidth = value;
+				OnChanged(this, null);
+			}
+		}
+
+		public ColorNode LineColorNode
+		{
+			get => _lineColorNode;
+			set
+			{
+				_lineColorNode = value;
+				OnChanged(this, null);
+			}
+		}
+
 		public ModelLineObject()
 		{
 			_outline = null;
@@ -24,7 +45,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 			_handles.Add(new HandleP2(this));
 
 			_lineWidth = 1.0f;
-			_lineColorNode = new ColorNode();
+			_lineColorNode = new ColorNode(System.Drawing.Color.FromArgb(0, 0, 0).ToSKColor());
 		}
 
 		public ModelLineObject(Distance x0,
@@ -83,7 +104,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 				IsAntialias = true
 			})
 			{
-				painter.DrawLine(0, 0, _width.Pt(), _height.Pt(), paint);
+				painter.DrawLine(0, 0, _width.Pt(), _height.Pt(), paint); // TODO：须解决拖动锚点时跳动问题
 			}
 		}
 

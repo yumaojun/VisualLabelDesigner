@@ -1,9 +1,5 @@
 ﻿using SkiaSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using YProgramStudio.LabelsDesigner.Labels;
 
 namespace YProgramStudio.LabelsDesigner.Model
 {
@@ -13,7 +9,9 @@ namespace YProgramStudio.LabelsDesigner.Model
 	public class HandleNorthWest : Handle
 	{
 		// Lifecycle Methods
-		public HandleNorthWest(ModelObject owner) : base(owner, Labels.Location.NW) { }
+		public HandleNorthWest(ModelObject owner) : base(owner, HoverLocation.NW)
+		{
+		}
 
 		public HandleNorthWest Clone(ModelObject newOwner)
 		{
@@ -21,11 +19,14 @@ namespace YProgramStudio.LabelsDesigner.Model
 		}
 
 		// Drawing Methods
-		public override void Draw(SKCanvas painter, float scale) { DrawAt(painter, scale, 0, 0, originHandleFillColor); }
+		public override void Draw(SKCanvas painter, float scale)
+		{
+			DrawAt(painter, scale, 0f, 0f, originHandleFillColor);
+		}
 
 		public override SKPath Path(float scale)
 		{
-			return PathAt(scale, 0, 0);
+			return PathAt(scale, 0f, 0f);
 		}
 	};
 }

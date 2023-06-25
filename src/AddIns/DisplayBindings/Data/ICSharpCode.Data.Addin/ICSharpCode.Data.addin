@@ -17,13 +17,13 @@
       <Identity name="ICSharpCode.Data.Addin" />
   </Manifest>
 
-  <Path name="/SharpDevelop/Workbench/FileFilter">
+  <!--<Path name="/SharpDevelop/Workbench/FileFilter">
     <FileFilter id="EntityFramework"
                 insertbefore="AllFiles"
                 name="Entity Framework Files (*.edmx)"
                 extensions="*.edmx"
                 mimeType="text/xml"/>
-  </Path>
+  </Path>-->
 
   <Path name="/SharpDevelop/Workbench/Pads">
       <Pad id="DatabaseExplorer"

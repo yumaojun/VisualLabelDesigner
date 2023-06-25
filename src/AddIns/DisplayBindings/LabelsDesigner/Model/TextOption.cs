@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace YProgramStudio.LabelsDesigner.Model
 {
-	public class TranslateHelper
+	public struct TextOption
 	{
-		public static string Tr(string name)
-		{
-			//return $"[{name}]";
-			return name;
-		}
+		public Alignment Alignment { get; set; }
+
+		public WrapMode WrapMode { get; set; }
 	}
 }

@@ -22,14 +22,14 @@ namespace YProgramStudio.LabelsDesigner.Model
 		protected static readonly SKColor handleOutlineColor = System.Drawing.Color.FromArgb(192, 0, 0, 0).ToSKColor();
 
 		protected ModelObject _owner;
-		protected Location _location;
+		protected HoverLocation _location;
 
 		public ModelObject Owner
 		{
 			get => _owner;
 		}
 
-		public Location Location
+		public HoverLocation Location
 		{
 			get => _location;
 		}
@@ -37,7 +37,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 		/// <summary>
 		/// Handle Constructor
 		/// </summary>
-		public Handle(ModelObject owner, Location location)
+		public Handle(ModelObject owner, HoverLocation location)
 		{
 			_owner = owner;
 			_location = location;

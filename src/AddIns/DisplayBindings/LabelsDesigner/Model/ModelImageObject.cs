@@ -317,7 +317,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 				string filename = _filenameNode.Data;
 				if (ReadImageFile(filename, ref _image, ref _svgRenderer, ref _svg))
 				{
-					float aspectRatio = 0f;
+					float aspectRatio;
 					if (_svgRenderer != null)
 					{
 						// Adjust size based on aspect ratio of SVG image

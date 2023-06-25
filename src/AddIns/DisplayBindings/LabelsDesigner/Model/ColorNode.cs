@@ -104,14 +104,14 @@ namespace YProgramStudio.LabelsDesigner.Model
 			return value;
 		}
 
-		public bool Equals(ColorNode other) => (_isField == other._isField && _color == other._color && _key == other._key);
+		public bool Equals(ColorNode other) => _isField == other._isField && _color == other._color && _key == other._key;
 
 		public override bool Equals(object obj) => obj != null && Equals(obj as ColorNode);
 
 		public override int GetHashCode() => _isField.GetHashCode() & _color.GetHashCode() & _key.GetHashCode();
 
-		public static bool operator ==(ColorNode a, ColorNode c) => (a._isField == c._isField && a._color == c._color && a._key == c._key);
+		public static bool operator ==(ColorNode a, ColorNode c) => a._isField == c._isField && a._color == c._color && a._key == c._key;
 
-		public static bool operator !=(ColorNode a, ColorNode c) => (a._isField != c._isField || a._color != c._color || a._key != c._key);
+		public static bool operator !=(ColorNode a, ColorNode c) => a._isField != c._isField || a._color != c._color || a._key != c._key;
 	}
 }

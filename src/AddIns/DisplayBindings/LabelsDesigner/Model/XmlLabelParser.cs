@@ -429,7 +429,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 			a[8] = 1.0f;
 
 			return new ModelBarcodeObject(x0, y0, w, h, lockAspectRatio,
-										   bcStyle, bcTextFlag, bcChecksumFlag, bcData, bcColorNode,
+										  bcStyle, bcTextFlag, bcChecksumFlag, bcData, bcColorNode,
 										  new SKMatrix(a));
 		}
 
@@ -490,23 +490,23 @@ namespace YProgramStudio.LabelsDesigner.Model
 			color = XmlUtil.GetUIntAttr(node, "shadow_color", 0xFF);
 			ColorNode shadowColorNode = new ColorNode(field_flag, color, key);
 
-			///* deserialize contents. */
-			//QTextDocument document;
-			//QTextCursor cursor( &document );
-			//bool firstBlock = true;
-			//for (XmlNode child = node.FirstChild; child != null; child = child.NextSibling)
-			//{
-			//	if (child.Name == "p")
-			//	{
-			//		if (!firstBlock)
-			//		{
-			//			cursor.insertBlock();
-			//		}
-			//		firstBlock = false;
-			//		cursor.insertText(ParsePNode(child));
-			//	}
-			//}
-			string text = "hello标签"; // document.toPlainText(); // TODO: ModelTextObject需要处理取文本
+			/* deserialize contents. */
+			TextDocument document = new TextDocument();
+			TextCursor cursor = new TextCursor(ref document);
+			bool firstBlock = true;
+			for (XmlNode child = node.FirstChild; child != null; child = child.NextSibling)
+			{
+				if (child.Name == "p")
+				{
+					if (!firstBlock)
+					{
+						cursor.InsertBlock(); // 文本1\n文本2\n文本3
+					}
+					firstBlock = false;
+					cursor.InsertText(ParsePNode(child));
+				}
+			}
+			string text = document.PlainText();
 
 			return new ModelTextObject(x0, y0, w, h, lockAspectRatio,
 										text,

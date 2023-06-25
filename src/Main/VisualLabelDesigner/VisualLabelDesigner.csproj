@@ -279,7 +279,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Libraries\AvalonDock\AvalonDock\AvalonDock.csproj">
-      <Project>{2FF700C2-A38A-48BD-A637-8CAFD4FE6237}</Project>
+      <Project>{2ff700c2-a38a-48bd-a637-8cafd4fe6237}</Project>
       <Name>AvalonDock</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Libraries\AvalonEdit\ICSharpCode.AvalonEdit\ICSharpCode.AvalonEdit.csproj">
@@ -343,7 +343,6 @@
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Page Include="Dom\ClassBrowser\OpenFromGacDialog.xaml" />
     <Page Include="OptionPanels\LoadSaveOptions.xaml" />

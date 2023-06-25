@@ -22,6 +22,8 @@ namespace YProgramStudio.LabelsDesigner
 
 		private IViewContent _viewContent;
 
+		public LabelEditor Editor { get => labelEditor; }
+
 		public event EventHandler LabelWasEdited;
 
 		public LabelDesignerPanel()
@@ -29,6 +31,7 @@ namespace YProgramStudio.LabelsDesigner
 			InitializeComponent();
 
 			labelEditor.ZoomChanged += new Labels.ZoomChangeEventHandler(OnZoomChanged);
+			
 		}
 
 		public LabelDesignerPanel(LabelViewContent vc) : this()
@@ -40,12 +43,20 @@ namespace YProgramStudio.LabelsDesigner
 		{
 			_model = model;
 			_model.NameChanged += OnNameChanged; // TODO: *增加一些事件处理
+			//_model.SelectionChanged += OnSelectionChanged;
 
 			_undoRedoModel = new UndoRedoModel(_model);
 
 			labelEditor.SetModel(_model, _undoRedoModel);
+
+
 			mainPanel.AutoScrollMinSize = new System.Drawing.Size((int)(_model.Frame.Width), (int)(_model.Frame.Height)); // TODO: *需要加上两边最小边距
 		}
+
+		//private void OnSelectionChanged(object sender, EventArgs e)
+		//{
+		//	//throw new NotImplementedException();
+		//}
 
 		// TODO: *Model名称改变
 		private void OnNameChanged(object render, EventArgs e)
@@ -64,6 +75,11 @@ namespace YProgramStudio.LabelsDesigner
 		{
 			hRuler.UpdateRuler(e.X, e.Y);
 			vRuler.UpdateRuler(e.X, e.Y);
+		}
+
+		private void LabelDesignerPanel_KeyDown(object sender, KeyEventArgs e)
+		{
+			ICSharpCode.SharpDevelop.SD.MessageService.ShowMessage(e.KeyData.ToString());
 		}
 	}
 }

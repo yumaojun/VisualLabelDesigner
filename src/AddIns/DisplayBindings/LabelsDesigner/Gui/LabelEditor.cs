@@ -36,7 +36,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 		const float labelOutlineWidthPixels = 0;
 
 		static readonly SKColor gridLineColor = System.Drawing.Color.FromArgb(192, 192, 192).ToSKColor();
-		const float gridLineWidthPixels = 0; // 原本是1px，但是还没有找到在Skia中固定一像素的方法，所以设置为0就会绘制为1像素（Skia的发际线模式）
+		const float gridLineWidthPixels = 0; // TODO: *原本是1px，但是还没有找到在Skia中固定一像素的方法，暂时设置为0就会绘制为1像素（Skia的发际线模式）
 		static readonly Distance gridSpacing = Distance.Pt(9); // TODO: *determine from locale.
 
 		static readonly SKColor markupLineColor = System.Drawing.Color.FromArgb(240, 99, 99).ToSKColor();
@@ -45,8 +45,6 @@ namespace YProgramStudio.LabelsDesigner.Gui
 		static readonly SKColor selectRegionFillColor = System.Drawing.Color.FromArgb(128, 192, 192, 255).ToSKColor();
 		static readonly SKColor selectRegionOutlineColor = System.Drawing.Color.FromArgb(128, 0, 0, 255).ToSKColor();
 		const float selectRegionOutlineWidthPixels = 3;
-
-		//QScrollArea* mScrollArea;
 
 		private Model.Model _model;
 		private UndoRedoModel _undoRedoModel;
@@ -110,12 +108,15 @@ namespace YProgramStudio.LabelsDesigner.Gui
 			// 
 			this.PaintSurface += new System.EventHandler<SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs>(this.LabelEditor_PaintSurface);
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LabelEditor_KeyDown);
+			this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LabelEditor_KeyPress);
 			this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LabelEditor_MouseDown);
 			this.MouseLeave += new System.EventHandler(this.LabelEditor_MouseLeave);
 			this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LabelEditor_MouseMove);
 			this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.LabelEditor_MouseUp);
+			this.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.LabelEditor_MouseWheel);
 			this.Resize += new System.EventHandler(this.LabelEditor_Resize);
 			this.ResumeLayout(false);
+
 		}
 
 		private void InitData()
@@ -175,21 +176,41 @@ namespace YProgramStudio.LabelsDesigner.Gui
 			}
 		}
 
-		private void LabelEditor_Resize(object sender, EventArgs e)
+		private void LabelEditor_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
 		{
-			if (_model != null)
+			if (_operateState == OperateState.IdleState)
 			{
-				if (_zoomToFitFlag)
+				switch (e.KeyCode)
 				{
-					ZoomToFit();
-				}
-				else
-				{
-					/* Re-adjust origin to center label in widget. */
-					_x0 = (Width / _scale - _model.Width) / 2F;
-					_y0 = (Height / _scale - _model.Height) / 2F;
+					case Keys.Left:
+						_undoRedoModel.Checkpoint(TranslateHelper.Tr("Move"));
+						_model.MoveSelection(-_stepSize, new Distance(0));
+						break;
 
-					Refresh();
+					case Keys.Up:
+						_undoRedoModel.Checkpoint(TranslateHelper.Tr("Move"));
+						_model.MoveSelection(new Distance(0), -_stepSize);
+						break;
+
+					case Keys.Right:
+						_undoRedoModel.Checkpoint(TranslateHelper.Tr("Move"));
+						_model.MoveSelection(_stepSize, new Distance(0));
+						break;
+
+					case Keys.Down:
+						_undoRedoModel.Checkpoint(TranslateHelper.Tr("Move"));
+						_model.MoveSelection(new Distance(0), _stepSize);
+						break;
+
+					case Keys.Delete:
+						_undoRedoModel.Checkpoint(TranslateHelper.Tr("Delete"));
+						_model.DeleteSelection();
+						Cursor = Cursors.Arrow;
+						break;
+
+					default:
+						break;
+
 				}
 			}
 		}
@@ -319,7 +340,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 								}
 
 								_createObject.SetPosition(xWorld, yWorld);
-								_createObject.SetSize(0, 0); // TODO: 新增的时候好像大小有问题导致显示不出来
+								_createObject.SetSize(0, 0);
 								_model.AddObject(_createObject);
 
 								_model.UnselectAll();
@@ -370,10 +391,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 				/*
 				 * Emit signal regardless of mode
 				 */
-				if (PointerMoved != null)
-				{
-					PointerMoved(this, new PointerMoveEventArgs(xWorld, yWorld));
-				}
+				PointerMoved?.Invoke(this, new PointerMoveEventArgs(xWorld, yWorld));
 
 				/*
 				 * Handle event as appropriate for state
@@ -419,7 +437,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 
 					case OperateState.ArrowMove:
 						_undoRedoModel.Checkpoint(TranslateHelper.Tr("Move"));
-						_model.MoveSelection((xWorld - _moveLastX), (yWorld - _moveLastY));
+						_model.MoveSelection(xWorld - _moveLastX, yWorld - _moveLastY);
 						_moveLastX = xWorld;
 						_moveLastY = yWorld;
 						break;
@@ -525,7 +543,6 @@ namespace YProgramStudio.LabelsDesigner.Gui
 							break;
 
 					}
-
 				}
 			}
 		}
@@ -534,49 +551,40 @@ namespace YProgramStudio.LabelsDesigner.Gui
 		{
 			if (_model != null)
 			{
-				if (PointerExited != null)
+				PointerExited?.Invoke(this, new EventArgs());
+			}
+		}
+
+		private void LabelEditor_MouseWheel(object sender, MouseEventArgs e)
+		{
+			if (_model != null)
+			{
+				if ((ModifierKeys & Keys.Control) == Keys.Control && e.Delta > 0)
 				{
-					PointerExited(this, new EventArgs());
+					ZoomIn();
+				}
+				else if ((ModifierKeys & Keys.Control) == Keys.Control && e.Delta < 0)
+				{
+					ZoomOut();
 				}
 			}
 		}
 
-		private void LabelEditor_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+		private void LabelEditor_Resize(object sender, EventArgs e)
 		{
-			if (_operateState == OperateState.IdleState)
+			if (_model != null)
 			{
-				switch (e.KeyCode)
+				if (_zoomToFitFlag)
 				{
-					case Keys.Left:
-						_undoRedoModel.Checkpoint(TranslateHelper.Tr("Move"));
-						_model.MoveSelection(-_stepSize, new Distance(0));
-						break;
+					ZoomToFit();
+				}
+				else
+				{
+					/* Re-adjust origin to center label in widget. */
+					_x0 = (Width / _scale - _model.Width) / 2F;
+					_y0 = (Height / _scale - _model.Height) / 2F;
 
-					case Keys.Up:
-						_undoRedoModel.Checkpoint(TranslateHelper.Tr("Move"));
-						_model.MoveSelection(new Distance(0), -_stepSize);
-						break;
-
-					case Keys.Right:
-						_undoRedoModel.Checkpoint(TranslateHelper.Tr("Move"));
-						_model.MoveSelection(_stepSize, new Distance(0));
-						break;
-
-					case Keys.Down:
-						_undoRedoModel.Checkpoint(TranslateHelper.Tr("Move"));
-						_model.MoveSelection(new Distance(0), _stepSize);
-						break;
-
-					case Keys.Delete:
-						_undoRedoModel.Checkpoint(TranslateHelper.Tr("Delete"));
-						_model.DeleteSelection();
-						Cursor = Cursors.Arrow;
-						break;
-
-					default:
-						//QWidget::keyPressEvent( event );
-						break;
-
+					Refresh();
 				}
 			}
 		}
@@ -632,13 +640,13 @@ namespace YProgramStudio.LabelsDesigner.Gui
 			_model = model;
 			_undoRedoModel = undoRedoModel;
 
-			if (model != null)
+			if (_model != null)
 			{
 				ZoomToFit();
 
-				model.Changed += (s, e) => Refresh();
-				model.SelectionChanged += (s, e) => Refresh();
-				model.SizeChanged += (s, e) => OnModelSizeChanged();
+				_model.Changed += (s, e) => Refresh();
+				_model.SelectionChanged += (s, e) => Refresh();
+				_model.SizeChanged += (s, e) => OnModelSizeChanged();
 
 				Refresh();
 			}
@@ -814,7 +822,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 		private void HandleResizeMotion(Distance xWorld, Distance yWorld)
 		{
 			SKPoint p = new SKPoint(xWorld.Pt(), yWorld.Pt());
-			Location location = _resizeHandle.Location;
+			HoverLocation location = _resizeHandle.Location;
 
 			/*
 			 * Change point to object relative coordinates
@@ -842,39 +850,39 @@ namespace YProgramStudio.LabelsDesigner.Gui
 			float w, h;
 			switch (location)
 			{
-				case Labels.Location.NW:
+				case HoverLocation.NW:
 					w = Math.Max(x2 - p.X, 0.0f);
 					h = Math.Max(y2 - p.Y, 0.0f);
 					break;
-				case Labels.Location.N:
+				case HoverLocation.N:
 					w = x2 - x1;
 					h = Math.Max(y2 - p.Y, 0.0f);
 					break;
-				case Labels.Location.NE:
+				case HoverLocation.NE:
 					w = Math.Max(p.X - x1, 0.0f);
 					h = Math.Max(y2 - p.Y, 0.0f);
 					break;
-				case Labels.Location.E:
+				case HoverLocation.E:
 					w = Math.Max(p.X - x1, 0.0f);
 					h = y2 - y1;
 					break;
-				case Labels.Location.SE:
+				case HoverLocation.SE:
 					w = Math.Max(p.X - x1, 0.0f);
 					h = Math.Max(p.Y - y1, 0.0f);
 					break;
-				case Labels.Location.S:
+				case HoverLocation.S:
 					w = x2 - x1;
 					h = Math.Max(p.Y - y1, 0.0f);
 					break;
-				case Labels.Location.SW:
+				case HoverLocation.SW:
 					w = Math.Max(x2 - p.X, 0.0f);
 					h = Math.Max(p.Y - y1, 0.0f);
 					break;
-				case Labels.Location.W:
+				case HoverLocation.W:
 					w = Math.Max(x2 - p.X, 0.0f);
 					h = y2 - y1;
 					break;
-				case Labels.Location.P1:
+				case HoverLocation.P1:
 					x1 = p.X;
 					y1 = p.Y;
 					w = x2 - p.X;
@@ -882,7 +890,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 					x0 = x0 + x1;
 					y0 = y0 + y1;
 					break;
-				case Labels.Location.P2:
+				case HoverLocation.P2:
 					w = p.X - x1;
 					h = p.Y - y1;
 					x0 = x0 + x1;
@@ -897,18 +905,18 @@ namespace YProgramStudio.LabelsDesigner.Gui
 			/*
 			 * Set size
 			 */
-			if (!(location == Labels.Location.P1) && !(location == Labels.Location.P2))
+			if (!(location == HoverLocation.P1) && !(location == HoverLocation.P2))
 			{
 				if (_resizeHonorAspect)
 				{
 					switch (location)
 					{
-						case Labels.Location.E:
-						case Labels.Location.W:
+						case HoverLocation.E:
+						case HoverLocation.W:
 							_resizeObject.SetWHonorAspect(Distance.Pt(w));
 							break;
-						case Labels.Location.N:
-						case Labels.Location.S:
+						case HoverLocation.N:
+						case HoverLocation.S:
 							_resizeObject.SetHHonorAspect(Distance.Pt(h));
 							break;
 						default:
@@ -926,16 +934,16 @@ namespace YProgramStudio.LabelsDesigner.Gui
 				 */
 				switch (location)
 				{
-					case Labels.Location.NW:
+					case HoverLocation.NW:
 						x0 += x2 - _resizeObject.Width.Pt();
 						y0 += y2 - _resizeObject.Height.Pt();
 						break;
-					case Labels.Location.N:
-					case Labels.Location.NE:
+					case HoverLocation.N:
+					case HoverLocation.NE:
 						y0 += y2 - _resizeObject.Height.Pt();
 						break;
-					case Labels.Location.W:
-					case Labels.Location.SW:
+					case HoverLocation.W:
+					case HoverLocation.SW:
 						x0 += x2 - _resizeObject.Width.Pt();
 						break;
 					default:
@@ -1182,5 +1190,10 @@ namespace YProgramStudio.LabelsDesigner.Gui
 		}
 
 		#endregion
+
+		private void LabelEditor_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			var k = e.KeyChar;
+		}
 	}
 }

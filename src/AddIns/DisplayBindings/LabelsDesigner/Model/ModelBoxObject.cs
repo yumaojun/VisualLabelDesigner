@@ -171,5 +171,5 @@ namespace YProgramStudio.LabelsDesigner.Model
 
 			return path;
 		}
-	}
+}
 }

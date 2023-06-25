@@ -19,12 +19,20 @@ namespace YProgramStudio.LabelsDesigner.Gui
 		/// <summary>
 		/// 标尺原点x坐标
 		/// </summary>
-		public float X0 { get => _x0; set { _x0 = value; Refresh(); } }
+		public float X0
+		{
+			get => _x0;
+			set { _x0 = value; Refresh(); }
+		}
 
 		/// <summary>
 		/// 标尺原点y坐标
 		/// </summary>
-		public float Y0 { get => _y0; set { _y0 = value; Refresh(); } }
+		public float Y0
+		{
+			get => _y0;
+			set { _y0 = value; Refresh(); }
+		}
 
 		public VRuler()
 		{
@@ -106,6 +114,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 				i += dpcm;
 				++numberCount;
 			}
+
 			canvas.DrawLine(rulerWidth, 0, rulerWidth, Height, paint);
 			paint.Dispose();
 		}

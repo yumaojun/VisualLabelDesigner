@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YProgramStudio.LabelsDesigner.Labels;
 
 namespace YProgramStudio.LabelsDesigner.Model
 {
@@ -13,7 +14,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 	public class HandleNorthEast : Handle
 	{
 		// Lifecycle Methods
-		public HandleNorthEast(ModelObject owner) : base(owner, Labels.Location.NE) { }
+		public HandleNorthEast(ModelObject owner) : base(owner, HoverLocation.NE) { }
 
 		public HandleNorthEast Clone(ModelObject newOwner)
 		{

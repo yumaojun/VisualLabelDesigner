@@ -15,7 +15,38 @@ namespace YProgramStudio.LabelsDesigner.Model
 		protected ColorNode _lineColorNode;
 		protected ColorNode _fillColorNode;
 
-		public ModelShapeObject() {
+		public override Distance LineWidth
+		{
+			get => _lineWidth;
+			set
+			{
+				_lineWidth = value;
+				OnChanged(this, null);
+			}
+		}
+
+		public ColorNode LineColorNode
+		{
+			get => _lineColorNode;
+			set
+			{
+				_lineColorNode = value;
+				OnChanged(this, null);
+			}
+		}
+
+		public ColorNode FillColorNode
+		{
+			get => _fillColorNode;
+			set
+			{
+				_fillColorNode = value;
+				OnChanged(this, null);
+			}
+		}
+
+		public ModelShapeObject()
+		{
 			_outline = new Outline(this);
 
 			_handles.Add(new HandleNorthWest(this));

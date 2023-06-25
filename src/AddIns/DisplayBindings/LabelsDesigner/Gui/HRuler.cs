@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YProgramStudio.LabelsDesigner.Model;
 
 namespace YProgramStudio.LabelsDesigner.Gui
 {
@@ -19,12 +20,20 @@ namespace YProgramStudio.LabelsDesigner.Gui
 		/// <summary>
 		/// 标尺原点x坐标
 		/// </summary>
-		public float X0 { get => _x0; set { _x0 = value; Refresh(); } }
+		public float X0
+		{
+			get => _x0;
+			set { _x0 = value; Refresh(); }
+		}
 
 		/// <summary>
 		/// 标尺原点y坐标
 		/// </summary>
-		public float Y0 { get => _y0; set { _y0 = value; Refresh(); } }
+		public float Y0
+		{
+			get => _y0;
+			set { _y0 = value; Refresh(); }
+		}
 
 		public HRuler()
 		{
@@ -80,7 +89,10 @@ namespace YProgramStudio.LabelsDesigner.Gui
 				Typeface = typeface
 			};
 
-			for (float i = _x0; i < Width;)
+			// 绘制大于0的部分
+			int splitPostion = 1;
+
+			for (float i = _x0; i < Width; i += dpcm)
 			{
 				canvas.DrawLine(i, 0, i, rulerWidth, paint);
 
@@ -93,8 +105,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 				if (i + dpcm < Width)
 					canvas.DrawText(numberText, i + x0, y0, textPaint);
 
-				int splitPostion = 1;
-				for (float j = dpmm + i; j < dpcm + i;)
+				for (float j = dpmm + i; j < dpcm + i; j += dpmm)
 				{
 					if (splitPostion % 5 == 0)
 					{
@@ -104,23 +115,79 @@ namespace YProgramStudio.LabelsDesigner.Gui
 					{
 						canvas.DrawLine(j, lineWidth - sortLineWidth + numberLineHeight, j, rulerWidth, paint);
 					}
-					j += dpmm;
+
 					++splitPostion;
 				}
-				i += dpcm;
+
 				++numberCount;
 			}
 
-			string rule = "毫米";
-			SKRect ruleRrect = new SKRect();
-			textPaint.MeasureText(rule, ref ruleRrect);
-			float ruleY0 = (Height - ruleRrect.Height) / 2 + ruleRrect.Height - 2f;
-			canvas.DrawText(rule, Width - 30, ruleY0, textPaint);
+			// 绘制-1和0之间的部分
+			splitPostion = 1;
+
+			for (float i = _x0 - dpmm; i > (_x0 - dpmm * 10); i -= dpmm)
+			{
+				if (splitPostion % 5 == 0)
+				{
+					canvas.DrawLine(i, lineWidth - (sortLineWidth * 2) + numberLineHeight, i, rulerWidth, paint);
+				}
+				else
+				{
+					canvas.DrawLine(i, lineWidth - sortLineWidth + numberLineHeight, i, rulerWidth, paint);
+				}
+
+				++splitPostion;
+			}
+
+			// 绘制小于-1的部分
+			numberCount = -1;
+
+			for (float i = _x0 - dpcm; i > 0; i -= dpcm)
+			{
+				canvas.DrawLine(i, 0, i, rulerWidth, paint);
+
+				string numberText = numberCount.ToString();
+				SKRect rect = new SKRect();
+				textPaint.MeasureText(numberText, ref rect);
+				float x0 = 2f;
+				float y0 = (Height - rect.Height) / 2 + rect.Height - 2f;
+
+				canvas.DrawText(numberText, i + x0, y0, textPaint);
+
+				splitPostion = 1;
+
+				for (float j = i - dpmm; j > i - dpcm; j -= dpmm)
+				{
+					if (splitPostion % 5 == 0)
+					{
+						canvas.DrawLine(j, lineWidth - (sortLineWidth * 2) + numberLineHeight, j, rulerWidth, paint);
+					}
+					else
+					{
+						canvas.DrawLine(j, lineWidth - sortLineWidth + numberLineHeight, j, rulerWidth, paint);
+					}
+
+					++splitPostion;
+				}
+
+				--numberCount;
+			}
 
 			canvas.DrawLine(0, rulerWidth, Width, rulerWidth, paint);
 
+			string rule = "毫米"; //TranslateHelper.Tr("mm");
+			SKRect ruleRrect = new SKRect();
+			textPaint.MeasureText(rule, ref ruleRrect);
+			float ruleX0 = Width - 30f;
+			float ruleY0 = (Height - ruleRrect.Height) / 2f + ruleRrect.Height - 2f;
+			//SKRect clipRect = new SKRect(ruleX0 - 1f, ruleY0 - ruleRrect.Height - 1f, ruleRrect.Width + 1f, ruleRrect.Height + 1f);
+			//canvas.ClipRect(clipRect);
+			//canvas.Clear();
+			canvas.DrawText(rule, ruleX0, ruleY0, textPaint);
+
 			textPaint.Dispose();
 			typeface.Dispose();
+			fontStyle.Dispose();
 			paint.Dispose();
 		}
 	}

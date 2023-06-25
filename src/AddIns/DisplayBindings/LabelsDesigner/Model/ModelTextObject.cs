@@ -14,6 +14,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 	/// </summary>
 	public class ModelTextObject : ModelObject
 	{
+		const float marginPts = 3;
 		private RawText _text;
 		private string _fontFamily;
 		private float _fontSize;
@@ -27,7 +28,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 		private float _textLineSpacing;
 		private bool _textAutoShrink;
 
-		//private List<TextLayout> mEditorLayouts;
+		private List<TextLayout> _editorLayouts;
 		private SKPath _hoverPath;
 
 		public string Text
@@ -38,13 +39,15 @@ namespace YProgramStudio.LabelsDesigner.Model
 				if (_text != value)
 				{
 					_text = value;
-					//update();
+					Update();
 					OnChanged(this, null);
 				}
 			}
 		}
 
-		public ModelTextObject() { }
+		public ModelTextObject() {
+			_editorLayouts = new List<TextLayout>();
+		}
 
 		public ModelTextObject(Distance x0,
 							   Distance y0,
@@ -104,6 +107,8 @@ namespace YProgramStudio.LabelsDesigner.Model
 			_textWrapMode = textWrapMode;
 			_textLineSpacing = textLineSpacing;
 			_textAutoShrink = textAutoShrink;
+
+			_editorLayouts = new List<TextLayout>();
 		}
 
 		public ModelTextObject(ModelTextObject modelObject)
@@ -128,7 +133,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 		{
 			SKColor textColor = _textColorNode.GetColor(record, variables);
 
-			if (false) // inEditor
+			if (inEditor)
 			{
 				DrawTextInEditor(painter, textColor);
 			}
@@ -142,31 +147,15 @@ namespace YProgramStudio.LabelsDesigner.Model
 		private void DrawTextInEditor(SKCanvas painter, SKColor color)
 		{
 			painter.Save();
+
 			var rect = new SKRect(0, 0, _width.Pt(), _height.Pt());
 			painter.ClipRect(rect);
 
-			if (string.IsNullOrEmpty(_text))
-			{
-				SKColor mutedColor = color;
-				mutedColor = mutedColor.WithAlpha((byte)(0.5 * color.Alpha));
-				//painter->setPen(QPen(mutedColor ) );
-			}
-			else
-			{
-				//painter->setPen(QPen(color ) );
-			}
+			SKColor mutedColor = string.IsNullOrEmpty(_text) ? color.WithAlpha((byte)(0.5 * color.Alpha)) : color;
 
-			//foreach (QTextLayout* layout, mEditorLayouts )
-			//			{
-			//	layout->draw(painter, QPointF(0, 0));
-			//}
-
-			using (SKPaint paint = new SKPaint()
+			foreach (TextLayout layout in _editorLayouts)
 			{
-				Color = color
-			})
-			{
-				painter.DrawText(_text, _x0.Pt(), _y0.Pt(), paint);
+				layout.Draw(painter, 0f, 0f, mutedColor);
 			}
 
 			painter.Restore();
@@ -177,35 +166,20 @@ namespace YProgramStudio.LabelsDesigner.Model
 		{
 			painter.Save();
 
-			var rect = new SKRect(0, 0, _width, _height);
-			//painter.ClipRect(rect );
-			//var paint = new SKPaint() { Color = color, Style = SKPaintStyle.Stroke, StrokeWidth = 1 };
-			//painter.DrawRect(rect, paint); // 外框
+			TextFont textFont = new TextFont();
+			textFont.Family = _fontFamily;
+			textFont.PointSize = _fontSize;
+			textFont.Weight = _fontWeight;
+			textFont.Italic = _fontItalicFlag;
+			textFont.Underline = _fontUnderlineFlag;
 
-			STFontWeight mFontWeight = STFontWeight.Normal; // 字体粗细
-			STAlignment mTextHAlign = STAlignment.AlignRight; // 水平居中
-			STAlignment mTextVAlign = STAlignment.AlignVCenter; // 垂直居中
-			STWrapMode mTextWrapMode = STWrapMode.NoWrap; // 自动换行：Word, AnyWhere, NoWrap
-			float mTextLineSpacing = 1; // 行间距
-			float marginPts = 3;
+			TextOption textOption = new TextOption();
+			textOption.Alignment = _textHAlign;
+			textOption.WrapMode = _textWrapMode;
 
-			STFont font = new STFont();
-			font.Family = _fontFamily;
-			font.PointSize = _fontSize;
-			font.Weight = mFontWeight;
-			font.Italic = _fontItalicFlag;
-			font.Underline = _fontUnderlineFlag;
+			TextDocument document = new TextDocument(_text);
 
-			STTextOption textOption = new STTextOption();
-			textOption.Alignment = mTextHAlign;
-			textOption.WrapMode = mTextWrapMode;
-
-			STFontMetrics fontMetrics = new STFontMetrics(font);
-			float dy = fontMetrics.LineSpacing * mTextLineSpacing;
-
-			STTextDocument document = new STTextDocument(_text);
-
-			List<STTextLayout> layouts = new List<STTextLayout>();
+			List<TextLayout> layouts = new List<TextLayout>();
 
 			// Pass #1 -- do initial layouts
 			float x = 0f;
@@ -213,38 +187,38 @@ namespace YProgramStudio.LabelsDesigner.Model
 			SKRect boundingRect = SKRect.Empty;
 			for (int i = 0; i < document.BlockCount; i++)
 			{
-				STTextLayout layout = new STTextLayout(document.FindBlockByNumber(i).Text);
+				TextLayout layout = new TextLayout(document.FindBlockByNumber(i).Text);
 
-				layout.Font = font;
+				layout.TextFont = textFont;
 				layout.TextOption = textOption;
 				layout.CacheEnabled = true;
 
+				float dy = layout.FontSpacing * _textLineSpacing;
+
 				layout.BeginLayout();
-				for (STTextLine l = layout.CreateLine(); l.IsValid(); l = layout.CreateLine())
+				for (TextLine lin = layout.CreateLine(); lin.IsValid(); lin = layout.CreateLine())
 				{
-					l.LineWidth = _width - 2 * marginPts;
-					l.Position = new SKPoint(x, y);
+					lin.LineWidth = _width - 2 * marginPts;
+					lin.Position = new SKPoint(x, y);
 					y += dy;
 				}
 				layout.EndLayout();
 
 				layouts.Add(layout);
 
-				//boundingRect = layout->boundingRect().united( boundingRect );
-				var temp = boundingRect;
-				boundingRect = layout.Bounds;
-				boundingRect.Union(temp);
+				boundingRect = SKRect.Union(boundingRect, layout.Bounds);
 			}
-			var h = boundingRect.Height;
+
+			float h = boundingRect.Height;
 
 			// Pass #2 -- adjust layout positions for vertical alignment
 			x = marginPts;
-			switch (mTextVAlign)
+			switch (_textVAlign)
 			{
-				case STAlignment.AlignVCenter:
+				case Alignment.VCenter:
 					y = _height / 2f - h / 2;
 					break;
-				case STAlignment.AlignBottom:
+				case Alignment.Bottom:
 					y = _height - h - marginPts;
 					break;
 				default:
@@ -252,21 +226,22 @@ namespace YProgramStudio.LabelsDesigner.Model
 					break;
 			}
 
-			foreach (STTextLayout layout in layouts)
+			foreach (TextLayout layout in layouts)
 			{
+				float dy = layout.FontSpacing * _textLineSpacing;
+
 				for (int j = 0; j < layout.LineCount; j++)
 				{
-					STTextLine l = layout.LineAt(j);
-					l.Position = new SKPoint(x, y);
+					TextLine lin = layout.LineAt(j);
+					lin.Position = new SKPoint(x, y);
 					y += dy;
 				}
 			}
 
 			// Draw layouts
-			//painter->setPen(QPen(color));
-			foreach (STTextLayout layout in layouts)
+			foreach (TextLayout layout in layouts)
 			{
-				layout.Draw(painter, new SKPoint(0, 0));
+				layout.Draw(painter, 0f, 0f, color);
 			}
 
 			// Cleanup
@@ -275,87 +250,87 @@ namespace YProgramStudio.LabelsDesigner.Model
 			painter.Restore();
 		}
 
-		///
 		/// Update cached information for editor view
-		///
 		private void Update()
 		{
-			//SKFont font = new SKFont();
-			//font.setFamily(_fontFamily);
-			//font.setPointSizeF(_fontSize);
-			//font.setWeight(_fontWeight);
-			//font.setItalic(_fontItalicFlag);
-			//font.setUnderline(_fontUnderlineFlag);
+			TextFont textFont = new TextFont();
+			textFont.Family = _fontFamily;
+			textFont.PointSize = _fontSize;
+			textFont.Weight = _fontWeight;
+			textFont.Italic = _fontItalicFlag;
+			textFont.Underline = _fontUnderlineFlag;
 
-			//QTextOption textOption;
-			//textOption.setAlignment(mTextHAlign);
-			//textOption.setWrapMode(mTextWrapMode);
+			TextOption textOption = new TextOption();
+			textOption.Alignment = _textHAlign;
+			textOption.WrapMode = _textWrapMode;
 
-			//QFontMetricsF fontMetrics(font );
-			//double dy = fontMetrics.lineSpacing() * mTextLineSpacing;
+			string displayText = string.IsNullOrEmpty(_text) ? TranslateHelper.Tr("Text") : _text.ToString();
+			TextDocument document = new TextDocument(displayText);
 
-			//QString displayText = mText.isEmpty() ? tr("Text") : mText.toString();
-			//QTextDocument document(displayText );
+			_editorLayouts.Clear();
 
-			//qDeleteAll(mEditorLayouts);
-			//mEditorLayouts.clear();
+			// Pass #1 -- do initial layouts
+			float x = 0;
+			float y = 0;
+			SKRect boundingRect = new SKRect();
+			for (int i = 0; i < document.BlockCount; i++)
+			{
+				TextLayout layout = new TextLayout(document.FindBlockByNumber(i).Text);
 
-			//// Pass #1 -- do initial layouts
-			//double x = 0;
-			//double y = 0;
-			//QRectF boundingRect;
-			//for (int i = 0; i < document.blockCount(); i++)
-			//{
-			//	QTextLayout* layout = new QTextLayout(document.findBlockByNumber(i).text());
+				layout.TextFont = textFont;
+				layout.TextOption = textOption;
+				layout.CacheEnabled = true;
 
-			//	layout->setFont(font);
-			//	layout->setTextOption(textOption);
-			//	layout->setCacheEnabled(true);
+				float dy = layout.FontSpacing * _textLineSpacing;
 
-			//	layout->beginLayout();
-			//	for (QTextLine l = layout->createLine(); l.isValid(); l = layout->createLine())
-			//	{
-			//		l.setLineWidth(mW.pt() - 2 * marginPts);
-			//		l.setPosition(QPointF(x, y));
-			//		y += dy;
-			//	}
-			//	layout->endLayout();
+				layout.BeginLayout();
+				for (TextLine lin = layout.CreateLine(); lin.IsValid(); lin = layout.CreateLine())
+				{
+					lin.LineWidth = _width.Pt() - 2 * marginPts;
+					lin.Position = new SKPoint(x, y);
+					y += dy;
+				}
+				layout.EndLayout();
 
-			//	mEditorLayouts.append(layout);
+				_editorLayouts.Add(layout);
 
-			//	boundingRect = layout->boundingRect().united(boundingRect);
-			//}
-			//double h = boundingRect.height();
+				boundingRect = SKRect.Union(boundingRect, layout.Bounds);
+			}
 
+			float h = boundingRect.Height;
 
-			//// Pass #2 -- adjust layout positions for vertical alignment and create hover path
-			//x = marginPts;
-			//switch (mTextVAlign)
-			//{
-			//	case Qt::AlignVCenter:
-			//		y = mH.pt() / 2 - h / 2;
-			//		break;
-			//	case Qt::AlignBottom:
-			//		y = mH.pt() - h - marginPts;
-			//		break;
-			//	default:
-			//		y = marginPts;
-			//		break;
-			//}
-			//QPainterPath hoverPath; // new empty hover path
-			//foreach (QTextLayout* layout, mEditorLayouts )
-			//{
-			//	for (int j = 0; j < layout->lineCount(); j++)
-			//	{
-			//		QTextLine l = layout->lineAt(j);
-			//		l.setPosition(QPointF(x, y));
-			//		y += dy;
+			// Pass #2 -- adjust layout positions for vertical alignment and create hover path
+			x = marginPts;
+			switch (_textVAlign)
+			{
+				case Alignment.VCenter:
+					y = _height.Pt() / 2 - h / 2;
+					break;
+				case Alignment.Bottom:
+					y = _height.Pt() - h - marginPts;
+					break;
+				default:
+					y = marginPts;
+					break;
+			}
 
-			//		hoverPath.addRect(l.naturalTextRect()); // add to new hover path
-			//	}
-			//}
+			SKPath hoverPath = new SKPath(); // new empty hover path
 
-			//mHoverPath = hoverPath; // save new hover path
+			foreach (TextLayout layout in _editorLayouts)
+			{
+				float dy = layout.FontSpacing * _textLineSpacing;
+
+				for (int j = 0; j < layout.LineCount; j++)
+				{
+					TextLine lin = layout.LineAt(j);
+					lin.Position = new SKPoint(x, y);
+					y += dy;
+
+					hoverPath.AddRect(lin.NaturalTextRect()); // add to new hover path
+				}
+			}
+
+			_hoverPath = hoverPath; // save new hover path
 		}
 	}
 }

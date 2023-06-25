@@ -74,6 +74,32 @@ namespace YProgramStudio.LabelsDesigner.Model
 		protected ModelObject(Distance x0, Distance y0, Distance w, Distance h,
 						 bool lockAspectRatio, //  = false
 
+						 SKMatrix matrix //  = null
+		)
+		{
+			_id = _nextId++;
+
+			_x0 = x0;
+			_y0 = y0;
+			_width = w;
+			_height = h;
+			_lockAspectRatio = lockAspectRatio;
+			_matrix = matrix;
+
+			_shadowState = false;
+			_shadowX = 1.3f;
+			_shadowY = 1.3f;
+			_shadowColorNode = new ColorNode(System.Drawing.Color.FromArgb(0, 0, 0).ToSKColor());
+			_shadowOpacity = 0.5f;
+
+			_selected = false;
+
+			_outline = null;
+		}
+
+		protected ModelObject(Distance x0, Distance y0, Distance w, Distance h,
+						 bool lockAspectRatio, //  = false
+
 						 SKMatrix matrix, //  = null
 						 bool shadowState, //  = false
 
@@ -166,7 +192,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 		public virtual Distance LineWidth
 		{
 			get => 0;
-			set { }
+			set => Changed?.Invoke(this, null);
 		}
 
 		public Distance Width
@@ -453,7 +479,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 			bool success = _matrix.TryInvert(out inverseMatrix);
 			p = inverseMatrix.MapPoint(p);
 
-			if (HoverPath(scale).Contains(p.X, p.Y)) // TODO: *判断是否鼠标移动到对象上（目前水平方向还有点偏移）
+			if (HoverPath(scale).Contains(p.X, p.Y))
 			{
 				return true;
 			}

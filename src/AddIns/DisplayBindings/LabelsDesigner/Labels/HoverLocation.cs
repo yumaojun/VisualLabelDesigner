@@ -9,7 +9,7 @@ namespace YProgramStudio.LabelsDesigner.Labels
 	/// <summary>
 	/// 对象选取框边角位置枚举
 	/// </summary>
-	public enum Location
+	public enum HoverLocation
 	{
 		/// <summary>
 		/// NorthWest
@@ -43,7 +43,17 @@ namespace YProgramStudio.LabelsDesigner.Labels
 		/// West
 		/// </summary>
 		W,
+		/// <summary>
+		/// 直线起始点
+		/// </summary>
 		P1,
-		P2
+		/// <summary>
+		/// 直线结束点
+		/// </summary>
+		P2,
+		/// <summary>
+		/// 旋转
+		/// </summary>
+		Rotate
 	};
 }

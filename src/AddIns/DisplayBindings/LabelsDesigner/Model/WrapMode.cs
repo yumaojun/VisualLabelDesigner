@@ -8,9 +8,10 @@ namespace YProgramStudio.LabelsDesigner.Model
 {
 	public enum WrapMode
 	{
-		WordWrap, 
-		WrapAnywhere, 
-		NoWrap, 
-		ManualWrap
+		NoWrap,
+		WordWrap,
+		ManualWrap,
+		WrapAnywhere,
+		WrapAtWordBoundaryOrAnywhere
 	}
 }

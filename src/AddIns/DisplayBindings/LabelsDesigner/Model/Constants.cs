@@ -11,6 +11,11 @@ namespace YProgramStudio.LabelsDesigner.Model
 	/// </summary>
 	public class Constants
 	{
+
+		/* Code 39 alphabet. Position indicates value. */
+		public const string Alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. $/+%";
+
+
 		public const float PTS_PER_PT = 1.0F;
 		public const float PTS_PER_INCH = 72.0F;
 		public const float PTS_PER_MM = 2.83464566929F;

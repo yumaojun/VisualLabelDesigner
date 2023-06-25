@@ -317,16 +317,19 @@ namespace YProgramStudio.LabelsDesigner.Model
 			{
 				Region objectExtent = modelObject.GetExtent();
 
-				if ((objectExtent.X1 >= rX1) &&
-					 (objectExtent.X2 <= rX2) &&
-					 (objectExtent.Y1 >= rY1) &&
-					 (objectExtent.Y2 <= rY2))
+				if (objectExtent.X1 >= rX1 && objectExtent.X2 <= rX2 && objectExtent.Y1 >= rY1 && objectExtent.Y2 <= rY2)
 				{
 					modelObject.Selected = true;
 				}
 			}
 
 			SelectionChanged?.Invoke(this, null);
+		}
+
+		/// Get First Object in Selection List
+		public ModelObject GetFirstSelectedObject()
+		{
+			return _objectList.FirstOrDefault(x => x.Selected);
 		}
 
 		#endregion

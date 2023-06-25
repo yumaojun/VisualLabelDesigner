@@ -67,7 +67,7 @@ namespace YProgramStudio.LabelsDesigner
             this.mainPanel.Margin = new System.Windows.Forms.Padding(0);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(826, 1174);
-            this.mainPanel.TabIndex = 3;
+            this.mainPanel.TabIndex = 0;
             // 
             // labelEditor
             // 
@@ -87,7 +87,7 @@ namespace YProgramStudio.LabelsDesigner
             this.origin.Margin = new System.Windows.Forms.Padding(0);
             this.origin.Name = "origin";
             this.origin.Size = new System.Drawing.Size(24, 24);
-            this.origin.TabIndex = 7;
+            this.origin.TabIndex = 1;
             this.origin.Text = "origin";
             // 
             // hRuler
@@ -99,8 +99,10 @@ namespace YProgramStudio.LabelsDesigner
             this.hRuler.MaximumSize = new System.Drawing.Size(0, 28);
             this.hRuler.Name = "hRuler";
             this.hRuler.Size = new System.Drawing.Size(826, 24);
-            this.hRuler.TabIndex = 8;
+            this.hRuler.TabIndex = 2;
             this.hRuler.Text = "hRuler";
+            this.hRuler.X0 = 0F;
+            this.hRuler.Y0 = 0F;
             // 
             // vRuler
             // 
@@ -110,8 +112,10 @@ namespace YProgramStudio.LabelsDesigner
             this.vRuler.Margin = new System.Windows.Forms.Padding(0);
             this.vRuler.Name = "vRuler";
             this.vRuler.Size = new System.Drawing.Size(24, 1174);
-            this.vRuler.TabIndex = 9;
+            this.vRuler.TabIndex = 3;
             this.vRuler.Text = "vRuler";
+            this.vRuler.X0 = 0F;
+            this.vRuler.Y0 = 0F;
             // 
             // LabelDesignerPanel
             // 
@@ -121,6 +125,7 @@ namespace YProgramStudio.LabelsDesigner
             this.Margin = new System.Windows.Forms.Padding(45, 24, 45, 24);
             this.Name = "LabelDesignerPanel";
             this.Size = new System.Drawing.Size(850, 540);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LabelDesignerPanel_KeyDown);
             this.Resize += new System.EventHandler(this.LabelDesignerPanel_Resize);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.mainPanel.ResumeLayout(false);

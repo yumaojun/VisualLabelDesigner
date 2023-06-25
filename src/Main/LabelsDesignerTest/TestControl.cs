@@ -25,14 +25,16 @@ namespace LabelsDesignerTest
 
 		private void InitializeComponent()
 		{
-            this.SuspendLayout();
-            // 
-            // TestControl
-            // 
-            this.BackColor = System.Drawing.Color.LightGray;
-            this.PaintSurface += new System.EventHandler<SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs>(this.TemplateControl_PaintSurface);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.TemplateControl_Paint);
-            this.ResumeLayout(false);
+			this.SuspendLayout();
+			// 
+			// TestControl
+			// 
+			this.BackColor = System.Drawing.Color.LightGray;
+			this.PaintSurface += new System.EventHandler<SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs>(this.TemplateControl_PaintSurface);
+			this.Paint += new System.Windows.Forms.PaintEventHandler(this.TemplateControl_Paint);
+			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TestControl_KeyDown);
+			this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TestControl_KeyPress);
+			this.ResumeLayout(false);
 
 		}
 
@@ -84,7 +86,8 @@ namespace LabelsDesignerTest
 			//DrawGrid(canvas, 500f, 100f);
 			//SimpleText(canvas);
 			//MeasureText(canvas, imgInfo);
-			CDPath(canvas);
+			TestText(canvas, imgInfo);
+			//CDPath(canvas);
 		}
 
 		private void TemplateControl_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
@@ -567,7 +570,7 @@ namespace LabelsDesignerTest
 			//painter->setPen(QPen(color));
 			foreach (STTextLayout layout in layouts)
 			{
-				layout.Draw(painter, new SKPoint(0, 0));
+				layout.Draw(painter, new SKPoint(0, 0), null);
 			}
 
 			// Cleanup
@@ -606,6 +609,46 @@ namespace LabelsDesignerTest
 
 			// And draw the text
 			painter.DrawText(str, xText, yText, textPaint);
+		}
+
+		private void TestText(SKCanvas painter, SKImageInfo info)
+		{
+			painter.Save();
+
+			string str = "Hello SkiaSharp!";
+
+			SKPaint textPaint = new SKPaint
+			{
+				Color = SKColors.Green,
+				TextAlign = SKTextAlign.Center,
+				TextSize = 40
+			};
+
+			SKRect textBounds = new SKRect();
+			textPaint.MeasureText(str, ref textBounds);
+
+			float xText = 20f;
+			float yText = 20f;
+
+			painter.DrawText(str, xText + textBounds.MidX, yText + textBounds.Height, textPaint); // 
+
+			textPaint.Style = SKPaintStyle.Stroke;
+			//painter.DrawRect(xText, yText, textBounds.Width, textBounds.Height, textPaint);
+
+			textPaint.Color = SKColors.Black;
+			painter.DrawLine(xText, textPaint.FontMetrics.Ascent, xText + textBounds.Width, textPaint.FontMetrics.Ascent, textPaint);
+
+			//textPaint.Color = SKColors.Green;
+			//painter.DrawLine(xText, textPaint.FontMetrics.Descent, xText + textBounds.Width, textPaint.FontMetrics.Descent, textPaint);
+
+			//textPaint.Color = SKColors.Blue;
+			//painter.DrawLine(xText, textPaint.FontMetrics.CapHeight, xText + textBounds.Width, textPaint.FontMetrics.CapHeight, textPaint);
+
+			painter.DrawPoint(xText, yText, SKColors.Red);
+
+			textPaint.Dispose();
+
+			painter.Restore();
 		}
 
 		#endregion
@@ -679,7 +722,7 @@ namespace LabelsDesignerTest
 			_path.AddOval(rect);*/
 
 
-			
+
 
 			painter.Translate(0, 300);
 			painter.DrawPath(_path, paint);
@@ -694,5 +737,15 @@ namespace LabelsDesignerTest
 		}
 
 		#endregion
+
+		private void TestControl_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+		{
+			MessageBox.Show(e.KeyCode.ToString() + "," + e.KeyData.ToString() + "," + e.KeyValue);
+		}
+
+		private void TestControl_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+		{
+			MessageBox.Show(e.KeyChar.ToString());
+		}
 	}
 }

@@ -8,11 +8,14 @@ using System.Threading.Tasks;
 
 namespace YProgramStudio.LabelsDesigner.Model
 {
+	/// <summary>
+	/// 选中对象时的线框
+	/// </summary>
 	public class Outline
 	{
-		const float dashSize = 2F;
+		const float dashSize = 1F;
 		const float slopPixels = 2F;
-		const float outlineWidthPixels = 1F;
+		const float outlineWidthPixels = 0f; // TODO：默认是1F，设置为0是为了使线宽不受放大缩小变换的影响
 		static readonly SKColor outlineColor1 = System.Drawing.Color.FromArgb(0, 0, 0).ToSKColor();
 		static readonly SKColor outlineColor2 = System.Drawing.Color.FromArgb(255, 255, 255).ToSKColor();
 
@@ -25,13 +28,15 @@ namespace YProgramStudio.LabelsDesigner.Model
 		{
 			_owner = owner;
 			_dashes = new[] { dashSize, dashSize };
+			//SKMaskFilter f = SKMaskFilter.CreateBlur(SKBlurStyle.Outer, 0.5f);
 			_paint1 = new SKPaint()
 			{
 				Color = outlineColor1,
 				Style = SKPaintStyle.Stroke,
 				StrokeWidth = outlineWidthPixels,
 				StrokeCap = SKStrokeCap.Butt,
-				PathEffect = SKPathEffect.CreateDash(_dashes, 0f)
+				PathEffect = SKPathEffect.CreateDash(_dashes, 0f)//,
+				//MaskFilter = f
 			};
 			_paint2 = new SKPaint()
 			{
@@ -58,7 +63,6 @@ namespace YProgramStudio.LabelsDesigner.Model
 		}
 
 		// Drawing Methods
-
 		public void Draw(SkiaSharp.SKCanvas painter)
 		{
 			painter.Save();
@@ -72,8 +76,6 @@ namespace YProgramStudio.LabelsDesigner.Model
 		/// <summary>
 		/// Create path for testing for hover condition
 		/// </summary>
-		/// <param name="scale"></param>
-		/// <returns></returns>
 		public SKPath HoverPath(float scale)
 		{
 			float s = 1 / scale;
@@ -83,6 +85,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 			SKRect rect = new SKRect(-s * slopPixels, -s * slopPixels, _owner.Width.Pt() + s * 2 * slopPixels, _owner.Height.Pt() + s * 2 * slopPixels);
 			path.AddRect(rect);
 			path.Close();
+
 			SKRect rect1 = new SKRect(s * slopPixels, s * slopPixels, _owner.Width.Pt() - s * 2 * slopPixels, _owner.Height.Pt() - s * 2 * slopPixels);
 			path.AddRect(rect1);
 

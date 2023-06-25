@@ -58,8 +58,36 @@
     <Compile Include="Backends\Merge\Factory.cs" />
     <Compile Include="Backends\Merge\Merge.cs" />
     <Compile Include="Backends\Merge\Record.cs" />
+    <Compile Include="Barcodes\Barcode.cs" />
+    <Compile Include="Barcodes\Barcode1dBase.cs" />
+    <Compile Include="Barcodes\BarcodeCode39.cs" />
+    <Compile Include="Barcodes\BarcodeData.cs" />
+    <Compile Include="Barcodes\Barcode2dBase.cs" />
+    <Compile Include="Barcodes\BarcodeQrcode.cs" />
+    <Compile Include="Barcodes\BarcodeDataMatrix.cs" />
+    <Compile Include="Barcodes\BarcodeOnecode.cs" />
+    <Compile Include="Barcodes\BarcodeCepnet.cs" />
+    <Compile Include="Barcodes\BarcodePostnet11.cs" />
+    <Compile Include="Barcodes\BarcodePostnet9.cs" />
+    <Compile Include="Barcodes\BarcodePostnet5.cs" />
+    <Compile Include="Barcodes\BarcodePostnet.cs" />
+    <Compile Include="Barcodes\BarcodeCode39Ext.cs" />
+    <Compile Include="Barcodes\BarcodeUpcA.cs" />
+    <Compile Include="Barcodes\BarcodeEan13.cs" />
+    <Compile Include="Barcodes\BarcodeUpcBase.cs" />
+    <Compile Include="Barcodes\DrawingPrimitive.cs" />
+    <Compile Include="Barcodes\DrawingPrimitiveBox.cs" />
+    <Compile Include="Barcodes\DrawingPrimitiveHexagon.cs" />
+    <Compile Include="Barcodes\DrawingPrimitiveLine.cs" />
+    <Compile Include="Barcodes\DrawingPrimitiveRing.cs" />
+    <Compile Include="Barcodes\DrawingPrimitiveText.cs" />
+    <Compile Include="Barcodes\Factory.cs" />
+    <Compile Include="Barcodes\Matrix.cs" />
+    <Compile Include="Barcodes\Renderer.cs" />
+    <Compile Include="Barcodes\RendererData.cs" />
     <Compile Include="Commands\AlignRightCommand.cs" />
     <Compile Include="Commands\BaseIconCommand.cs" />
+    <Compile Include="Commands\LabelPreferencesCommand.cs" />
     <Compile Include="Commands\RotateLeftCommand.cs" />
     <Compile Include="Commands\RotateRightCommand.cs" />
     <Compile Include="Commands\FlipHorizCommand.cs" />
@@ -94,6 +122,9 @@
     <Compile Include="Commands\OrderSendToBackCommand.cs" />
     <Compile Include="Commands\CreateTextCommand.cs" />
     <Compile Include="Commands\OpenBarcodesFormCommand.cs" />
+    <Compile Include="Gui\BarcodeProperty.xaml.cs">
+      <DependentUpon>BarcodeProperty.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gui\BarcodesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +157,9 @@
     <Compile Include="Gui\NewLabelWizardControl.Designer.cs">
       <DependentUpon>NewLabelWizardControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\LabelReference.xaml.cs">
+      <DependentUpon>LabelReference.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gui\VRuler.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -136,7 +170,8 @@
       <DependentUpon>LabelDesignerPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="LabelDisplayBinding.cs" />
-    <Compile Include="Labels\Location.cs" />
+    <Compile Include="Labels\CommonHelper.cs" />
+    <Compile Include="Labels\HoverLocation.cs" />
     <Compile Include="Labels\CreateType.cs" />
     <Compile Include="Labels\OperateState.cs" />
     <Compile Include="Labels\ZoomChangeEventArgs.cs" />
@@ -192,11 +227,18 @@
     <Compile Include="Model\Settings.cs" />
     <Compile Include="Model\Size.cs" />
     <Compile Include="Model\StrUtil.cs" />
+    <Compile Include="Model\TextBlock.cs" />
     <Compile Include="Model\SubstitutionField.cs" />
     <Compile Include="Model\SvgRenderer.cs" />
     <Compile Include="Model\Template.cs" />
+    <Compile Include="Model\TextCursor.cs" />
+    <Compile Include="Model\TextDocument.cs" />
+    <Compile Include="Model\TextFont.cs" />
+    <Compile Include="Model\TextLayout.cs" />
+    <Compile Include="Model\TextLine.cs" />
     <Compile Include="Model\TextNode.cs" />
-    <Compile Include="Model\TrHelper.cs" />
+    <Compile Include="Model\TextOption.cs" />
+    <Compile Include="Model\TranslateHelper.cs" />
     <Compile Include="Model\UndoRedoModel.cs" />
     <Compile Include="Model\UnitEnum.cs" />
     <Compile Include="Model\Variable.cs" />
@@ -235,6 +277,10 @@
       <Name>ICSharpCode.Core</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Main\ICSharpCode.SharpDevelop.Widgets\Project\ICSharpCode.SharpDevelop.Widgets.csproj">
+      <Project>{8035765f-d51f-4a0c-a746-2fd100e19419}</Project>
+      <Name>ICSharpCode.SharpDevelop.Widgets</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="YProgramStudio.LabelsDesigner.addin">
@@ -242,6 +288,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="SkiaSharp.QrCode">
+      <Version>0.6.0</Version>
+    </PackageReference>
     <PackageReference Include="SkiaSharp.Views.WindowsForms">
       <Version>2.88.3</Version>
     </PackageReference>
@@ -273,7 +322,16 @@
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Page Include="Gui\BarcodeProperty.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gui\LabelReference.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Cursors\32x32\cursor_barcode.png" />
     <Content Include="Cursors\32x32\cursor_box.png" />

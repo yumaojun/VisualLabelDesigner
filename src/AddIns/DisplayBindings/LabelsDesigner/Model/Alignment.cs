@@ -11,11 +11,14 @@ namespace YProgramStudio.LabelsDesigner.Model
 	/// </summary>
 	public enum Alignment
 	{
-		Right,
-		HCenter,
-		Left,
-		Bottom,
-		VCenter,
-		Top
+		Left = 0x0001,
+		Right = 0x0002,
+		HCenter = 0x0004, // horizontal center
+
+		Top = 0x0020,
+		Bottom = 0x0040,
+		VCenter = 0x0080, // vertical center
+
+		Center = VCenter | HCenter
 	}
 }

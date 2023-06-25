@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YProgramStudio.LabelsDesigner.Labels;
 
 namespace YProgramStudio.LabelsDesigner.Model
 {
@@ -13,7 +14,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 	public class HandleNorth : Handle
 	{
 		// Lifecycle Methods
-		public HandleNorth(ModelObject owner) : base(owner, Labels.Location.N)
+		public HandleNorth(ModelObject owner) : base(owner, HoverLocation.N)
 		{
 		}
 
