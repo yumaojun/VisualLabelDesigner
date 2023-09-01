@@ -143,7 +143,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 		private void DrawLabelOutline(SkiaSharp.SKSurface sf, Frame frame, Point p0, SkiaSharp.SKPaint paint)
 		{
 			sf.Canvas.Save();
-			sf.Canvas.Translate(p0.X().Pt(), p0.Y().Pt());
+			sf.Canvas.Translate(p0.X.Pt(), p0.Y.Pt());
 			paint.Style = SKPaintStyle.Stroke;
 			paint.Color = labelOutlineColor;
 			sf.Canvas.DrawPath(frame.Path(), paint);

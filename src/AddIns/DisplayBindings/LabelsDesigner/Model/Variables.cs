@@ -22,5 +22,25 @@ namespace YProgramStudio.LabelsDesigner.Model
 		{
 			return new Variables(this);
 		}
+
+		public void ResetVariables()
+		{
+
+		}
+
+		public void IncrementVariablesOnItem()
+		{
+
+		}
+
+		public void IncrementVariablesOnCopy()
+		{
+
+		}
+
+		public void IncrementVariablesOnPage()
+		{
+
+		}
 	}
 }

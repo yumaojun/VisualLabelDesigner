@@ -40,6 +40,7 @@
     <OutputPath>..\..\..\bin\</OutputPath>
     <OutputType>Exe</OutputType>
     <DebugSymbols>true</DebugSymbols>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>None</DebugType>
@@ -275,6 +276,7 @@
     <Content Include="app.config">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Templates\SharpDevelop.Setup.sln" />
   </ItemGroup>
   <ItemGroup>

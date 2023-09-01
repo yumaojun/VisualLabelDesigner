@@ -31,7 +31,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 			_clipPath.AddOval(clipRect);
 		}
 
-		public FrameRound(FrameRound other) : this(other._r, other._waste, other.Id())
+		public FrameRound(FrameRound other) : this(other._r, other._waste, other.Id)
 		{
 			foreach (var item in other.Layouts())
 			{

@@ -4,11 +4,15 @@ using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace YProgramStudio.LabelsDesigner.Gui
 {
 	public class FontFamilyComboBox : System.Windows.Controls.ComboBox
 	{
+		private List<TextBlock> storeItems = new List<TextBlock>();
+
 		public FontFamilyComboBox()
 		{
 			Width = 120;
@@ -17,12 +21,15 @@ namespace YProgramStudio.LabelsDesigner.Gui
 
 		void RecreateItems()
 		{
-			InstalledFontCollection fonts = new InstalledFontCollection();
-			foreach (var fontFamily in fonts.Families)
+			foreach (var fontFamily in System.Windows.Media.Fonts.SystemFontFamilies)
 			{
-				Items.Add(fontFamily.Name);
+				TextBlock textBlock1 = new TextBlock();
+				textBlock1.FontFamily = fontFamily;
+				textBlock1.Text = fontFamily.Source;
+				storeItems.Add(textBlock1);
 			}
-			SelectedValue = "Arial";
+			ItemsSource = storeItems;
+			SelectedValue = storeItems.FirstOrDefault(x => x.Text == "Arial");
 		}
 	}
 }

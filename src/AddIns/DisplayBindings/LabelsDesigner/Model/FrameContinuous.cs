@@ -33,7 +33,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 			_path.AddRect(rect);
 		}
 
-		public FrameContinuous(FrameContinuous other) : this(other._w, other._hMin, other._hMax, other._hDefault, other.Id())
+		public FrameContinuous(FrameContinuous other) : this(other._w, other._hMin, other._hMax, other._hDefault, other.Id)
 		{
 			foreach (var item in other.Layouts())
 			{

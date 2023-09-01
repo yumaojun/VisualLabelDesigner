@@ -15,11 +15,15 @@ namespace YProgramStudio.LabelsDesigner.Model
 	{
 		#region Private Data
 
+		private int _untitledInstance;
 		private bool _modified;
 		private string _fileName;
 		private Template _template = new Template();
 		private bool _rotate;
 		private List<ModelObject> _objectList = new List<ModelObject>();
+
+		private Variables _variables;
+		private Merge _merge;
 
 		#endregion
 
@@ -36,6 +40,27 @@ namespace YProgramStudio.LabelsDesigner.Model
 		public event EventHandler MergeSelectionChanged;
 
 		#endregion
+
+		/// Default constructor.
+		public Model()
+
+		{
+			_variables = new Variables();
+			_merge = new Merge(); // new None() // struct None : public Merge
+			_untitledInstance = 0;
+			_modified = true;
+			_rotate = false;
+			//connect(mVariables, SIGNAL(changed()), this, SLOT(onVariablesChanged()));
+		}
+
+		public Model(Merge merge, Variables variables)
+		{
+			_variables = variables; // Shared
+			_merge = merge; // Shared
+			_untitledInstance = 0;
+			_modified = true;
+			_rotate = false;
+		}
 
 		#region Event Handler
 
@@ -187,6 +212,10 @@ namespace YProgramStudio.LabelsDesigner.Model
 		{
 			get => _objectList;
 		}
+
+		public Variables Variables { get => _variables; set => _variables = value; }
+
+		public Merge Merge { get => _merge; set => _merge = value; }
 
 		#endregion
 

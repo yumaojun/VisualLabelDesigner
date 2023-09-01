@@ -15,7 +15,7 @@
 			<ConditionEvaluator name="ActiveViewContentUntitled" class="ICSharpCode.SharpDevelop.ActiveViewContentUntitledConditionEvaluator"/>
 			<ConditionEvaluator name="ActiveWindowState" class="ICSharpCode.SharpDevelop.ActiveWindowStateConditionEvaluator"/>
 			<ConditionEvaluator name="SolutionOpen" class="ICSharpCode.SharpDevelop.SolutionOpenConditionEvaluator"/>
-			<ConditionEvaluator name="DebuggerSupports" class="ICSharpCode.SharpDevelop.Debugging.DebuggerSupportsConditionEvaluator"/>
+			<!--<ConditionEvaluator name="DebuggerSupports" class="ICSharpCode.SharpDevelop.Debugging.DebuggerSupportsConditionEvaluator"/>-->
 			<ConditionEvaluator name="IsProcessRunning" class="ICSharpCode.SharpDevelop.Debugging.IsProcessRunningConditionEvaluator"/>
 			<ConditionEvaluator name="OpenWindowState" class="ICSharpCode.SharpDevelop.OpenWindowStateConditionEvaluator"/>
 			<ConditionEvaluator name="WindowActive" class="ICSharpCode.SharpDevelop.WindowActiveConditionEvaluator"/>
@@ -157,12 +157,12 @@
 		     class    = "ICSharpCode.SharpDevelop.Src.Gui.CommandPreview"
 		     defaultPosition = "Right" />-->
 		
-		<Pad id       = "SideBar"
+		<!--<Pad id       = "SideBar"
 		     category = "Main"
 		     title    = "${res:MainWindow.Windows.ToolbarLabel}"
 		     icon     = "PadIcons.Toolbar"
 		     class    = "ICSharpCode.SharpDevelop.Gui.ToolsPad"
-		     defaultPosition = "Left" />
+		     defaultPosition = "Left" />-->
 		
 		<!--<Pad id       = "OutlinePad"
 		     category = "Main"
@@ -193,20 +193,20 @@
 		     class    = "ICSharpCode.SharpDevelop.Gui.TaskListPad"
 		     defaultPosition = "Bottom" />-->
 		
-		<Pad id       = "OutputPad"
+		<!--<Pad id       = "OutputPad"
 		     category = "Main"
 		     title    = "${res:MainWindow.Windows.OutputWindow}"
 		     icon     = "PadIcons.Output"
 		     class    = "ICSharpCode.SharpDevelop.Gui.CompilerMessageView"
-		     defaultPosition = "Bottom" />
+		     defaultPosition = "Bottom" />-->
 		
-		<Pad id       = "PropertyPad"
+		<!--<Pad id       = "PropertyPad"
 		     category = "Main"
 		     title    = "${res:MainWindow.Windows.PropertiesScoutLabel}"
 		     icon     = "Icons.16x16.PropertiesIcon"
 		     shortcut = "F4"
 		     class    = "ICSharpCode.SharpDevelop.Gui.PropertyPad"
-		     defaultPosition = "Right" />
+		     defaultPosition = "Right" />-->
 		
 		<Pad id       = "FileScout"
 		     category = "Tools"
@@ -874,7 +874,7 @@
 	
 	<!-- END Project Browser Paths-->
 	
-	<Path name = "/SharpDevelop/Pads/CompilerMessageView/Toolbar">
+	<!--<Path name = "/SharpDevelop/Pads/CompilerMessageView/Toolbar">
 		<ToolbarItem id      = "CategorySelect"
 		             type    = "Custom"
 		             tooltip = "${res:MainWindow.Windows.CompilerMessageView.ShowOutputFromComboBox.ToolTip}"
@@ -892,7 +892,7 @@
 		             icon    = "OutputPad.Toolbar.ToggleWordWrap"
 		             tooltip = "${res:MainWindow.Windows.CompilerMessageView.ToggleWordWrapButton.ToolTip}"
 		             class   = "ICSharpCode.SharpDevelop.Gui.ToggleMessageViewWordWrap"/>
-	</Path>
+	</Path>-->
 	
 	<!--<Path name = "/SharpDevelop/Pads/CompilerMessageView/ContextMenu">
 		<Include id = "Copy" item = "/SharpDevelop/Workbench/MainMenu/Edit/Copy"/>
@@ -1610,7 +1610,7 @@
 			          type = "Item"
 			          command = "Delete"/>
 			<MenuItem id = "Separator2" type = "Separator"  />
-			<Condition name = "WindowActive" activewindow="ICSharpCode.SharpDevelop.Editor.ITextEditor" action="Disable">
+			<!--<Condition name = "WindowActive" activewindow="ICSharpCode.SharpDevelop.Editor.ITextEditor" action="Disable">
 				<MenuItem id = "Insert" label = "${res:XML.MainMenu.EditMenu.Insert}" type="Menu">
 					<MenuItem id = "PasteAsComment"
 					          label = "${res:XML.MainMenu.EditMenu.Paste.AsComment}"
@@ -1629,12 +1629,12 @@
 					          label    = "${res:XML.MainMenu.ToolMenu.InsGUID}"
 					          class    = "ICSharpCode.SharpDevelop.Editor.Commands.InsertGuidCommand"/>
 				</MenuItem>
-			</Condition>
+			</Condition>-->
 			<MenuItem id = "SelectAll"
 			          label = "${res:XML.MainMenu.EditMenu.SelectAll}"
 			          type = "Item"
 			          command = "SelectAll"/>
-			<MenuItem id = "Separator4" type = "Separator"  />
+			<!--<MenuItem id = "Separator4" type = "Separator"  />
 			<ComplexCondition action="Disable">
 				<Or>
 					<Condition name = "WindowActive" activewindow="*"/>
@@ -1643,14 +1643,17 @@
 				<MenuItem id = "WordCount"
 				          label = "${res:XML.MainMenu.EditMenu.WordCount}"
 				          class = "ICSharpCode.SharpDevelop.Commands.WordCount"/>
-			</ComplexCondition>
+			</ComplexCondition>-->
 		</MenuItem> <!-- end EDIT menu -->
 		
 		<MenuItem id = "View" label = "${res:XML.MainMenu.ViewMenu}" type="Menu">
+			
+			<!-- View菜单下的各项菜单，用于打开各个停靠Pad（即padContent） -->
 			<MenuItem id    = "MainViewMenuBuilder"
 			          type  = "Builder"
 			          class = "ICSharpCode.SharpDevelop.Commands.MainViewMenuBuilder" />
 			
+			<!-- View菜单下的Tools子菜单 -->
 			<MenuItem id = "Tools" label = "${res:XML.MainMenu.ViewMenu.ToolsMenu}" type="Menu">
 				<MenuItem id    = "ToolsViewMenuBuilder"
 				          type  = "Builder"
@@ -1940,14 +1943,14 @@
 			<MenuItem id = "ToolBuilder" type="Builder" class = "ICSharpCode.SharpDevelop.Commands.ToolMenuBuilder" />
 			<MenuItem id = "Separator1" type = "Separator" />
 			<Include id = "ToolList" path = "/SharpDevelop/Workbench/Tools" />
-			<MenuItem id = "Separator2" type = "Separator" />
+			<!--<MenuItem id = "Separator2" type = "Separator" />-->
 			
 			<!--更新解决方案和项目-->
-			<Condition name = "SolutionOpen" action="Disable">
+			<!--<Condition name = "SolutionOpen" action="Disable">
 				<MenuItem id = "Upgrade"
 				          label = "${res:ICSharpCode.SharpDevelop.Project.UpgradeView.Title}"
 				          class = "ICSharpCode.SharpDevelop.Project.Converter.ShowUpgradeView"/>
-			</Condition>
+			</Condition>-->
 			
 			<MenuItem id = "LastSeparator" type = "Separator" />
 			
@@ -2105,7 +2108,7 @@
 		
 		<MenuItem id = "Separator2" type = "Separator" />
 		-->
-		<MenuItem id = "Comment"
+		<!--<MenuItem id = "Comment"
 		          icon  = "Icons.16x16.CommentRegion"
 		          label = "${res:XML.TextAreaContextMenu.CommentUncommentSelection}"
 		          shortcut="Control|OemQuestion"
@@ -2117,7 +2120,7 @@
 		<MenuItem id = "Reformat"
 		          label = "${res:XML.TextAreaContextMenu.Reformat}"
 		          shortcut = "Control|Shift|I"
-		          class = "ICSharpCode.SharpDevelop.Editor.Commands.ReformatSelection" />
+		          class = "ICSharpCode.SharpDevelop.Editor.Commands.ReformatSelection" />-->
 	</Path>
 	
 	<Path name = "/SharpDevelop/ViewContent/TextEditor/ToolTips">
@@ -2152,7 +2155,7 @@
 		</Condition>
 	</Path>
 	
-	<Path name = "/SharpDevelop/Workbench/MainMenu/Edit">
+	<!--<Path name = "/SharpDevelop/Workbench/MainMenu/Edit">
 		<MenuItem insertafter = "Delete" id = "Separator2" type = "Separator" />
 		<MenuItem id = "Format" label = "${res:XML.MainMenu.EditMenu.FormatMenu}" type="Menu">
 			<MenuItem id = "Separator4" type = "Separator" />
@@ -2161,7 +2164,7 @@
 			<Include id = "Reformat" item = "/SharpDevelop/ViewContent/TextEditor/ContextMenu/Reformat" />
 		</MenuItem>
 		<MenuItem insertbefore = "SelectAll" id = "Separator3" type = "Separator" />
-	</Path>
+	</Path>-->
 	
 	<Path name = "/SharpDevelop/ViewContent/Browser/Toolbar">
 		<ToolbarItem id      = "Back"
@@ -2382,7 +2385,7 @@
 		             class       = "ICSharpCode.SharpDevelop.Gui.OptionPanels.ProjectCustomToolOptionsPanel"/>
 	</Path>
 	
-	<Path name="/SharpDevelop/Pads/ErrorList/TaskContextMenu">
+	<!--<Path name="/SharpDevelop/Pads/ErrorList/TaskContextMenu">
 		<MenuItem id = "Copy"
 		          label = "${res:XML.MainMenu.EditMenu.Copy}"
 		          type = "Item"
@@ -2402,9 +2405,9 @@
 		          type = "Item"
 		          icon = "Icons.16x16.CopyIcon"
 		          command = "Copy"/>
-	</Path>
+	</Path>-->
 	
-	<Path name="/SharpDevelop/Pads/CommonConsole/ToolBar">
+	<!--<Path name="/SharpDevelop/Pads/CommonConsole/ToolBar">
 		<ToolbarItem id = "ClearConsole"
 		             tooltip = "${res:AddIns.Debugger.Console.ClearConsole}"
 		             class = "ICSharpCode.SharpDevelop.Gui.ClearConsoleCommand"
@@ -2419,7 +2422,7 @@
 		             icon    = "OutputPad.Toolbar.ToggleWordWrap"
 		             tooltip = "${res:MainWindow.Windows.CompilerMessageView.ToggleWordWrapButton.ToolTip}"
 		             class   = "ICSharpCode.SharpDevelop.Gui.ToggleConsoleWordWrapCommand"/>
-	</Path>
+	</Path>-->
 	
 	<Path name = "/SharpDevelop/BackendBindings/Templates">
 		<TemplateFile path="../data/templates" />

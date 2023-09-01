@@ -1,4 +1,5 @@
 ﻿using ICSharpCode.Core;
+using ICSharpCode.SharpDevelop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,8 @@ namespace YProgramStudio.LabelsDesigner.Commands
 	{
 		public override void Run()
 		{
-			var barcodesForm = new BarcodesForm();
+			var barcodesForm = new SelectBarcodeForm();
+			barcodesForm.ShowInTaskbar = false;
 			barcodesForm.ShowDialog();
 		}
 	}

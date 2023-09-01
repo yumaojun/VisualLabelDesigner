@@ -8,5 +8,9 @@ namespace YProgramStudio.LabelsDesigner.Backends.Merge
 {
 	public class Merge
 	{
+		public List<Record> SelectedRecords()
+		{
+			return new List<Record>();
+		}
 	}
 }

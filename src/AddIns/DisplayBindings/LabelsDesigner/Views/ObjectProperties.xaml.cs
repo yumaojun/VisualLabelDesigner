@@ -16,35 +16,48 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using YProgramStudio.LabelsDesigner.Model;
 
-namespace YProgramStudio.LabelsDesigner.Gui
+namespace YProgramStudio.LabelsDesigner.Views
 {
 	/// <summary>
 	/// 对象属性面板
 	/// </summary>
-	public partial class BarcodeProperty : UserControl, IPadContent, INotifyPropertyChanged
+	public partial class ObjectProperties : UserControl, IPadContent, INotifyPropertyChanged
 	{
-		private static BarcodeProperty _instance;
+		private static ObjectProperties _instance;
 		private Model.Model _model;
 		private Model.UndoRedoModel _undoRedoModel;
 		private Model.ModelObject _object;
+
+		private List<Backends.Barcode.BarcodeStyle> _styleList = new List<Backends.Barcode.BarcodeStyle>();
+
+		private Backends.Barcode.BarcodeStyle _bcStyle;
 
 		private bool _isShowTextEnabled = true;
 		private bool _isChecksumEnabled = true;
 		private bool _isShowText = true;
 		private bool _isChecksum = true;
+
 		private float _lineWidth = 1.0f;
 		private Color _lineColor = Colors.Black;
 		private Color _fillColor = Colors.LightGreen;
 		private Color _bcColor = Colors.Black;
+
 		private string _text = string.Empty;
 		private string _brand = string.Empty;
 		private string _part = string.Empty;
 		private string _description = string.Empty;
+
 		private float _x0 = 1.00f;
 		private float _y0 = 1.00f;
 		private float _width = 1.00f;
 		private float _height = 1.00f;
+
+		private bool _lockAspectRatio = false;
+
+		private float _lengthValue = 1.00f;
+		private float _angleValue = 0.0f;
 
 		public object Control => this;
 
@@ -61,22 +74,44 @@ namespace YProgramStudio.LabelsDesigner.Gui
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		public static BarcodeProperty Instance => _instance;
+		public static ObjectProperties Instance => _instance;
 
-		public BarcodeProperty()
+		public ObjectProperties()
 		{
+			Backends.Barcode.Backends.Init();
+			StyleList = Backends.Barcode.Backends.StyleList.Where(x => x.BackendId == string.Empty).ToList();
+			BcStyleValue = StyleList.FirstOrDefault();
 			InitializeComponent();
-			Loaded += BarcodeProperty_Loaded;
+			Loaded += View_Loaded;
 			_instance = this;
 		}
 
-		private void BarcodeProperty_Loaded(object sender, RoutedEventArgs e)
+		private void View_Loaded(object sender, RoutedEventArgs e)
 		{
+			// UI Operation
 			HideAllTabPages();
 			labelTabItem.Visibility = Visibility.Visible;
 		}
 
 		#region Properties
+
+		public List<Backends.Barcode.BarcodeStyle> StyleList { get => _styleList; set => _styleList = value; }
+
+		public Backends.Barcode.BarcodeStyle BcStyleValue
+		{
+			get => _bcStyle;
+			set
+			{
+				_bcStyle = value;
+
+				if (_object is ModelBarcodeObject barcode)
+				{
+					//BarcodeChanged(barcode, _bcStyle);
+				}
+
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BcStyleValue"));
+			}
+		}
 
 		public bool IsShowTextEnabled
 		{
@@ -104,6 +139,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 			set
 			{
 				_isShowText = value;
+
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsShowTextValue"));
 			}
 		}
@@ -114,6 +150,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 			set
 			{
 				_isChecksum = value;
+
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsChecksumValue"));
 			}
 		}
@@ -293,6 +330,10 @@ namespace YProgramStudio.LabelsDesigner.Gui
 			set
 			{
 				_width = value;
+				if (_object != null)
+				{
+					_object.Width = value;
+				}
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("WidthValue"));
 			}
 		}
@@ -306,7 +347,56 @@ namespace YProgramStudio.LabelsDesigner.Gui
 			set
 			{
 				_height = value;
+				if (_object != null)
+				{
+					_object.Height = value;
+				}
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HeightValue"));
+			}
+		}
+
+		/// <summary>
+		/// 锁定宽高比
+		/// </summary>
+		public bool LockAspectRatio
+		{
+			get => _lockAspectRatio;
+			set
+			{
+				_lockAspectRatio = value;
+				if (_object != null)
+				{
+					_object.LockAspectRatio = value;
+				}
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LockAspectRatio"));
+			}
+		}
+
+		/// <summary>
+		/// 长度
+		/// </summary>
+		public float LengthValue
+		{
+			get => _lengthValue;
+			set
+			{
+				_lengthValue = value;
+
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LengthValue"));
+			}
+		}
+
+		/// <summary>
+		/// 角度
+		/// </summary>
+		public float AngleValue
+		{
+			get => _angleValue;
+			set
+			{
+				_angleValue = value;
+
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AngleValue"));
 			}
 		}
 
@@ -379,38 +469,44 @@ namespace YProgramStudio.LabelsDesigner.Gui
 		{
 			if (_model.IsSelectionAtomic() && (_object = _model.GetFirstSelectedObject()) != null)
 			{
-				if (_object is Model.ModelObject mobject)
-				{
-					X0Value = mobject.X0.Pt();
-					Y0Value = mobject.Y0.Pt();
+				X0Value = _object.X0.Pt();
+				Y0Value = _object.Y0.Pt();
+				WidthValue = _object.Width.Pt();
+				HeightValue = _object.Height.Pt();
+				LockAspectRatio = _object.LockAspectRatio;
 
+				if (_object is Model.ModelLineObject line)
+				{
+					// 长度、角度
+					var mUnits = new Units();
+					float w = line.Width.InUnits(mUnits);
+					float h = line.Height.InUnits(mUnits);
+					LengthValue = (float)Math.Sqrt((line.Width.Pt() * line.Width.Pt()) + (line.Height.Pt() * line.Height.Pt()));
+					AngleValue = (float)(180 / Math.PI * Math.Atan2(h, w));
 				}
 			}
 		}
 
 		// 最终此函数开放给ViewContent使用，以解决当ViewContent生命周期结束时取消事件订阅
+		// 处理引用循环问题：
 		private void OnModelSelectionChanged(object sender, EventArgs e)
 		{
 			HideAllTabPages();
 
 			if (_model.IsSelectionAtomic() && (_object = _model.GetFirstSelectedObject()) != null)
 			{
-				if (_object is Model.ModelObject mobject)
-				{
-					X0Value = mobject.X0.Pt();
-					Y0Value = mobject.Y0.Pt();
-
-					//if (!(_object is Model.ModelLineObject))
-					//{
-					//	WidthValue = mobject.Width.Pt();
-					//	HeightValue = mobject.Height.Pt();
-					//}
-				}
+				X0Value = _object.X0.Pt();
+				Y0Value = _object.Y0.Pt();
+				WidthValue = _object.Width.Pt();
+				HeightValue = _object.Height.Pt();
+				LockAspectRatio = _object.LockAspectRatio;
 
 				if (_object is Model.ModelShapeObject shape) // Contains box and ellipse
 				{
 					ShowShapeTabPages();
 					fillGroup.Visibility = Visibility.Visible;
+					shapeSizeGroup.Visibility = Visibility.Visible;
+					lineSizeGroup.Visibility = Visibility.Collapsed;
 					LineWidthValue = shape.LineWidth.Pt();
 					LineColorValue = SKColorToWMColor(shape.LineColorNode.Color);
 					FillColorValue = SKColorToWMColor(shape.FillColorNode.Color);
@@ -419,15 +515,24 @@ namespace YProgramStudio.LabelsDesigner.Gui
 				{
 					ShowShapeTabPages();
 					fillGroup.Visibility = Visibility.Collapsed;
+					shapeSizeGroup.Visibility = Visibility.Collapsed;
+					lineSizeGroup.Visibility = Visibility.Visible;
 					LineWidthValue = line.LineWidth.Pt();
 					LineColorValue = SKColorToWMColor(line.LineColorNode.Color);
 					// 长度、角度
+					var mUnits = new Units();
+					float w = line.Width.InUnits(mUnits);
+					float h = line.Height.InUnits(mUnits);
+					LengthValue = (float)Math.Sqrt((line.Width.Pt() * line.Width.Pt()) + (line.Height.Pt() * line.Height.Pt()));
+					AngleValue = (float)(180 / Math.PI * Math.Atan2(h, w));
 				}
 				else if (_object is Model.ModelImageObject image)
 				{
 					imageTabItem.Visibility = Visibility.Visible;
 					posSizeTabItem.Visibility = Visibility.Visible;
 					shadowTabItem.Visibility = Visibility.Visible;
+					shapeSizeGroup.Visibility = Visibility.Visible;
+					lineSizeGroup.Visibility = Visibility.Collapsed;
 					mainTab.SelectedItem = imageTabItem;
 				}
 				else if (_object is Model.ModelTextObject text)
@@ -442,6 +547,11 @@ namespace YProgramStudio.LabelsDesigner.Gui
 				{
 					barcodeTabItem.Visibility = Visibility.Visible;
 					posSizeTabItem.Visibility = Visibility.Visible;
+					shapeSizeGroup.Visibility = Visibility.Visible;
+					lineSizeGroup.Visibility = Visibility.Collapsed;
+
+					// TODO：选中条码，设置属性值导致又去设置条码对象（WPF的双向绑定），造成双循环
+					BcStyleValue = StyleList.FirstOrDefault(x => x.FullId == barcode.BcStyle.FullId);
 					IsShowTextValue = barcode.BcTextFlag;
 					IsChecksumValue = barcode.BcChecksumFlag;
 					BcColorValue = SKColorToWMColor(barcode.BcColorNode.Color);
@@ -465,6 +575,24 @@ namespace YProgramStudio.LabelsDesigner.Gui
 
 			if (path != null)
 				imageFileTextBox.Text = path;
+		}
+
+		// 条形码改变
+		private void BarcodeChanged(ModelBarcodeObject barcode, Backends.Barcode.BarcodeStyle bcStyle)
+		{
+			IsShowTextEnabled = bcStyle.TextOptional;
+			IsChecksumEnabled = bcStyle.ChecksumOptional;
+
+			bool textFlag = (IsShowTextValue && bcStyle.CanText) || (bcStyle.CanText && !bcStyle.TextOptional);
+			IsShowTextValue = textFlag;
+			bool csFlag = (IsChecksumValue && bcStyle.CanChecksum) || (bcStyle.CanChecksum && !bcStyle.ChecksumOptional);
+			IsChecksumValue = csFlag;
+
+			barcode.BcStyle = bcStyle;
+			barcode.BcTextFlag = textFlag;
+			barcode.BcChecksumFlag = csFlag;
+			barcode.BcColorNode = new ColorNode(WMColorToSKColor(BcColorValue));
+			barcode.BcData = TextValue;
 		}
 	}
 }

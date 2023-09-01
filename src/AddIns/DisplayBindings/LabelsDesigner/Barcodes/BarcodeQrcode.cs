@@ -1,6 +1,7 @@
 ﻿using SkiaSharp;
 using SkiaSharp.QrCode;
 using SkiaSharp.QrCode.Image;
+using System;
 using System.Linq;
 
 namespace YProgramStudio.LabelsDesigner.Barcodes
@@ -26,39 +27,40 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 
 		protected override bool Encode(string cookedData, Matrix<bool> encodedData)
 		{
-
-			// QRcode qrcode = QRcode_encodeString(cookedData, 0, QR_ECLEVEL_M, QR_MODE_8, 1);
-			using (var generator = new QRCodeGenerator())
+			if (Environment.Is64BitProcess) // x64
 			{
-				QRCodeData qr = generator.CreateQrCode(cookedData, ECCLevel.M);
-				var data = qr.GetRawData(QRCodeData.Compression.Uncompressed);
-				var matrix = qr.ModuleMatrix;
-				var one = matrix.First();
-
-
-				if (qr == null)
+				QREncode64.QRcode qrCode = QREncode64.qrencode.QRcode_encodeString(cookedData, 0, QREncode64.QRecLevel.QR_ECLEVEL_M, QREncode64.QRencodeMode.QR_MODE_8, 1);
+				int w = qrCode.Width;
+				encodedData.Resize(w, w);
+				for (int iy = 0; iy < w; iy++)
 				{
-					return false;
+					for (int ix = 0; ix < w; ix++)
+					{
+						unsafe
+						{
+							encodedData[iy, ix] = (qrCode.Data[iy * w + ix] & 0x01) == 1 ? true : false;
+						}
+					}
 				}
-				//var qrCode = new QrCode("", new Vector2Slim(256, 256), SKEncodedImageFormat.Png);
-				//int w = qrCode.Width;
-				//encodedData.Resize(w, w);
-
-				//for (int iy = 0; iy < w; iy++)
-				//{
-				//	for (int ix = 0; ix < w; ix++)
-				//	{
-				//		encodedData[iy * ix] = qrcode->data[iy * w + ix] & 0x01;
-				//	}
-				//}
-
-
-
+				qrCode.Dispose();
 			}
-
-
-			//QRcode_free(qrcode);
-			//QRcode_clearCache();
+			else
+			{
+				QREncode86.QRcode qrCode = QREncode86.qrencode.QRcode_encodeString(cookedData, 0, QREncode86.QRecLevel.QR_ECLEVEL_M, QREncode86.QRencodeMode.QR_MODE_8, 1);
+				int w = qrCode.Width;
+				encodedData.Resize(w, w);
+				for (int iy = 0; iy < w; iy++)
+				{
+					for (int ix = 0; ix < w; ix++)
+					{
+						unsafe
+						{
+							encodedData[iy, ix] = (qrCode.Data[iy * w + ix] & 0x01) == 1 ? true : false;
+						}
+					}
+				}
+				qrCode.Dispose();
+			}
 
 			return true;
 		}

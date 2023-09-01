@@ -22,7 +22,10 @@ namespace YProgramStudio.LabelsDesigner.Model
 		}
 
 		// Drawing Methods
-		public override void Draw(SKCanvas painter, float scale) { DrawAt(painter, scale, _owner.Width, _owner.Height / 2f, handleFillColor); }
+		public override void Draw(SKCanvas painter, float scale)
+		{
+			DrawAt(painter, scale, _owner.Width, _owner.Height / 2f, handleFillColor);
+		}
 
 		public override SKPath Path(float scale)
 		{

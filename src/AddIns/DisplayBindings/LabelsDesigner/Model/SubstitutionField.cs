@@ -15,7 +15,6 @@ namespace YProgramStudio.LabelsDesigner.Model
 		private bool _newLine;
 
 
-
 		public string Evaluate(Backends.Merge.Record record, Variables variables)
 		{
 			string value = _defaultValue;
@@ -85,7 +84,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 		}
 
 		// TODO：Parse(待优化
-		public static bool Parse(string s, SubstitutionField field)
+		public static bool Parse(ref string s, SubstitutionField field)
 		{
 			string sTmp = s;
 
@@ -93,12 +92,12 @@ namespace YProgramStudio.LabelsDesigner.Model
 			{
 				sTmp = sTmp.Substring(2);
 
-				if (ParseFieldName(sTmp, field))
+				if (ParseFieldName(ref sTmp, field))
 				{
 					while (sTmp.Length > 0 && sTmp[0] == ':')
 					{
 						sTmp = sTmp.Substring(1);
-						if (!ParseModifier(sTmp, field))
+						if (!ParseModifier(ref sTmp, field))
 						{
 							return false;
 						}
@@ -118,55 +117,149 @@ namespace YProgramStudio.LabelsDesigner.Model
 			return false;
 		}
 
-		private static bool ParseFieldName(string s, SubstitutionField field)
+		private static bool ParseFieldName(ref string s, SubstitutionField field)
 		{
-			return false;
+			bool success = false;
+
+			while (s.Length > 0 && char.IsLetterOrDigit(s[0]) && s[0] != ':' && s[0] != '}') // todo: 需要进一步验证是否等价于c.isPrint()
+			{
+				field._fieldName.Append(s[0]);
+				s = s.Substring(1);
+
+				success = true;
+			}
+
+			return success;
 		}
 
-		private static bool ParseModifier(string s, SubstitutionField field)
+		private static bool ParseModifier(ref string s, SubstitutionField field)
 		{
-			return false;
+			bool success = false;
+
+			if (s.Length > 0 && s[0] == '%')
+			{
+				s = s.Substring(1);
+				success = ParseFormatModifier(ref s, field);
+			}
+			else if (s.Length > 0 && s[0] == '=')
+			{
+				s = s.Substring(1);
+				success = ParseDefaultValueModifier(ref s, field);
+			}
+			else if (s.Length > 0 && s[0] == 'n')
+			{
+				s = s.Substring(1);
+				success = ParseNewLineModifier(ref s, field);
+			}
+
+			return success;
 		}
 
-		private static bool ParseDefaultValueModifier(string s, SubstitutionField field)
+		private static bool ParseDefaultValueModifier(ref string s, SubstitutionField field)
 		{
-			return false;
+			field._defaultValue = string.Empty;
+
+			while (s.Length > 0 && !":}".Contains(s[0]))
+			{
+				if (s[0] == '\\')
+				{
+					s = s.Substring(1); // Skip escape
+					if (s.Length > 0)
+					{
+						field._defaultValue.Append(s[0]);
+						s = s.Substring(1);
+					}
+				}
+				else
+				{
+					field._defaultValue.Append(s[0]);
+					s = s.Substring(1);
+				}
+			}
+
+			return true;
 		}
 
-		private static bool ParseFormatModifier(string s, SubstitutionField field)
+		private static bool ParseFormatModifier(ref string s, SubstitutionField field)
 		{
-			return false;
+			field._format = "%";
+
+			ParseFormatFlags(ref s, field);
+			ParseFormatWidth(ref s, field);
+
+			if (s.Length > 0 && s[0] == '.')
+			{
+				field._format += ".";
+				s = s.Substring(1);
+				ParseFormatPrecision(ref s, field);
+			}
+
+			ParseFormatType(ref s, field);
+
+			return true; // Don't let invalid formats kill entire SubstitutionField
 		}
 
-		private static bool ParseFormatFlags(string s, SubstitutionField field)
+		private static bool ParseFormatFlags(ref string s, SubstitutionField field)
 		{
-			return false;
+			while (s.Length > 0 && "-+ 0".Contains(s[0]))
+			{
+				field._format += s[0];
+				s = s.Substring(1);
+			}
+
+			return true;
 		}
 
-		private static bool ParseFormatWidth(string s, SubstitutionField field)
+		private static bool ParseFormatWidth(ref string s, SubstitutionField field)
 		{
-			return false;
+			return ParseNaturalInteger(ref s, field);
 		}
 
-		private static bool ParseFormatPrecision(string s, SubstitutionField field)
+		private static bool ParseFormatPrecision(ref string s, SubstitutionField field)
 		{
-			return false;
+			return ParseNaturalInteger(ref s, field);
 		}
 
-		private static bool ParseFormatType(string s, SubstitutionField field)
+		private static bool ParseFormatType(ref string s, SubstitutionField field)
 		{
-			return false;
+			bool success = false;
+
+			if (s.Length > 0 && "diufFeEgGxXos".Contains(s[0]))
+			{
+				field._formatType = s[0];
+				field._format += s[0];
+				s = s.Substring(1);
+				success = true;
+			}
+
+			return success;
 		}
 
-		private static bool ParseNaturalInteger(string s, SubstitutionField field)
+		private static bool ParseNaturalInteger(ref string s, SubstitutionField field)
 		{
-			return false;
+			bool success = false;
+
+			if (s.Length > 0 && s[0] >= '1' && s[0] <= '9')
+			{
+				field._format += s[0];
+				s = s.Substring(1);
+
+				while (s.Length > 0 && char.IsDigit(s[0]))
+				{
+					field._format += s[0];
+					s = s.Substring(1);
+				}
+
+				success = true;
+			}
+
+			return success;
 		}
 
-		private static bool ParseNewLineModifier(string s, SubstitutionField field)
+		private static bool ParseNewLineModifier(ref string s, SubstitutionField field)
 		{
-			return false;
+			field._newLine = true;
+			return true;
 		}
-
 	}
 }

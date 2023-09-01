@@ -88,7 +88,7 @@
 		</Setter>
 	</Style>
 
-	<!--DockablePane-->
+	<!--DockablePane（停靠面板）-->
 	<Style TargetType="{x:Type ad:DockablePane}">
 		<Setter Property="Background" Value="{DynamicResource {ComponentResourceKey {x:Type ad:DockingManager}, {x:Static ad:AvalonDockBrushes.DefaultBackgroundBrush}}}"/>
 		<Setter Property="Template">
@@ -109,7 +109,7 @@
 							    Background="{DynamicResource {ComponentResourceKey {x:Type ad:DockingManager}, {x:Static ad:AvalonDockBrushes.DockablePaneTitleBackground}}}"
 							    BorderThickness="1,1,1,0" 
 							    BorderBrush="DarkGray"
-                                Height="18">
+                                Height="22">
 								<DockPanel LastChildFill="True">
                                     <Button x:Name="btnClose" DockPanel.Dock="Right" Style="{StaticResource PaneHeaderCommandStyle}" Command="ad:ManagedContentCommands.Close" CommandTarget="{TemplateBinding SelectedItem}"
                                             Width="15" Height="15" Margin="2,0,2,0" VerticalAlignment="Center">
@@ -248,14 +248,21 @@
                                     Background="{DynamicResource {ComponentResourceKey {x:Type ad:DockingManager}, {x:Static ad:AvalonDockBrushes.DocumentHeaderBackground}}}"
                                 >
                                 <StackPanel Orientation="Horizontal" 
-                                            Margin="5,0,5,0">
-                                    <TextBlock 
+                                            Margin="2,0,2,0">
+									<TextBlock Margin="2,0,2,0"
 							                x:Name="tabItemTitle" 
 							                TextTrimming="CharacterEllipsis" 
                                             TextWrapping="NoWrap"
 							                Text="{TemplateBinding Title}" 
 							                Foreground="{DynamicResource {ComponentResourceKey {x:Type ad:DockingManager}, {x:Static ad:AvalonDockBrushes.DocumentHeaderForeground}}}"/>
-                                    <ad:ImageEx Source="/AvalonDock;component/resources/Images/Locked.png" Width="6" x:Name="PART_LockedIcon" Margin="2,0,0,0" Visibility="Collapsed" />
+									<ad:ImageEx Source="/AvalonDock;component/resources/Images/Locked.png" Width="6" x:Name="PART_LockedIcon" Margin="2,0,0,0" Visibility="Collapsed"/>
+									<!--HACK: 优化-把本来位于Tab页栏右边的关闭按钮移到Tab页上-->
+									<Button DockPanel.Dock="Right" Width="18" Height="18" Margin="2,0,0,0" Style="{StaticResource PaneHeaderCommandStyle}" 
+                                            Command="ad:ManagedContentCommands.Close" 
+                                            CommandTarget="{Binding}" 
+											Focusable="False">
+										<Image Source="/AvalonDock;component/resources/Images/PinClose.png" Width="13" Height="13" Stretch="None"/>
+									</Button>
                                 </StackPanel>
                             </Border>
                         </Grid>
@@ -350,12 +357,13 @@
 							    Focusable="False" 
 							    BorderThickness="1,1,1,0">
                                 <DockPanel LastChildFill="True">
-                                    <Button DockPanel.Dock="Right" Width="15" Height="15" Margin="2,0,2,0" Style="{StaticResource PaneHeaderCommandStyle}" 
+									<!--HACK: Tab页的右边关闭按钮移到Tab页上-->
+                                    <!--<Button DockPanel.Dock="Right" Width="15" Height="15" Margin="2,0,2,0" Style="{StaticResource PaneHeaderCommandStyle}" 
                                             Command="ad:ManagedContentCommands.Close"
                                             CommandTarget="{TemplateBinding SelectedItem}">
                                         <Image Source="/AvalonDock;component/resources/Images/PinClose.png" Width="13" Height="13" Stretch="None"/>
-                                    </Button>
-                                    <Button x:Name="PART_ShowContextMenuButton" DockPanel.Dock="Right" Width="15" Height="15" Style="{StaticResource PaneHeaderCommandStyle}">
+                                    </Button>-->
+									<Button x:Name="PART_ShowContextMenuButton" DockPanel.Dock="Right" Width="15" Height="15" Margin="2,0,2,0" Style="{StaticResource PaneHeaderCommandStyle}">
                                         <Image x:Name="ShowContextMenuIcon" Source="/AvalonDock;component/resources/Images/PinMenu.png" Width="13" Height="13" Stretch="None"/>
                                     </Button>
                                     <ad:DocumentTabPanel 
@@ -396,7 +404,7 @@
         </Setter>
     </Style>
 
-	<!--DockablePaneAnchorTab-->
+	<!--DockablePaneAnchorTab（停靠面板的Tab页签）-->
 	<Style TargetType="{x:Type ad:DockablePaneAnchorTab}">
 		<Setter Property="Template">
 			<Setter.Value>
@@ -404,7 +412,7 @@
 					<Grid>
 						<Border 
                           Name="PART_Border" 
-                          BorderThickness="1,0,1,1" 
+                          BorderThickness="0,6,0,0" Margin="0,0,10,0" Padding="1,0,0,0"  
                           BorderBrush="{StaticResource ManagedContentTabControlNormalBorderBrush}"
                           Background="{StaticResource ManagedContentTabItemNormalBackground}">
 							<!--<StackPanel Orientation="Horizontal">-->
@@ -423,7 +431,7 @@
 
                                 <TextBlock 
                                     Grid.Column="1"
-                                    Text="{TemplateBinding Title}"  
+                                    Text="{TemplateBinding Title}" 
                                     Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" 
                                     Margin="4,2,2,2"/>
 							</Grid>
@@ -432,7 +440,6 @@
 					</Grid>
 					<ControlTemplate.Triggers>
 
-
 						<Trigger Property="Anchor" >
 							<Trigger.Value>
 								<ad:AnchorStyle>
@@ -440,7 +447,7 @@
 								</ad:AnchorStyle>
 							</Trigger.Value>
 							<Setter TargetName="PART_Border" Property="Background" Value="{StaticResource ManagedContentTabItemInvNormalBackground}"/>
-							<Setter TargetName="PART_Border" Property="BorderThickness" Value="1,1,1,0"/>
+							<Setter TargetName="PART_Border" Property="BorderThickness" Value="0,0,0,6"/>
 
 						</Trigger>
 						<Trigger Property="Anchor">
@@ -450,15 +457,12 @@
 								</ad:AnchorStyle>
 							</Trigger.Value>
 							<Setter TargetName="PART_Border" Property="Background" Value="{StaticResource ManagedContentTabItemInvNormalBackground}"/>
-							<Setter TargetName="PART_Border" Property="BorderThickness" Value="1,1,1,0"/>
+							<Setter TargetName="PART_Border" Property="BorderThickness" Value="0,0,0,6"/>
 						</Trigger>
 
-						<Trigger Property="IsMouseOver"
-								 Value="true">
-							<Setter Property="BorderBrush" Value="{StaticResource ManagedContentTabItemHotBorderBrush}" 
-                                    TargetName="PART_Border" />
-							<Setter Property="Background" Value="{StaticResource ManagedContentTabItemInvHotBackground}" 
-                                    TargetName="PART_Border" />
+						<Trigger Property="IsMouseOver"	Value="true">
+							<Setter TargetName="PART_Border" Property="BorderBrush" Value="{StaticResource ManagedContentTabItemHotBorderBrush}"/>
+							<Setter TargetName="PART_Border" Property="Background" Value="{StaticResource ManagedContentTabItemInvHotBackground}"/>
 						</Trigger>
 
 						<MultiTrigger>
@@ -494,10 +498,10 @@
 		</Setter>
 	</Style>
 
-	<!--DockablePaneAnchorTabGroup-->
+	<!--DockablePaneAnchorTabGroup（停靠面板的Tab页签分组）-->
 	<Style TargetType="{x:Type ad:DockablePaneAnchorTabGroup}">
 		<Setter Property="Orientation" Value="Horizontal"/>
-		<Setter Property="Margin" Value="7,0,0,0"/>
+		<Setter Property="Margin" Value="0,0,0,0"/>
 	</Style>
 
 </ResourceDictionary>

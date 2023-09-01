@@ -31,7 +31,8 @@ namespace YProgramStudio.LabelsDesigner
 			InitializeComponent();
 
 			labelEditor.ZoomChanged += new Labels.ZoomChangeEventHandler(OnZoomChanged);
-			
+
+			Editor.ModeChanged += new EventHandler(OnModeChanged);
 		}
 
 		public LabelDesignerPanel(LabelViewContent vc) : this()
@@ -75,6 +76,11 @@ namespace YProgramStudio.LabelsDesigner
 		{
 			hRuler.UpdateRuler(e.X, e.Y);
 			vRuler.UpdateRuler(e.X, e.Y);
+		}
+		
+		private void OnModeChanged(object render, EventArgs e)
+		{
+			LabelWasEdited?.Invoke(render, e);
 		}
 
 		private void LabelDesignerPanel_KeyDown(object sender, KeyEventArgs e)

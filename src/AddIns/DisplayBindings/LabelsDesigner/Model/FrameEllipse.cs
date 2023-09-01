@@ -32,7 +32,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 			_clipPath.AddOval(clipRect);
 		}
 
-		public FrameEllipse(FrameEllipse other) : this(other._w, other._h, other._waste, other.Id())
+		public FrameEllipse(FrameEllipse other) : this(other._w, other._h, other._waste, other.Id)
 		{
 			foreach (var item in other.Layouts())
 			{

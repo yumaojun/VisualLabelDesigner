@@ -2735,17 +2735,22 @@ namespace AvalonDock
                 _flyoutWindow.Top = locDockingManager.Y + topTabsHeight;
                 _flyoutWindow.Height = _flyoutWindow.MaxHeight;
 
-
-                if (initialSetup)
+				if (initialSetup)
                 {
                     _flyoutWindow.Left = (FlowDirection == FlowDirection.LeftToRight ? locDockingManager.X + actualSize.Width - rightTabsWidth : locDockingManager.X + leftTabsWidth);
                     _flyoutWindow.Width = 0.0;
                     _flyoutWindow.TargetWidth = resWidth;
                 }
                 else
-                {
-                    if (!_flyoutWindow.IsOpening && !_flyoutWindow.IsClosing)
-                        _flyoutWindow.Left = (FlowDirection == FlowDirection.LeftToRight ? locDockingManager.X + actualSize.Width - rightTabsWidth - _flyoutWindow.Width : locDockingManager.X + leftTabsWidth);
+				{
+					// HACK：bug: 在鼠标移动到右边浮动面板Tab页签时，弹出位置有偏差导致缝隙产生（_flyoutWindow.Width => equals 1.6 的值是怎么产生的？）
+					var fw = _flyoutWindow.Width;
+					if (fw < 2)
+						fw = 0;
+					// end
+
+					if (!_flyoutWindow.IsOpening && !_flyoutWindow.IsClosing)
+                        _flyoutWindow.Left = (FlowDirection == FlowDirection.LeftToRight ? locDockingManager.X + actualSize.Width - rightTabsWidth - fw /*- _flyoutWindow.Width*/ : locDockingManager.X + leftTabsWidth);
                 }
             }
             if (_flyoutWindow.ReferencedPane.Anchor == AnchorStyle.Left)
@@ -2803,9 +2808,15 @@ namespace AvalonDock
                     _flyoutWindow.TargetHeight = resHeight;
                 }
                 else
-                {
-                    if (!_flyoutWindow.IsOpening && !_flyoutWindow.IsClosing)
-                        _flyoutWindow.Top = locDockingManager.Y + actualSize.Height - bottomTabsHeight - _flyoutWindow.Height;
+				{
+					// HACK：bug: 在鼠标移动到下边浮动面板Tab页签时，弹出位置有偏差导致缝隙产生（_flyoutWindow.Height => equals 1.6 的值是怎么产生的？）
+					var fh = _flyoutWindow.Height;
+					if (fh < 2)
+						fh = 0;
+					// end
+
+					if (!_flyoutWindow.IsOpening && !_flyoutWindow.IsClosing)
+                        _flyoutWindow.Top = locDockingManager.Y + actualSize.Height - bottomTabsHeight - fh /*- _flyoutWindow.Height*/;
                     //if (_flyoutWindow.IsClosing)
                     //    _flyoutWindow.Top = locDockingManager.Y + actualSize.Height - bottomTabsHeight - _flyoutWindow.Height;
                 }

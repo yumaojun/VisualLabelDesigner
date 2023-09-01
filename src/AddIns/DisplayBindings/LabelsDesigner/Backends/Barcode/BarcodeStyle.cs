@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Copyright (c) 2023 余茂军 <yumaojun@gmail.com> All rights reserved.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +11,7 @@ namespace YProgramStudio.LabelsDesigner.Backends.Barcode
 	/// <summary>
 	/// 条码样式
 	/// </summary>
-	public class Style
+	public class BarcodeStyle
 	{
 		private string _id;
 		private string _backendId;
@@ -22,7 +24,7 @@ namespace YProgramStudio.LabelsDesigner.Backends.Barcode
 		private bool _canFreeform;
 		private int _preferedN;
 
-		public Style()
+		public BarcodeStyle()
 		{
 			_id = string.Empty;
 			_backendId = string.Empty;
@@ -36,16 +38,7 @@ namespace YProgramStudio.LabelsDesigner.Backends.Barcode
 			_preferedN = 0;
 		}
 
-		public Style(string id,
-					 string backendId,
-					 string name,
-					 bool canText,
-					 bool textOptional,
-					 bool canChecksum,
-					 bool checksumOptional,
-					 string defaultDigits,
-					 bool canFreeform,
-					 int preferedN)
+		public BarcodeStyle(string id, string backendId, string name, bool canText, bool textOptional, bool canChecksum, bool checksumOptional, string defaultDigits, bool canFreeform, int preferedN)
 		{
 			_id = id;
 			_backendId = backendId;
@@ -81,6 +74,5 @@ namespace YProgramStudio.LabelsDesigner.Backends.Barcode
 		public bool CanFreeform { get => _canFreeform; set => _canFreeform = value; }
 
 		public int PreferedN { get => _preferedN; set => _preferedN = value; }
-
 	}
 }

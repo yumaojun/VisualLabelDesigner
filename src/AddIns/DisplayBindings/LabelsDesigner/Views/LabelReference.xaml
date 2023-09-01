@@ -1,4 +1,4 @@
-﻿<Window x:Class="YProgramStudio.LabelsDesigner.Gui.LabelReference"
+﻿<Window x:Class="YProgramStudio.LabelsDesigner.Views.LabelReference"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -20,7 +20,7 @@
 					</StackPanel>
 				</GroupBox>
 				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
-					<Button Margin="5">确定</Button>
+					<Button Margin="5" Click="Button_Click">确定</Button>
 					<Button Margin="5">取消</Button>
 				</StackPanel>
 			</StackPanel>

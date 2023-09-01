@@ -1,0 +1,1026 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RevisionClass" Collapsed="true">
+    <Position X="20.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAIAAAAAAAAAAAAAAEAAgAAAAAAgAAAAACA=</HashCode>
+      <FileName>E:\Downloads\CS\LabelDesigner\VisualLabelDesigner\src\Main\GlobalAssemblyInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.AssemblyModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQUCAQEAAgABAAAAAEIACAACAAgQAAAQgAAAAAIAAAA=</HashCode>
+      <FileName>Dom\AssemblyModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.AssemblyReferencesModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAQAAAAAAAAAAQAAAAUAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dom\AssemblyReferenceModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.AssemblyReferenceModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAIAAAACAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dom\AssemblyReferenceModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.MemberModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQiAAAqghCAAAIAAAAAABQIgAAAAQAACAICAIAAAAA=</HashCode>
+      <FileName>Dom\MemberModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.ModelFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAQAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dom\ModelFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.NamespaceModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AggAAAAAgwAAAIFAAAAAEAQIggAGAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Dom\NamespaceModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.NestedTypeDefinitionModelCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQCAgAAgAAAABABAAAAgAwAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dom\NestedTypeDefinitionModelCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.SolutionAssemblyList" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAQAAABAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dom\SolutionAssemblyList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.TopLevelTypeDefinitionModelCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAAAAAAABCAAAgAwAgAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Dom\TopLevelTypeDefinitionModelCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.TreeNodeFactoryService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQIAAAAAAAAAQAAAAAABAAAAAAAAQAAAA=</HashCode>
+      <FileName>Dom\TreeNodeFactoryService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.TypeDefinitionModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQiAAAoghCAEAAGABAABgQIgAIAJQAkSAAEABAAAAA=</HashCode>
+      <FileName>Dom\TypeDefinitionModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.ClassBrowser.PersistedWorkspace" Collapsed="true">
+    <Position X="27.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAQAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Dom\ClassBrowser\ClassBrowserPad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.ClassBrowser.UnresolvedAssemblyEntityModelContext" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEoACABCAAAAAAAAAAAAAAACIAA=</HashCode>
+      <FileName>Dom\ClassBrowser\ClassBrowserPad.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.ClassBrowser.ClassBrowserPad" Collapsed="true">
+    <Position X="27.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AwAAgIAEACgABAQEAAAQAAAgAACEIIAIAAAAQYAAABg=</HashCode>
+      <FileName>Dom\ClassBrowser\ClassBrowserPad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.ClassBrowser.ClassBrowserServiceImpl" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAQAAAAAACAQAAAAQAAAACEAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Dom\ClassBrowser\ClassBrowserServiceImpl.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.ClassBrowser.ClassBrowserTreeNodesFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAQAAAA=</HashCode>
+      <FileName>Dom\ClassBrowser\ClassBrowserTreeNodesFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.ClassBrowser.OpenAssemblyFromFileCommand" Collapsed="true">
+    <Position X="27.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dom\ClassBrowser\Commands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.ClassBrowser.OpenAssemblyFromGACCommand" Collapsed="true">
+    <Position X="10" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dom\ClassBrowser\Commands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.ClassBrowser.PermanentlyAddModuleToWorkspaceCommand" Collapsed="true">
+    <Position X="25.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dom\ClassBrowser\Commands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.ClassBrowser.RemoveAssemblyCommand" Collapsed="true">
+    <Position X="17" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dom\ClassBrowser\Commands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.ClassBrowser.RunAssemblyWithDebuggerCommand" Collapsed="true">
+    <Position X="22.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dom\ClassBrowser\Commands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.ClassBrowser.OpenInClassBrowserCommand" Collapsed="true">
+    <Position X="13.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Dom\ClassBrowser\Commands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.ClassBrowser.AddProjectReferenceCommand" Collapsed="true">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dom\ClassBrowser\Commands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.ClassBrowser.RemoveProjectReferenceCommand" Collapsed="true">
+    <Position X="18.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dom\ClassBrowser\Commands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Dom.ClassBrowser.OpenFromGacDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgCAAAAAAgCgAAAAAAAgACBAAAAADARAgAAAAAQAAA=</HashCode>
+      <FileName>Dom\ClassBrowser\OpenFromGacDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Editor.Bookmarks.BookmarkManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACBAAgAARAAABAQAkEAAAAAAAAAAAAIgAAAABCAAA=</HashCode>
+      <FileName>Editor\Bookmarks\BookmarkManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Editor.Bookmarks.BookmarkMenuCommand" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Editor\Bookmarks\BookmarkMenuCommands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Editor.Bookmarks.ToggleBookmark" Collapsed="true">
+    <Position X="0.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Editor\Bookmarks\BookmarkMenuCommands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Editor.Bookmarks.PrevBookmark" Collapsed="true">
+    <Position X="3" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Editor\Bookmarks\BookmarkMenuCommands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Editor.Bookmarks.NextBookmark" Collapsed="true">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Editor\Bookmarks\BookmarkMenuCommands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Editor.Bookmarks.ClearBookmarks" Collapsed="true">
+    <Position X="7.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Editor\Bookmarks\BookmarkMenuCommands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Editor.TextContentConditionEvaluator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Editor\TextContentCondition.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Editor.TextSelectedCondition" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Editor\TextSelectedCondition.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Logging.ExceptionBox" Collapsed="true">
+    <Position X="27.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAMBCIAAJAAAACAIBACCCAAAAAgAAEEAIAEACA=</HashCode>
+      <FileName>Logging\ExceptionBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Logging.log4netLoggingService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAKAAAAAAAbAAAAAACAAAQCkAAAEAIAAAAEAEAAA=</HashCode>
+      <FileName>Logging\log4netLoggingService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Logging.LogMessageRecorder" Collapsed="true">
+    <Position X="15.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACgCAIAAAACAAAAAIAAAAAAQAAAABAAAAAAAA=</HashCode>
+      <FileName>Logging\LogMessageRecorder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Logging.SDMessageService" Collapsed="true">
+    <Position X="10" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logging\SDMessageService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Logging.SDTraceListener" Collapsed="true">
+    <Position X="15.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAgIAAAIAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logging\SDTraceListener.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.OptionPanels.LoadSaveOptions" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OptionPanels\LoadSaveOptions.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Parser.AssemblyParserService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAIAAAoAAAAQARAAAAAkABAQAAAAABABIAAAgBDEA=</HashCode>
+      <FileName>Parser\AssemblyParserService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Parser.Fusion" Collapsed="true">
+    <Position X="20.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAQQAAAAAAA=</HashCode>
+      <FileName>Parser\Fusion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Parser.GlobalAssemblyCacheService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACABQAIAAAQAAAAAACAEIAAAAAAYAAA=</HashCode>
+      <FileName>Parser\GlobalAssemblyCacheService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Parser.LoadSolutionProjects" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAICAAACAAQAQEBAAAIAEAAAEBAAAAAAAAA=</HashCode>
+      <FileName>Parser\LoadSolutionProjects.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Parser.ParserDescriptor" Collapsed="true">
+    <Position X="18.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAACAAACAAAAAAgAAAAAAAAAAAAAAAAgIAAAAAAAAA=</HashCode>
+      <FileName>Parser\ParserDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Parser.ParserDoozer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Parser\ParserDoozer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Parser.ParserService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgSBBAAgDRCEAAEQEhAAIBgCICJABAgBAEAQggIAA=</HashCode>
+      <FileName>Parser\ParserService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Parser.ParserServiceEntry" Collapsed="true">
+    <Position X="24" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABgAABAggABAEACIGAjAAAACAAKAAAAkFAAAAkAJCA=</HashCode>
+      <FileName>Parser\ParserServiceEntry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Parser.SharpDevelopSolutionSnapshot" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAIAAAAAAAAAAAAgAAAAAAAAAAAgAAAAAAIAA=</HashCode>
+      <FileName>Parser\SharpDevelopSolutionSnapshot.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Parser.UnknownCodeContext" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABgCAAAAAIAAAAAAAIAABAAAAAAAAAAAAAAARAAAAAI=</HashCode>
+      <FileName>Parser\UnknownCodeContext.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.BuildEngine" Collapsed="true">
+    <Position X="15.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQCBAgSeAAAADgBIQACgBCAGAAYQAgACAQAAApAQAA=</HashCode>
+      <FileName>Project\Build\BuildEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.BuildModifiedProjectsOnlyService" Collapsed="true">
+    <Position X="18.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAQAAAAAAAAAgAAQAAAAACAAgAAAAAAAAA=</HashCode>
+      <FileName>Project\Build\BuildModifiedProjectsOnlyService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.BuildService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIAAAAAAAAAACAAAAAAACBAAAAGAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Project\Build\BuildService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.BuildWorkerManager" Collapsed="true">
+    <Position X="22.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAgAAAAAAAAAQAIAIAAAAAAAABACAAAAA=</HashCode>
+      <FileName>Project\Build\MSBuildEngine\BuildWorkerManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.MSBuildEngine" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACBAAAAEAAAIAABAABAICBAAAAgAAAAAAgIAAAA=</HashCode>
+      <FileName>Project\Build\MSBuildEngine\MSBuildEngine.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.MSBuildEngineWorker" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGECAAACBgCyAAQhAgAAaAAAEAwAAKCAAAABAAAAAEA=</HashCode>
+      <FileName>Project\Build\MSBuildEngine\MSBuildEngineWorker.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.TaskBoundLoggerFilterDoozer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Project\Build\MSBuildEngine\MSBuildLoggerFilter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.SDConsoleLogger" Collapsed="true">
+    <Position X="27.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBAAEAAAA=</HashCode>
+      <FileName>Project\Build\MSBuildEngine\SDConsoleLogger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.TargetingPackWarningWorkaround" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Project\Build\MSBuildEngine\TargetingPackWarningWorkaround.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.TaskBoundAdditionalLoggerDoozer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Project\Build\MSBuildEngine\TaskBoundAdditionalLoggerDoozer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.WorkerProcess" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAwAAAAGAAAACAEAAAAAIAAAAAAgAAgAAAAAEAAkA=</HashCode>
+      <FileName>Project\Build\MSBuildEngine\WorkerProcess.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.UIBuildFeedbackSink" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAGAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Project\Build\UIBuildFeedbackSink.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.AddNewConfigurationDialog" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACQAADAAAgGAAAACgAAAEAAKAAAAACAABAA=</HashCode>
+      <FileName>Project\Configuration\AddNewConfigurationDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.EditAvailableConfigurationsDialog" Collapsed="true">
+    <Position X="24" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAIAGAAAAAAAACJAAAGQBgQAAAAgAgAAAAAAAA=</HashCode>
+      <FileName>Project\Configuration\EditAvailableConfigurationsDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.SolutionConfigurationEditor" Collapsed="true">
+    <Position X="27.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>TAEAABAAJCIQsBAAAgiAgCACAoCACCQAEAAQAQAAEAA=</HashCode>
+      <FileName>Project\Configuration\SolutionConfigurationEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.SolutionConfigurationOrPlatformNameCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAgAAAAAQEFARAAAAgQwAAAAAAhAAAAAAAAAAACA=</HashCode>
+      <FileName>Project\Configuration\SolutionConfigurationOrPlatformNameCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.SDProjectService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAAQAACCACGhAGIKgBgCECCMIBBgACAAkBAABCAA=</HashCode>
+      <FileName>Project\ProjectService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.Solution" Collapsed="true">
+    <Position X="3.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MAQBwJCAAiIYqgAceJQAAWcAAQACACMAQEgFARpgGUA=</HashCode>
+      <FileName>Project\Solution.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.SolutionFileItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAIAAEAAAAAAAAAAAAAAAAAAAAEAAAQBQAAA=</HashCode>
+      <FileName>Project\SolutionFileItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.SolutionFolder" Collapsed="true">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgABAAIAAGgIAAAgAAAQAAAAAAAAAAAAAAQBSAAA=</HashCode>
+      <FileName>Project\SolutionFolder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.SolutionLoader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAABQCASAAkQAAKAAEABAASAAIEAAEEkAAIAQAAAA=</HashCode>
+      <FileName>Project\SolutionLoader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Project.SolutionWriter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAoCQAAACAAEAAAAIgEAAAgAAAAQAAAAQAAABQAIAA=</HashCode>
+      <FileName>Project\SolutionWriter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.BuildWorker.BuildJob" Collapsed="true">
+    <Position X="17" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAACAAAAAwEAAAAACAgAAAAAAAgAAgAAAAKAAA=</HashCode>
+      <FileName>E:\Downloads\CS\LabelDesigner\VisualLabelDesigner\src\Main\ICSharpCode.SharpDevelop.BuildWorker\BuildJob.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.BuildWorker.EventSource" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IqBAAAQACAAAAaAAAAAACAAABCAAAAgAAAAACBQAACA=</HashCode>
+      <FileName>E:\Downloads\CS\LabelDesigner\VisualLabelDesigner\src\Main\ICSharpCode.SharpDevelop.BuildWorker\EventSource.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.BuildWorker.BinaryReaderExtensions" Collapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAABAAAAAEgAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>E:\Downloads\CS\LabelDesigner\VisualLabelDesigner\src\Main\ICSharpCode.SharpDevelop.BuildWorker\ExtendedBinaryReader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Sda.CallHelper" Collapsed="true">
+    <Position X="24" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AoBAAABAAAAAIAAAQCAIAAAAGgAgAQCAAIAAAABBECA=</HashCode>
+      <FileName>Sda\CallHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Sda.Document" Collapsed="true">
+    <Position X="22.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAACADAIAA=</HashCode>
+      <FileName>Sda\Document.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Sda.FileEventArgs" Collapsed="true">
+    <Position X="11.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAA=</HashCode>
+      <FileName>Sda\EventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Sda.RunWorkbenchException" Collapsed="true">
+    <Position X="24" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Sda\RunWorkbenchException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Sda.StartupSettings" Collapsed="true">
+    <Position X="20.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAABQAAAAAEIgIAZEAiAggIAAIKCAAAAgCIAAAABAA=</HashCode>
+      <FileName>Sda\StartupSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Sda.VisualLabelDesignerHost" Collapsed="true">
+    <Position X="15.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EABAAABgQggAEAUQQYCAAAEAOgAwABIAQAAAAAAAACA=</HashCode>
+      <FileName>Sda\VisualLabelDesignerHost.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Sda.WorkbenchSettings" Collapsed="true">
+    <Position X="24" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAACAAAAACAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Sda\WorkbenchSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.ClipboardWrapper" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAEAAAgIA=</HashCode>
+      <FileName>Services\ClipboardWrapper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.DispatcherMessageLoop" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAACBACAQAAAAACAIAAAIIAEACABAAQAQAAAAUAAAA=</HashCode>
+      <FileName>Services\DispatcherMessageLoop.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.FileSystem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAIBAAAAAEAAAEgABAAAAAAAAgAAQA=</HashCode>
+      <FileName>Services\FileSystem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.PropertyService" Collapsed="true">
+    <Position X="13.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAIAIAAAAAAAAKAAAACAAAIAAAAiAAAAAAAEAAAAAE=</HashCode>
+      <FileName>Services\PropertyService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.UIService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBAAAAAA=</HashCode>
+      <FileName>Services\UIService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.RecentOpen" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgQAAAAAACAAAAEAAEABAAAAAJAAAAEAAAAAIkAA=</HashCode>
+      <FileName>Workbench\RecentOpen.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Startup.App" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Startup\App.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Startup.SplashScreenForm" Collapsed="true">
+    <Position X="18.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAACACAACAQAAAAAAIAAgAAAAAIAAAAACAAIA=</HashCode>
+      <FileName>Startup\SplashScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Startup.VisualLabelDesignerMain" Collapsed="true">
+    <Position X="17" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAACAQAAAAAAAUAAAAAAAIBAAAAgI=</HashCode>
+      <FileName>Startup\VisualLabelDesignerMain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Templates.LocalizedProperty" Collapsed="true">
+    <Position X="10" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAZAAwAgAQYAAAIAAAAABFAAQAQAAKIAACiAA=</HashCode>
+      <FileName>Templates\CustomizationObject\LocalizedProperty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Templates.LocalizedTypeDescriptor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIACAAACAAAAAAgAAAEAAAABBAEIAAAAERAAAACCAA=</HashCode>
+      <FileName>Templates\CustomizationObject\LocalizedTypeDescriptor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Templates.CustomTypeConverter" Collapsed="true">
+    <Position X="15.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgAAAAAABAAAAAAAAAAAAAAAAACAAAAIAAAACAAE=</HashCode>
+      <FileName>Templates\CustomizationObject\TemplateTypeConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Templates.FileDescriptionTemplate" Collapsed="true">
+    <Position X="10" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAACAGgBAAAgAAAAAQAQAAAAEAAAAAAASAAAAAAA=</HashCode>
+      <FileName>Templates\File\FileDescriptionTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Templates.TemplateProperty" Collapsed="true">
+    <Position X="13.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAIAAAIAQAAABFAAAAQQAIIAAACAA=</HashCode>
+      <FileName>Templates\File\FileTemplateImpl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Templates.TemplateType" Collapsed="true">
+    <Position X="17" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAQAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Templates\File\FileTemplateImpl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Templates.FileTemplateImpl" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQICEMAAAAAgEAAgoBEAAJwAGAAkAVgBJYAIgEGCCAI=</HashCode>
+      <FileName>Templates\File\FileTemplateImpl.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Templates.ScriptRunner" Collapsed="true">
+    <Position X="25.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAECAAAAAAAAAAIAAQAAABAACAAAAAABAAAgAAAAAA=</HashCode>
+      <FileName>Templates\File\ScriptRunner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Templates.ProjectDescriptor" Collapsed="true">
+    <Position X="10" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MAQCgAgQAAQQAAAAAACgAFBAAQAEAAQEIAAAgAAQDAI=</HashCode>
+      <FileName>Templates\Project\ProjectDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Templates.ProjectTemplateImpl" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACEAAAABAgEgAhIAICABQCDAIkiBwAIQEJAAEgKSA=</HashCode>
+      <FileName>Templates\Project\ProjectTemplateImpl.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Templates.SolutionDescriptor" Collapsed="true">
+    <Position X="11.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABCAQAAAgAAAAAAAgAAAAAAEgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Templates\Project\SolutionDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Templates.TemplateCategoryDoozer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAiAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Templates\TemplateCategoryDoozer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Templates.TemplateFileDoozer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAiAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Templates\TemplateFileDoozer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Templates.TemplateService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAABAAABAIAAAAAoAAAAAAABIAAAASAA=</HashCode>
+      <FileName>Templates\TemplateService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.WinForms.SDWindowsFormsHost" Collapsed="true">
+    <Position X="17" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAACAAAEAEAAAAABAAQAAABAAACQAAAIAAAAA=</HashCode>
+      <FileName>WinForms\SDWindowsFormsHost.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.WinForms.WinFormsMenuService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WinForms\WinFormsMenuService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.WinForms.WinFormsService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAECAEAIkACAAAAAQAABAAAAAAAAEgAAAAAAEIAg=</HashCode>
+      <FileName>WinForms\WinFormsService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.WinForms.WinFormsToolbarService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>WinForms\WinFormsToolbarService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.AvalonDockLayout" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AoEAAUAAxAAAMIMEAQFAAEAgRJEAAAQAAAAAgUAggAU=</HashCode>
+      <FileName>Workbench\AvalonDockLayout.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.AvalonPadContent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAIAECiAAAABEAAAAAAAAAAAAAAAAEAAQCAAAAAA=</HashCode>
+      <FileName>Workbench\AvalonPadContent.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.AvalonWorkbenchWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIAABaAAACBAgEQEAAcFqhwAEAAABABAoIAZCACAEAA=</HashCode>
+      <FileName>Workbench\AvalonWorkbenchWindow.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.ChooseLayoutComboBox" Collapsed="true">
+    <Position X="25.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEACAAAAAgACAAAAAAAAAAAIAAEAAAAAAAAACAASAQA=</HashCode>
+      <FileName>Workbench\ChooseLayoutComboBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.AddOpenWithEntryDialog" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAEAAABCQAABUAgACAgAACAAAAEAAAQAUAAAAAAAA=</HashCode>
+      <FileName>Workbench\DisplayBinding\AddOpenWithEntryDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.AutoDetectDisplayBinding" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAEAAAAQAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Workbench\DisplayBinding\AutoDetectDisplayBinding.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.DisplayBindingDoozer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Workbench\DisplayBinding\DisplayBindingDoozer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.DisplayBindingService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACEAAAIAAAAAAAAAAACAIABChAACEBAEAAAABCAAA=</HashCode>
+      <FileName>Workbench\DisplayBinding\DisplayBindingService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.OpenWithDialog" Collapsed="true">
+    <Position X="15.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAGQAABAAAECAAAACQBoEEQAAsAAAAAAAAAA=</HashCode>
+      <FileName>Workbench\DisplayBinding\OpenWithDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.ShellExecuteDisplayBinding" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAEAAAAQAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Workbench\DisplayBinding\ShellExecuteDisplayBinding.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.FileService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IEZVIQgBQIAgNAiAQILgAAMqAEgAAGCARIEASgBAkQI=</HashCode>
+      <FileName>Workbench\FileService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.FileServiceOpenedFile" Collapsed="true">
+    <Position X="15.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAhAIAQAAAAAAABIAAIAAACAAAAgAAAAAAAgBAY=</HashCode>
+      <FileName>Workbench\FileServiceOpenedFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.FullScreenEnabledWindow" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAYCIAQAAAAAAAEAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Workbench\FullScreenEnabledWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.LayoutConfiguration" Collapsed="true">
+    <Position X="24" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KIAAUQCgABAAIhAMAAAAACQAAAAEBIAIAGAICABMCAA=</HashCode>
+      <FileName>Workbench\LayoutConfiguration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.PadServiceProvider" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Workbench\PadServiceProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.SDStatusBar" Collapsed="true">
+    <Position X="13.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQCAAGEYAAAgAAoAAAACgAIAAAAAAAAgAIQAgAAEAAA=</HashCode>
+      <FileName>Workbench\SDStatusBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.ShutdownService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQACAgAAQAEAIAAAAQAAACIAQgAAAAABAAAAQAA=</HashCode>
+      <FileName>Workbench\ShutdownService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.SingleInstanceHelper" Collapsed="true">
+    <Position X="24" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAgAAAAAAEAAAAAQAQAAAA=</HashCode>
+      <FileName>Workbench\SingleInstanceHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.StatusBarService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAIAIAABAAABAEIAAQAAIACIgAACAAAAAAI=</HashCode>
+      <FileName>Workbench\StatusBarService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.WorkbenchStartup" Collapsed="true">
+    <Position X="25.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAQAAAAAAIAEAAAEAACAAAAAAAQI=</HashCode>
+      <FileName>Workbench\WorkbenchStartup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICSharpCode.SharpDevelop.Workbench.WpfWorkbench" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AINgCGiBhAABgQEAxQcEhwAg4xhIAguRiAQxCBpKlCA=</HashCode>
+      <FileName>Workbench\WpfWorkbench.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="ICSharpCode.SharpDevelop.Parser.IAssemblyName" Collapsed="true">
+    <Position X="13.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAABIQAAAAAAAAEAgAAEAAAAAAAABBA=</HashCode>
+      <FileName>Parser\Fusion.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ICSharpCode.SharpDevelop.Parser.IApplicationContext" Collapsed="true">
+    <Position X="10" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAFABBAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Parser\Fusion.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ICSharpCode.SharpDevelop.Parser.IAssemblyEnum" Collapsed="true">
+    <Position X="11.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Parser\Fusion.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ICSharpCode.SharpDevelop.Templates.ICategory" Collapsed="true">
+    <Position X="15.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAACAA=</HashCode>
+      <FileName>Templates\File\FileTemplateImpl.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ICSharpCode.SharpDevelop.Workbench.IWorkbenchLayout" Collapsed="true">
+    <Position X="17" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAUAAAAAAEAMAAQBAAAAgQJEAAAAAAAAAAEAAgAE=</HashCode>
+      <FileName>Workbench\IWorkbenchLayout.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="ICSharpCode.SharpDevelop.BuildWorker.EventTypes" Collapsed="true">
+    <Position X="10" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIAAAAQgAAAAAYAAAAAACBAAAAAAAAAAAIAAIAUAADA=</HashCode>
+      <FileName>E:\Downloads\CS\LabelDesigner\VisualLabelDesigner\src\Main\ICSharpCode.SharpDevelop.BuildWorker\EventTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

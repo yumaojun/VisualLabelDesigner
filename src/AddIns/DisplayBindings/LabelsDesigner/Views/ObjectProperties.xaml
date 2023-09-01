@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="YProgramStudio.LabelsDesigner.Gui.BarcodeProperty"
+﻿<UserControl x:Class="YProgramStudio.LabelsDesigner.Views.ObjectProperties"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -87,14 +87,10 @@
 						</Grid.ColumnDefinitions>
 						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">类型：</TextBlock>
 						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3">颜色：</TextBlock>
-						<ComboBox Grid.Column="1" Margin="5">
-							<ComboBoxItem Content="Code 39" IsSelected="True"/>
-							<ComboBoxItem Content="Code 128"/>
-							<ComboBoxItem Content="IEC16022(DataMatrix)"/>
-						</ComboBox>
+						<ComboBox x:Name="cbBcStyle" Grid.Column="1" Margin="5" ItemsSource="{Binding StyleList}" DisplayMemberPath="Name" SelectedValuePath="FullId" SelectedItem="{Binding BcStyleValue}" ></ComboBox>
 						<CheckBox IsEnabled="{Binding IsShowTextEnabled}" IsChecked="{Binding IsShowTextValue}" Grid.Row="1" Grid.Column="1" Margin="5" Content="显示文本" />
 						<CheckBox IsEnabled="{Binding IsChecksumEnabled}" IsChecked="{Binding IsChecksumValue}" Grid.Row="2" Grid.Column="1" Margin="5" Content="校验值" />
-						<gui:ColorPickerButton  Grid.Row="3" Grid.Column="1" Margin="5" Value="{Binding BcColorValue}"/>
+						<gui:ColorPickerButton Grid.Row="3" Grid.Column="1" Margin="5" Value="{Binding BcColorValue}"/>
 					</Grid>
 				</GroupBox>
 				<GroupBox Margin="5" Header="条形码数据">
@@ -167,7 +163,7 @@
 						<widgets:NumericUpDown SmallChange="0.01" Value="{Binding Y0Value}" DecimalPlaces="2" Minimum="-1000.00" Maximum="10000.00" Grid.Row="1" Grid.Column="1" Margin="5" Name="posY0" />
 					</Grid>
 				</GroupBox>
-				<GroupBox Margin="5" Header="尺寸">
+				<GroupBox x:Name="shapeSizeGroup" Margin="5" Header="尺寸">
 					<Grid HorizontalAlignment="Stretch">
 						<Grid.RowDefinitions>
 							<RowDefinition></RowDefinition>
@@ -180,9 +176,26 @@
 						</Grid.ColumnDefinitions>
 						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">宽度：</TextBlock>
 						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1">高度：</TextBlock>
-						<widgets:NumericUpDown SmallChange="0.01" Value="{Binding WidthValue}" DecimalPlaces="2" Minimum="0.00" Grid.Column="1" Margin="5" Name="sizeWidth" />
-						<widgets:NumericUpDown SmallChange="0.01" Value="{Binding HeightValue}" DecimalPlaces="2" Minimum="0.00" Grid.Row="1" Grid.Column="1" Margin="5" Name="sizeHeight" />
-						<CheckBox Grid.Row="2" Grid.Column="1" Margin="5" Content="锁定宽高比" />
+						<widgets:NumericUpDown SmallChange="0.01" Value="{Binding WidthValue}" DecimalPlaces="2" Minimum="0.00" Maximum="10000.00" Grid.Column="1" Margin="5" Name="sizeWidth" />
+						<widgets:NumericUpDown SmallChange="0.01" Value="{Binding HeightValue}" DecimalPlaces="2" Minimum="0.00" Maximum="10000.00" Grid.Row="1" Grid.Column="1" Margin="5" Name="sizeHeight" />
+						<CheckBox Grid.Row="2" Grid.Column="1" Margin="5" Content="锁定宽高比" IsChecked="{Binding LockAspectRatio}" />
+					</Grid>
+				</GroupBox>
+				<GroupBox x:Name="lineSizeGroup" Margin="5" Header="尺寸">
+					<Grid HorizontalAlignment="Stretch">
+						<Grid.RowDefinitions>
+							<RowDefinition></RowDefinition>
+							<RowDefinition></RowDefinition>
+							<RowDefinition></RowDefinition>
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="20*" MinWidth="80"/>
+							<ColumnDefinition Width="80*"/>
+						</Grid.ColumnDefinitions>
+						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">长度：</TextBlock>
+						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1">角度：</TextBlock>
+						<widgets:NumericUpDown SmallChange="0.01" Value="{Binding LengthValue}" DecimalPlaces="2" Minimum="0.00" Maximum="10000.00" Grid.Column="1" Margin="5" Name="sizeLength" />
+						<widgets:NumericUpDown SmallChange="0.1" Value="{Binding AngleValue}" DecimalPlaces="1" Minimum="-180.0" Maximum="180.0" Grid.Row="1" Grid.Column="1" Margin="5" Name="sizeAngle" />
 					</Grid>
 				</GroupBox>
 			</StackPanel>

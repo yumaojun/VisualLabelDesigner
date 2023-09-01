@@ -112,7 +112,7 @@ namespace ICSharpCode.SharpDevelop.Gui
 		
 		static void InitializeInstance()
 		{
-			SD.Workbench.GetPad(typeof(CompilerMessageView)).CreatePad();
+			SD.Workbench.GetPad(typeof(CompilerMessageView))?.CreatePad();
 		}
 		
 		#region MessageViewLinkElementGenerator

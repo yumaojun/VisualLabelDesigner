@@ -26,7 +26,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 
 		const float ZOOM_TO_FIT_PAD = 16.0F;
 
-		static readonly SKColor backgroundColor = System.Drawing.Color.FromArgb(192, 192, 192).ToSKColor();
+		static readonly SKColor backgroundColor = System.Drawing.Color.FromArgb(176, 196, 222).ToSKColor(); // System.Drawing.Color.FromArgb(192, 192, 192).ToSKColor();
 
 		static readonly SKColor shadowColor = System.Drawing.Color.FromArgb(128, 64, 64, 64).ToSKColor();
 		const float shadowOffsetPixels = 4;
@@ -44,7 +44,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 
 		static readonly SKColor selectRegionFillColor = System.Drawing.Color.FromArgb(128, 192, 192, 255).ToSKColor();
 		static readonly SKColor selectRegionOutlineColor = System.Drawing.Color.FromArgb(128, 0, 0, 255).ToSKColor();
-		const float selectRegionOutlineWidthPixels = 3;
+		const float selectRegionOutlineWidthPixels = 0; // 3pix
 
 		private Model.Model _model;
 		private UndoRedoModel _undoRedoModel;
@@ -77,6 +77,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 		private bool _resizeHonorAspect;
 
 		/* OperateState.CreateDrag state */
+		private Backends.Barcode.BarcodeStyle _createBcStyle;
 		private CreateType _createObjectType;
 		private ModelObject _createObject;
 		private Distance _createX0;
@@ -93,6 +94,8 @@ namespace YProgramStudio.LabelsDesigner.Gui
 		public event EventHandler ModeChanged;
 
 		#endregion
+
+		public Model.Model Model { get => _model; set => _model = value; }
 
 		public LabelEditor()
 		{
@@ -332,7 +335,12 @@ namespace YProgramStudio.LabelsDesigner.Gui
 										_createObject = new ModelTextObject();
 										break;
 									case CreateType.Barcode:
-										_createObject = new ModelBarcodeObject();
+										var barcodeObject = new ModelBarcodeObject();
+										if (_createBcStyle != null)
+										{
+											barcodeObject.BcStyle = _createBcStyle;
+										}
+										_createObject = barcodeObject;
 										break;
 									default:
 										//"LabelEditor::mousePressEvent: Invalid creation type. Should not happen!";
@@ -808,9 +816,10 @@ namespace YProgramStudio.LabelsDesigner.Gui
 			_operateState = OperateState.CreateIdle;
 		}
 
-		public void CreateBarcodeMode()
+		public void CreateBarcodeMode(Backends.Barcode.BarcodeStyle createBcStyle = null)
 		{
 			Cursor = new Cursor(Resource.cursor_barcode.GetHicon());
+			_createBcStyle = createBcStyle;
 			_createObjectType = CreateType.Barcode;
 			_operateState = OperateState.CreateIdle;
 		}
@@ -825,7 +834,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 			HoverLocation location = _resizeHandle.Location;
 
 			/*
-			 * Change point to object relative coordinates
+			 * Change point to object relative coordinates (对象的相对坐标)
 			 */
 			p -= new SKPoint(_resizeObject.X0.Pt(), _resizeObject.Y0.Pt());
 			SKMatrix inverseMatrix;

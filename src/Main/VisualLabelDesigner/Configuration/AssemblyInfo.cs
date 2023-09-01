@@ -24,7 +24,7 @@ using System.Runtime.CompilerServices;
 [assembly: StringFreezing()]
 
 [assembly: AssemblyTitle("VisualLabelDesigner")]
-[assembly: AssemblyDescription("VisualLabelDesigner for Zebra Program Language")]
+[assembly: AssemblyDescription("VisualLabelsDesigner for Print")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

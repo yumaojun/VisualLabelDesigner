@@ -1,8 +1,7 @@
-﻿using System;
+﻿// Copyright (c) 2023 余茂军 <yumaojun@gmail.com> All rights reserved.
+
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using YProgramStudio.LabelsDesigner.Model;
 
 namespace YProgramStudio.LabelsDesigner.Backends.Barcode
@@ -12,9 +11,29 @@ namespace YProgramStudio.LabelsDesigner.Backends.Barcode
 	/// </summary>
 	public class Backends
 	{
+		// Static data
 		private static Backends singletonInstance = null;
+		private static Dictionary<string, string> _backendNameMap = new Dictionary<string, string>();
+		private static List<string> _backendIdList = new List<string>();
+		private static List<BarcodeStyle> _styleList = new List<BarcodeStyle>();
 
-		private static List<Style> _styleList = new List<Style>();
+		public static Dictionary<string, string> BackendNameMap
+		{
+			get => _backendNameMap;
+			set => _backendNameMap = value;
+		}
+
+		public static List<string> BackendIdList
+		{
+			get => _backendIdList;
+			set => _backendIdList = value;
+		}
+
+		public static List<BarcodeStyle> StyleList
+		{
+			get => _styleList;
+			set => _styleList = value;
+		}
 
 		private Backends()
 		{
@@ -29,7 +48,7 @@ namespace YProgramStudio.LabelsDesigner.Backends.Barcode
 			RegisterStyle("cepnet", string.Empty, TranslateHelper.Tr("CEPNET"), false, false, true, false, "12345-678", false, 8);
 			RegisterStyle("onecode", string.Empty, TranslateHelper.Tr("USPS Intelligent Mail"), false, false, true, false, "12345678901234567890", false, 20);
 			RegisterStyle("datamatrix", string.Empty, TranslateHelper.Tr("IEC16022 (DataMatrix)"), false, false, true, false, "1234567890AB", false, 12);
-			RegisterStyle("qrcode", string.Empty, TranslateHelper.Tr("IEC18004 (QRCode)"), false, false, true, false, "1234567890AB", false, 12); // backendid="qrencode"
+			RegisterStyle("qrcode", "qrencode", TranslateHelper.Tr("IEC18004 (QRCode)"), false, false, true, false, "1234567890AB", false, 12); // backendid="qrencode"
 		}
 
 		public static void Init()
@@ -40,35 +59,41 @@ namespace YProgramStudio.LabelsDesigner.Backends.Barcode
 			}
 		}
 
-		public static Style DefaultStyle()
+		public static BarcodeStyle DefaultStyle()
 		{
-			return _styleList.First();
+			return StyleList.First();
 		}
 
-		public static Style Style(string backendId, string styleId)
+		public static BarcodeStyle Style(string backendId, string styleId)
 		{
-			var bcStyle = _styleList.FirstOrDefault(x => x.BackendId == backendId && x.Id == styleId);
+			var bcStyle = StyleList.FirstOrDefault(x => x.BackendId == backendId && x.Id == styleId);
 			return bcStyle ?? DefaultStyle();
 		}
 
-		public void RegisterStyle(string id,
-								  string backendId,
-								  string name,
-								  bool canText,
-								  bool textOptional,
-								  bool canChecksum,
-								  bool checksumOptional,
-								  string defaultDigits,
-								  bool canFreeForm,
-								  int preferedN)
+		public void RegisterBackend(string backendId, string backendName)
 		{
-			Style style = new Barcode.Style(id, backendId, name,
+			_backendIdList.Add(backendId);
+			_backendNameMap[backendId] = backendName;
+		}
+
+		public void RegisterStyle(string id,
+									  string backendId,
+									  string name,
+									  bool canText,
+									  bool textOptional,
+									  bool canChecksum,
+									  bool checksumOptional,
+									  string defaultDigits,
+									  bool canFreeForm,
+									  int preferedN)
+		{
+			BarcodeStyle style = new Barcode.BarcodeStyle(id, backendId, name,
 						 canText, textOptional,
 						 canChecksum, checksumOptional,
 						 defaultDigits,
 						 canFreeForm, preferedN);
 
-			_styleList.Add(style);
+			StyleList.Add(style);
 		}
 	}
 }

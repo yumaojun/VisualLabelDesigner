@@ -86,13 +86,15 @@ namespace LabelsDesignerTest
 			//DrawGrid(canvas, 500f, 100f);
 			//SimpleText(canvas);
 			//MeasureText(canvas, imgInfo);
-			TestText(canvas, imgInfo);
+			//TestText(canvas, imgInfo);
 			//CDPath(canvas);
+			PathTranslate(canvas);
 		}
 
 		private void TemplateControl_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
 		{
 			// Dpi(e.Graphics);
+			//e.Graphics;
 		}
 
 		#region DPI
@@ -570,7 +572,7 @@ namespace LabelsDesignerTest
 			//painter->setPen(QPen(color));
 			foreach (STTextLayout layout in layouts)
 			{
-				layout.Draw(painter, new SKPoint(0, 0), null);
+				layout.Draw(painter, new SKPoint(0, 0));
 			}
 
 			// Cleanup
@@ -734,6 +736,40 @@ namespace LabelsDesignerTest
 			//	painter.Translate(0, 300);
 			//	painter.DrawPath(clipPath, paint);
 			//}
+		}
+
+		private void PathTranslate(SKCanvas painter)
+		{
+			SKPath path = new SKPath();
+			float scale = 1;
+			float s = 1f / scale;
+			float handlePixels = 7;
+
+			float x= 100, y = 100;
+
+			SKRect rect = new SKRect(-s * handlePixels / 2, -s * handlePixels / 2, s * handlePixels, s * handlePixels);
+
+			path.AddRect(rect);
+			//path.Translate(x.Pt(), y.Pt()); // TODO: 位移？
+
+
+			SKPath path1 = new SKPath();
+			path1.AddPath(path, x, y);
+
+
+			SKMatrix matrix = SKMatrix.CreateTranslation(x, y);
+			path.Transform(matrix);
+
+			using (var paint = new SKPaint() {
+				Color = SKColors.Red, 
+				Style = SKPaintStyle.Stroke,
+				StrokeWidth = 2
+			})
+			{
+				painter.DrawPath(path, paint);
+				painter.DrawPath(path1, paint);
+			}
+
 		}
 
 		#endregion

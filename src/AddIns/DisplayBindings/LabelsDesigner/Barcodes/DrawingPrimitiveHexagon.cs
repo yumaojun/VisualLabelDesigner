@@ -1,4 +1,6 @@
-﻿namespace YProgramStudio.LabelsDesigner.Barcodes
+﻿// Copyright (c) 2023 余茂军 <yumaojun@gmail.com> All rights reserved.
+
+namespace YProgramStudio.LabelsDesigner.Barcodes
 {
 	public class DrawingPrimitiveHexagon : DrawingPrimitive
 	{

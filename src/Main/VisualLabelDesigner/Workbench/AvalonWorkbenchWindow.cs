@@ -34,6 +34,9 @@ using ICSharpCode.SharpDevelop.WinForms;
 
 namespace ICSharpCode.SharpDevelop.Workbench
 {
+	/// <summary>
+	/// AvalonDock主窗体
+	/// </summary>
 	sealed class AvalonWorkbenchWindow : DocumentContent, IWorkbenchWindow, IOwnerState
 	{
 		readonly static string contextMenuPath = "/SharpDevelop/Workbench/OpenFileTab/ContextMenu";
@@ -119,6 +122,9 @@ namespace ICSharpCode.SharpDevelop.Workbench
 		}
 		#endregion
 		
+		/// <summary>
+		/// Tab标签页组件
+		/// </summary>
 		TabControl viewTabControl;
 		
 		/// <summary>

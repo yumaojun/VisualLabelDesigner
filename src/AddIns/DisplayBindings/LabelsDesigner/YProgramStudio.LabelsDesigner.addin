@@ -10,7 +10,11 @@
 	</Manifest>
 	
 	<Runtime>
-		<Import assembly = "YProgramStudio.LabelsDesigner.dll"/>
+		<Import assembly = "YProgramStudio.LabelsDesigner.dll">
+			<ConditionEvaluator name="ActiveContentIsLabel" class="YProgramStudio.LabelsDesigner.ConditionEvaluators.ActiveContentIsLabelConditionEvaluator"/>
+			<ConditionEvaluator name="LabelObjectsSelect" class="YProgramStudio.LabelsDesigner.ConditionEvaluators.LabelObjectsSelectConditionEvaluator"/>
+			<ConditionEvaluator name="LabelObjectsAlignment" class="YProgramStudio.LabelsDesigner.ConditionEvaluators.LabelObjectsAlignmentConditionEvaluator"/>
+		</Import>
 	</Runtime>
 	
 	<Path name = "/SharpDevelop/Workbench/FileFilter">
@@ -60,6 +64,7 @@
 
 	<!-- Create -->
 	<Path name = "/SharpDevelop/Workbench/ToolBar/LabelsDesigner">
+		<Condition name = "ActiveContentIsLabel" activeextension=".glabels" action="Disable">
 		<ToolbarItem id      = "LabelsArrow"
 		             icon    = "Icons.16x16.labels.arrow"
 		             tooltip = "Arrow"
@@ -97,11 +102,14 @@
 			          label  = "More"
 			          class  = "YProgramStudio.LabelsDesigner.Commands.OpenBarcodesFormCommand"/>
 		</ToolbarItem>
+		</Condition>
 	</Path>
 
 	<!-- Objects Order -->
 	<Path name = "/SharpDevelop/Workbench/ToolBar/LabelsOrder">
-		<ToolbarItem id      = "LabelsOrderTop"
+		<Condition name = "LabelObjectsSelect" activeextension=".glabels" action="Disable">
+
+			<ToolbarItem id      = "LabelsOrderTop"
 		             icon    = "Icons.16x16.labels.order.top"
 		             tooltip = "Bring To Front"
 		             class   = "YProgramStudio.LabelsDesigner.Commands.OrderBringToFrontCommand"/>
@@ -109,10 +117,13 @@
 		             icon    = "Icons.16x16.labels.order.bottom"
 		             tooltip = "Send To Back"
 		             class   = "YProgramStudio.LabelsDesigner.Commands.OrderSendToBackCommand"/>
+		</Condition>
 	</Path>
 	
 	<!-- Alignment -->
 	<Path name = "/SharpDevelop/Workbench/ToolBar/LabelsAlign">
+		<Condition name = "LabelObjectsAlignment" activeextension=".glabels" action="Disable">
+		
 		<ToolbarItem id      = "LabelsAlignLeft"
 		             icon    = "Icons.16x16.labels.align.left"
 		             tooltip = "Align Left"
@@ -137,10 +148,13 @@
 		             icon    = "Icons.16x16.labels.align.bottom"
 		             tooltip = "Align Bottom"
 		             class   = "YProgramStudio.LabelsDesigner.Commands.AlignBottomCommand"/>
+		</Condition>
 	</Path>
 
 	<!-- Rotate -->
 	<Path name = "/SharpDevelop/Workbench/ToolBar/LabelsRotate">
+		<Condition name = "LabelObjectsSelect" activeextension=".glabels" action="Disable">
+		
 		<ToolbarItem id      = "LabelsRotateLeft"
 		             icon    = "Icons.16x16.labels.rotate.left"
 		             tooltip = "Rotate Left"
@@ -168,10 +182,13 @@
 		             icon    = "Icons.16x16.labels.center.vert"
 		             tooltip = "Center Vertically"
 		             class   = "YProgramStudio.LabelsDesigner.Commands.CenterVertCommand"/>
+		</Condition>
 	</Path>
 
 	<!-- Zoom -->
 	<Path name = "/SharpDevelop/Workbench/ToolBar/LabelsZoom">
+		<Condition name = "ActiveContentIsLabel" activeextension=".glabels" action="Disable">
+		
 		<ToolbarItem id      = "LabelsZoomIn"
 		             icon    = "Icons.16x16.labels.zoom.in"
 		             tooltip = "Zoom In"
@@ -188,10 +205,12 @@
 		             icon    = "Icons.16x16.labels.zoom.to.fit"
 		             tooltip = "Zoom To Fit"
 		             class   = "YProgramStudio.LabelsDesigner.Commands.ZoomToFitCommand"/>
+		</Condition>
 	</Path>
 
 	<!-- Text -->
 	<Path name = "/SharpDevelop/Workbench/ToolBar/LabelsText">
+		<Condition name = "LabelObjectsSelect" activeextension=".glabels" action="Disable">
 		
 		<ToolbarItem id      = "LabelsFontFamilyDropDown" type = "Custom"
 					 tooltip = "Font Family"
@@ -241,6 +260,7 @@
 		             icon    = "Icons.16x16.labels.valign.text.bottom"
 		             tooltip = "valign text bottom"
 		             class   = "YProgramStudio.LabelsDesigner.Commands.ValignTextBottomCommand"/>
+		</Condition>
 	</Path>
 	
 	<!--<Path name="/SharpDevelop/Pads/SearchResultPad/Factories">
@@ -260,7 +280,7 @@
 		     category = "Main"
 		     title    = "Object Properties"
 		     icon     = "PadIcons.ClassBrowser"
-		     class    = "YProgramStudio.LabelsDesigner.Gui.BarcodeProperty"
+		     class    = "YProgramStudio.LabelsDesigner.Views.ObjectProperties"
 		     defaultPosition = "Right" />
 
 	</Path>

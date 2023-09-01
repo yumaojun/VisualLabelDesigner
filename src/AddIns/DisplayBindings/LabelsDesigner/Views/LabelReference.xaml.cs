@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ICSharpCode.SharpDevelop;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace YProgramStudio.LabelsDesigner.Gui
+namespace YProgramStudio.LabelsDesigner.Views
 {
 	/// <summary>
 	/// LabelReference.xaml 的交互逻辑
@@ -23,6 +24,13 @@ namespace YProgramStudio.LabelsDesigner.Gui
 		public LabelReference()
 		{
 			InitializeComponent();
+		}
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			SD.PropertyService.Set("LabelProperties.Units", "MM");
+			SD.PropertyService.Save();
+			Close();
 		}
 	}
 }

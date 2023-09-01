@@ -5,7 +5,7 @@
 		  name        = "Labels Designer"
 		  icon        = "Icons.32x32.XMLFileIcon"
 		  category    = "VisualLabelDesigner"
-		  defaultname = "NewPad${Number}.label"
+		  defaultname = "NewPad${Number}.glabels"
 		  language    = "label">
         <Wizard path = "/SharpDevelop/Templates/File/NewLabelWizard"/>
     </Config>

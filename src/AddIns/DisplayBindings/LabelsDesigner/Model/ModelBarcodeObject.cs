@@ -27,7 +27,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 
 		#region Private Data
 
-		private Style _bcStyle;
+		private BarcodeStyle _bcStyle;
 		private bool _bcTextFlag;
 		private bool _bcChecksumFlag;
 		private int _bcFormatDigits;
@@ -74,7 +74,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 								 Distance h,
 								 bool lockAspectRatio,
 
-								 Style bcStyle,
+								 BarcodeStyle bcStyle,
 								 bool bcTextFlag,
 
 								 bool bcChecksumFlag,
@@ -120,6 +120,23 @@ namespace YProgramStudio.LabelsDesigner.Model
 		public override ModelObject Clone()
 		{
 			return new ModelBarcodeObject(this);
+		}
+
+		/// <summary>
+		/// BarcodeStyle
+		/// </summary>
+		public BarcodeStyle BcStyle
+		{
+			get => _bcStyle;
+			set
+			{
+				if (_bcStyle != value)
+				{
+					_bcStyle = value;
+					Update();
+					OnChanged(this, null);
+				}
+			}
 		}
 
 		public bool BcTextFlag
@@ -205,9 +222,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 		/// </summary>
 		private void Update()
 		{
-			//
 			// Build barcode from data
-			//
 			_editorBarcode = Barcodes.Factory.CreateBarcode(_bcStyle.FullId); // ToStdString()
 			if (_editorBarcode == null)
 			{
@@ -220,13 +235,11 @@ namespace YProgramStudio.LabelsDesigner.Model
 
 			_editorBarcode.Build(_bcData.ToString(), _width.Pt(), _height.Pt());//.ToStdString()
 
-			//
 			// Build a place holder barcode to display in editor, if cannot display actual barcode
-			//
 			_editorDefaultBarcode = Barcodes.Factory.CreateBarcode(_bcStyle.FullId); // ().toStdString()
 			if (_editorDefaultBarcode == null)
 			{
-				//qWarning() << "Invalid barcode style" << _bcStyle.fullId() << "using \"code39\".";
+				// Warning() << "Invalid barcode style" << _bcStyle.fullId() << "using \"code39\".";
 				_bcStyle = Backends.Barcode.Backends.DefaultStyle();
 				_editorDefaultBarcode = Barcodes.Factory.CreateBarcode(_bcStyle.Id); // ().toStdString()
 			}
@@ -235,9 +248,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 
 			_editorDefaultBarcode.Build(_bcStyle.DefaultDigits, _width.Pt(), _height.Pt()); //.toStdString()
 
-			//
 			// Adjust size
-			//
 			if (_editorBarcode.IsDataValid)
 			{
 				_width = Distance.Pt(_editorBarcode.Width);
@@ -254,8 +265,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 			_hoverPath = path;
 		}
 
-		/// Draw barcode in editor from cached information
-		///
+		// Draw barcode in editor from cached information
 		private void DrawBcInEditor(SKCanvas painter, SKColor color)
 		{
 			if (_bcData.IsEmpty())
@@ -308,7 +318,6 @@ namespace YProgramStudio.LabelsDesigner.Model
 			//
 			//QFont font( "Sans" );
 			//font.setPointSizeF(6);
-
 
 			//QFontMetricsF fm(font );
 			//QRectF textRect = fm.boundingRect(shortText);

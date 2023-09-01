@@ -80,7 +80,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 			}
 		}
 
-		public FrameCd(FrameCd other) : this(other._r1, other._r2, other._w, other._h, other._waste, other.Id())
+		public FrameCd(FrameCd other) : this(other._r1, other._r2, other._w, other._h, other._waste, other.Id)
 		{
 			foreach (var item in other.Layouts())
 			{

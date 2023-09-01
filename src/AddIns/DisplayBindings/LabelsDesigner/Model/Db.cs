@@ -13,19 +13,19 @@ namespace YProgramStudio.LabelsDesigner.Model
 	/// </summary>
 	public class Db
 	{
-		public static List<Paper> Papers { get; private set; } = new List<Paper>();
-		public static List<string> PaperIds { get; private set; } = new List<string>();
-		public static List<string> PaperNames { get; private set; } = new List<string>();
+		public static List<Paper>    Papers        { get; private set; } = new List<Paper>();
+		public static List<string>   PaperIds      { get; private set; } = new List<string>();
+		public static List<string>   PaperNames    { get; private set; } = new List<string>();
 
-		public static List<Category> Categories { get; private set; } = new List<Category>();
-		public static List<string> CategoryIds { get; private set; } = new List<string>();
-		public static List<string> CategoryNames { get; private set; } = new List<string>();
+		public static List<Category> Categories    { get; private set; } = new List<Category>();
+		public static List<string>   CategoryIds   { get; private set; } = new List<string>();
+		public static List<string>   CategoryNames { get; private set; } = new List<string>();
 
-		public static List<Vendor> Vendors { get; private set; } = new List<Vendor>();
-		public static List<string> VendorNames { get; private set; } = new List<string>();
-		public static List<Template> Templates { get; private set; } = new List<Template>();
+		public static List<Vendor>   Vendors       { get; private set; } = new List<Vendor>();
+		public static List<string>   VendorNames   { get; private set; } = new List<string>();
+		public static List<Template> Templates     { get; private set; } = new List<Template>();
 
-		private Db()
+		static Db()
 		{
 			LoadPapers();
 			LoadCategories();
@@ -33,16 +33,16 @@ namespace YProgramStudio.LabelsDesigner.Model
 			LoadTemplates();
 		}
 
-		public static void Init()
-		{
-			Instance();
-		}
+		//public static void Init()
+		//{
+		//	Instance();
+		//}
 
-		public static Db Instance()
-		{
-			var db = new Db();
-			return db;
-		}
+		//public static Db Instance()
+		//{
+		//	var db = new Db();
+		//	return db;
+		//}
 
 		#region 公开方法
 
@@ -294,13 +294,13 @@ namespace YProgramStudio.LabelsDesigner.Model
 
 		#region 内部方法
 
-		void LoadPapers()
+		static void LoadPapers()
 		{
 			var path = FileUtil.SystemTemplatesDir();
 			LoadPapersFromDir(path);
 		}
 
-		void LoadPapersFromDir(string directory)
+		static void LoadPapersFromDir(string directory)
 		{
 			string[] files = System.IO.Directory.GetFiles(directory, "paper-sizes.xml");
 			XmlPaperParser parser = new XmlPaperParser();
@@ -311,12 +311,12 @@ namespace YProgramStudio.LabelsDesigner.Model
 			}
 		}
 
-		void LoadCategories()
+		static void LoadCategories()
 		{
 			LoadCategoriesFromDir(FileUtil.SystemTemplatesDir());
 		}
 
-		void LoadCategoriesFromDir(string directory)
+		static void LoadCategoriesFromDir(string directory)
 		{
 			string[] files = System.IO.Directory.GetFiles(directory, "categories.xml");
 			XmlCategoryParser parser = new XmlCategoryParser();
@@ -327,12 +327,12 @@ namespace YProgramStudio.LabelsDesigner.Model
 			}
 		}
 
-		void LoadVendors()
+		static void LoadVendors()
 		{
 			LoadVendorsFromDir(FileUtil.SystemTemplatesDir());
 		}
 
-		void LoadVendorsFromDir(string directory)
+		static void LoadVendorsFromDir(string directory)
 		{
 			string[] files = System.IO.Directory.GetFiles(directory, "vendors.xml");
 			XmlVendorParser parser = new XmlVendorParser();
@@ -346,7 +346,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 		/// <summary>
 		/// 加载模板
 		/// </summary>
-		void LoadTemplates()
+		static void LoadTemplates()
 		{
 			LoadTemplatesFromDir(FileUtil.SystemTemplatesDir(), false);
 		}
@@ -356,7 +356,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 		/// </summary>
 		/// <param name="directory"></param>
 		/// <param name="isUserDefined"></param>
-		void LoadTemplatesFromDir(string directory, bool isUserDefined)
+		static void LoadTemplatesFromDir(string directory, bool isUserDefined)
 		{
 			string[] files = System.IO.Directory.GetFiles(directory, "*-templates.xml"); // ".template"
 			XmlTemplateParser parser = new XmlTemplateParser();

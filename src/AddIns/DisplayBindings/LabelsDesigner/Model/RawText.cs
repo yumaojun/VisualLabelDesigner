@@ -6,21 +6,27 @@ using System.Threading.Tasks;
 
 namespace YProgramStudio.LabelsDesigner.Model
 {
-	struct Token
-	{
-		public bool IsField { get; set; }
-		public string Text { get; set; }
-		public SubstitutionField Field { get; set; }
-	};
-
+	/// <summary>
+	/// Raw Text Type 原始文本类型
+	/// </summary>
 	public struct RawText
 	{
+		/// <summary>
+		/// 标志
+		/// </summary>
+		struct Token
+		{
+			public bool IsField { get; set; }
+			public string Text { get; set; }
+			public SubstitutionField Field { get; set; }
+		};
+
 		private string _string;
 		private List<Token> _tokens;
 
-		///
-		/// Constructor from string
-		///
+		/// <summary>
+		/// Constructor from string 从字符串构造函数
+		/// </summary>
 		public RawText(string str)
 		{
 			_string = str;
@@ -28,17 +34,45 @@ namespace YProgramStudio.LabelsDesigner.Model
 			Tokenize();
 		}
 
-		/////
-		///// Constructor from C string operator
-		/////
-		//RawText(  char* cString ) : mString(QString(cString))
-		//{
-		//	Tokenize();
-		//}
-
+		/// <summary>
+		/// Tokenize string 标记化字符串
+		/// </summary>
 		private void Tokenize()
 		{
+			Token token = new Token();
+			string refString = _string;
 
+			while (refString.Length > 0)
+			{
+				SubstitutionField field = new SubstitutionField();
+				if (SubstitutionField.Parse(ref refString, field))
+				{
+					// Finalize current text token, if apropos 完成当前文本标记（如果合适）
+					if (!string.IsNullOrEmpty(token.Text))
+					{
+						token.IsField = false;
+						_tokens.Add(token);
+					}
+
+					// Create and finalize field token 创建并完成字段令牌
+					token.IsField = true;
+					token.Text = string.Empty;
+					token.Field = field;
+					_tokens.Add(token);
+				}
+				else
+				{
+					token.Text += refString[0];
+					refString = refString.Substring(1);
+				}
+			}
+
+			// Finalize last text token, if apropos
+			if (!string.IsNullOrEmpty(token.Text))
+			{
+				token.IsField = false;
+				_tokens.Add(token);
+			}
 		}
 
 		/// <summary>
@@ -83,6 +117,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 		}
 
 		public static implicit operator RawText(string str) => new RawText(str);
+
 		public static implicit operator string(RawText rawText) => rawText.ToString();
 	}
 }

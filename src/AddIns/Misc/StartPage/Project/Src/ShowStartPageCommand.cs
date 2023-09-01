@@ -42,6 +42,7 @@ namespace ICSharpCode.StartPage
 		
 		public override void Run()
 		{
+			// 查询所有ViewContent，如果找到则切换到当前页
 			foreach (IViewContent view in SD.Workbench.ViewContentCollection) {
 				if (view is StartPageViewContent) {
 					view.WorkbenchWindow.SelectWindow();

@@ -260,8 +260,9 @@ namespace YProgramStudio.LabelsDesigner.Model
 			// Empty
 		}
 
-		/// Is one of this object's handles locate at x,y?  If so, return it.
-		///
+		/// <summary>
+		/// Is one of this object's handles locate at x,y?  If so, return it. 判断坐标x,y是否落在当前的处理锚点上，如果是的话返回当前处理锚点
+		/// </summary>
 		public Handle HandleAt(float scale, Distance x, Distance y)
 		{
 			if (_selected)
@@ -271,10 +272,9 @@ namespace YProgramStudio.LabelsDesigner.Model
 
 				foreach (Handle handle in _handles)
 				{
-					//SKPath handlePath = _matrix.m(handle.Path(scale)); // TODO: _matrix.map(path)对应是什么？
-
 					SKPath handlePath = handle.Path(scale);
 
+					handlePath.Transform(_matrix);
 
 					if (handlePath.Contains(p.X, p.Y))
 					{
@@ -286,6 +286,13 @@ namespace YProgramStudio.LabelsDesigner.Model
 			return null;
 		}
 
+		/// <summary>
+		/// 绘制
+		/// </summary>
+		/// <param name="painter"></param>
+		/// <param name="inEditor"></param>
+		/// <param name="record"></param>
+		/// <param name="variables"></param>
 		public void Draw(SKCanvas painter, bool inEditor, Record record, Variables variables)
 		{
 			painter.Save();

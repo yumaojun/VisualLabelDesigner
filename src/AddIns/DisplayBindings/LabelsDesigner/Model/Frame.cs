@@ -36,7 +36,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 		/// 复制构造函数
 		/// </summary>
 		/// <param name="other"></param>
-		public Frame(Frame other) : this(other._id)
+		public Frame(Frame other) : this(other.Id)
 		{
 			foreach (Layout layout in other._layouts)
 			{
@@ -55,7 +55,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 		/// <returns></returns>
 		public virtual Point[] GetOrigins()
 		{
-			Point[] origins = new Point[_labelsCount];
+			Point[] origins = new Point[LabelsCount];
 			int i = 0;
 			foreach (Layout layout in _layouts)
 			{
@@ -84,33 +84,18 @@ namespace YProgramStudio.LabelsDesigner.Model
 				//Translators: 1 = number of labels across a page,
 				//             2 = number of labels down a page,
 				//             3 = total number of labels on a page (sheet).
-				_layoutDescription = TranslateHelper.Tr($"{layout.Nx()} x {layout.Ny()} ({_labelsCount} per sheet)");
+				_layoutDescription = TranslateHelper.Tr($"{layout.Nx()} x {layout.Ny()} ({LabelsCount} per sheet)");
 			}
 			else
 			{
 				/* Translators: 1 is the total number of labels on a page (sheet). */
-				_layoutDescription = TranslateHelper.Tr($"{_labelsCount} per sheet");
+				_layoutDescription = TranslateHelper.Tr($"{LabelsCount} per sheet");
 			}
 		}
 
 		public virtual void AddMarkup(Markup markup)
 		{
 			_markups.Add(markup);
-		}
-
-		public virtual string Id()
-		{
-			return _id;
-		}
-
-		public virtual int LabelsCount()
-		{
-			return _labelsCount;
-		}
-
-		public virtual string LayoutDescription()
-		{
-			return _layoutDescription;
 		}
 
 		public virtual List<Layout> Layouts()
@@ -123,16 +108,26 @@ namespace YProgramStudio.LabelsDesigner.Model
 			return _markups;
 		}
 
+		public string Id { get => _id; }
+
+		public int LabelsCount { get => _labelsCount; }
+
+		public string LayoutDescription { get => _layoutDescription; }
+
 		public abstract Distance Width { get; }
 
 		public abstract Distance Height { get; set; }
 
 		public abstract Frame Clone();
+
 		public abstract bool IsSimilarTo(Frame other);
+
 		public abstract string SizeDescription(Units units);
 
 		public abstract SkiaSharp.SKPath Path();
+
 		public abstract SkiaSharp.SKPath ClipPath();
+
 		public abstract SkiaSharp.SKPath MarginPath(Distance xSize, Distance ySize);
 	}
 }

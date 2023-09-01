@@ -1,0 +1,1284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="YProgramStudio.LabelsDesigner.Backends.Barcode.Backends" Collapsed="true">
+    <Position X="52.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QABAAAAAIAAAAAAAAAAABAAAAEAAABEAJAACAAAAAIA=</HashCode>
+      <FileName>Backends\Barcode\Backends.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Backends.Barcode.BarcodeStyle" Collapsed="true">
+    <Position X="57.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAACIAABEBACAAAAAABZCASAAAAggCAAAAAAAQQEAAA=</HashCode>
+      <FileName>Backends\Barcode\BarcodeStyle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Backends.Merge.Factory" Collapsed="true">
+    <Position X="54" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Backends\Merge\Factory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Backends.Merge.Merge" Collapsed="true">
+    <Position X="52.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Backends\Merge\Merge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Backends.Merge.Record" Collapsed="true">
+    <Position X="61" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABI=</HashCode>
+      <FileName>Backends\Merge\Record.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.Barcode" Collapsed="true">
+    <Position X="23.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAhAAAAABACAAAAFAAAAAkAAABAAgCAAgBAQAABAAAA=</HashCode>
+      <FileName>Barcodes\Barcode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.Barcode1dBase" Collapsed="true">
+    <Position X="21" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAIAADAAAAAAAAAAAAAAAAAgAAAAAAABAAAAAA=</HashCode>
+      <FileName>Barcodes\Barcode1dBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.Barcode2dBase" Collapsed="true">
+    <Position X="32.25" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAIAADAAAAAAAAAAAIAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Barcodes\Barcode2dBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.BarcodeCepnet" Collapsed="true">
+    <Position X="22.25" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Barcodes\BarcodeCepnet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.BarcodeCode39" Collapsed="true">
+    <Position X="24.5" Y="18.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAEAEBAjAAIACAAAAAAAAAAAAQEEAAAgABBAAAAA=</HashCode>
+      <FileName>Barcodes\BarcodeCode39.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.BarcodeCode39Ext" Collapsed="true">
+    <Position X="24.5" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAACAAgAAAAAAAAAAAAAAAEAAAAAABAAAAAA=</HashCode>
+      <FileName>Barcodes\BarcodeCode39Ext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.BarcodeDataMatrix" Collapsed="true">
+    <Position X="33.5" Y="18.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACABBAAAAADQEAAAAAAAAAgAAAjwDEEgAAAECAAACAA=</HashCode>
+      <FileName>Barcodes\BarcodeDataMatrix.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.BarcodeEan13" Collapsed="true">
+    <Position X="26.75" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAEAAAAAAAAAAAQAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Barcodes\BarcodeEan13.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.BarcodeOnecode" Collapsed="true">
+    <Position X="13.25" Y="18.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AADgAIAAAADIAAAAAAAAIEgBBAACAEgAAAgAvmEBABI=</HashCode>
+      <FileName>Barcodes\BarcodeOnecode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.BarcodePostnet" Collapsed="true">
+    <Position X="18.75" Y="18.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAEAAAAHAAIAAAAAAAAIAACAAAEIAAAAAAAQAAgQ=</HashCode>
+      <FileName>Barcodes\BarcodePostnet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.BarcodePostnet11" Collapsed="true">
+    <Position X="15.5" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Barcodes\BarcodePostnet11.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.BarcodePostnet5" Collapsed="true">
+    <Position X="17.75" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Barcodes\BarcodePostnet5.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.BarcodePostnet9" Collapsed="true">
+    <Position X="20" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Barcodes\BarcodePostnet9.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.BarcodeQrcode" Collapsed="true">
+    <Position X="31.25" Y="18.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAADAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Barcodes\BarcodeQrcode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.BarcodeUpcA" Collapsed="true">
+    <Position X="29" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAEAAAAAAAAAAAQAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Barcodes\BarcodeUpcA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.BarcodeUpcBase" Collapsed="true">
+    <Position X="27.75" Y="18.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CBCAAGAAiAnABQAAAAAAAAYAgAAAAgAAAAAABAAAAAA=</HashCode>
+      <FileName>Barcodes\BarcodeUpcBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.DrawingPrimitive" Collapsed="true">
+    <Position X="5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>Barcodes\DrawingPrimitive.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.DrawingPrimitiveBox" Collapsed="true">
+    <Position X="5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAEAAAAAAAAAAAAAQCAAAAAA=</HashCode>
+      <FileName>Barcodes\DrawingPrimitiveBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.DrawingPrimitiveHexagon" Collapsed="true">
+    <Position X="7.25" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Barcodes\DrawingPrimitiveHexagon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.DrawingPrimitiveLine" Collapsed="true">
+    <Position X="9.5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAEAAAAAAAAAAAAAQCAAAAAA=</HashCode>
+      <FileName>Barcodes\DrawingPrimitiveLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.DrawingPrimitiveRing" Collapsed="true">
+    <Position X="0.5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAEAAAAAAAAAAACAQAAAAAAA=</HashCode>
+      <FileName>Barcodes\DrawingPrimitiveRing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.DrawingPrimitiveText" Collapsed="true">
+    <Position X="2.75" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAIAAAACAIAAAA=</HashCode>
+      <FileName>Barcodes\DrawingPrimitiveText.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.Factory" Collapsed="true">
+    <Position X="52.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAACAAAAAAABAQAIACAAAAAAA=</HashCode>
+      <FileName>Barcodes\Factory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.Matrix&lt;T&gt;" Collapsed="true">
+    <Position X="68" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAABIAAAgAACAAAAAAAAAAACBAAAAAAAAGIAAA=</HashCode>
+      <FileName>Barcodes\Matrix.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Barcodes.Renderer" Collapsed="true">
+    <Position X="64.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAQAIAAAAAIgAFAQAAAAAIA=</HashCode>
+      <FileName>Barcodes\Renderer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.AlignBottomCommand" Collapsed="true">
+    <Position X="20.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\AlignBottomCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.AlignCenterCommand" Collapsed="true">
+    <Position X="25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\AlignCenterCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.AlignLeftCommand" Collapsed="true">
+    <Position X="31.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\AlignLeftCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.AlignMiddleCommand" Collapsed="true">
+    <Position X="36.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\AlignMiddleCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.AlignRightCommand" Collapsed="true">
+    <Position X="40.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\AlignRightCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.AlignTextCenterCommand" Collapsed="true">
+    <Position X="43" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\AlignTextCenterCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.AlignTextLeftCommand" Collapsed="true">
+    <Position X="47.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\AlignTextLeftCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.AlignTextRightCommand" Collapsed="true">
+    <Position X="2.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\AlignTextRightCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.AlignTopCommand" Collapsed="true">
+    <Position X="7" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\AlignTopCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.BaseIconCommand" Collapsed="true">
+    <Position X="26.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Commands\BaseIconCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.CenterHorizCommand" Collapsed="true">
+    <Position X="11.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\CenterHorizCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.CenterVertCommand" Collapsed="true">
+    <Position X="13.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\CenterVertCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.CreateBarcodeCommand" Collapsed="true">
+    <Position X="16" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\CreateBarcodeCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.CreateBoxCommand" Collapsed="true">
+    <Position X="18.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\CreateBoxCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.CreateEllipseCommand" Collapsed="true">
+    <Position X="22.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\CreateEllipseCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.CreateImageCommand" Collapsed="true">
+    <Position X="27.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\CreateImageCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.CreateLineCommand" Collapsed="true">
+    <Position X="34" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\CreateLineCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.CreateTextCommand" Collapsed="true">
+    <Position X="38.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\CreateTextCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.FlipHorizCommand" Collapsed="true">
+    <Position X="57.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\FlipHorizCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.FlipVertCommand" Collapsed="true">
+    <Position X="59.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\FlipVertCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.FormatTextBoldCommand" Collapsed="true">
+    <Position X="64.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\FormatTextBoldCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.FormatTextItalicCommand" Collapsed="true">
+    <Position X="66.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\FormatTextItalicCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.FormatTextUnderlineCommand" Collapsed="true">
+    <Position X="68" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\FormatTextUnderlineCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.LabelPreferencesCommand" Collapsed="true">
+    <Position X="59.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\LabelPreferencesCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.OpenBarcodesFormCommand" Collapsed="true">
+    <Position X="59.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\OpenBarcodesFormCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.OrderBringToFrontCommand" Collapsed="true">
+    <Position X="61" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\OrderBringToFrontCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.OrderSendToBackCommand" Collapsed="true">
+    <Position X="62.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\OrderSendToBackCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.RotateLeftCommand" Collapsed="true">
+    <Position X="52.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\RotateLeftCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.RotateRightCommand" Collapsed="true">
+    <Position X="54" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\RotateRightCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.SelectArrowCommand" Collapsed="true">
+    <Position X="29.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\SelectArrowCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.ValignTextBottomCommand" Collapsed="true">
+    <Position X="64.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\ValignTextBottomCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.ValignTextMiddleCommand" Collapsed="true">
+    <Position X="66.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\ValignTextMiddleCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.ValignTextTopCommand" Collapsed="true">
+    <Position X="68" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\ValignTextTopCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.ZoomInCommand" Collapsed="true">
+    <Position X="45.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\ZoomInCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.ZoomOneToOneCommand" Collapsed="true">
+    <Position X="49.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\ZoomOneToOneCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.ZoomOutCommand" Collapsed="true">
+    <Position X="4.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\ZoomOutCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Commands.ZoomToFitCommand" Collapsed="true">
+    <Position X="9.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Commands\ZoomToFitCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Views.ObjectProperties" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="54" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CghEQICsKC6ggpgFAhwgBAgAhBkAiBAIYQUAJACBQGA=</HashCode>
+      <FileName>Views\ObjectProperties.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Gui.BarcodesForm" Collapsed="true">
+    <Position X="55.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IABAAAEgACAAAAAAABCABAACAAAYAQAAAGQCAADAACA=</HashCode>
+      <FileName>Gui\BarcodesForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Gui.FontFamilyComboBox" Collapsed="true">
+    <Position X="61" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Gui\FontFamilyComboBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Gui.FontSizeComboBox" Collapsed="true">
+    <Position X="62.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Gui\FontSizeComboBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Gui.HRuler" Collapsed="true">
+    <Position X="52.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAQAAAAQAAAAAAACAAAAAAAAYAAAAAIAAAA=</HashCode>
+      <FileName>Gui\HRuler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Gui.LabelEditor" Collapsed="true">
+    <Position X="57.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IewEWAqoyIUAg4KGC2oAmUBuAoDFA4+oAAQgUEAeCHA=</HashCode>
+      <FileName>Gui\LabelEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Gui.LabelPreview" Collapsed="true">
+    <Position X="61" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAgAAQABAgGACAAAFACBDAIAAQSBAQjAAAA=</HashCode>
+      <FileName>Gui\LabelPreview.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Gui.LabelReference" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="62.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Gui\LabelReference.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Gui.NewLabelCustomControl" Collapsed="true">
+    <Position X="55.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAAAACAAAACAAAAAAAAAAAAAABAAAI=</HashCode>
+      <FileName>Gui\NewLabelCustomControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Gui.NewLabelWizardControl" Collapsed="true">
+    <Position X="57.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAEAACAgABAQABCAAAACAAAAAAAAAgACAAAAAAI=</HashCode>
+      <FileName>Gui\NewLabelWizardControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Gui.Origin" Collapsed="true">
+    <Position X="64.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Gui\Origin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Gui.TemplateControl" Collapsed="true">
+    <Position X="66.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAwAAAAAAAACQAAEACAACAACACAAAAAABAACAAAA=</HashCode>
+      <FileName>Gui\TemplateControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Gui.VRuler" Collapsed="true">
+    <Position X="57.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAQAAAAQAAAAAAACAAAAAAIAYAAAAAAAAAA=</HashCode>
+      <FileName>Gui\VRuler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.LabelDesignerPanel" Collapsed="true">
+    <Position X="54" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAACYAAAACgAAAAAQgiAAEAiAAIAAIAAAAAAAAAAACE=</HashCode>
+      <FileName>LabelDesignerPanel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.LabelDisplayBinding" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="55.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAEAAAAQAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>LabelDisplayBinding.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.LabelViewContent" Collapsed="true">
+    <Position X="64.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAEAAAAgAAAAAQAAAAAAAAAAAAAAECAAAAAAAA=</HashCode>
+      <FileName>LabelViewContent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Labels.CommonHelper" Collapsed="true">
+    <Position X="62.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Labels\CommonHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Labels.PointerMoveEventArgs" Collapsed="true">
+    <Position X="55.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAg=</HashCode>
+      <FileName>Labels\PointerMoveEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Labels.PreviewOverlayItem" Collapsed="true">
+    <Position X="57.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAEAAAAAAAAACAAAAIAAA=</HashCode>
+      <FileName>Labels\PreviewOverlayItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Labels.RollTemplatePath" Collapsed="true">
+    <Position X="68" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Labels\RollTemplatePath.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Labels.ZoomChangeEventArgs" Collapsed="true">
+    <Position X="55.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>Labels\ZoomChangeEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.Category" Collapsed="true">
+    <Position X="59.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Category.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.ColorNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="61" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAJAAQAgQCAAAAAAAAAAICAAAAAgAAAAiA=</HashCode>
+      <FileName>Model\ColorNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.Constants" Collapsed="true">
+    <Position X="64.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQIAACECAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Model\Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.DataCache" Collapsed="true">
+    <Position X="66.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAQAABAEAAAIQAAAAAAAAAgQAAAACEAA=</HashCode>
+      <FileName>Model\DataCache.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.Db" Collapsed="true">
+    <Position X="68" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QXaAYAAAAEEElQAARIACgYAAAFAQUSgMSAgSABEgAAA=</HashCode>
+      <FileName>Model\Db.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.FileUtil" Collapsed="true">
+    <Position X="55.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAgAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\FileUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.Frame" Collapsed="true">
+    <Position X="6.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQACBAAABAAAAAIAAQBAAEAAAAEIJIAAAQhAADAAARA=</HashCode>
+      <FileName>Model\Frame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.FrameCd" Collapsed="true">
+    <Position X="3" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAABAACAAIQAABAAMAAAAAgIKAAACAQCBAAABA=</HashCode>
+      <FileName>Model\FrameCd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.FrameContinuous" Collapsed="true">
+    <Position X="5.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QCAAAAAABAACAAIQAAAAQEAAAAAAIIAAAAAQCBAAABA=</HashCode>
+      <FileName>Model\FrameContinuous.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.FrameEllipse" Collapsed="true">
+    <Position X="7.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAABAACAAIQAAAAAMAAAAAAIIAAAAAQCBAAABA=</HashCode>
+      <FileName>Model\FrameEllipse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.FramePath" Collapsed="true">
+    <Position X="9.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAABgACAQIQAAAAAEAQgBAAIIAAAAAQCBAAABA=</HashCode>
+      <FileName>Model\FramePath.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.FrameRect" Collapsed="true">
+    <Position X="12" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAABAACAAIQAAAAAEAQgBAAIIAAACAQCBAAARA=</HashCode>
+      <FileName>Model\FrameRect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.FrameRound" Collapsed="true">
+    <Position X="0.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAABAACAAIQAAAAAMAAAAAAIKAAACAAABAAARA=</HashCode>
+      <FileName>Model\FrameRound.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.Handle" Collapsed="true">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgBoACAAAAAAgIIAAIAEAAAAAAAAQAAACAAAAAAQAA=</HashCode>
+      <FileName>Model\Handle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.HandleEast" Collapsed="true">
+    <Position X="1.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Model\HandleEast.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.HandleNorth" Collapsed="true">
+    <Position X="3.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Model\HandleNorth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.HandleNorthEast" Collapsed="true">
+    <Position X="5.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Model\HandleNorthEast.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.HandleNorthWest" Collapsed="true">
+    <Position X="8" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Model\HandleNorthWest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.HandleP1" Collapsed="true">
+    <Position X="10.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Model\HandleP1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.HandleP2" Collapsed="true">
+    <Position X="12.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Model\HandleP2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.HandleSouth" Collapsed="true">
+    <Position X="14.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Model\HandleSouth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.HandleSouthEast" Collapsed="true">
+    <Position X="17" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Model\HandleSouthEast.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.HandleSouthWest" Collapsed="true">
+    <Position X="19.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Model\HandleSouthWest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.HandleWest" Collapsed="true">
+    <Position X="21.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Model\HandleWest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.Layout" Collapsed="true">
+    <Position X="66.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAEkAAIAAQAAggAAAAAAAAAAAAAAAAAYAAAAACAAAA=</HashCode>
+      <FileName>Model\Layout.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.Markup" Collapsed="true">
+    <Position X="17" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAIAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Model\Markup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.MarkupCircle" Collapsed="true">
+    <Position X="12.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAQAAAAAAAAAAAAAAAAAAAAAYCAAAAAAARA=</HashCode>
+      <FileName>Model\MarkupCircle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.MarkupEllipse" Collapsed="true">
+    <Position X="14.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAQAAAAAAAAAAAAAAIABAAAAAAAQCEAIABA=</HashCode>
+      <FileName>Model\MarkupEllipse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.MarkupLine" Collapsed="true">
+    <Position X="17" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAQAAAAAAAADAAAAAIABAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Model\MarkupLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.MarkupMargin" Collapsed="true">
+    <Position X="19.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAIAAAAAAAAAAAAAAAAIAAAABAAAABA=</HashCode>
+      <FileName>Model\MarkupMargin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.MarkupRect" Collapsed="true">
+    <Position X="21.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAQAAAAAAAAAAAAAAIABAAAAACAQCEAIARA=</HashCode>
+      <FileName>Model\MarkupRect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.Model" Collapsed="true">
+    <Position X="54" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgRCAAAARGEACg2gBBIAMdAIFAIkIRAACARgQgBMABE=</HashCode>
+      <FileName>Model\Model.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.ModelBarcodeObject" Collapsed="true">
+    <Position X="0.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABwQAACiAAABBAAAiAAAEAoAAAIRABAICAAAAAuAAFA=</HashCode>
+      <FileName>Model\ModelBarcodeObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.ModelBoxObject" Collapsed="true">
+    <Position X="7.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAIAAAAIAAAAAAAAABA=</HashCode>
+      <FileName>Model\ModelBoxObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.ModelEllipseObject" Collapsed="true">
+    <Position X="9.75" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAIAAAAIAAAAAAAAABA=</HashCode>
+      <FileName>Model\ModelEllipseObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.ModelImageObject" Collapsed="true">
+    <Position X="3" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAACIABBAAAAAAAACEAAAAIAQAAICRAAAAAAABA=</HashCode>
+      <FileName>Model\ModelImageObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.ModelLineObject" Collapsed="true">
+    <Position X="5.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAADABAAAAAAAAAAAgAAIAAAAIAAQAAAAAABA=</HashCode>
+      <FileName>Model\ModelLineObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.ModelObject" Collapsed="true">
+    <Position X="6.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DqAAAAAIDQyRAgAQBABIQEAgEdIgAgEIYcRAAwAAAFI=</HashCode>
+      <FileName>Model\ModelObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.ModelShapeObject" Collapsed="true">
+    <Position X="8.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAADAAAgAAACAAAAAgAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Model\ModelShapeObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.ModelTextObject" Collapsed="true">
+    <Position X="12" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAhAAAAEBAAIAAAAgAAAAAAoAAIAIAAAACAYEAJI=</HashCode>
+      <FileName>Model\ModelTextObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.Outline" Collapsed="true">
+    <Position X="66.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIgIADAAAAAgAAAAAAAAAACAAAAAAIAAAAAIAAAAY=</HashCode>
+      <FileName>Model\Outline.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.PageRenderer" Collapsed="true">
+    <Position X="68" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEAAACAIABCIAAqgBhAQAAxBKAmYQAAIAAgAEgAEgIQ=</HashCode>
+      <FileName>Model\PageRenderer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.Paper" Collapsed="true">
+    <Position X="52.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAIAIBAAAAAAAAAQAAEQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Paper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.Point" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="54" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAQAAAQAAACAAgAAAAAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>Model\Point.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.Region" Collapsed="true">
+    <Position X="62.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAQAAAAAAAADAAAAAKABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Region.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.Settings" Collapsed="true">
+    <Position X="55.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAiAAAAAAA=</HashCode>
+      <FileName>Model\Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.Size" Collapsed="true">
+    <Position X="57.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Size.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.StrUtil" Collapsed="true">
+    <Position X="59.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAEAAAAAAAAAgAAAAAAAAAAAAAAAAIAAAAAgAAA=</HashCode>
+      <FileName>Model\StrUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.SubstitutionField" Collapsed="true">
+    <Position X="61" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAgAAACAAQAAQAQgAACCgAAIAAAAAAEAAEAEAAgEEA=</HashCode>
+      <FileName>Model\SubstitutionField.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.SvgRenderer" Collapsed="true">
+    <Position X="62.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAABAAAQAAAAA=</HashCode>
+      <FileName>Model\SvgRenderer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.Template" Collapsed="true">
+    <Position X="64.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAQIAIJCQgAIAAgAAQQBQAAAAgAIAQAAAAgAQBAiE=</HashCode>
+      <FileName>Model\Template.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.TextBlock" Collapsed="true">
+    <Position X="68" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Model\TextBlock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.TextCursor" Collapsed="true">
+    <Position X="52.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAQAAICAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\TextCursor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.TextDocument" Collapsed="true">
+    <Position X="54" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAgAAAAAAAAAACAAAAAAAAEAAAAAACBABAAAA=</HashCode>
+      <FileName>Model\TextDocument.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.TextLayout" Collapsed="true">
+    <Position X="55.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAggAAgAgAAKIAAQAAAABAAAIAAAASAAAAgA=</HashCode>
+      <FileName>Model\TextLayout.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.TextLine" Collapsed="true">
+    <Position X="57.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAgAAAAhAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Model\TextLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.TranslateHelper" Collapsed="true">
+    <Position X="59.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Model\TranslateHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.UndoRedoModel" Collapsed="true">
+    <Position X="61" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABgAAAgAAAAABAAAAAAAAAAAAgAACAAA=</HashCode>
+      <FileName>Model\UndoRedoModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.Units" Collapsed="true">
+    <Position X="62.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAABQAAAAAAAAABAAAAQAAgAIAAAAAAAASgACA=</HashCode>
+      <FileName>Model\Units.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.Variable" Collapsed="true">
+    <Position X="52.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAIAAAAAAAQAxAAAAAAAAAAAAACAAAAAAhQAAAIAI=</HashCode>
+      <FileName>Model\Variable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.Variables" Collapsed="true">
+    <Position X="54" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAACAAFA=</HashCode>
+      <FileName>Model\Variables.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.Vendor" Collapsed="true">
+    <Position X="55.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Model\Vendor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.XmlCategoryParser" Collapsed="true">
+    <Position X="59.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\XmlCategoryParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.XmlLabelParser" Collapsed="true">
+    <Position X="61" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAIAQJAACAAAGAAAQgABAEwAAAAABAAAAAg=</HashCode>
+      <FileName>Model\XmlLabelParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.XmlLabelParser_3" Collapsed="true">
+    <Position X="62.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\XmlLabelParser_3.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.XmlPaperParser" Collapsed="true">
+    <Position X="64.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\XmlPaperParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.XmlTemplateCreator" Collapsed="true">
+    <Position X="66.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACwgAACAAAAADAAAIAQABEAgAAQAAgoAACAA=</HashCode>
+      <FileName>Model\XmlTemplateCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.XmlTemplateParser" Collapsed="true">
+    <Position X="68" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAABAAQAoAQAAAQAAAAKIAIAAAEDAAQgAAABAAAAA=</HashCode>
+      <FileName>Model\XmlTemplateParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.XmlUtil" Collapsed="true">
+    <Position X="52.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QCQAQiABBAAwAAgKIIAAAAAABBAAAAECBAQAAAAAAAA=</HashCode>
+      <FileName>Model\XmlUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Model.XmlVendorParser" Collapsed="true">
+    <Position X="54" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAQAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\XmlVendorParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Properties.Resource" Collapsed="true">
+    <Position X="66.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAIYAAAAAAREAgAAQAAAAAAAAACAAEAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YProgramStudio.LabelsDesigner.Views.PrintPreview" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="59.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Views\PrintPreview.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Struct Name="YProgramStudio.LabelsDesigner.Barcodes.BarcodeData" Collapsed="true">
+    <Position X="52.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAABAAAxAAAAAAAAEAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Barcodes\BarcodeData.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="YProgramStudio.LabelsDesigner.Barcodes.DMParameterEntry" Collapsed="true">
+    <Position X="55.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARIAAAEAAQAAAAAAIEgAACAAAAgABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Barcodes\BarcodeDataMatrix.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="YProgramStudio.LabelsDesigner.Barcodes.RendererData" Collapsed="true">
+    <Position X="59.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Barcodes\RendererData.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="YProgramStudio.LabelsDesigner.Model.Distance" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="54" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAABRAAAAAE8AWAAgCAQEQAAIAAIAAAAAAgByA=</HashCode>
+      <FileName>Model\Distance.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Struct>
+  <Struct Name="YProgramStudio.LabelsDesigner.Model.RawText" Collapsed="true">
+    <Position X="57.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQBAIAAAAAAAAAAEAAAIAAAAAAQAAAAgAAQAAAAACAA=</HashCode>
+      <FileName>Model\RawText.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="YProgramStudio.LabelsDesigner.Model.TextFont" Collapsed="true">
+    <Position X="61" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAACAAAAAAAAAAAAAABAU=</HashCode>
+      <FileName>Model\TextFont.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="YProgramStudio.LabelsDesigner.Model.TextNode" Collapsed="true">
+    <Position X="62.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAABAAAAAAAgQAAAAAAAAAAAJAAAAAACAAAAiA=</HashCode>
+      <FileName>Model\TextNode.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="YProgramStudio.LabelsDesigner.Model.TextOption" Collapsed="true">
+    <Position X="64.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAiAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\TextOption.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="YProgramStudio.LabelsDesigner.Barcodes.Parity" Collapsed="true">
+    <Position X="62.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Barcodes\BarcodeUpcBase.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YProgramStudio.LabelsDesigner.Labels.CreateType" Collapsed="true">
+    <Position X="54" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAEAAAAAAAAAAAAAAAIAABAAAAAACAABAAA=</HashCode>
+      <FileName>Labels\CreateType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YProgramStudio.LabelsDesigner.Labels.HoverLocation" Collapsed="true">
+    <Position X="55.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACEAAAAAAAQAAEQiAAAAAAAAAAhCIAAA=</HashCode>
+      <FileName>Labels\HoverLocation.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YProgramStudio.LabelsDesigner.Labels.OperateState" Collapsed="true">
+    <Position X="59.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAhAABAAAAAAAAAAAAAAAAAAAAABAAAAEBAAAAAA=</HashCode>
+      <FileName>Labels\OperateState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YProgramStudio.LabelsDesigner.Model.Alignment" Collapsed="true">
+    <Position X="52.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACQAAAAAAAIAAAACACAAAAIIAA=</HashCode>
+      <FileName>Model\Alignment.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YProgramStudio.LabelsDesigner.Model.PageSizeFamily" Collapsed="true">
+    <Position X="61" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEQ=</HashCode>
+      <FileName>Model\Settings.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YProgramStudio.LabelsDesigner.Model.UnitEnum" Collapsed="true">
+    <Position X="66.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAEABAAAAAAAIAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Model\UnitEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YProgramStudio.LabelsDesigner.Model.VariableType" Collapsed="true">
+    <Position X="68" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAABAACAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Variable.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YProgramStudio.LabelsDesigner.Model.Increment" Collapsed="true">
+    <Position X="57.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAQAACAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Model\Variable.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YProgramStudio.LabelsDesigner.Model.WrapMode" Collapsed="true">
+    <Position X="52.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAQAAAAAAAAAAAAAAAAAAAQAAAAAACAAAAAAAQAA=</HashCode>
+      <FileName>Model\WrapMode.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YProgramStudio.LabelsDesigner.Model.StateEnum" Collapsed="true">
+    <Position X="64.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAADEQQwAAEAAAAAAAAACGAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\XmlUtil.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="YProgramStudio.LabelsDesigner.Barcodes.BarcodeCreateFct" Collapsed="true">
+    <Position X="52.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Barcodes\Factory.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="YProgramStudio.LabelsDesigner.Labels.PointerMoveEventHandler" Collapsed="true">
+    <Position X="54" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Labels\PointerMoveEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="YProgramStudio.LabelsDesigner.Labels.ZoomChangeEventHandler" Collapsed="true">
+    <Position X="55.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Labels\ZoomChangeEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

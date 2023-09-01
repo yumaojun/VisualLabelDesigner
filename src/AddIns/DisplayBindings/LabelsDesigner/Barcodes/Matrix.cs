@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace YProgramStudio.LabelsDesigner.Barcodes
 {
+	/// <summary>
+	/// 二维码阵列
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
 	public class Matrix<T>
 	{
 		/**
@@ -13,16 +17,22 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 		 */
 		private int _nx;
 		private int _ny;
-		private T[] _data;
+		private T[,] _data;
 
 		public int Nx { get => _nx; }
 		public int Ny { get => _ny; }
-		public T[] Data { get => _data; }
+		public T[,] Data { get => _data; }
 
-		public T this[int i]
+		/// <summary>
+		/// 返回二维数组的值
+		/// </summary>
+		/// <param name="row">row行</param>
+		/// <param name="col">col列</param>
+		/// <returns></returns>
+		public T this[int row, int col]
 		{
-			get { return _data[i]; }
-			set { _data[i] = value; }
+			get { return _data[row, col]; }
+			set { _data[row, col] = value; }
 		}
 
 		public Matrix()
@@ -36,20 +46,20 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 		{
 			_nx = nx;
 			_ny = ny;
-			_data = (nx > 0 && ny > 0) ? new T[nx * ny] : default;
+			_data = (nx > 0 && ny > 0) ? new T[ny, nx] : default;
 		}
 
 		public Matrix(Matrix<T> src)
 		{
 			_nx = src._nx;
 			_ny = src._ny;
-			_data = ((src._nx > 0 && src._ny > 0) ? new T[src._nx * src._ny] : default);
+			_data = ((src._nx > 0 && src._ny > 0) ? new T[src._ny, src._nx] : default);
 
 			for (int iy = 0; iy < _ny; iy++)
 			{
 				for (int ix = 0; ix < _nx; ix++)
 				{
-					_data[iy * ix] = src._data[iy * ix];
+					_data[iy, ix] = src._data[iy, ix];
 				}
 			}
 		}
@@ -58,7 +68,7 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 		{
 			_nx = src._nx;
 			_ny = src._ny;
-			_data = ((nx > 0 && ny > 0) ? new T[nx * ny] : default);
+			_data = ((nx > 0 && ny > 0) ? new T[ny, nx] : default);
 
 			for (int iy = 0; iy < _ny; iy++)
 			{
@@ -68,7 +78,7 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 					{
 						if ((x0 + ix) < src._nx)
 						{
-							_data[iy * ix] = src._data[(y0 + iy) * (x0 + ix)];
+							_data[iy, ix] = src._data[(y0 + iy), (x0 + ix)];
 						}
 					}
 				}
@@ -79,7 +89,7 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 		{
 			_nx = nx;
 			_ny = ny;
-			_data = (nx > 0 && ny > 0) ? new T[nx * ny] : default;
+			_data = (nx > 0 && ny > 0) ? new T[ny, nx] : default;
 		}
 
 		public Matrix<T> SubMatrix(int x0, int y0, int nx, int ny)
@@ -97,7 +107,7 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 					{
 						if ((x0 + ix) < _nx)
 						{
-							_data[(y0 + iy) * (x0 + ix)] = a._data[iy * ix];
+							_data[(y0 + iy), (x0 + ix)] = a._data[iy, ix];
 						}
 					}
 				}
@@ -110,7 +120,7 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 			{
 				for (int ix = 0; ix < _nx; ix++)
 				{
-					_data[iy * ix] = val;
+					_data[iy, ix] = val;
 				}
 			}
 		}

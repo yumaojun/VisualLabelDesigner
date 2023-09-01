@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Copyright (c) 2023 余茂军 <yumaojun@gmail.com> All rights reserved.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +17,7 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 	/// <summary>
 	/// UpcBase barcode, base class for UPC-A and EAN-13 barcode types, implements Barcode1dBase
 	/// </summary>
-	public class BarcodeUpcBase : Barcode1dBase
+	public abstract class BarcodeUpcBase : Barcode1dBase
 	{
 		const int QUIET_MODULES = 9;
 
@@ -64,16 +66,13 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 		protected int _endBarsModules;
 		protected int _firstDigitVal;
 
-		protected virtual bool ValidateDigits(int nDigits)
-		{
-			return false;
-		}
+		// 由子类实现，验证数字位数
+		protected abstract bool ValidateDigits(int nDigits);
 
-		protected virtual void VectorizeText(string displayText, float size1, float size2, float x1Left, float x1Right, float y1, float x2Left, float x2Right, float y2)
-		{
+		// 由子类实现，矢量化文本
+		protected abstract void VectorizeText(string displayText, float size1, float size2, float x1Left, float x1Right, float y1, float x2Left, float x2Right, float y2);
 
-		}
-
+		// 验证
 		protected override bool Validate(string rawData)
 		{
 			int nDigits = 0;
@@ -175,7 +174,7 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 					}
 				}
 
-				displayText += _checkDigitVal + '0';
+				displayText += (char)(_checkDigitVal + '0');
 			}
 
 			return displayText;
@@ -203,7 +202,6 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 			}
 
 			float mscale = scale * BASE_MODULE_SIZE;
-
 			float width = mscale * (nModules + 2 * QUIET_MODULES);
 			float xQuiet = mscale * QUIET_MODULES;
 
@@ -256,12 +254,8 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 				float textY2 = hBar2 + textSize2 / 4;
 
 				/* draw text (call implementation from concrete class) */
-				VectorizeText(displayText,
-							   textSize1, textSize2,
-							   textX1Left, textX1Right, textY1,
-							   textX2Left, textX2Right, textY2);
+				VectorizeText(displayText, textSize1, textSize2, textX1Left, textX1Right, textY1, textX2Left, textX2Right, textY2);
 			}
-
 
 			/* Overwrite requested size with actual size. */
 			w = width;

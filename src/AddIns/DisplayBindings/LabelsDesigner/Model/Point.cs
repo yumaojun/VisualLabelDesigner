@@ -14,6 +14,10 @@ namespace YProgramStudio.LabelsDesigner.Model
 		private Distance _x;
 		private Distance _y;
 
+		public Distance X { get => _x; set => _x = value; }
+
+		public Distance Y { get => _y; set => _y = value; }
+
 		public Point()
 		{
 			_x = new Distance(0);
@@ -24,16 +28,6 @@ namespace YProgramStudio.LabelsDesigner.Model
 		{
 			_x = x;
 			_y = y;
-		}
-
-		public Distance X()
-		{
-			return _x;
-		}
-
-		public Distance Y()
-		{
-			return _y;
 		}
 
 		public int CompareTo(Point other)

@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Copyright (c) 2023 余茂军 <yumaojun@gmail.com> All rights reserved.
+
+using System;
 using YProgramStudio.LabelsDesigner.Model;
 
 namespace YProgramStudio.LabelsDesigner.Barcodes
@@ -6,10 +8,19 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 	/// <summary>
 	/// 二维条码基类
 	/// </summary>
-	public class Barcode2dBase : Barcode
+	public abstract class Barcode2dBase : Barcode
 	{
 		private const float MIN_CELL_SIZE = (1.0f / 64.0f * Constants.PTS_PER_INCH);
 
+		/// <summary>
+		/// Build 2D barcode from data.
+		/// Implements Barcode::build().  Calls the validate(), preprocess(),
+		/// encode(), and vectorize() virtual methods, as shown: "2D build() data flow"
+		/// </summary>
+		/// <param name="rawData"></param>
+		/// <param name="w"></param>
+		/// <param name="h"></param>
+		/// <returns></returns>
 		public override Barcode Build(string rawData, float w = 0, float h = 0)
 		{
 			string cookedData = string.Empty;   /* Preprocessed data */
@@ -43,7 +54,7 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 					cookedData = Preprocess(rawData);
 					Encode(cookedData, encodedData);
 
-					Vectorize(encodedData,ref w, ref h);
+					Vectorize(encodedData, ref w, ref h);
 
 					Width = w;
 					Height = h;
@@ -53,21 +64,28 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 			return this;
 		}
 
-		protected virtual bool Validate(string rawData)
-		{
-			return false;
-		}
+		// 由子类实现，验证数据
+		protected abstract bool Validate(string rawData);
 
+		// 由子类实现，编码
+		protected abstract bool Encode(string cookedData, Matrix<bool> encodedData);
+
+		/// <summary>
+		/// 预处理数据
+		/// </summary>
+		/// <param name="rawData"></param>
+		/// <returns></returns>
 		protected virtual string Preprocess(string rawData)
 		{
 			return rawData;
 		}
 
-		protected virtual bool Encode(string cookedData, Matrix<bool> encodedData)
-		{
-			return false;
-		}
-
+		/// <summary>
+		/// 矢量化
+		/// </summary>
+		/// <param name="encodedData"></param>
+		/// <param name="w"></param>
+		/// <param name="h"></param>
 		protected virtual void Vectorize(Matrix<bool> encodedData, ref float w, ref float h)
 		{
 			/* determine size and establish scale */
@@ -87,6 +105,7 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 				w = scale * minW;
 				h = scale * minH;
 			}
+
 			float cellSize = scale * MIN_CELL_SIZE;
 			float quietSize = scale * MIN_CELL_SIZE;
 
@@ -94,13 +113,12 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 			{
 				for (int ix = 0; ix < encodedData.Nx; ix++)
 				{
-					if (encodedData[iy * ix])
+					if (encodedData[iy, ix])
 					{
 						AddBox(quietSize + ix * cellSize, quietSize + iy * cellSize, cellSize, cellSize);
 					}
 				}
 			}
-
 		}
 	}
 }

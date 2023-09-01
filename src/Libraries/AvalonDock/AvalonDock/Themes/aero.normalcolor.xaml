@@ -117,7 +117,7 @@
 							        Background="{DynamicResource {ComponentResourceKey {x:Type ad:DockingManager}, {x:Static ad:AvalonDockBrushes.DockablePaneTitleBackground}}}"
 							        BorderThickness="1,1,1,0" 
 							        BorderBrush="DarkGray"
-                                    Height="18">
+                                    Height="22">
 								<DockPanel LastChildFill="True">
                                     <Button x:Name="btnClose" DockPanel.Dock="Right" Style="{StaticResource PaneHeaderCommandStyle}" Command="ad:ManagedContentCommands.Close" CommandTarget="{TemplateBinding SelectedItem}"
                                             ToolTip="{x:Static adRes:Resources.DockablePaneCommands_Close}"

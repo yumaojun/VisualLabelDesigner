@@ -1,4 +1,6 @@
-﻿using YProgramStudio.LabelsDesigner.Model;
+﻿// Copyright (c) 2023 余茂军 <yumaojun@gmail.com> All rights reserved.
+
+using YProgramStudio.LabelsDesigner.Model;
 
 namespace YProgramStudio.LabelsDesigner.Barcodes
 {

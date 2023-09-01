@@ -36,7 +36,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 			_clipPath.AddRoundRect(clipRect, _r.Pt(), _r.Pt());
 		}
 
-		public FrameRect(FrameRect other) : this(other._w, other._h, other._r, other._xWaste, other._yWaste, other.Id())
+		public FrameRect(FrameRect other) : this(other._w, other._h, other._r, other._xWaste, other._yWaste, other.Id)
 		{
 			foreach (var item in other.Layouts())
 			{

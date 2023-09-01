@@ -84,8 +84,13 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 			{
 				float x1 = x + w / 2; // Offset line origin by 1/2 line width.
 
-				//d->painter->setPen(QPen(d->color, w, Qt::SolidLine, Qt::FlatCap));
-				using (SKPaint paint = new SKPaint() { Color = data.Color, Style = SKPaintStyle.Stroke, StrokeWidth = w }) //, StrokeCap = SKStrokeCap.Square
+				using (SKPaint paint = new SKPaint()
+				{
+					Color = data.Color,
+					Style = SKPaintStyle.Stroke,
+					StrokeWidth = w,
+					IsAntialias = true
+				})
 				{
 					data.Painter.DrawLine(new SKPoint(x1, y), new SKPoint(x1, y + h), paint);
 				}
@@ -96,9 +101,14 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 		{
 			if (data.Painter != null)
 			{
-				using (SKPaint paint = new SKPaint() { Color = data.Color, Style = SKPaintStyle.Fill })
+				using (SKPaint paint = new SKPaint()
 				{
-					data.Painter.DrawRect(new SKRect(x, y, x + w, y + h), paint);
+					Color = data.Color,
+					Style = SKPaintStyle.Fill,
+					IsAntialias = true
+				})
+				{
+					data.Painter.DrawRect(new SKRect(x, y, x + w, y + h), paint); // 开启了IsAntialias方框四周会出现模糊的细线
 				}
 			}
 		}
@@ -126,7 +136,7 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 			//}
 
 			float fontSize = FONT_SCALE * size * 96f / Constants.PTS_PER_INCH; // TODO: 条码输出字体的大小问题，pt -> pixels
-			using (SKTypeface face = SKTypeface.FromFamilyName("Courier New", /*等宽字体？monospace*/
+			using (SKTypeface face = SKTypeface.FromFamilyName("Courier New", /* todo: 提取为配置，等宽字体？monospace*/
 				SKFontStyleWeight.Thin, SKFontStyleWidth.Normal, SKFontStyleSlant.Upright))
 			using (SKPaint paint = new SKPaint()
 			{
@@ -156,6 +166,7 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 			}
 		}
 
+		// 六角形\六边形
 		protected virtual void DrawHexagon(double x, double y, double h)
 		{
 			if (data.Painter != null)

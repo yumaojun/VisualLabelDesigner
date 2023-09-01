@@ -1,10 +1,7 @@
-﻿using SkiaSharp;
+﻿// Copyright (c) 2023 余茂军 <yumaojun@gmail.com> All rights reserved.
+
+using SkiaSharp;
 using SkiaSharp.Views.Desktop;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using YProgramStudio.LabelsDesigner.Labels;
 
 namespace YProgramStudio.LabelsDesigner.Model
@@ -14,8 +11,8 @@ namespace YProgramStudio.LabelsDesigner.Model
 	/// </summary>
 	public abstract class Handle
 	{
-		protected const float handlePixels = 7F;
-		protected const float handleOutlineWidthPixels = 1F;
+		protected const float handlePixels = 7F; // Handle的方框大小
+		protected const float handleOutlineWidthPixels = 0; // Handle的线框宽度1Fpix
 
 		protected static readonly SKColor handleFillColor = System.Drawing.Color.FromArgb(96, 0, 192, 0).ToSKColor(); // argb
 		protected static readonly SKColor originHandleFillColor = System.Drawing.Color.FromArgb(96, 192, 0, 0).ToSKColor();
@@ -24,15 +21,9 @@ namespace YProgramStudio.LabelsDesigner.Model
 		protected ModelObject _owner;
 		protected HoverLocation _location;
 
-		public ModelObject Owner
-		{
-			get => _owner;
-		}
+		public ModelObject Owner => _owner;
 
-		public HoverLocation Location
-		{
-			get => _location;
-		}
+		public HoverLocation Location => _location;
 
 		/// <summary>
 		/// Handle Constructor
@@ -45,11 +36,28 @@ namespace YProgramStudio.LabelsDesigner.Model
 
 		#region Drawing Methods
 
+		/// <summary>
+		/// Handle draw 锚点Handle绘制
+		/// </summary>
+		/// <param name="painter"></param>
+		/// <param name="scale"></param>
 		public abstract void Draw(SKCanvas painter, float scale);
 
+		/// <summary>
+		/// Handle path 锚点Handle路径
+		/// </summary>
+		/// <param name="scale"></param>
+		/// <returns></returns>
 		public abstract SKPath Path(float scale);
 
-		// Draw Handle at x,y
+		/// <summary>
+		/// Draw Handle at x,y 在x, y绘制锚点Handle
+		/// </summary>
+		/// <param name="painter">canvas 画布</param>
+		/// <param name="scale">scale 缩放因子</param>
+		/// <param name="x">x 偏移坐标</param>
+		/// <param name="y">y 偏移坐标</param>
+		/// <param name="color">color 颜色</param>
 		protected void DrawAt(SKCanvas painter, float scale, Distance x, Distance y, SKColor color)
 		{
 			painter.Save();
@@ -75,7 +83,13 @@ namespace YProgramStudio.LabelsDesigner.Model
 			painter.Restore();
 		}
 
-		// Create Handle path at x,y
+		/// <summary>
+		/// Create Handle path at x,y 在位置x, y创建锚点Handle路径
+		/// </summary>
+		/// <param name="scale">scale 缩放因子</param>
+		/// <param name="x">x 偏移坐标</param>
+		/// <param name="y">y 偏移坐标</param>
+		/// <returns></returns>
 		protected SKPath PathAt(float scale, Distance x, Distance y)
 		{
 			SKPath path = new SKPath();
@@ -83,14 +97,12 @@ namespace YProgramStudio.LabelsDesigner.Model
 			float s = 1f / scale;
 
 			SKRect rect = new SKRect(-s * handlePixels / 2, -s * handlePixels / 2, s * handlePixels, s * handlePixels);
-
 			path.AddRect(rect);
-			//path.Translate(x.Pt(), y.Pt()); // TODO: 位移？
 
-			SKPath path1 = new SKPath();
-			path1.AddPath(path, x.Pt(), y.Pt());
+			SKMatrix matrix = SKMatrix.CreateTranslation(x.Pt(), y.Pt());
+			path.Transform(matrix);
 
-			return path1;
+			return path;
 		}
 
 		#endregion

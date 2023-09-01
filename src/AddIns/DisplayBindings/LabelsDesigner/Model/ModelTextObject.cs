@@ -14,22 +14,22 @@ namespace YProgramStudio.LabelsDesigner.Model
 	/// </summary>
 	public class ModelTextObject : ModelObject
 	{
-		const float marginPts = 3;
-		private RawText _text;
-		private string _fontFamily;
-		private float _fontSize;
-		private SKFontStyleWeight _fontWeight;
-		private bool _fontItalicFlag;
-		private bool _fontUnderlineFlag;
-		private ColorNode _textColorNode;
-		private Alignment _textHAlign;
-		private Alignment _textVAlign;
-		private WrapMode _textWrapMode;
-		private float _textLineSpacing;
-		private bool _textAutoShrink;
+		private const float marginPts = 3;
+		private RawText				_text;
+		private string				_fontFamily;
+		private float				_fontSize;
+		private SKFontStyleWeight	_fontWeight;
+		private bool				_fontItalicFlag;
+		private bool				_fontUnderlineFlag;
+		private ColorNode			_textColorNode;
+		private Alignment			_textHAlign;
+		private Alignment			_textVAlign;
+		private WrapMode			_textWrapMode;
+		private float				_textLineSpacing;
+		private bool				_textAutoShrink;
 
-		private List<TextLayout> _editorLayouts;
-		private SKPath _hoverPath;
+		private List<TextLayout>	_editorLayouts;
+		private SKPath				_hoverPath;
 
 		public string Text
 		{

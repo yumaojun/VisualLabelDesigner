@@ -15,6 +15,24 @@ namespace YProgramStudio.LabelsDesigner.Model
 	/// </summary>
 	public static class XmlLabelParser
 	{
+		public static Model ReadFile(string fileName, Stream stream)
+		{
+			XmlDocument doc = new XmlDocument();
+
+			using (StreamReader reader = new StreamReader(stream))
+			{
+				doc.LoadXml(reader.ReadToEnd());
+			}
+
+			var root = doc.DocumentElement;
+			if (root.Name != "Glabels-document")
+			{
+				return null;
+			}
+
+			return ParseRootNode(root, fileName);
+		}
+
 		public static Model ReadFile(OpenedFile file, Stream stream)
 		{
 			XmlDocument doc = new XmlDocument();
@@ -404,7 +422,7 @@ namespace YProgramStudio.LabelsDesigner.Model
 			bool lockAspectRatio = XmlUtil.GetBoolAttr(node, "lock_aspect_ratio", false);
 
 			/* barcode attrs */
-			Backends.Barcode.Style bcStyle = Backends.Barcode.Backends.Style(XmlUtil.GetStringAttr(node, "backend", string.Empty),
+			Backends.Barcode.BarcodeStyle bcStyle = Backends.Barcode.Backends.Style(XmlUtil.GetStringAttr(node, "backend", string.Empty),
 															   XmlUtil.GetStringAttr(node, "style", string.Empty));
 			bool bcTextFlag = XmlUtil.GetBoolAttr(node, "text", true);
 			bool bcChecksumFlag = XmlUtil.GetBoolAttr(node, "checksum", true);

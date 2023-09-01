@@ -22,7 +22,7 @@ namespace YProgramStudio.LabelsDesigner.Gui
 
 		private void Init()
 		{
-			Db.Init();
+			//Db.Init();
 			List<Category> categories = Db.Categories;
 			List<Paper> papers = Db.Papers;
 			List<Vendor> vendors = Db.Vendors;

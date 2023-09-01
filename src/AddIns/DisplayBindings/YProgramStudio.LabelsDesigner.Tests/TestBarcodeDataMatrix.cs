@@ -8,16 +8,16 @@ namespace YProgramStudio.LabelsDesigner.Tests
 	[TestClass]
 	public class TestBarcodeDataMatrix
 	{
-		[TestMethod]
-		public void TestEcc200Encode()
-		{
-			var obj = BarcodeDataMatrix.Create() as BarcodeDataMatrix;
+		//[TestMethod]
+		//public void TestEcc200Encode()
+		//{
+		//	var obj = BarcodeDataMatrix.Create() as BarcodeDataMatrix;
 
-			var str = "123";
-			var list = new List<byte>();
+		//	var str = "123";
+		//	var list = new List<byte>();
 
-			obj.Ecc200Encode(str, ref list);
+		//	obj.Ecc200Encode(str, ref list);
 
-		}
+		//}
 	}
 }

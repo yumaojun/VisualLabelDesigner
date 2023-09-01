@@ -7,25 +7,25 @@ using System.Threading.Tasks;
 namespace YProgramStudio.LabelsDesigner.Barcodes
 {
 	/// <summary>
-	/// Barcode Create委托
+	/// Barcode Create 委托
 	/// </summary>
 	/// <returns></returns>
-	public delegate Barcode BarcodeCreateFct();
+	public delegate Barcode BarcodeCreateFact();
 
 	/// <summary>
 	/// Barcode Factory
 	/// </summary>
 	public class Factory
 	{
-		private static Factory singletonInstance = null;
-		private static Dictionary<string, BarcodeCreateFct> _barcodeTypeMap = new Dictionary<string, BarcodeCreateFct>();
+		private static Dictionary<string, BarcodeCreateFact> _barcodeTypeMap = new Dictionary<string, BarcodeCreateFact>();
 		private static List<string> _supportedTypes = new List<string>();
+		private static Factory singletonInstance = new Factory();
 
+		/// <summary>
+		/// Register built-in types.
+		/// </summary>
 		private Factory()
 		{
-			/*
-			 * Register built-in types.
-			 */
 			InternalRegisterType("code39", BarcodeCode39.Create);
 			InternalRegisterType("code39ext", BarcodeCode39Ext.Create);
 			InternalRegisterType("upc-a", BarcodeUpcA.Create);
@@ -37,25 +37,12 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 			InternalRegisterType("cepnet", BarcodeCepnet.Create);
 			InternalRegisterType("onecode", BarcodeOnecode.Create);
 			InternalRegisterType("datamatrix", BarcodeDataMatrix.Create);
-			// HAVE_QRENCODE
-			InternalRegisterType("qrcode", BarcodeQrcode.Create);
-
-		}
-
-		public static void Init()
-		{
-			if (singletonInstance == null)
-			{
-				singletonInstance = new Factory();
-			}
+			InternalRegisterType("qrencode::qrcode", BarcodeQrcode.Create);
 		}
 
 		public static Barcodes.Barcode CreateBarcode(string typeId)
 		{
-			Barcodes.BarcodeCreateFct fct;
-			bool fctOk = _barcodeTypeMap.TryGetValue(typeId, out fct);
-
-			if (fctOk)
+			if (_barcodeTypeMap.TryGetValue(typeId,  out var fct))
 			{
 				return fct();
 			}
@@ -63,9 +50,9 @@ namespace YProgramStudio.LabelsDesigner.Barcodes
 			return null;
 		}
 
-		private void InternalRegisterType(string typeId, BarcodeCreateFct fct)
+		private void InternalRegisterType(string typeId, BarcodeCreateFact fact)
 		{
-			_barcodeTypeMap[typeId] = fct;
+			_barcodeTypeMap[typeId] = fact;
 			_supportedTypes.Add(typeId);
 		}
 	}
